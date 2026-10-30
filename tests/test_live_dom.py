@@ -157,11 +157,36 @@ def main() -> None:
         evidence = page.locator("#wcv-course-info-card .wcv-history-evidence")
         assert evidence.count() == 1
         entries = evidence.locator(".wcv-history-record")
-        assert entries.count() == 2
+        assert 1 <= entries.count() <= 8
         entry_texts = [entries.nth(index).inner_text() for index in range(entries.count())]
-        assert any("sba514202" in text and "同じ講義コード" in text and "鹿野 由利子" in text for text in entry_texts)
-        assert any("sbz514204" in text and "同名・別コード（同一科目か未判定）" in text and "岡澤 由季" in text for text in entry_texts)
-        assert page.locator(".wcv-history-source[href*='page=43']").count() == 2
+        assert any("sba514202" in text and "同一講義コード" in text and "PDF目視確認済み・参考" in text and "鹿野 由利子" in text for text in entry_texts)
+        assert any("sbz514204" in text and "同名・別コード（科目同一性は未判定）" in text and "岡澤 由季" in text for text in entry_texts)
+        assert page.locator(".wcv-history-source[href*='page=43']").count() >= 2
+
+        # Unreviewed historical rows are explicitly marked and remain source-linked.
+        assert evidence.locator(".wcv-history-status").count() == entries.count()
+        page.evaluate("""() => {
+          const records = window.__WCV_HISTORY__.records;
+          const source = records.find(row => row.courseCode === 'sba514202' && row.academicYear === 2024);
+          for (let index = 0; index < 50; index += 1) {
+            const duplicate = JSON.parse(JSON.stringify(source));
+            duplicate.source = {...duplicate.source, id:`synthetic-${index}`};
+            records.push(duplicate);
+          }
+          document.querySelector('#wcv-course-info-card').remove();
+          document.body.appendChild(document.createElement('span'));
+        }""")
+        page.wait_for_selector("#wcv-course-info-card .wcv-history-expand", state="attached", timeout=10_000)
+        page.locator("#wcv-course-info-card .wcv-course-card-toggle").click()
+        page.wait_for_selector(".wcv-history-expand", state="visible", timeout=10_000)
+        evidence = page.locator("#wcv-course-info-card .wcv-history-evidence")
+        entries = evidence.locator(".wcv-history-record")
+        assert evidence.locator(".wcv-history-expand").count() == 1
+        before_expand = entries.count()
+        evidence.locator(".wcv-history-expand").click()
+        assert before_expand < entries.count() <= before_expand + 40
+        if evidence.locator(".wcv-history-expand").count():
+            assert "残り" in evidence.locator(".wcv-history-expand").inner_text()
 
         browser.close()
 

@@ -1,50 +1,58 @@
-# 拡張機能と年度横断DBの連携
+# 年度横断データベースと拡張機能の連携
 
-## 配布データ
+## 公開データと状態
 
-拡張機能はSQLiteを直接開きません。年度横断DB `data/course-catalog-multiyear.sqlite` を正本とし、ビルド時に拡張機能用の小さなJSON `data/historical-course-row-evidence.json` へ必要な過年度証拠だけを書き出します。
+年度横断SQLiteを元データとし、拡張機能には必要な行証拠だけをJSONとして書き出します。拡張機能はSQLiteやPDFキャッシュを直接読み込みません。
 
-書き出すのは2022〜2025年度のうち、状態が `visually-reviewed-provisional`、確認方法が `official-pdf-visual-inspection` の行です。今回の収録は2022・2024・2025年度の15掲載例、23出現です。未確認の自動抽出候補は配布JSONへ入れません。これらの行は時間割PDFで確認した表記の証拠であり、年度間で同一科目だと承認された関係ではありません。
+| 項目 | 内容 |
+|---|---|
+| 収録年度 | 2022〜2025年度 |
+| 出典 | 東京都市大学・教学課の公式時間割PDF 7資料 |
+| PDF掲載行 | 13,202行 |
+| PDFを目視確認した行 | 23行 |
+| 自動抽出の未確認候補 | 13,179行 |
+| 正規化済み・承認済みの過年度開講科目 | 0件 |
+| 履修要覧の要件データ | 未登録 |
 
-GitHubの拡張機能リポジトリには、拡張機能のソース、実行用JSON、検証コード、導入・データ範囲の説明を収録します。年度横断SQLite、元PDFのキャッシュ、未確認の抽出候補キューは含めません。コミット済みJSONからの配布ZIP生成は再現できます。SQLiteから過年度JSONを再出力する場合は、別途監査済みの年度横断DBが必要です。
+年度ごとの行数、ページ、講義コード、PDF URL、SHA-256は `data/historical-course-row-evidence.json` に含まれています。23行は担当・教室・科目名の行をPDFで確認した参考記録です。その他は抽出候補のまま保持し、カードに確認状態を表示します。抽出候補の正確性は保証しません。
 
-科目詳細では、講義コード一致を「同じ講義コード」、完全一致の科目名だけで見つかった別コードを「同名・別コード（同一科目か未判定）」として表示します。教員と教室は各行の記録内に保ち、同名行を一つにまとめません。参照元PDFへのページリンクも添えます。
+同じ科目名で講義コードや担当が異なる候補を別々の行として保持します。講義コード一致は「年度間で同じ科目」と認定する意味ではなく、同名・別コードも同一科目と推定しません。教室・曜日・時限も候補欄として示し、元のPDFページへのリンクを付けます。履修判断には最新の公式資料を使ってください。
 
-2026年度の2,556科目は既存スナップショットのままです。過年度の参考例を追加しても、現行時間割への照合完了や履修要覧の要件登録を意味しません。ポップアップ、設定画面、初回ガイドでこの品質状態を説明します。
+## データの分離
 
-## 再生成
+- `course_offering`: 品質確認済みの現行スナップショット。2026年度の2,556科目は調査用で、現行資料との全件照合は未完了です。
+- `course_offering_candidate` / `candidate_row_evidence`: 過年度PDFから抽出した未承認の候補。確定カタログとは別に保存します。
+- `candidate_row_review`: PDFの行を目視した限定的な確認記録。自動抽出行を承認済みに変更する用途ではありません。
+- `curriculum_*`: 履修要覧を将来取り込むためのスキーマ。現時点の要件行は0件です。
 
-プロジェクトルートで実行します。
+履修支援を実装するときは、開講年度と入学年度別の履修要覧を分け、PDFページ・ファイルハッシュ・確認状態を要件ごとに持たせます。学生個人の履修進捗は公開カタログから分離します。
+
+## 再生成と検証
+
+過年度JSONは、schema v8の監査済み年度横断SQLiteから生成します。SQLiteと原PDFキャッシュはこの拡張機能リポジトリには含めていないため、生成時はフルデータ作業環境のDBパスを渡します。
 
 ```powershell
-python data/build_multiyear_database.py
-python data/audit_multiyear_database.py
-python data/build_extension_course_data.py
-python tests/build_live_dom_preview.py
-python tests/build_guide.py
-```
-
-年度横断DB監査で失敗があれば、配布用ファイルを作る前にその不整合を修正します。エクスポーターはDB schema v8、外部キー、出典PDFのハッシュ・URL・ページを検証し、出力ファイルを一時ファイルから原子的に置き換えます。
-
-## 更新確認
-
-```powershell
+python data/build_extension_course_data.py --database "C:\path\to\course-catalog-multiyear.sqlite"
 python tests/validate.py
 node --check src/content.js
 node --check src/popup.js
 node --check src/options.js
 node tests/test_normalization.mjs
+python tests/build_live_dom_preview.py
 python tests/test_live_dom.py
-```
-
-WebClassの実画面で確認するときは、更新後の拡張機能を読み込み、開いているWebClassタブを更新します。カードの「詳細を見る」から過年度例がある科目だけを確認できます。
-
-## 配布ZIPの再生成
-
-データ出力・プレビュー・初回ガイドを更新し、検証を通した後にプロジェクトルートで実行します。
-
-```powershell
+python tests/build_guide.py
 python scripts/package_extension.py
 ```
 
-`TCU_WebClass_Visual_Theme_Aware_v0.5.0.zip` とSHA-256チェックサムをプロジェクトの親フォルダーへ作成します。ZIPには拡張機能が実行時に必要とするファイル、初回ガイド、データ範囲の説明だけを収録します。SQLite、未確認の抽出候補、元PDFキャッシュは含めません。スクリプトはManifestの参照先とZIP全体を検査し、過年度行の確認状態・年度・件数も検証します。
+フルデータ作業環境では、SQLiteを書き出す前にデータベース生成と監査を実行します。
+
+```powershell
+python data/build_multiyear_database.py
+python data/audit_multiyear_database.py
+```
+
+`build_extension_course_data.py` はDB schema、外部キー、公式HTTPS出典、SHA-256、PDFページ範囲、行位置、目視確認状態、年度別件数を検査してから、JSONを一時ファイル経由で更新します。テストとパッケージ作成は、13,202行の件数、全4年度の範囲、23行の目視確認数、同名・別講義コードの分離を再確認します。
+
+## 配布ZIP
+
+`scripts/package_extension.py` はコミット済みソースとJSONから、再現可能な `TCU_WebClass_Visual_Theme_Aware_v0.6.0.zip` とSHA-256ファイルを作成します。ZIPには拡張機能の実行ファイル、過年度行証拠、初回導入ガイド、データ範囲の説明を入れます。年度横断SQLiteや原PDFキャッシュは含めません。

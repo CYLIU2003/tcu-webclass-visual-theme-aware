@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build a small, deterministic, installable v0.5.0 extension archive."""
+"""Build a small, deterministic, installable v0.6.0 extension archive."""
 
 from __future__ import annotations
 
@@ -11,7 +11,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = "0.5.0"
+VERSION = "0.6.0"
 ARCHIVE_ROOT = "tcu-webclass-visual-theme-aware"
 OUTPUT = ROOT.parent / f"TCU_WebClass_Visual_Theme_Aware_v{VERSION}.zip"
 
@@ -42,6 +42,7 @@ PACKAGE_FILES = (
     "src/welcome.html",
     "src/welcome.js",
 )
+TEXT_SUFFIXES = {".css", ".html", ".js", ".json", ".md", ".py", ".txt"}
 
 
 def validate_package_files() -> list[tuple[str, Path]]:
@@ -75,19 +76,36 @@ def validate_package_files() -> list[tuple[str, Path]]:
         (ROOT / "data/historical-course-row-evidence.json").read_text(encoding="utf-8")
     )
     records = history.get("records", [])
-    if history.get("schemaVersion") != 1 or len(records) != 15:
-        raise ValueError("historical evidence must contain 15 schema-v1 examples")
-    if sum(row.get("occurrences", 0) for row in records) != 23:
-        raise ValueError("historical evidence must contain 23 reviewed occurrences")
+    summary = history.get("summary", {})
+    if history.get("schemaVersion") != 2 or len(records) != summary.get("groupedRows"):
+        raise ValueError("historical evidence schema-v2 row count mismatch")
+    if summary.get("academicYears") != [2022, 2023, 2024, 2025]:
+        raise ValueError("historical evidence must cover 2022-2025")
+    if summary.get("sourceOccurrences") != 13202:
+        raise ValueError("historical evidence occurrence count mismatch")
+    if summary.get("visuallyReviewedOccurrences") != 23:
+        raise ValueError("historical visual-review count mismatch")
+    if summary.get("unreviewedOccurrences", 0) + summary.get("visuallyReviewedOccurrences", 0) != summary.get("sourceOccurrences"):
+        raise ValueError("historical review-state counts do not reconcile")
+    if len(history.get("sources", [])) != 7:
+        raise ValueError("historical source-document count mismatch")
     for row in records:
-        if row.get("reviewStatus") != "visually-reviewed-provisional":
-            raise ValueError("unreviewed or approved records cannot enter this package")
-        if row.get("reviewMethod") != "official-pdf-visual-inspection":
-            raise ValueError("unexpected historical review method")
-        if row.get("academicYear") not in {2022, 2024, 2025}:
+        if row.get("reviewStatus") not in {"visually-reviewed-provisional", "unreviewed-text-extraction"}:
+            raise ValueError("unexpected historical review status")
+        if row.get("academicYear") not in {2022, 2023, 2024, 2025}:
             raise ValueError("unexpected historical year")
-        if not row.get("source", {}).get("url", "").startswith("https://www.asc.tcu.ac.jp/"):
+        source = row.get("source", {})
+        if not source.get("url", "").startswith("https://www.asc.tcu.ac.jp/"):
             raise ValueError("historical source must be an official HTTPS URL")
+        if len(source.get("sha256", "")) != 64:
+            raise ValueError("historical source must include a SHA-256")
+        locations = row.get("sourceLocations", [])
+        if not locations or any(location.get("page", 0) < 1 or not location.get("sourceLines") for location in locations):
+            raise ValueError("historical source-row locations are missing")
+        if row.get("reviewStatus") == "visually-reviewed-provisional" and row.get("reviewMethod") != "official-pdf-visual-inspection":
+            raise ValueError("visually reviewed rows require the expected review method")
+        if row.get("reviewStatus") == "unreviewed-text-extraction" and row.get("reviewMethod"):
+            raise ValueError("unreviewed rows must not claim a review method")
 
     return files
 
@@ -98,6 +116,13 @@ def sha256(path: Path) -> str:
         for chunk in iter(lambda: stream.read(1024 * 1024), b""):
             digest.update(chunk)
     return digest.hexdigest()
+
+
+def package_bytes(relative: str, source: Path) -> bytes:
+    data = source.read_bytes()
+    if Path(relative).suffix.lower() in TEXT_SUFFIXES:
+        data = data.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    return data
 
 
 def build() -> None:
@@ -118,7 +143,7 @@ def build() -> None:
                 info.compress_type = zipfile.ZIP_DEFLATED
                 info.create_system = 0
                 info.external_attr = 0
-                archive.writestr(info, source.read_bytes(), compress_type=zipfile.ZIP_DEFLATED, compresslevel=9)
+                archive.writestr(info, package_bytes(relative, source), compress_type=zipfile.ZIP_DEFLATED, compresslevel=9)
 
         with zipfile.ZipFile(temporary_path) as archive:
             bad_entry = archive.testzip()
@@ -138,8 +163,9 @@ def build() -> None:
         "archive": str(OUTPUT),
         "sha256": checksum,
         "files": len(files),
-        "historicalExamples": 15,
-        "historicalOccurrences": 23,
+        "historicalRows": len(json.loads((ROOT / "data/historical-course-row-evidence.json").read_text(encoding="utf-8"))["records"]),
+        "historicalSourceOccurrences": 13202,
+        "historicalVisuallyReviewedOccurrences": 23,
         "verified": True,
     }, ensure_ascii=False, indent=2))
 

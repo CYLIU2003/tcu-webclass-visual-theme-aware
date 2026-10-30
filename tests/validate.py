@@ -24,7 +24,7 @@ def require(condition: bool, message: str) -> None:
 def main() -> None:
     manifest = json.loads((ROOT / "manifest.json").read_text(encoding="utf-8"))
     require(manifest.get("manifest_version") == 3, "manifest_version must be 3")
-    require(manifest.get("version") == "0.5.0", "extension version must be 0.5.0")
+    require(manifest.get("version") == "0.6.0", "extension version must be 0.6.0")
     require(manifest.get("host_permissions") == ["https://webclass.tcu.ac.jp/*"], "host scope must remain limited to WebClass")
     require(bool(manifest.get("content_scripts")), "content_scripts is missing")
     extension_resources = {resource for group in manifest.get("web_accessible_resources", []) for resource in group.get("resources", [])}
@@ -83,29 +83,71 @@ def main() -> None:
     require(no_instructor == ["sbb001518"], f"unexpected courses without instructors: {no_instructor}")
 
     history = json.loads((ROOT / "data" / "historical-course-row-evidence.json").read_text(encoding="utf-8"))
-    require(history.get("schemaVersion") == 1, "historical evidence schemaVersion must be 1")
+    require(history.get("schemaVersion") == 2, "historical evidence schemaVersion must be 2")
     history_summary = history.get("summary") or {}
     history_rows = history.get("records")
     require(isinstance(history_rows, list), "historical evidence records must be a list")
-    require(history_summary.get("reviewedOccurrences") == 23, "historical reviewed occurrence count mismatch")
-    require(history_summary.get("groupedExamples") == 15 == len(history_rows), "historical grouped example count mismatch")
-    require(history_summary.get("courseSourcePairs") == 15, "historical course/source pair count mismatch")
-    require(history_summary.get("academicYears") == [2022, 2024, 2025], "historical evidence year scope mismatch")
+    require(history_summary.get("sourceOccurrences") == 13202, "historical source occurrence count mismatch")
+    require(history_summary.get("visuallyReviewedOccurrences") == 23, "historical visually reviewed count mismatch")
+    require(history_summary.get("unreviewedOccurrences") == 13179, "historical unreviewed count mismatch")
+    require(history_summary.get("visuallyReviewedOccurrences", 0) + history_summary.get("unreviewedOccurrences", 0) == history_summary.get("sourceOccurrences"), "historical review-state counts do not reconcile")
+    require(history_summary.get("groupedRows") == len(history_rows) and len(history_rows) > 5000, "historical grouped row count mismatch")
+    require(history_summary.get("sourceDocuments") == 7 and len(history.get("sources", [])) == 7, "historical source document count mismatch")
+    require(history_summary.get("academicYears") == [2022, 2023, 2024, 2025], "historical evidence year scope mismatch")
+    expected_historical_by_year = {
+        "2022": (3062, 6), "2023": (2872, 0), "2024": (3131, 12), "2025": (4137, 5)
+    }
+    for year, (occurrences, reviewed) in expected_historical_by_year.items():
+        item = (history_summary.get("byYear") or {}).get(year) or {}
+        require(item.get("sourceOccurrences") == occurrences, f"{year}: historical occurrence count mismatch")
+        require(item.get("visuallyReviewedOccurrences") == reviewed, f"{year}: reviewed occurrence count mismatch")
+        require(item.get("unreviewedOccurrences") == occurrences - reviewed, f"{year}: review status count mismatch")
     require(history.get("database", {}).get("curriculumStatus") == "not-populated", "curriculum status must not imply populated requirements")
     require(history.get("database", {}).get("curriculumRows", {}).get("approvedRequirements") == 0, "unverified curriculum requirements must not be certified")
+    source_ids = set()
+    for source in history["sources"]:
+        source_ids.add(source.get("id"))
+        require(re.fullmatch(r"[a-f0-9]{64}", str(source.get("sha256", ""))) is not None, "invalid historical source hash")
+        require(str(source.get("url", "")).startswith("https://www.asc.tcu.ac.jp/"), "historical source URL must be official HTTPS")
+
+    reviewed_row_occurrences = 0
+    unreviewed_row_occurrences = 0
     for row in history_rows:
         require(2022 <= row.get("academicYear", 0) <= 2025, "current-year row leaked into historical evidence")
         require(CODE_RE.fullmatch(str(row.get("courseCode", ""))) is not None, "invalid course code in historical evidence")
-        require(row.get("reviewStatus") == "visually-reviewed-provisional", "historical evidence must remain provisional")
-        require(row.get("reviewMethod") == "official-pdf-visual-inspection", "unexpected historical review method")
-        require(row.get("sourcePage", 0) > 0, "historical evidence page is required")
+        require(row.get("reviewStatus") in {"visually-reviewed-provisional", "unreviewed-text-extraction"}, "unexpected historical review status")
+        if row.get("reviewStatus") == "visually-reviewed-provisional":
+            require(row.get("reviewMethod") == "official-pdf-visual-inspection", "unexpected historical review method")
+            reviewed_row_occurrences += row.get("occurrences", 0)
+        else:
+            require(not row.get("reviewMethod"), "unreviewed rows must not claim a review method")
+            unreviewed_row_occurrences += row.get("occurrences", 0)
+        require(row.get("source", {}).get("id") in source_ids, "historical row refers to an unknown source")
         require(re.fullmatch(r"[a-f0-9]{64}", str(row.get("source", {}).get("sha256", ""))) is not None, "invalid historical source hash")
         require(str(row.get("source", {}).get("url", "")).startswith("https://www.asc.tcu.ac.jp/"), "historical source URL must be official HTTPS")
         require(isinstance(row.get("instructors"), list), "historical instructors must stay row-scoped")
+        locations = row.get("sourceLocations")
+        require(isinstance(locations, list) and locations, "historical source page locations are required")
+        require(sum(location.get("occurrences", 0) for location in locations) == row.get("occurrences"), "historical row location counts do not reconcile")
+        for location in locations:
+            require(isinstance(location.get("page"), int) and location["page"] > 0, "invalid historical source page")
+            require(location.get("sourceLines") and all(isinstance(line, int) and line > 0 for line in location["sourceLines"]), "invalid source line locations")
+        schedules = row.get("scheduleCandidates")
+        require(isinstance(schedules, list) and schedules, "historical row schedule candidates are required")
+        require(sum(candidate.get("occurrences", 0) for candidate in schedules) == row.get("occurrences"), "schedule candidate counts do not reconcile")
+        for candidate in schedules:
+            candidate_locations = candidate.get("sourceLocations")
+            require(isinstance(candidate_locations, list) and candidate_locations, "schedule candidate source locations are required")
+            require(sum(location.get("occurrences", 0) for location in candidate_locations) == candidate.get("occurrences"), "schedule source counts do not reconcile")
+        require(row.get("parseStatus") in {"cell-anchored-row", "positional-inference", "needs-review"}, "unexpected extraction status")
+        require(row.get("titleStatus") in {"visually-reviewed", "unreviewed-extraction", "not-extracted", "generic-label-excluded"}, "unexpected title status")
+        require(row.get("reviewStatus") != "unreviewed-text-extraction" or row.get("titleStatus") != "visually-reviewed", "unreviewed title was marked visually reviewed")
+    require(reviewed_row_occurrences == 23 and unreviewed_row_occurrences == 13179, "historical row review-state totals mismatch")
 
     marketing_rows = {
         row["courseCode"]: row for row in history_rows
         if row["academicYear"] == 2024 and row["courseName"] == "マーケティングリサーチ演習(2)"
+        and row["reviewStatus"] == "visually-reviewed-provisional"
     }
     require(set(marketing_rows) == {"sba514202", "sbz514204"}, "same-title 2024 offerings must remain separate by course code")
     require(marketing_rows["sba514202"]["instructors"] != marketing_rows["sbz514204"]["instructors"], "same-title offerings must preserve their different instructor lists")

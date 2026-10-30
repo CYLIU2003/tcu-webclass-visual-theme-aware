@@ -2,8 +2,8 @@
   "manifest_version": 3,
   "name": "TCU WebClass Visual Prototype",
   "short_name": "WebClass Visual",
-  "version": "0.5.0",
-  "description": "WebClassを見やすく整え、2026年度時間割と原表確認済みの過年度掲載例を表示する学生FD向けプロトタイプです。",
+  "version": "0.6.0",
+  "description": "WebClassを見やすく整え、現行時間割と2022〜2025年度の出典付き掲載候補を表示する学生FD向けプロトタイプです。",
   "permissions": [
     "storage",
     "activeTab"

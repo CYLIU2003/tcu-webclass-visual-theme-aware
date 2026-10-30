@@ -103,16 +103,18 @@
       datasetSummary.textContent = `${year}年度の時間割スナップショット：${count}科目${generatedDate ? `（${generatedDate}生成）` : ""}`;
       const summary = history.summary || {};
       const years = Array.isArray(summary.academicYears) ? summary.academicYears.join("・") : "";
-      const examples = Number(summary.reviewedOccurrences) || 0;
+      const candidates = Number(summary.sourceOccurrences) || 0;
+      const reviewed = Number(summary.visuallyReviewedOccurrences) || 0;
+      const unreviewed = Number(summary.unreviewedOccurrences) || 0;
       datasetQuality.dataset.kind = "warning";
       datasetQualityTitle.textContent = "現行資料との全件照合は未完了です";
-      const pastText = examples
-        ? `過年度は${years || "一部年度"}の目視確認例${examples}行を科目詳細に表示します。`
-        : "過年度の目視確認済み掲載例はありません。";
+      const pastText = candidates
+        ? `過年度${years || "一部年度"}のPDF掲載行${candidates.toLocaleString("ja-JP")}件を候補として収録（目視確認${reviewed.toLocaleString("ja-JP")}件、未確認${unreviewed.toLocaleString("ja-JP")}件）。`
+        : "過年度の時間割行候補はありません。";
       const guideText = history.database?.curriculumStatus === "not-populated"
-        ? "履修要覧の要件データは未登録です。"
+        ? "履修要覧のPDF・要件データは未登録です。"
         : "履修要覧の要件データは確認中です。";
-      datasetQualityDetail.textContent = `${pastText}${guideText}最新の休講・変更はWebClassのお知らせをご確認ください。`;
+      datasetQualityDetail.textContent = `${pastText}候補の詳細は公式PDFで確認してください。${guideText}最新の休講・変更はWebClassのお知らせをご確認ください。`;
     } catch (error) {
       datasetSummary.textContent = `時間割データを読み込めませんでした（${error.message}）`;
       datasetQuality.dataset.kind = "warning";

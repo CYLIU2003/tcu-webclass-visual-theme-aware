@@ -752,23 +752,25 @@
     return state.historicalEvidence
       .map((record) => {
         const sameCode = codes.has(normalizeCode(record.courseCode));
-        const sameTitle = names.has(normalizeExactCourseTitle(record.courseName));
+        const titleKey = normalizeExactCourseTitle(record.courseName);
+        const sameTitle = Boolean(titleKey) && names.has(titleKey);
         return sameCode || sameTitle ? { ...record, matchKind: sameCode ? "same-code" : "same-title" } : null;
       })
       .filter(Boolean)
       .sort((a, b) => (a.matchKind === b.matchKind ? 0 : a.matchKind === "same-code" ? -1 : 1)
         || b.academicYear - a.academicYear
+        || Number(b.reviewStatus === "visually-reviewed-provisional") - Number(a.reviewStatus === "visually-reviewed-provisional")
         || String(a.courseCode).localeCompare(String(b.courseCode), "ja")
-        || a.sourcePage - b.sourcePage);
+        || (a.sourceLocations?.[0]?.page || 0) - (b.sourceLocations?.[0]?.page || 0));
   }
 
-  function historicalSourcePageUrl(record) {
+  function historicalSourcePageUrl(record, page) {
     try {
       const url = new URL(record?.source?.url || "");
       if (url.protocol !== "https:" || !["asc.tcu.ac.jp", "www.asc.tcu.ac.jp"].includes(url.hostname)) return "";
-      const page = Number(record.sourcePage);
-      if (!Number.isInteger(page) || page < 1) return "";
-      url.hash = `page=${page}`;
+      const pageNumber = Number(page);
+      if (!Number.isInteger(pageNumber) || pageNumber < 1) return "";
+      url.hash = `page=${pageNumber}`;
       return url.href;
     } catch (_error) {
       return "";
@@ -781,60 +783,139 @@
 
     const section = document.createElement("section");
     section.className = "wcv-history-evidence";
-    section.setAttribute("aria-label", "過年度時間割の掲載例");
+    section.setAttribute("aria-label", "過年度時間割PDFの掲載行候補");
     section.append(
-      createTextElement("h3", "wcv-history-heading", `過年度の掲載例（${records.length}件）`),
+      createTextElement("h3", "wcv-history-heading", `過年度PDFの関連行候補（${records.length}件）`),
       createTextElement(
         "p",
         "wcv-history-caveat",
-        "PDFの行を目視確認した参考記録です。同じ科目であることや、現在の開講・担当を示すものではありません。"
+        "対象は2022〜2025年度の公式時間割PDFです。目視確認済みは一部のみで、他は自動抽出候補です。科目名・担当・教室をPDFで確認してください。科目の継続や現在の開講を示すものではありません。"
       )
     );
 
     const list = document.createElement("ul");
     list.className = "wcv-history-list";
-    for (const record of records.slice(0, 8)) {
+    const sameCode = records.filter((record) => record.matchKind === "same-code");
+    const sameTitle = records.filter((record) => record.matchKind === "same-title");
+    const chooseDistinct = (items, keyOf, limit) => {
+      const chosen = [];
+      const seen = new Set();
+      for (const item of items) {
+        const key = keyOf(item);
+        if (seen.has(key)) continue;
+        seen.add(key);
+        chosen.push(item);
+        if (chosen.length >= limit) break;
+      }
+      return chosen;
+    };
+    const initialRecords = [
+      ...chooseDistinct(sameCode, (record) => record.academicYear, 4),
+      ...chooseDistinct(sameTitle, (record) => record.courseCode, 4)
+    ];
+    const included = new Set(initialRecords);
+    for (const record of records) {
+      if (initialRecords.length >= 8) break;
+      if (!included.has(record)) {
+        initialRecords.push(record);
+        included.add(record);
+      }
+    }
+    const remainingRecords = records.filter((record) => !included.has(record));
+    const displayOrder = [...initialRecords, ...remainingRecords];
+
+    const renderRecord = (record) => {
       const item = document.createElement("li");
       item.className = "wcv-history-record";
       const head = document.createElement("div");
       head.className = "wcv-history-record-head";
+      const visuallyReviewed = record.reviewStatus === "visually-reviewed-provisional";
+      const reviewLabel = visuallyReviewed
+        ? "PDF目視確認済み・参考"
+        : record.parseStatus === "cell-anchored-row"
+          ? "PDF抽出候補・未確認"
+          : record.parseStatus === "positional-inference"
+            ? "配置推定・要確認"
+            : "要確認の抽出候補";
       head.append(
         createTextElement("strong", "wcv-history-year", `${record.academicYear}年度`),
         createTextElement(
           "span",
           "wcv-history-match",
-          record.matchKind === "same-code" ? "同じ講義コード" : "同名・別コード（同一科目か未判定）"
-        )
+          record.matchKind === "same-code" ? "同一講義コード・科目の継続は未判定" : "同名・別コード（科目同一性は未判定）"
+        ),
+        createTextElement("span", `wcv-history-status${visuallyReviewed ? " is-reviewed" : ""}`, reviewLabel)
       );
-      item.append(head, createTextElement("div", "wcv-history-title", record.courseName));
+      item.append(head, createTextElement("div", "wcv-history-title", record.courseName || "科目名の抽出候補なし"));
       item.append(createTextElement("div", "wcv-history-meta", `講義コード：${record.courseCode}`));
-      const teachers = Array.isArray(record.instructors) && record.instructors.length
-        ? record.instructors.join("・")
-        : "資料に担当教員の記載なし";
-      item.append(createTextElement("div", "wcv-history-meta", `担当：${teachers}`));
+      const teachers = visuallyReviewed
+        ? (Array.isArray(record.instructors) && record.instructors.length ? record.instructors.join("・") : "担当教員欄の目視記録なし")
+        : (record.instructorText || "担当教員の抽出候補なし");
+      item.append(createTextElement("div", "wcv-history-meta", `${visuallyReviewed ? "担当（目視確認）" : "担当候補（抽出）"}：${teachers}`));
 
-      let room = "資料に教室の記載なし";
-      if (record.roomStatus === "listed") {
-        room = record.room && record.room !== "-" ? `教室：${record.room}` : "教室欄：『-』";
-      }
+      const room = visuallyReviewed
+        ? (record.roomStatus === "listed"
+          ? (record.room && record.room !== "-" ? `教室（目視確認）：${record.room}` : "教室欄（目視確認）：『-』")
+          : record.roomStatus === "blank-in-source" ? "教室欄（目視確認）：空欄" : "教室の目視記録なし")
+        : (record.room ? `教室候補（抽出）：${record.room}` : "教室の抽出候補なし");
       item.append(createTextElement("div", "wcv-history-meta", room));
 
-      const sourceUrl = historicalSourcePageUrl(record);
-      if (sourceUrl) {
-        const sourceLink = createTextElement("a", "wcv-history-source", `時間割PDF p.${record.sourcePage}を開く ↗`);
-        sourceLink.href = sourceUrl;
-        sourceLink.target = "_blank";
-        sourceLink.rel = "noopener noreferrer";
-        sourceLink.title = record.source?.title || "教学課の時間割PDF";
-        item.append(sourceLink);
-      } else {
-        item.append(createTextElement("span", "wcv-history-source", `時間割PDF p.${record.sourcePage}`));
+      const schedules = (Array.isArray(record.scheduleCandidates) ? record.scheduleCandidates : [])
+        .map((candidate) => [
+          candidate.termCandidate ? `開講期 ${candidate.termCandidate}` : "",
+          candidate.dayCandidate ? `曜日 ${candidate.dayCandidate}` : "",
+          candidate.periodCandidate ? `時限 ${candidate.periodCandidate}` : ""
+        ].filter(Boolean).join(" / "))
+        .filter(Boolean);
+      if (schedules.length) {
+        const scheduleLabel = schedules.length > 1 ? `時間割欄候補（PDF抽出・${schedules.length}通り）` : "時間割欄候補（PDF抽出）";
+        item.append(createTextElement("div", "wcv-history-meta", `${scheduleLabel}：${schedules.join(" ／ ")}`));
       }
-      list.append(item);
-    }
+
+      const sourceLinks = document.createElement("div");
+      sourceLinks.className = "wcv-history-sources";
+      const locations = Array.isArray(record.sourceLocations) ? record.sourceLocations : [];
+      for (const location of locations.slice(0, 4)) {
+        const sourceUrl = historicalSourcePageUrl(record, location.page);
+        if (sourceUrl) {
+          const sourceLink = createTextElement("a", "wcv-history-source", `PDF p.${location.page} ↗`);
+          sourceLink.href = sourceUrl;
+          sourceLink.target = "_blank";
+          sourceLink.rel = "noopener noreferrer";
+          sourceLink.title = record.source?.title || "教学課の時間割PDF";
+          sourceLink.setAttribute("aria-label", `${record.academicYear}年度 ${record.courseCode} の時間割PDF ${location.page}ページを開く`);
+          sourceLinks.append(sourceLink);
+        } else {
+          sourceLinks.append(createTextElement("span", "wcv-history-source", `PDF p.${location.page}`));
+        }
+      }
+      if (locations.length > 4) sourceLinks.append(createTextElement("span", "wcv-history-meta", `ほか${locations.length - 4}頁`));
+      if (sourceLinks.childElementCount) item.append(sourceLinks);
+      return item;
+    };
+
+    for (const record of initialRecords) list.append(renderRecord(record));
     section.append(list);
-    if (records.length > 8) {
-      section.append(createTextElement("p", "wcv-history-more", `ほか${records.length - 8}件`));
+    let shownCount = initialRecords.length;
+    if (displayOrder.length > shownCount) {
+      const expand = document.createElement("button");
+      expand.type = "button";
+      expand.className = "wcv-history-expand";
+      const updateExpandLabel = () => {
+        const remaining = displayOrder.length - shownCount;
+        expand.textContent = `次の最大40件を表示（残り${remaining}件）`;
+      };
+      updateExpandLabel();
+      expand.setAttribute("aria-expanded", "false");
+      expand.addEventListener("click", () => {
+        const nextRecords = displayOrder.slice(shownCount, shownCount + 40);
+        nextRecords.forEach((record) => list.append(renderRecord(record)));
+        shownCount += nextRecords.length;
+        expand.setAttribute("aria-expanded", "true");
+        if (shownCount >= displayOrder.length) expand.remove();
+        else updateExpandLabel();
+      });
+      section.append(expand);
     }
     return section;
   }
@@ -1653,7 +1734,7 @@
       const response = await fetch(chrome.runtime.getURL("data/historical-course-row-evidence.json"));
       if (!response.ok) throw new Error(`過年度データの読込に失敗しました: ${response.status}`);
       const payload = await response.json();
-      if (payload.schemaVersion !== 1 || !Array.isArray(payload.records)) {
+      if (payload.schemaVersion !== 2 || !Array.isArray(payload.records)) {
         throw new Error("過年度データの形式が正しくありません。");
       }
       return payload;
@@ -1708,8 +1789,9 @@
             datasetCourseCount: scope.uniqueCourses || state.courses.length,
             datasetSourceCount: scope.sourceDocuments?.length || 0,
             datasetPageCount: scope.timetablePages || 0,
-            historicalExampleCount: state.historicalDataSummary?.groupedExamples || 0,
-            historicalReviewedOccurrences: state.historicalDataSummary?.reviewedOccurrences || 0,
+            historicalExampleCount: state.historicalDataSummary?.groupedRows || 0,
+            historicalSourceOccurrences: state.historicalDataSummary?.sourceOccurrences || 0,
+            historicalReviewedOccurrences: state.historicalDataSummary?.visuallyReviewedOccurrences || 0,
             historicalAcademicYears: state.historicalDataSummary?.academicYears || [],
             curriculumStatus: state.databaseStatus?.curriculumStatus || "unavailable",
             currentCatalogStatus: state.databaseStatus?.currentCatalogStatus || "unavailable"
