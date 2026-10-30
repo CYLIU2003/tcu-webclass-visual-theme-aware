@@ -1,0 +1,15 @@
+__pycache__/
+**/__pycache__/
+*.py[cod]
+
+# The research database and source documents stay outside the extension release.
+data/*.sqlite
+data/*.sqlite3
+data/source-cache/
+
+# Do not publish automatically extracted, unreviewed rows or audit output.
+data/*candidate*.json
+data/*review-queue*.json
+data/*code-index*.json
+data/*audit*.json
+data/visually-reviewed-course-row-overrides*.json

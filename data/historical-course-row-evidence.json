@@ -1,0 +1,406 @@
+{
+  "schemaVersion": 1,
+  "database": {
+    "schemaVersion": 8,
+    "curriculumSchemaVersion": 1,
+    "sourceDocumentCount": 46,
+    "currentOfferingCount": 2556,
+    "currentCatalogStatus": "research-foundation-not-certified",
+    "historicalOfferingStatus": "source-and-provisional-row-candidates; no historical course offering rows certified",
+    "curriculumStatus": "not-populated",
+    "curriculumRows": {
+      "references": 0,
+      "requirements": 0,
+      "rules": 0,
+      "approvedRequirements": 0
+    }
+  },
+  "summary": {
+    "reviewedOccurrences": 23,
+    "groupedExamples": 15,
+    "courseSourcePairs": 15,
+    "academicYears": [
+      2022,
+      2024,
+      2025
+    ],
+    "scope": "Historical examples only; no identity or current-offering claim."
+  },
+  "records": [
+    {
+      "academicYear": 2022,
+      "courseCode": "smba5201",
+      "courseName": "グローバル都市ビジネス特論",
+      "instructors": [
+        "宇都",
+        "沖浦",
+        "太田"
+      ],
+      "room": "",
+      "roomStatus": "blank-in-source",
+      "sourcePage": 8,
+      "source": {
+        "id": "hist-2022-timetable-19d4ca1acaeea508",
+        "title": "2022年度 大学院・環境情報・大学院 時間割",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/sites/22/2022/03/25735e8a8bcd973649cfa446b2fee79d.pdf",
+        "sha256": "66701e71d6e8146242cf05ea8ee5fe895a78adb39509d74b5e4e03c99b0e6e75"
+      },
+      "reviewStatus": "visually-reviewed-provisional",
+      "reviewMethod": "official-pdf-visual-inspection",
+      "reviewedAt": "2026-10-30",
+      "occurrences": 1
+    },
+    {
+      "academicYear": 2022,
+      "courseCode": "szz117603",
+      "courseName": "再・卒業研究",
+      "instructors": [
+        "槇 徹雄",
+        "大上 浩",
+        "白木 尚人",
+        "藤間 卓也",
+        "三原 雄司",
+        "伊東 明美",
+        "亀山 雄高",
+        "岸本 喜直",
+        "小林 志好",
+        "櫻井 俊彰",
+        "佐藤 秀明",
+        "杉町 敏之",
+        "西部 光一",
+        "冨士原 民雄",
+        "丸山 恵史",
+        "及川 昌訓"
+      ],
+      "room": "-",
+      "roomStatus": "listed",
+      "sourcePage": 4,
+      "source": {
+        "id": "hist-2022-timetable-b9f94405bd48a239",
+        "title": "2022年度 世田谷・学部 時間割",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2022/09/5a491cc974c127b9fcc114f79682fbb0.pdf",
+        "sha256": "b8012de5f72832ab27a74a5efe3c59eb15a4b21d279d6768469aa786761b2cd6"
+      },
+      "reviewStatus": "visually-reviewed-provisional",
+      "reviewMethod": "official-pdf-visual-inspection",
+      "reviewedAt": "2026-10-30",
+      "occurrences": 1
+    },
+    {
+      "academicYear": 2022,
+      "courseCode": "sbz117604",
+      "courseName": "卒業研究(1)",
+      "instructors": [
+        "槇 徹雄",
+        "大上 浩",
+        "白木 尚人",
+        "藤間 卓也",
+        "三原 雄司",
+        "伊東 明美",
+        "亀山 雄高",
+        "岸本 喜直",
+        "小林 志好",
+        "櫻井 俊彰",
+        "佐藤 秀明",
+        "杉町 敏之",
+        "西部 光一",
+        "冨士原 民雄",
+        "丸山 恵史",
+        "及川 昌訓"
+      ],
+      "room": "-",
+      "roomStatus": "listed",
+      "sourcePage": 4,
+      "source": {
+        "id": "hist-2022-timetable-b9f94405bd48a239",
+        "title": "2022年度 世田谷・学部 時間割",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2022/09/5a491cc974c127b9fcc114f79682fbb0.pdf",
+        "sha256": "b8012de5f72832ab27a74a5efe3c59eb15a4b21d279d6768469aa786761b2cd6"
+      },
+      "reviewStatus": "visually-reviewed-provisional",
+      "reviewMethod": "official-pdf-visual-inspection",
+      "reviewedAt": "2026-10-30",
+      "occurrences": 1
+    },
+    {
+      "academicYear": 2022,
+      "courseCode": "sbz127617",
+      "courseName": "卒業研究(1)",
+      "instructors": [
+        "宮坂 明宏",
+        "秋田 貢一",
+        "今福 宗行",
+        "島野 健仁郎",
+        "田中 康寛",
+        "野中 謙一郎",
+        "三宅 弘晃",
+        "熊谷 正芳",
+        "佐藤 大祐",
+        "関口 和真",
+        "渡邊 力夫",
+        "白鳥 英",
+        "土方 規実雄",
+        "藪井 将太"
+      ],
+      "room": "-",
+      "roomStatus": "listed",
+      "sourcePage": 8,
+      "source": {
+        "id": "hist-2022-timetable-b9f94405bd48a239",
+        "title": "2022年度 世田谷・学部 時間割",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2022/09/5a491cc974c127b9fcc114f79682fbb0.pdf",
+        "sha256": "b8012de5f72832ab27a74a5efe3c59eb15a4b21d279d6768469aa786761b2cd6"
+      },
+      "reviewStatus": "visually-reviewed-provisional",
+      "reviewMethod": "official-pdf-visual-inspection",
+      "reviewedAt": "2026-10-30",
+      "occurrences": 1
+    },
+    {
+      "academicYear": 2022,
+      "courseCode": "ymba3101",
+      "courseName": "文化とコミュニケーション",
+      "instructors": [
+        "山崎（瑞）",
+        "矢吹"
+      ],
+      "room": "33G",
+      "roomStatus": "listed",
+      "sourcePage": 6,
+      "source": {
+        "id": "hist-2022-timetable-19d4ca1acaeea508",
+        "title": "2022年度 大学院・環境情報・大学院 時間割",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/sites/22/2022/03/25735e8a8bcd973649cfa446b2fee79d.pdf",
+        "sha256": "66701e71d6e8146242cf05ea8ee5fe895a78adb39509d74b5e4e03c99b0e6e75"
+      },
+      "reviewStatus": "visually-reviewed-provisional",
+      "reviewMethod": "official-pdf-visual-inspection",
+      "reviewedAt": "2026-10-30",
+      "occurrences": 1
+    },
+    {
+      "academicYear": 2022,
+      "courseCode": "ymbb1101",
+      "courseName": "環境影響評価学",
+      "instructors": [
+        "伊坪 未定"
+      ],
+      "room": "33G",
+      "roomStatus": "listed",
+      "sourcePage": 6,
+      "source": {
+        "id": "hist-2022-timetable-19d4ca1acaeea508",
+        "title": "2022年度 大学院・環境情報・大学院 時間割",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/sites/22/2022/03/25735e8a8bcd973649cfa446b2fee79d.pdf",
+        "sha256": "66701e71d6e8146242cf05ea8ee5fe895a78adb39509d74b5e4e03c99b0e6e75"
+      },
+      "reviewStatus": "visually-reviewed-provisional",
+      "reviewMethod": "official-pdf-visual-inspection",
+      "reviewedAt": "2026-10-30",
+      "occurrences": 1
+    },
+    {
+      "academicYear": 2024,
+      "courseCode": "sbb113104",
+      "courseName": "SD PBL (3)",
+      "instructors": [
+        "崔 坡豪",
+        "亀山 雄高",
+        "冨士原 民雄",
+        "伊藤 通子"
+      ],
+      "room": "別途案内",
+      "roomStatus": "listed",
+      "sourcePage": 2,
+      "source": {
+        "id": "hist-2024-timetable-a4d8d1ab9b4ac371",
+        "title": "2024年度 世田谷・学部 時間割",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/08/2d79769e53eafba40100373b7e7c493b.pdf",
+        "sha256": "069163a46184adc8730f52ca349092393d67f6752b74cd36b16f97566791b1cd"
+      },
+      "reviewStatus": "visually-reviewed-provisional",
+      "reviewMethod": "official-pdf-visual-inspection",
+      "reviewedAt": "2026-10-30",
+      "occurrences": 2
+    },
+    {
+      "academicYear": 2024,
+      "courseCode": "sba314301",
+      "courseName": "オブジェクト指向プログラミング(1)",
+      "instructors": [
+        "中村 徹"
+      ],
+      "room": "12J",
+      "roomStatus": "listed",
+      "sourcePage": 35,
+      "source": {
+        "id": "hist-2024-timetable-a4d8d1ab9b4ac371",
+        "title": "2024年度 世田谷・学部 時間割",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/08/2d79769e53eafba40100373b7e7c493b.pdf",
+        "sha256": "069163a46184adc8730f52ca349092393d67f6752b74cd36b16f97566791b1cd"
+      },
+      "reviewStatus": "visually-reviewed-provisional",
+      "reviewMethod": "official-pdf-visual-inspection",
+      "reviewedAt": "2026-10-30",
+      "occurrences": 2
+    },
+    {
+      "academicYear": 2024,
+      "courseCode": "sbb314302",
+      "courseName": "オブジェクト指向プログラミング(2)",
+      "instructors": [
+        "中村 徹"
+      ],
+      "room": "12J",
+      "roomStatus": "listed",
+      "sourcePage": 35,
+      "source": {
+        "id": "hist-2024-timetable-a4d8d1ab9b4ac371",
+        "title": "2024年度 世田谷・学部 時間割",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/08/2d79769e53eafba40100373b7e7c493b.pdf",
+        "sha256": "069163a46184adc8730f52ca349092393d67f6752b74cd36b16f97566791b1cd"
+      },
+      "reviewStatus": "visually-reviewed-provisional",
+      "reviewMethod": "official-pdf-visual-inspection",
+      "reviewedAt": "2026-10-30",
+      "occurrences": 2
+    },
+    {
+      "academicYear": 2024,
+      "courseCode": "sba514202",
+      "courseName": "マーケティングリサーチ演習(2)",
+      "instructors": [
+        "坂倉 杏介",
+        "西山 敏樹",
+        "永江 総宜",
+        "鹿野 由利子"
+      ],
+      "room": "71A",
+      "roomStatus": "listed",
+      "sourcePage": 43,
+      "source": {
+        "id": "hist-2024-timetable-a4d8d1ab9b4ac371",
+        "title": "2024年度 世田谷・学部 時間割",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/08/2d79769e53eafba40100373b7e7c493b.pdf",
+        "sha256": "069163a46184adc8730f52ca349092393d67f6752b74cd36b16f97566791b1cd"
+      },
+      "reviewStatus": "visually-reviewed-provisional",
+      "reviewMethod": "official-pdf-visual-inspection",
+      "reviewedAt": "2026-10-30",
+      "occurrences": 2
+    },
+    {
+      "academicYear": 2024,
+      "courseCode": "sbz514204",
+      "courseName": "マーケティングリサーチ演習(2)",
+      "instructors": [
+        "坂倉 杏介",
+        "西山 敏樹",
+        "永江 総宜",
+        "岡澤 由季",
+        "北見 幸一",
+        "鹿野 由利子",
+        "林 和眞"
+      ],
+      "room": "71A(3Q),71B(4Q)",
+      "roomStatus": "listed",
+      "sourcePage": 43,
+      "source": {
+        "id": "hist-2024-timetable-a4d8d1ab9b4ac371",
+        "title": "2024年度 世田谷・学部 時間割",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/08/2d79769e53eafba40100373b7e7c493b.pdf",
+        "sha256": "069163a46184adc8730f52ca349092393d67f6752b74cd36b16f97566791b1cd"
+      },
+      "reviewStatus": "visually-reviewed-provisional",
+      "reviewMethod": "official-pdf-visual-inspection",
+      "reviewedAt": "2026-10-30",
+      "occurrences": 2
+    },
+    {
+      "academicYear": 2024,
+      "courseCode": "sbb514203",
+      "courseName": "マーケティングリサーチ演習(3)",
+      "instructors": [
+        "北見 幸一",
+        "林 和眞",
+        "岡澤 由季"
+      ],
+      "room": "71B",
+      "roomStatus": "listed",
+      "sourcePage": 43,
+      "source": {
+        "id": "hist-2024-timetable-a4d8d1ab9b4ac371",
+        "title": "2024年度 世田谷・学部 時間割",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/08/2d79769e53eafba40100373b7e7c493b.pdf",
+        "sha256": "069163a46184adc8730f52ca349092393d67f6752b74cd36b16f97566791b1cd"
+      },
+      "reviewStatus": "visually-reviewed-provisional",
+      "reviewMethod": "official-pdf-visual-inspection",
+      "reviewedAt": "2026-10-30",
+      "occurrences": 2
+    },
+    {
+      "academicYear": 2025,
+      "courseCode": "sbz127616",
+      "courseName": "システムダイナミックス及び演習(a)",
+      "instructors": [
+        "野中 謙一郎"
+      ],
+      "room": "-",
+      "roomStatus": "listed",
+      "sourcePage": 6,
+      "source": {
+        "id": "hist-2025-timetable-87e82ed66683eb8c",
+        "title": "2025年度 世田谷・学部 時間割",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/09/f62c391a25900669c855e23ba7738861.pdf",
+        "sha256": "780f4656679aad6c3fb21a5edc157ce454f6e5eb9ffea78b593f9a913d75585d"
+      },
+      "reviewStatus": "visually-reviewed-provisional",
+      "reviewMethod": "official-pdf-visual-inspection",
+      "reviewedAt": "2026-10-30",
+      "occurrences": 1
+    },
+    {
+      "academicYear": 2025,
+      "courseCode": "sbb563116",
+      "courseName": "データサイエンスリテラシー(2)",
+      "instructors": [
+        "菅原 麻衣"
+      ],
+      "room": "22C",
+      "roomStatus": "listed",
+      "sourcePage": 41,
+      "source": {
+        "id": "hist-2025-timetable-87e82ed66683eb8c",
+        "title": "2025年度 世田谷・学部 時間割",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/09/f62c391a25900669c855e23ba7738861.pdf",
+        "sha256": "780f4656679aad6c3fb21a5edc157ce454f6e5eb9ffea78b593f9a913d75585d"
+      },
+      "reviewStatus": "visually-reviewed-provisional",
+      "reviewMethod": "official-pdf-visual-inspection",
+      "reviewedAt": "2026-10-30",
+      "occurrences": 2
+    },
+    {
+      "academicYear": 2025,
+      "courseCode": "sbb515307",
+      "courseName": "都市デジタルシミュレーション(1)",
+      "instructors": [
+        "末繁 雄一"
+      ],
+      "room": "73B",
+      "roomStatus": "listed",
+      "sourcePage": 40,
+      "source": {
+        "id": "hist-2025-timetable-87e82ed66683eb8c",
+        "title": "2025年度 世田谷・学部 時間割",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/09/f62c391a25900669c855e23ba7738861.pdf",
+        "sha256": "780f4656679aad6c3fb21a5edc157ce454f6e5eb9ffea78b593f9a913d75585d"
+      },
+      "reviewStatus": "visually-reviewed-provisional",
+      "reviewMethod": "official-pdf-visual-inspection",
+      "reviewedAt": "2026-10-30",
+      "occurrences": 2
+    }
+  ]
+}

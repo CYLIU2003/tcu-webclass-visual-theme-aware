@@ -1,0 +1,25 @@
+{
+  "courses": [
+    {
+      "courseName": "パワーエレクトロニクス特論",
+      "courseCode": "smaa030081",
+      "instructors": [
+        "鈴木 憲吏"
+      ],
+      "meetings": [
+        {
+          "day": "月",
+          "period": 2,
+          "room": "12K"
+        },
+        {
+          "day": "木",
+          "period": 2,
+          "room": "12K"
+        }
+      ],
+      "category": "専門科目",
+      "note": "例: 教室変更・担当変更を教務の正式情報に合わせて上書き"
+    }
+  ]
+}

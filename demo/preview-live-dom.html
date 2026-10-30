@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+<meta content="width=device-width, initial-scale=1.0" id="viewport" name="viewport"/> <title>コースリスト - WebClass</title>
+
+
+
+
+
+
+
+
+
+
+<style>
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Meiryo,"Yu Gothic",sans-serif;color:#222;background:#fff}a{color:#0871c1;text-decoration:none}a:hover{text-decoration:underline}.container{width:1170px;max-width:calc(100% - 30px);margin:0 auto;padding:0 15px}.row{margin:0 -15px}.row:after,.container:after{display:table;clear:both;content:""}.col-sm-3,.col-sm-9{position:relative;min-height:1px;padding:0 15px;float:left}.col-sm-3{width:25%}.col-sm-9{width:75%}.navbar{margin:0;border:0;background:#720071;color:#fff}.navbar-header{float:left}.navbar-brand{float:left;height:50px;padding:15px;font-size:18px}.navbar-nav{margin:0;padding:0;list-style:none}.navbar-nav>li{float:left;position:relative}.navbar-nav>li>a{display:block;padding:15px;color:#fff}.navbar-right{float:right}.navbar-left{float:left}.dropdown-menu{display:none;position:absolute;z-index:1000;min-width:180px;padding:6px 0;background:#fff;border:1px solid #ddd;list-style:none}.dropdown-menu li a{display:block;padding:7px 12px;color:#333}.navbar-toggle{display:none}.badge{display:inline-block;min-width:10px;padding:3px 7px;border-radius:10px;background:#777;color:#fff;font-size:11px}.form-control{display:inline-block;height:34px;padding:6px 12px;border:1px solid #ccc;border-radius:4px;background:#fff}.page-header{padding-bottom:9px;margin:20px 0 10px;border-bottom:1px solid #eee}.list-group{padding-left:0;margin-bottom:20px}.list-group-item{display:block;padding:10px 15px;border:1px solid #ddd;background:#fff}.list-group-item+.list-group-item{border-top:0}.hidden-xs{display:block}.visible-xs{display:none}.hidden-sm.hidden-md.hidden-lg{display:none!important}.info-list{list-style:none;padding:0}.info-list li{position:relative}.info-list .data{float:right}.courseTree,.courseTree ul{list-style:none}.dimgray{color:#666}main{padding-bottom:30px}footer{padding:25px;text-align:center;color:#777;background:#f7f7f7}@media(max-width:767px){.container{max-width:100%;width:auto}.col-sm-3,.col-sm-9{float:none;width:100%}.hidden-xs{display:none!important}.visible-xs{display:block!important}.hidden-sm.hidden-md.hidden-lg{display:block!important}.navbar-header,.navbar-nav>li,.navbar-left,.navbar-right{float:none}.navbar-toggle{display:block;float:right}.navbar-collapse{display:block}}
+</style><link href="../src/content.css" rel="stylesheet"/><script>
+window.__wcvStorageListeners = [];
+window.chrome = {
+  storage: {
+    local: {
+      _values: {
+        enabled: true,
+        restyle: true,
+        modernizeNativeLayout: true,
+        showInlineMetadata: true,
+        showEnhancedTimetable: false,
+        showSidebarTools: true,
+        showFloatingPanel: true,
+        showSourceLabel: true,
+        debug: false,
+        userCourses: []
+      },
+      get(defaults, callback) { callback(Object.assign({}, defaults || {}, this._values)); },
+      set(values, callback) {
+        const changes = {};
+        for (const [key, newValue] of Object.entries(values || {})) {
+          changes[key] = { oldValue: this._values[key], newValue };
+          this._values[key] = newValue;
+        }
+        for (const listener of window.__wcvStorageListeners) listener(changes, 'local');
+        if (callback) callback();
+      }
+    },
+    onChanged: { addListener(listener) { window.__wcvStorageListeners.push(listener); } }
+  },
+  runtime: {
+    getURL(path) { return new URL('../' + path, location.href).href; },
+    onMessage: { addListener() {} },
+    openOptionsPage() {},
+    lastError: null
+  }
+};
+</script><script defer="defer" src="../src/content.js"></script></head>
+<body>
+<header>
+<nav class="navbar navbar-default" role="navigation">
+<div class="container">
+<div class="navbar-header">
+<div class="navbar-brand">
+<a class="course-webclass" href="/webclass/">WebClass</a>
+</div>
+<button class="navbar-toggle" data-target="#menu" data-toggle="collapse" type="button">
+<span class="sr-only">ナビゲーション</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="hd-mobileMenu_badge hidden hidden-sm hidden-md hidden-lg" id="mobile-menu-badge"></span>
+</button>
+</div>
+<ul class="nav navbar-nav navbar-right hidden-xs">
+<li class="dropdown" id="notification-dropdown-area">
+<a aria-expanded="true" aria-haspopup="true" class="dropdown-toggle disabled" href="/webclass/msg_editor.php?msgappmode=inbox&amp;acs_=DEMO" id="notification-dropdown-icon" onclick="return openMessageWindow('/webclass/msg_editor.php?msgappmode=inbox&amp;acs_=DEMO')" target="msgeditor">
+<span aria-hidden="true" class="glyphicon glyphicon-envelope"></span>
+<span class="badge hidden hd-notification_badge" id="js-unread-message-count"></span>
+</a>
+</li>
+<li class="dropdown">
+<a class="dropdown-toggle" data-toggle="dropdown" href="#" title="言語">
+<span>言語</span>
+<span class="caret"></span>
+</a>
+<ul class="dropdown-menu">
+<li><a class="account-menu__menu__link" href="/webclass/user.php/switchLanguage?language=JAPANESE&amp;acs_=DEMO">日本語</a></li><li><a class="account-menu__menu__link" href="/webclass/user.php/switchLanguage?language=ENGLISH&amp;acs_=DEMO">English</a></li><li><a class="account-menu__menu__link" href="/webclass/user.php/switchLanguage?language=KOREAN&amp;acs_=DEMO">한국어</a></li><li><a class="account-menu__menu__link" href="/webclass/user.php/switchLanguage?language=CHINESE&amp;acs_=DEMO">简体中文</a></li><li><a class="account-menu__menu__link" href="/webclass/user.php/switchLanguage?language=CHINESE-TW&amp;acs_=DEMO">正體中文</a></li> </ul>
+</li>
+<li class="dropdown">
+<a class="dropdown-toggle" data-toggle="dropdown" href="" style="padding: 10px;" title="アカウントメニュー">
+<span>学生　太郎</span>
+<img src="/webclass/user.php/identicon.png" style="border: solid #ffffff; background: #ffffff" width="30"/></a>
+<ul class="dropdown-menu">
+<li class=""><a class="account-menu__menu__link" href="/webclass/login.php?top_menu=1&amp;acs_=DEMO">コースリスト</a></li><li class="divider"></li><li class=""><a class="account-menu__menu__link" href="/webclass/eportfolio.php/showcases/?acs_=DEMO">ショーケースポートフォリオ</a></li><li class="divider"></li><li class=""><a class="account-menu__menu__link" href="/webclass/user.php/config?acs_=DEMO" onclick="openPopupWindow('/webclass/user.php/config?acs_=DEMO','AccountAlt', 1024, 800)" target="AccountAlt">アカウント情報の変更</a></li><li class=""><a class="account-menu__menu__link" href="/webclass/user.php/manual?popup=1&amp;acs_=DEMO" onclick="openPopupWindow('/webclass/user.php/manual?popup=1&amp;acs_=DEMO', 'HelpWindow', 1024, 800)" target="HelpWindow">マニュアル・サンプルファイル</a></li><li class=""><a class="account-menu__menu__link" href="javascript:void(0)" onclick="openPopupWindow('https://datapacific.zohodesk.com/portal/ja/kb/webclass-faq', 'HelpWindow', 1024, 800, true)">FAQ (外部サイト)</a></li> </ul>
+</li>
+</ul>
+</div>
+<div class="container">
+<div class="collapse navbar-collapse" id="menu">
+<ul class="nav navbar-nav navbar-right"><li><a href="/webclass/logout.php?acs_=DEMO">ログアウト</a></li><li class="nav-divider"></li></ul> <ul class="nav navbar-nav navbar-left">
+<li class="dropdown active"><a class="dropdown-toggle" data-toggle="dropdown" href="">コース<span class="caret"></span></a><ul class="dropdown-menu"><li><a href="/webclass/index.php/?acs_=DEMO"><i aria-hidden="true" class="fa fa-fw"></i> コースリスト</a></li><li><a href="/webclass/index.php/courses/?acs_=DEMO"><i aria-hidden="true" class="fa fa-fw"></i> 参加可能なコース</a></li></ul></li><li class=""><a href="/webclass/eportfolio.php/showcases/?acs_=DEMO"><i aria-hidden="true" class="fa fa-fw"></i> ショーケースポートフォリオ</a></li><li class=""><a href="/webclass/user.php/manual?acs_=DEMO"><i aria-hidden="true" class="fa fa-fw"></i> マニュアル・サンプルファイル</a></li> </ul>
+<ul class="nav navbar-nav navbar-left visible-xs-block">
+<li class="nav-divider"></li>
+<li class="dropdown">
+<a class="dropdown-toggle" data-toggle="dropdown" href="#" title="言語">
+<span>言語</span>
+<span class="caret"></span>
+</a>
+<ul class="dropdown-menu">
+<li><a class="account-menu__menu__link" href="/webclass/user.php/switchLanguage?language=JAPANESE&amp;acs_=DEMO">日本語</a></li><li><a class="account-menu__menu__link" href="/webclass/user.php/switchLanguage?language=ENGLISH&amp;acs_=DEMO">English</a></li><li><a class="account-menu__menu__link" href="/webclass/user.php/switchLanguage?language=KOREAN&amp;acs_=DEMO">한국어</a></li><li><a class="account-menu__menu__link" href="/webclass/user.php/switchLanguage?language=CHINESE&amp;acs_=DEMO">简体中文</a></li><li><a class="account-menu__menu__link" href="/webclass/user.php/switchLanguage?language=CHINESE-TW&amp;acs_=DEMO">正體中文</a></li> </ul>
+</li>
+<li class="dropdown">
+<a class="dropdown-toggle" data-toggle="dropdown" href="">学生　太郎<span class="caret"></span></a>
+<ul class="dropdown-menu">
+<li class=""><a class="account-menu__menu__link" href="/webclass/login.php?top_menu=1&amp;acs_=DEMO">コースリスト</a></li><li class="divider"></li><li class=""><a class="account-menu__menu__link" href="/webclass/eportfolio.php/showcases/?acs_=DEMO">ショーケースポートフォリオ</a></li><li class="divider"></li><li class=""><a class="account-menu__menu__link" href="/webclass/user.php/config?acs_=DEMO" onclick="openPopupWindow('/webclass/user.php/config?acs_=DEMO','AccountAlt', 1024, 800)" target="AccountAlt">アカウント情報の変更</a></li><li class=""><a class="account-menu__menu__link" href="/webclass/user.php/manual?popup=1&amp;acs_=DEMO" onclick="openPopupWindow('/webclass/user.php/manual?popup=1&amp;acs_=DEMO', 'HelpWindow', 1024, 800)" target="HelpWindow">マニュアル・サンプルファイル</a></li><li class=""><a class="account-menu__menu__link" href="javascript:void(0)" onclick="openPopupWindow('https://datapacific.zohodesk.com/portal/ja/kb/webclass-faq', 'HelpWindow', 1024, 800, true)">FAQ (外部サイト)</a></li> </ul>
+</li>
+<li>
+<a href="/webclass/mbl.php/messages/?acs_=DEMO" target="msgeditor">メッセージ                            <span class="badge hidden hd-mobileMenu_messageBadge" id="mobile-menu-message-badge"></span>
+</a>
+</li>
+<li class="hidden-sm hidden-md hidden-lg">
+<a href="/webclass/information.php/mbl/?acs_=DEMO" target="msgeditor">お知らせ                            <span class="badge hidden hd-mobileMenu_informationBadge" id="mobile-menu-information-badge"></span>
+</a>
+</li>
+</ul>
+<ul class="nav navbar-nav navbar-left">
+</ul>
+</div>
+</div>
+</nav>
+</header>
+<main id="js-main">
+
+<style type="text/css">
+.schedule-table {
+  table-layout: fixed;
+    border-collapse : separate;
+    border: solid 1px #bbb;
+}
+.schedule-table td,
+.schedule-table th {
+  padding: 5px;
+}
+.schedule-table thead th:first-child{
+  width: 1%;
+}
+.schedule-table thead th:not(:first-child){
+  width: 15%;
+}
+.schedule-table thead th,
+.schedule-table tr:not(:last-child) th,
+.schedule-table tr:not(:last-child) td{
+  border-bottom: solid 1px #bbb;
+}
+
+.schedule-table th:not(:last-child),
+.schedule-table td:not(:last-child){
+  border-right: solid 1px #bbb;
+}
+.schedule-table thead td,
+.schedule-table thead th {
+  background-color: #eaf4fc;
+  text-align: center;
+  color: #6F6F6F;
+}
+.schedule-table thead th.active {
+    color: #333;
+}
+
+.schedule-table tbody td{
+  background-color: #f9f9f9;
+  font-size: small;
+  position: relative;
+}
+.schedule-table tbody td.active {
+    background-color: #fff;
+}
+.schedule-table tbody td.blank {
+    background-color: #f0f0f0;
+}
+.schedule-table tbody td.active-blank {
+    background-color: #fff;
+}
+.schedule-table tbody td .add-course-link-wrapper{
+  height: 2em;
+}
+.schedule-table tbody td .add-course-link{
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}
+.courseTree {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.courseLevelOne li {
+    margin-top: 4px;
+    background-color: transparent;
+    color: #000;
+}
+.courseLevelTwo {
+    padding-right: 1em;
+    margin-bottom: 1.5em;
+}
+.courseLevelTwo li {
+    margin-top: 2px;
+    background-color: transparent;
+    color: #000;
+}
+.courseLevelTwo li .title {
+  background: #fff;
+  border: 1px solid #ddd;
+}
+.courseLevelTwo li h5 {
+    margin: 0;
+    padding: 0.5em;
+}
+.courseList {
+  padding-right:1em;
+}
+.courseList li {
+    margin-top: 2px;
+  background-color: #f7f7f7;
+    padding: 0.2em;
+}
+.courseList li a {
+    padding: 0.5em;
+}
+.course-data-box-icon {
+    margin-left : 41px;
+    min-height: 41px;
+}
+.course-data-box-normal {
+
+}
+.course-icon-box {
+    float: left;
+    width: 40px;
+    height: 40px;
+}
+.course-title {
+    margin-top: 0.1em;
+    margin-bottom: 0.1em;
+}
+.course-info {
+    padding: 0.2em;
+    color: #666;
+}
+.course-memo,
+.course-message {
+    padding: 0.2em;
+    color: #666;
+    margin-left: 1.5em;
+    font-size: 9pt;
+}
+.course-new-message,
+.course-contents-info {
+    padding-left: 1.5em;
+    font-size: 8pt;
+    color: #db3323;
+}
+
+.available-course-mode-selector{
+  margin: 1em 0 1em 0;
+}
+
+.courseTree-levelTitle{
+  font-size: 11pt;
+  background-color: #eaf4fc;
+  font-weight: normal;
+  margin: 0;
+  padding: .5em;
+}
+.schedule-table td.schedule-table-class_order {
+  background-color: #eaf4fc;
+  font-size: 1em;
+}
+
+.schedule-list .class-order{
+  background-color: #f7f7f7;
+  font-weight: bold;
+}
+.schedule-list .course{
+  padding-left: 2em;
+}    #UserTopInfo{
+        border: solid 1px #f0f0f0;
+        border-radius: 5px;
+        margin-bottom: 2em;
+    }
+    #UserTopInfo .page-header{
+        margin: 0;
+        padding: 0.5em;
+        font-size: 14px;
+        border-bottom: 1px solid #efefef;
+        background-color: #f8f8f8;
+    }
+    .side-block-outer {
+        margin-bottom: 1em;
+    }
+    .side-block {
+        border: solid 1px #f0f0f0;
+        border-radius: 5px;
+    }
+    .side-block-title {
+        margin: 0;
+        padding: 0.5em;
+        font-size: 14px;
+        border-bottom: 1px solid #efefef;
+        background-color: #f8f8f8;
+    }
+    .side-block-content {
+        padding: 0.3em;
+    }
+    .menugroup {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .menugroup a {
+        display: block;
+        padding: 0.2em;
+        font-size: small;
+    }
+
+    .list-group-label-item {
+        background: #eaf4fc;
+    }
+
+    #NewestInformations .info-list li {
+        padding-top: 0.3em;
+        padding-bottom: 0.3em;
+    }
+    @media  (max-width: 991px){
+        #NewestInformations .info-list li .data {
+            float: none;
+            margin-top: 0;
+        }
+    }
+</style>
+
+
+<div class="container">
+<div class="row">
+<div class="col-sm-3">
+<div class="side-block-outer hidden-xs" id="View-0">
+<div class="side-block">
+<h4 class="side-block-title">課題実施状況一覧</h4>
+<div class="side-block-content">
+<ul class="menugroup">
+<li><a class="showInIframeButton" href="/webclass/ip_mods.php/plugin/score_summary_table/dashboard">» ダッシュボード</a> </li></ul>
+</div>
+</div>
+</div>
+<div class="side-block-outer hidden-sm hidden-md hidden-lg" id="View-0">
+<div class="side-block">
+<h4 class="side-block-title">課題実施状況一覧</h4>
+<div class="side-block-content">
+<ul class="menugroup">
+<li><a href="/webclass/ip_mods.php/plugin/score_summary_table/dashboard?returnMenu=1" target="_top">» ダッシュボード</a> </li></ul>
+</div>
+</div>
+</div>
+<div class="side-block-outer hidden-xs">
+<div class="side-block">
+<h4 class="side-block-title">学習記録ビューア</h4>
+<div class="side-block-content">
+<ul class="menugroup">
+<li><a href="/webclass/ip_mods.php/plugin/webclass/activity/index?m=s&amp;acs_=DEMO" target="_top">» コース活動状況</a></li> </ul>
+</div>
+</div>
+</div>
+</div>
+<div class="col-sm-9">
+
+<div id="UserTopInfo">
+<h4 class="page-header">管理者からのお知らせ</h4>
+<div id="NewestInformations">
+<div id="AjaxInfoBox"><div class="infopkg">
+<ul class="info-list info-short-list">
+<li class="head bgc_main">
+    最新5件     (全 8 件)
+     </li>
+<li class="odd"><span class="hidden-xs"><a class="title unread" href="/webclass/information.php/post/6399/" onclick="return openMessage('/webclass/information.php/post/6399/')" target="msgeditor" title="【復旧】WebClassの一時的な利用障害について">【復旧】WebClassの一時的な利用障害について</a></span><span class="visible-xs"><a class="title unread" href="/webclass/information.php/mbl/post/6399/" onclick="return openMessage('/webclass/information.php/mbl/post/6399/')" target="msgeditor" title="【復旧】WebClassの一時的な利用障害について">【復旧】WebClassの一時的な利用障害について</a></span><div class="data"><div class="exhibitionInfo"><span style="font-weight:bold;">システム管理者</span> - Apr 21</div></div></li><li class="eve"><span class="hidden-xs"><a class="title unread" href="/webclass/information.php/post/6364/" onclick="return openMessage('/webclass/information.php/post/6364/')" target="msgeditor" title="シラバスの表示方法について">シラバスの表示方法について</a></span><span class="visible-xs"><a class="title unread" href="/webclass/information.php/mbl/post/6364/" onclick="return openMessage('/webclass/information.php/mbl/post/6364/')" target="msgeditor" title="シラバスの表示方法について">シラバスの表示方法について</a></span><div class="data"><div class="exhibitionInfo"><span style="font-weight:bold;">システム管理者</span> - Apr 13</div></div></li><li class="odd"><span class="hidden-xs"><a class="title unread" href="/webclass/information.php/post/3937/" onclick="return openMessage('/webclass/information.php/post/3937/')" target="msgeditor" title="誤ってWebClassのコースを追加し、参加してしまった際の退会方法">誤ってWebClassのコースを追加し、参加してしまった際の退会方法</a></span><span class="visible-xs"><a class="title unread" href="/webclass/information.php/mbl/post/3937/" onclick="return openMessage('/webclass/information.php/mbl/post/3937/')" target="msgeditor" title="誤ってWebClassのコースを追加し、参加してしまった際の退会方法">誤ってWebClassのコースを追加し、参加してしまった際の退会方法</a></span><div class="data"><div class="exhibitionInfo"><span style="font-weight:bold;">システム管理者</span> - Apr 10</div></div></li><li class="eve"><span class="hidden-xs"><a class="title unread" href="/webclass/information.php/post/1409/" onclick="return openMessage('/webclass/information.php/post/1409/')" target="msgeditor" title="WebClassの画面操作に関する注意（複数画面では絶対に操作しないでください）">WebClassの画面操作に関する注意（複数画面では絶対に操作し...</a></span><span class="visible-xs"><a class="title unread" href="/webclass/information.php/mbl/post/1409/" onclick="return openMessage('/webclass/information.php/mbl/post/1409/')" target="msgeditor" title="WebClassの画面操作に関する注意（複数画面では絶対に操作しないでください）">WebClassの画面操作に関する注意（複数画面では絶対に操作し...</a></span><div class="data"><div class="exhibitionInfo"><span style="font-weight:bold;">システム管理者</span> - Apr 17</div></div></li><li class="odd last"><span class="hidden-xs"><a class="title unread" href="/webclass/information.php/post/1169/" onclick="return openMessage('/webclass/information.php/post/1169/')" target="msgeditor" title="作成した教材を学生が実行できない時の対処方法について">作成した教材を学生が実行できない時の対処方法について</a></span><span class="visible-xs"><a class="title unread" href="/webclass/information.php/mbl/post/1169/" onclick="return openMessage('/webclass/information.php/mbl/post/1169/')" target="msgeditor" title="作成した教材を学生が実行できない時の対処方法について">作成した教材を学生が実行できない時の対処方法について</a></span><div class="data"><div class="exhibitionInfo"><span style="font-weight:bold;">システム管理者</span> - Apr 28</div></div></li></ul>
+</div>
+</div>
+<p align="right" style="margin: 0.5em;">
+<span class="hidden-xs">
+<a href="/webclass/information.php/?acs_=DEMO" onclick="return openMessage('/webclass/information.php/?acs_=DEMO')" target="msgeditor">» お知らせ一覧</a>
+</span>
+<span class="visible-xs">
+<a href="/webclass/information.php/mbl/?acs_=DEMO" onclick="return openMessage('/webclass/information.php/mbl/?acs_=DEMO')" target="msgeditor">» お知らせ一覧</a>
+</span>
+</p>
+</div>
+</div>
+<h3 class="page-header">参加しているコース</h3>
+<form action="/webclass/index.php?acs_=DEMO" autocomplete="off" class="form-inline" name="condition">
+<h4>表示する学期</h4>
+<div>
+<select class="form-control" name="year" onchange="javascript:document.condition.submit()">
+<option value="all">All</option>
+<option value="2027">2027</option><option selected="" value="2026">2026</option><option value="2025">2025</option><option value="2024">2024</option><option value="2023">2023</option><option value="2022">2022</option><option value="2021">2021</option><option value="2020">2020</option><option value="2019">2019</option><option value="2018">2018</option><option value="2017">2017</option><option value="2016">2016</option><option value="2015">2015</option><option value="2014">2014</option><option value="2013">2013</option><option value="2012">2012</option><option value="2011">2011</option><option value="2010">2010</option><option value="2009">2009</option><option value="2008">2008</option><option value="2007">2007</option><option value="2006">2006</option><option value="2005">2005</option><option value="2004">2004</option><option value="2003">2003</option><option value="2002">2002</option><option value="2001">2001</option> </select>
+<select class="form-control" name="semester" onchange="javascript:document.condition.submit()">
+<option value="all">All</option>
+<option value="1">前期</option><option value="2">後期</option><option value="3">前期前半</option><option selected="" value="4">前期後半</option><option value="5">後期前半</option><option value="6">後期後半</option> </select>
+</div>
+
+<h4 style="margin-top: 2em;border-top: 1px solid #eee;padding-top: 1em;">時間割表</h4>
+<div class="table-responsive hidden-xs">
+<table class="schedule-table" id="schedule-table">
+<thead>
+<tr>
+<th class=""></th>
+<th class="" height="30" nowrap="">月曜日</th><th class="" height="30" nowrap="">火曜日</th><th class="" height="30" nowrap="">水曜日</th><th class="active" height="30" nowrap="">木曜日</th><th class="" height="30" nowrap="">金曜日</th><th class="" height="30" nowrap="">土曜日</th> </tr>
+</thead>
+<tbody>
+<tr data-class_order="1"><td class="schedule-table-class_order" height="55" nowrap="">1限</td><td class="blank"><br/></td><td class="blank"><br/></td><td align="left" class="" valign="top"><div><a href="/webclass/course.php/26smab030101/login?acs_=DEMO" target="_top">» 電力システム工学特論(水1・水2、中島、2026年度前期後半)_smab030101<div class="course-new-message">新着メッセージ(9)</div><div class="course-contents-info">締切が近い課題があります。</div></a></div></td><td class="active-blank"><br/></td><td class="blank"><br/></td><td class="blank"><br/></td></tr><tr data-class_order="2"><td class="schedule-table-class_order" height="55" nowrap="">2限</td><td align="left" class="" valign="top"><div><a href="/webclass/course.php/26smaa030081/login?acs_=DEMO" target="_top">» パワーエレクトロニクス特論(月2・木2、鈴木、2026年度前期後半)_smaa030081<div class="course-new-message">新着メッセージ(2)</div><div class="course-contents-info">締切が近い課題があります。</div></a></div></td><td class="blank"><br/></td><td align="left" class="" valign="top"><div><a href="/webclass/course.php/26smab030101/login?acs_=DEMO" target="_top">» 電力システム工学特論(水1・水2、中島、2026年度前期後半)_smab030101<div class="course-new-message">新着メッセージ(9)</div><div class="course-contents-info">締切が近い課題があります。</div></a></div></td><td align="left" class="active" valign="top"><div><a href="/webclass/course.php/26smaa030081/login?acs_=DEMO" target="_top">» パワーエレクトロニクス特論(月2・木2、鈴木、2026年度前期後半)_smaa030081<div class="course-new-message">新着メッセージ(2)</div><div class="course-contents-info">締切が近い課題があります。</div></a></div></td><td align="left" class="" valign="top"><div><a href="/webclass/course.php/26smaz090041/login?acs_=DEMO" target="_top">» 情報理論特論(金2、新家、2026年度前期)_smaz090041<div class="course-contents-info">締切が近い課題があります。</div></a></div></td><td class="blank"><br/></td></tr><tr data-class_order="3"><td class="schedule-table-class_order" height="55" nowrap="">3限</td><td class="blank"><br/></td><td align="left" class="" valign="top"><div><a href="/webclass/course.php/26sab132309/login?acs_=DEMO" target="_top">░ 情報リテラシー演習(b)(火3、須藤、2026年度前期後半)_sab132309</a></div></td><td class="blank"><br/></td><td align="left" class="active" valign="top"><div><a href="/webclass/course.php/26sab134305/login?acs_=DEMO" target="_top">░ 電気電子通信基礎実験(b)(木3・木4、野平・鈴木・石川・野中・勝本・奈良、2026年度前期後半)_sab134305<div class="course-new-message">新着メッセージ(7)</div></a></div><br/><div><a href="/webclass/course.php/26saz134306/login?acs_=DEMO" target="_top">░ 電気電子通信実験(1)(木3・木4、野平・鈴木・石川・野中・勝本・奈良、2026年度前期)_saz134306</a></div></td><td align="left" class="" valign="top"><div><a href="/webclass/course.php/26sab175303/login?acs_=DEMO" target="_top">░ 情報リテラシー演習(b)(金3、安井、2026年度前期後半)_sab175303</a></div></td><td class="blank"><br/></td></tr><tr data-class_order="4"><td class="schedule-table-class_order" height="55" nowrap="">4限</td><td class="blank"><br/></td><td align="left" class="" valign="top"><div><a href="/webclass/course.php/26sab112411/login?acs_=DEMO" target="_top">░ 情報リテラシー演習(b)(火4、須藤、2026年度前期後半)_sab112411</a></div></td><td class="blank"><br/></td><td align="left" class="active" valign="top"><div><a href="/webclass/course.php/26sab134305/login?acs_=DEMO" target="_top">░ 電気電子通信基礎実験(b)(木3・木4、野平・鈴木・石川・野中・勝本・奈良、2026年度前期後半)_sab134305<div class="course-new-message">新着メッセージ(7)</div></a></div><br/><div><a href="/webclass/course.php/26saz134306/login?acs_=DEMO" target="_top">░ 電気電子通信実験(1)(木3・木4、野平・鈴木・石川・野中・勝本・奈良、2026年度前期)_saz134306</a></div></td><td class="blank"><br/></td><td class="blank"><br/></td></tr><tr data-class_order="5"><td class="schedule-table-class_order" height="55" nowrap="">5限</td><td class="blank"><br/></td><td class="blank"><br/></td><td class="blank"><br/></td><td class="active-blank"><br/></td><td class="blank"><br/></td><td class="blank"><br/></td></tr><tr data-class_order="6"><td class="schedule-table-class_order" height="30" nowrap="">6限</td><td class="blank"><br/></td><td class="blank"><br/></td><td class="blank"><br/></td><td class="active-blank"><br/></td><td class="blank"><br/></td><td class="blank"><br/></td></tr><tr data-class_order="7"><td class="schedule-table-class_order" height="30" nowrap="">7限</td><td class="blank"><br/></td><td class="blank"><br/></td><td class="blank"><br/></td><td class="active-blank"><br/></td><td class="blank"><br/></td><td class="blank"><br/></td></tr><tr data-class_order="8"><td class="schedule-table-class_order" height="30" nowrap="">8限</td><td class="blank"><br/></td><td class="blank"><br/></td><td class="blank"><br/></td><td class="active-blank"><br/></td><td class="blank"><br/></td><td class="blank"><br/></td></tr> </tbody>
+</table>
+</div>
+<div class="visible-xs list-group schedule-list">
+<div class="list-group-item list-group-label-item">月曜日</div><div class="list-group-item class-order">2限</div><a class="list-group-item course" href="/webclass/course.php/26smaa030081/login?acs_=DEMO"><span class="badge">2</span><h4 class="list-group-item-heading">» パワーエレクトロニクス特論(月2・木2、鈴木、2026年度前期後半)_smaa030081</h4><div class="list-group-item-text"><div class="course-contents-info">締切が近い課題があります。</div></div></a><div class="list-group-item list-group-label-item">火曜日</div><div class="list-group-item class-order">3限</div><a class="list-group-item course" href="/webclass/course.php/26sab132309/login?acs_=DEMO"><h4 class="list-group-item-heading">░ 情報リテラシー演習(b)(火3、須藤、2026年度前期後半)_sab132309</h4><div class="list-group-item-text"></div></a><div class="list-group-item class-order">4限</div><a class="list-group-item course" href="/webclass/course.php/26sab112411/login?acs_=DEMO"><h4 class="list-group-item-heading">░ 情報リテラシー演習(b)(火4、須藤、2026年度前期後半)_sab112411</h4><div class="list-group-item-text"></div></a><div class="list-group-item list-group-label-item">水曜日</div><div class="list-group-item class-order">1限</div><a class="list-group-item course" href="/webclass/course.php/26smab030101/login?acs_=DEMO"><span class="badge">9</span><h4 class="list-group-item-heading">» 電力システム工学特論(水1・水2、中島、2026年度前期後半)_smab030101</h4><div class="list-group-item-text"><div class="course-contents-info">締切が近い課題があります。</div></div></a><div class="list-group-item class-order">2限</div><a class="list-group-item course" href="/webclass/course.php/26smab030101/login?acs_=DEMO"><span class="badge">9</span><h4 class="list-group-item-heading">» 電力システム工学特論(水1・水2、中島、2026年度前期後半)_smab030101</h4><div class="list-group-item-text"><div class="course-contents-info">締切が近い課題があります。</div></div></a><div class="list-group-item list-group-label-item">木曜日</div><div class="list-group-item class-order">2限</div><a class="list-group-item course" href="/webclass/course.php/26smaa030081/login?acs_=DEMO"><span class="badge">2</span><h4 class="list-group-item-heading">» パワーエレクトロニクス特論(月2・木2、鈴木、2026年度前期後半)_smaa030081</h4><div class="list-group-item-text"><div class="course-contents-info">締切が近い課題があります。</div></div></a><div class="list-group-item class-order">3限</div><a class="list-group-item course" href="/webclass/course.php/26sab134305/login?acs_=DEMO"><span class="badge">7</span><h4 class="list-group-item-heading">░ 電気電子通信基礎実験(b)(木3・木4、野平・鈴木・石川・野中・勝本・奈良、2026年度前期後半)_sab134305</h4><div class="list-group-item-text"></div></a><a class="list-group-item course" href="/webclass/course.php/26saz134306/login?acs_=DEMO"><h4 class="list-group-item-heading">░ 電気電子通信実験(1)(木3・木4、野平・鈴木・石川・野中・勝本・奈良、2026年度前期)_saz134306</h4><div class="list-group-item-text"></div></a><div class="list-group-item class-order">4限</div><a class="list-group-item course" href="/webclass/course.php/26sab134305/login?acs_=DEMO"><span class="badge">7</span><h4 class="list-group-item-heading">░ 電気電子通信基礎実験(b)(木3・木4、野平・鈴木・石川・野中・勝本・奈良、2026年度前期後半)_sab134305</h4><div class="list-group-item-text"></div></a><a class="list-group-item course" href="/webclass/course.php/26saz134306/login?acs_=DEMO"><h4 class="list-group-item-heading">░ 電気電子通信実験(1)(木3・木4、野平・鈴木・石川・野中・勝本・奈良、2026年度前期)_saz134306</h4><div class="list-group-item-text"></div></a><div class="list-group-item list-group-label-item">金曜日</div><div class="list-group-item class-order">2限</div><a class="list-group-item course" href="/webclass/course.php/26smaz090041/login?acs_=DEMO"><h4 class="list-group-item-heading">» 情報理論特論(金2、新家、2026年度前期)_smaz090041</h4><div class="list-group-item-text"><div class="course-contents-info">締切が近い課題があります。</div></div></a><div class="list-group-item class-order">3限</div><a class="list-group-item course" href="/webclass/course.php/26sab175303/login?acs_=DEMO"><h4 class="list-group-item-heading">░ 情報リテラシー演習(b)(金3、安井、2026年度前期後半)_sab175303</h4><div class="list-group-item-text"></div></a> </div>
+<div align="right" style="margin-top: 0.5em;">
+<a class="btn btn-default" href="/webclass/index.php/courses/?acs_=DEMO">コースを追加</a>
+</div>
+<h4>その他のコース</h4>
+<input class="form-control" id="search_courses_left" placeholder="検索" type="text"/>
+<br/>
+<div id="courses_list_left">
+<ul class="courseTree courseLevelOne"><li><h4 class="courseTree-levelTitle">理工学部／総合理工学研究科</h4><ul class="courseTree courseLevelTwo"><li><div class="title"><h5>電気電子通信工学科／電気電子工学科／電気・化学専攻</h5></div><ul class="courseTree courseList" id="%s"><li><div class="course-data-box-normal"><div class="course-title"><a href="/webclass/course.php/b265004/login?acs_=DEMO" target="_top">» 2028年3月卒業予定(主として2024年度入学)学生向けキャリア支援用_電気電子通信工学科 </a><span class="course-info"><span class="dimgray">    2026 通年 - -  </span></span></div><div><span class="course-new-message">新着メッセージ(45)</span></div></div></li></ul></li></ul></li><li><h4 class="courseTree-levelTitle">全学</h4><ul class="courseTree courseLevelTwo"><li><ul class="courseTree courseList" id="%s"><li><div class="course-data-box-normal"><div class="course-title"><a href="/webclass/course.php/b205026/login?acs_=DEMO" target="_top">» 教学課　手続き用 </a><span class="course-info"><span class="dimgray">    2026 通年 - -  </span></span></div><div><span class="course-contents-info">締切が近い課題があります。</span></div><div class="course-memo" style="background-color:#fff; padding:0.1em 0.2em;">教学課関連のWeb手続き（履修関係中心）を行うためのコースです。ポータルサイト等で案内された手続きを行う場合は、指定されている教材を実行してください。手続きに関する質問等はWebClass上ではなく各キャンパス教学課に直接問い合わせてください。なお、手続きの完了や申請期間等のスケジュールに応じて、メンバーの登録解除を適宜行う場合があります。</div></div></li></ul></li></ul></li><li><h4 class="courseTree-levelTitle">世田谷キャンパス</h4><ul class="courseTree courseLevelTwo"><li><div class="title"><h5>複数学科</h5></div><ul class="courseTree courseList" id="%s"><li><div class="course-data-box-normal"><div class="course-title"><a href="/webclass/course.php/26saz007619/login?acs_=DEMO" target="_top">» 外国語特別講義(1a)(ニコ、2026年度前期)_saz007619 </a><span class="course-info"><span class="dimgray">    2026 前期 - -  </span></span></div><div><span class="course-new-message">新着メッセージ(1)</span></div></div></li></ul></li></ul></li><li><h4 class="courseTree-levelTitle">全研究科</h4><ul class="courseTree courseLevelTwo"><li><ul class="courseTree courseList" id="%s"><li><div class="course-data-box-normal"><div class="course-title"><a href="/webclass/course.php/b205102/login?acs_=DEMO" target="_top">» 先行履修（大学院生対象） </a><span class="course-info"><span class="dimgray">    2026 通年 - -  </span></span></div></div></li></ul></li></ul></li><li><h4 class="courseTree-levelTitle">総合理工学研究科</h4><ul class="courseTree courseLevelTwo"><li><div class="title"><h5>複数専攻</h5></div><ul class="courseTree courseList" id="%s"><li><div class="course-data-box-normal"><div class="course-title"><a href="/webclass/course.php/26smaz100151/login?acs_=DEMO" target="_top">» データベース特論(田村、2026年度前期)_smaz100151 </a><span class="course-info"><span class="dimgray">    2026 前期 - -  </span></span></div><div><span class="course-new-message">新着メッセージ(6)</span></div><div><span class="course-contents-info">締切が近い課題があります。</span></div></div></li></ul></li><li><div class="title"><h5>電気・化学専攻</h5></div><ul class="courseTree courseList" id="%s"><li><div class="course-data-box-normal"><div class="course-title"><a href="/webclass/course.php/26smza039111/login?acs_=DEMO" target="_top">» 電気・化学実習I(中島、2026年度前期)_smza039111 </a><span class="course-info"><span class="dimgray">    2026 前期 - -  </span></span></div><div><span class="course-contents-info">締切が近い課題があります。</span></div></div></li></ul></li></ul></li><li><h4 class="courseTree-levelTitle">総合理工学研究科・工学研究科</h4><ul class="courseTree courseLevelTwo"><li><ul class="courseTree courseList" id="%s"><li><div class="course-data-box-normal"><div class="course-title"><a href="/webclass/course.php/b205064/login?acs_=DEMO" target="_top">» 総合理工学研究科（申請用） </a><span class="course-info"><span class="dimgray">    2026 通年 - -  </span></span></div><div><span class="course-new-message">新着メッセージ(1)</span></div></div></li></ul></li></ul></li></ul> </div>
+</form>
+</div>
+</div>
+</div>
+
+
+
+
+</main>
+<footer class="ft-footer navbar-default">
+<div class="container text-center">
+<p class="ft-footer_message">Powered by WebClass</p>
+</div>
+</footer>
+
+<div class="preview-banner" style="position:fixed;left:12px;bottom:12px;z-index:2147483647;padding:6px 10px;border-radius:999px;background:rgba(20,24,32,.76);color:#fff;font-size:10px;pointer-events:none">実画面スナップショットでのローカル検証プレビュー</div></body>
+</html>

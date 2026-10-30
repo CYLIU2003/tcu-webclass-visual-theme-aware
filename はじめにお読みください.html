@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>はじめかた - WebClass授業情報</title>
+  <style>
+:root {
+  color-scheme: light dark;
+  font-family: "Yu Gothic UI", "Meiryo", "Hiragino Kaku Gothic ProN", system-ui, sans-serif;
+  --accent: #0b5cad;
+  --accent-dark: #084586;
+  --accent-soft: #e8f1fb;
+  --ink: #16233a;
+  --muted: #5b687b;
+  --line: #dbe3ec;
+  --card: #ffffff;
+  --canvas: #f3f6fa;
+  --ok: #0a7d68; --ok-soft: #e3f5f0;
+  --warn: #a86400; --warn-soft: #fff3dc;
+  --info: #0b5cad; --info-soft: #e8f1fb;
+  --code: #eef1f5;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --accent: #5aa5f0; --accent-dark: #8cc2fa; --accent-soft: #1b2b40;
+    --ink: #e8edf5; --muted: #9aa7ba; --line: #2c3a4e; --card: #182233; --canvas: #0f1724;
+    --ok: #4fd1b3; --ok-soft: #12332d; --warn: #f0b04a; --warn-soft: #3a2c10;
+    --info: #8cc2fa; --info-soft: #1b2b40; --code: #223046;
+  }
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 16px; }
+body { margin: 0; background: var(--canvas); color: var(--ink); font-size: 16px; line-height: 1.75; }
+.wrap { width: min(820px, calc(100% - 32px)); margin: 0 auto; }
+a { color: var(--accent); }
+code { padding: 2px 6px; border-radius: 5px; background: var(--code); font: 0.92em ui-monospace, Consolas, monospace; }
+
+/* hero */
+.hero { padding: 30px 0 22px; background: linear-gradient(160deg, #0b5cad 0%, #123f78 100%); color: #fff; }
+.hero a { color: #cfe6ff; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 14px; opacity: .95; }
+.mark { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 9px; background: rgba(255,255,255,.18); }
+.mark span { position: relative; width: 16px; height: 15px; border: 2px solid #fff; border-radius: 3px; }
+.mark span::before, .mark span::after { position: absolute; top: -5px; width: 2px; height: 5px; border-radius: 2px; background: #fff; content: ""; }
+.mark span::before { left: 2px; } .mark span::after { right: 2px; }
+.hero h1 { margin: 18px 0 8px; font-size: clamp(24px, 5vw, 34px); line-height: 1.4; }
+.lead { margin: 0; max-width: 34em; font-size: 16px; opacity: .95; }
+.installed { display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: center; margin-top: 16px; padding: 12px 16px; border-radius: 12px; background: #fff; color: #0a5a4b; }
+.installed a { color: #0b5cad; font-weight: 700; }
+.toc { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.toc a { padding: 5px 13px; border-radius: 999px; background: rgba(255,255,255,.14); color: #fff; font-size: 13px; text-decoration: none; }
+.toc a:hover, .toc a.active { background: #fff; color: #0b3d75; }
+
+/* cards */
+main { padding: 22px 0 10px; }
+.card { margin-bottom: 16px; padding: 22px 24px; border: 1px solid var(--line); border-radius: 16px; background: var(--card); box-shadow: 0 2px 10px rgba(20, 40, 70, .05); }
+.card h2 { display: flex; gap: 12px; align-items: center; margin: 0 0 10px; font-size: 20px; line-height: 1.4; }
+.card h3 { margin: 20px 0 4px; font-size: 15px; color: var(--accent-dark); }
+.card p { margin: 8px 0; }
+.sub { color: var(--muted); font-size: 14px; }
+.num { display: grid; flex: 0 0 auto; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 17px; font-weight: 800; }
+@media (prefers-color-scheme: dark) { .num { color: #06121f; } }
+
+.how { margin: 10px 0; padding: 0; list-style: none; counter-reset: h; }
+.how li { position: relative; margin: 8px 0; padding: 10px 14px 10px 46px; border-radius: 10px; background: var(--canvas); counter-increment: h; }
+.how li::before { position: absolute; top: 12px; left: 14px; display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--accent); color: var(--accent); content: counter(h); font-size: 12px; font-weight: 800; }
+
+.checks { margin: 8px 0; padding: 0; list-style: none; }
+.checks li { position: relative; padding: 4px 0 4px 28px; }
+.checks li::before { position: absolute; left: 2px; top: 6px; display: grid; place-items: center; width: 18px; height: 18px; border-radius: 50%; background: var(--ok); color: #fff; content: "✓"; font-size: 11px; font-weight: 800; }
+
+.note { margin: 14px 0 4px; padding: 12px 14px; border-left: 5px solid; border-radius: 8px; font-size: 14.5px; }
+.note.ok { border-color: var(--ok); background: var(--ok-soft); }
+.note.warn { border-color: var(--warn); background: var(--warn-soft); }
+.note.info { border-color: var(--info); background: var(--info-soft); }
+
+/* copy */
+.copyrow { display: grid; gap: 8px; margin: 12px 0; }
+.copyrow > div { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; padding: 10px 14px; border: 1px solid var(--line); border-radius: 12px; }
+.copyrow code { flex: 1 1 auto; font-size: 17px; }
+.tag { padding: 2px 10px; border-radius: 999px; color: #fff; font-size: 12px; font-weight: 700; }
+.tag.chrome { background: #d9534f; } .tag.edge { background: #0f7c9d; }
+button { min-height: 40px; padding: 0 16px; border: 1px solid var(--accent); border-radius: 10px; background: var(--card); color: var(--accent-dark); cursor: pointer; font: inherit; font-size: 14px; font-weight: 700; }
+button:hover { background: var(--accent-soft); }
+button:focus-visible, summary:focus-visible, a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+button.done { border-color: var(--ok); background: var(--ok-soft); color: var(--ok); }
+
+/* mock screens */
+.mock { margin: 14px 0; overflow: hidden; border: 1px solid var(--line); border-radius: 12px; background: var(--canvas); font-size: 14px; }
+.mock-bar { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 9px 14px; background: var(--accent-soft); font-weight: 700; }
+.mock-rows > div { padding: 7px 14px; border-top: 1px solid var(--line); }
+.mock-rows .hl { background: var(--warn-soft); font-weight: 700; }
+.mock-rows em { color: var(--warn); font-style: normal; font-size: 12.5px; }
+.mock-body { padding: 14px; }
+.devtoggle { display: inline-flex; align-items: center; gap: 8px; padding: 4px 10px; border: 2px dashed var(--warn); border-radius: 999px; font-size: 13px; }
+.sw { position: relative; display: inline-block; width: 36px; height: 20px; border-radius: 999px; background: var(--accent); }
+.sw::after { position: absolute; top: 3px; left: 19px; width: 14px; height: 14px; border-radius: 50%; background: #fff; content: ""; }
+
+/* features */
+.feat { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; margin-top: 8px; }
+.feat > div { padding: 12px 14px; border: 1px solid var(--line); border-radius: 12px; }
+.feat b { display: block; font-size: 14.5px; }
+.feat span { color: var(--muted); font-size: 13px; }
+
+/* faq */
+details { margin: 8px 0; border: 1px solid var(--line); border-radius: 12px; }
+details summary { padding: 12px 16px; cursor: pointer; font-weight: 700; }
+details[open] summary { border-bottom: 1px solid var(--line); background: var(--accent-soft); border-radius: 12px 12px 0 0; }
+details p { margin: 0; padding: 12px 16px; font-size: 15px; }
+
+.foot { padding: 12px 0 44px; text-align: center; }
+.cta { min-height: 52px; padding: 0 34px; border: 0; border-radius: 14px; background: var(--accent); color: #fff; font-size: 17px; }
+.cta:hover { background: var(--accent-dark); }
+@media (prefers-color-scheme: dark) { .cta { color: #06121f; } }
+.foot p { color: var(--muted); font-size: 13px; }
+
+.pc { display: none; }
+@media (min-width: 640px) { .pc { display: inline; } }
+@media (max-width: 520px) { .card { padding: 18px 16px; } .card h2 { font-size: 18px; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+@media print { .hero { background: #fff; color: #000; } .toc, .foot button { display: none; } }
+</style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <div class="brand"><div class="mark" aria-hidden="true"><span></span></div><span>WebClass授業情報</span></div>
+      <h1>WebClassの時間割に、<br class="pc">教室と担当教員を表示します。</h1>
+      <p class="lead">Chrome / Edge に追加するだけ。パソコンにくわしくなくても、下の手順どおりに進めれば<strong>約3分</strong>で使えます。</p>
+      <div id="installedBanner" class="installed" hidden>
+        <b>✓ インストールできました！</b>
+        <span>あとは <a href="https://webclass.tcu.ac.jp/" target="_blank" rel="noopener">WebClass</a> を開くだけです（手順5へ）。</span>
+      </div>
+      <nav class="toc" aria-label="目次">
+        <a href="#before">0. 準備</a>
+        <a href="#s1">1. 展開</a>
+        <a href="#s2">2. 拡張機能ページ</a>
+        <a href="#s3">3. 開発者モード</a>
+        <a href="#s4">4. 読み込み</a>
+        <a href="#s5">5. 使ってみる</a>
+        <a href="#trouble">困ったとき</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <section id="before" class="card">
+      <h2><span class="num">0</span>始める前に確認</h2>
+      <ul class="checks">
+        <li><b>パソコン</b>で行います（スマートフォンのブラウザには入れられません）。</li>
+        <li>ブラウザーは <b>Google Chrome</b> か <b>Microsoft Edge</b>。</li>
+        <li>ZIPファイル <code>TCU_WebClass_Visual_…zip</code> をダウンロード済み。</li>
+      </ul>
+      <div class="note ok"><b>安全性：</b>この拡張機能は東京都市大学のWebClass（webclass.tcu.ac.jp）でだけ動きます。パスワードや成績は読み取らず、外部へ送信もしません。</div>
+    </section>
+
+    <section id="s1" class="card">
+      <h2><span class="num">1</span>ZIPファイルを「展開」する</h2>
+      <p>ZIPは圧縮された状態です。<b>そのままでは使えない</b>ので、まず展開します。</p>
+      <ol class="how">
+        <li>ダウンロードしたZIPファイルを<b>右クリック</b>。</li>
+        <li><b>「すべて展開…」</b>を選び、<b>「展開」</b>を押す。</li>
+        <li>フォルダーが開いたら、中に <code>manifest.json</code> があることを確認。</li>
+      </ol>
+      <div class="mock explorer" aria-hidden="true">
+        <div class="mock-bar">📁 tcu-webclass-visual-theme-aware</div>
+        <div class="mock-rows">
+          <div class="hl">📄 manifest.json <em>← これがある階層が正解</em></div>
+          <div>📁 src</div><div>📁 data</div><div>📁 icons</div><div>📄 README.md</div>
+        </div>
+      </div>
+      <div class="note warn"><b>大切：</b>展開したフォルダーは<b>削除・移動しないでください</b>。動かすと拡張機能が使えなくなります。「ドキュメント」など、消さない場所に置くのがおすすめです。</div>
+    </section>
+
+    <section id="s2" class="card">
+      <h2><span class="num">2</span>「拡張機能」のページを開く</h2>
+      <p>ブラウザーの上のアドレス欄に、次の文字を入力して Enter を押します。</p>
+      <div class="copyrow">
+        <div>
+          <span class="tag chrome">Chrome</span>
+          <code id="urlChrome">chrome://extensions</code>
+          <button class="copy" data-copy="chrome://extensions" type="button">コピー</button>
+        </div>
+        <div>
+          <span class="tag edge">Edge</span>
+          <code id="urlEdge">edge://extensions</code>
+          <button class="copy" data-copy="edge://extensions" type="button">コピー</button>
+        </div>
+      </div>
+      <p class="sub">「コピー」を押して、アドレス欄に貼り付け（Ctrl + V）→ Enter が確実です。リンクをクリックしても開けません（ブラウザーの仕様です）。</p>
+      <p class="sub">メニューから開く場合：右上の <b>︙</b>（Edgeは <b>…</b>）→ <b>拡張機能</b> → <b>拡張機能を管理</b></p>
+    </section>
+
+    <section id="s3" class="card">
+      <h2><span class="num">3</span>「デベロッパーモード」をオンにする</h2>
+      <p>拡張機能ページの<b>右上</b>（Edgeは<b>左下</b>）にあるスイッチをオンにします。</p>
+      <div class="mock ext" aria-hidden="true">
+        <div class="mock-bar"><span>拡張機能</span><span class="devtoggle">デベロッパー モード <i class="sw on"></i></span></div>
+        <div class="mock-body">オンにすると、上に<b>「パッケージ化されていない拡張機能を読み込む」</b>ボタンが現れます。</div>
+      </div>
+      <p class="sub">「開発者向け」と聞くと不安になりますが、自分のパソコンにフォルダーから追加するための、ふつうの設定です。</p>
+    </section>
+
+    <section id="s4" class="card">
+      <h2><span class="num">4</span>フォルダーを読み込む</h2>
+      <ol class="how">
+        <li><b>「パッケージ化されていない拡張機能を読み込む」</b>を押す。</li>
+        <li>手順1で展開した<b>フォルダー</b>（<code>manifest.json</code> が直下に見えるもの）を選ぶ。</li>
+        <li><b>「フォルダーの選択」</b>を押す。</li>
+        <li>一覧に<b>「TCU WebClass Visual Prototype」</b>が出て、スイッチがオンなら成功です。</li>
+      </ol>
+      <div class="note warn"><b>ファイルではなくフォルダー</b>を選びます。「マニフェスト ファイルがありません」と出たら、フォルダーが一つ外側です。中にもう一つ同名のフォルダーがあれば、そちらを選んでください。</div>
+      <h3>おすすめ：ツールバーに固定する</h3>
+      <p>アドレス欄の右にある<b>パズルのアイコン 🧩</b>を押し、この拡張機能の<b>ピン 📌</b>を押すと、いつでもアイコンから設定を開けます。</p>
+    </section>
+
+    <section id="s5" class="card">
+      <h2><span class="num">5</span>WebClassを開いて使ってみる</h2>
+      <ol class="how">
+        <li><a href="https://webclass.tcu.ac.jp/" target="_blank" rel="noopener">WebClass</a> を開いて、いつも通りログインする。</li>
+        <li>「コースリスト」（時間割が並ぶ画面）を表示する。</li>
+        <li>時間割が<b>カード表示</b>になり、<b>教室</b>と<b>担当教員</b>が科目ごとに出れば完了です 🎉</li>
+      </ol>
+      <div class="note info"><b>すでにWebClassを開いていた場合：</b>そのタブを一度 <b>F5（更新）</b>してください。</div>
+      <h3>できること</h3>
+      <div class="feat">
+        <div><b>🏫 教室・担当教員</b><span>科目ごとに常時表示</span></div>
+        <div><b>🎨 テーマ色に追従</b><span>WebClassの配色に自動で合わせます</span></div>
+        <div><b>🔔 状態バッジ</b><span>新着メッセージ・締切間近</span></div>
+        <div><b>⚙ かんたんON/OFF</b><span>アイコンのスイッチで一発切替</span></div>
+      </div>
+      <div class="note info"><b>収録データについて：</b>2026年度は調査用スナップショットです。過年度は原表で行を確認した掲載例だけを参考表示し、履修要覧の履修要件はまだ収録していません。</div>
+    </section>
+
+    <section id="trouble" class="card">
+      <h2><span class="num">?</span>困ったとき</h2>
+      <details><summary>何も表示が変わらない</summary>
+        <p>① WebClassのタブを <b>F5</b> で更新。② 「コースリスト」画面か確認（授業ページの中では一部表示のみです）。③ 拡張機能アイコン → スイッチが<b>オン</b>か確認。④ 拡張機能ページで、この拡張機能が<b>オン</b>か確認。</p></details>
+      <details><summary>「マニフェスト ファイルがありません」と出る</summary>
+        <p>選んだフォルダーが違います。<code>manifest.json</code> が<b>直接</b>入っているフォルダーを選んでください。ZIPの中を開いたままではなく、必ず「すべて展開」してから選びます。</p></details>
+      <details><summary>「デベロッパーモードの拡張機能を無効にしてください」と出る</summary>
+        <p>ブラウザー起動のたびに出る案内です。<b>×で閉じて</b>そのまま使えます（「キャンセル」を選ぶ）。</p></details>
+      <details><summary>デベロッパーモードのスイッチが押せない・拡張機能が追加できない</summary>
+        <p>大学・会社などの管理PCでは、組織の設定で制限されていることがあります。その場合は個人のPCで試すか、管理者に確認してください。</p></details>
+      <details><summary>ブラウザーを再起動したら消えた／使えなくなった</summary>
+        <p>展開したフォルダーを削除・移動していないか確認してください。移動した場合は、手順4でもう一度読み込み直します。</p></details>
+      <details><summary>元の画面に戻したい</summary>
+        <p>拡張機能アイコンの右上スイッチを<b>オフ</b>にするだけで、元のWebClass画面に戻ります。完全に消すときは、拡張機能ページで<b>「削除」</b>。</p></details>
+      <details><summary>新しいバージョンに更新するには</summary>
+        <p>新しいZIPを展開し、拡張機能ページで古いものを<b>削除</b>→手順4で新しいフォルダーを読み込みます。設定は引き継がれない場合があります。</p></details>
+      <details><summary>表示された教室が実際と違う</summary>
+        <p>2026年度の時間割は調査用スナップショットで、最新資料との全件照合は未完了です。過年度の掲載例も、現在の開講や同一科目であることを示しません。休講・教室変更は<b>WebClassのお知らせを優先</b>してください。</p></details>
+    </section>
+
+    <section class="card privacy">
+      <h2>プライバシー</h2>
+      <ul class="checks">
+        <li>動作するのは <code>webclass.tcu.ac.jp</code> のみ。</li>
+        <li>ID・パスワード・成績・提出物は読み取りません。</li>
+        <li>外部サーバーへ何も送信しません。設定はこのブラウザー内だけに保存されます。</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="wrap foot">
+    <button id="openWebClassBtn" class="cta" type="button">WebClassを開く</button>
+    <p>学生FD向けプロトタイプ v0.4.0 ／ 困ったら README.md も参照してください。</p>
+  </footer>
+
+  <script>
+(() => {
+  "use strict";
+
+  const inExtension = location.protocol === "chrome-extension:" || location.protocol === "moz-extension:" || location.protocol === "extension:";
+  const isEdge = /Edg\//.test(navigator.userAgent);
+
+  if (inExtension) {
+    document.getElementById("installedBanner").hidden = false;
+  }
+
+  // 使っているブラウザーの URL を先頭に
+  const rows = document.querySelectorAll(".copyrow > div");
+  if (isEdge && rows.length === 2) rows[0].parentNode.insertBefore(rows[1], rows[0]);
+
+  document.querySelectorAll(".copy").forEach((button) => {
+    button.addEventListener("click", async () => {
+      const text = button.dataset.copy;
+      try {
+        await navigator.clipboard.writeText(text);
+      } catch (error) {
+        const area = document.createElement("textarea");
+        area.value = text;
+        document.body.appendChild(area);
+        area.select();
+        document.execCommand("copy");
+        area.remove();
+      }
+      const original = button.textContent;
+      button.textContent = "コピーしました ✓";
+      button.classList.add("done");
+      setTimeout(() => { button.textContent = original; button.classList.remove("done"); }, 1800);
+    });
+  });
+
+  document.getElementById("openWebClassBtn").addEventListener("click", () => {
+    window.open("https://webclass.tcu.ac.jp/", "_blank", "noopener");
+  });
+
+  // 目次のスクロール位置に合わせてハイライト
+  const links = Array.from(document.querySelectorAll(".toc a"));
+  const map = new Map(links.map((a) => [a.getAttribute("href").slice(1), a]));
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          links.forEach((a) => a.classList.remove("active"));
+          map.get(entry.target.id)?.classList.add("active");
+        }
+      });
+    }, { rootMargin: "-30% 0px -60% 0px" });
+    map.forEach((_, id) => { const el = document.getElementById(id); if (el) observer.observe(el); });
+  }
+})();
+</script>
+</body>
+</html>

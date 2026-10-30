@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WebClass授業情報</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="popup-header">
+    <div class="mark" aria-hidden="true"><span></span></div>
+    <div class="title-block">
+      <h1>WebClass授業情報</h1>
+      <div class="eyebrow">担当教員・教室・時限をひと目で</div>
+    </div>
+    <label class="master" title="拡張機能の ON / OFF">
+      <input id="enabled" type="checkbox" aria-label="拡張機能を有効化">
+      <span class="switch" aria-hidden="true"></span>
+    </label>
+  </header>
+
+  <main>
+    <section id="statusCard" class="status-card" data-kind="checking" aria-live="polite">
+      <div class="status-icon" aria-hidden="true"></div>
+      <div class="status-body">
+        <strong id="statusTitle">状態を確認中…</strong>
+        <p id="statusDetail">WebClassタブとの接続を確認しています。</p>
+        <div id="statusCount" class="status-count" hidden></div>
+      </div>
+    </section>
+
+    <!-- WebClass 以外のページにいるときの「はじめかた」 -->
+    <section id="guideCard" class="guide-card" hidden>
+      <h2>はじめかた（3ステップ）</h2>
+      <ol>
+        <li><b>WebClassを開く</b><span>下のボタンで開き、いつも通りログイン</span></li>
+        <li><b>「コースリスト」を表示</b><span>時間割が並ぶトップ画面です</span></li>
+        <li><b>自動でカード表示に</b><span>教室と担当教員が科目ごとに出ます</span></li>
+      </ol>
+    </section>
+
+    <!-- WebClass で「再読み込み」が必要なとき -->
+    <section id="reloadCard" class="reload-card" hidden>
+      <span>このタブを更新すると反映されます。</span>
+      <button id="reloadTab" type="button">タブを更新</button>
+    </section>
+
+    <details class="options" id="optionsBox">
+      <summary>
+        <span>表示のカスタマイズ</span>
+        <small id="optionsSummary"></small>
+      </summary>
+      <div class="settings-card">
+        <label class="toggle-row">
+          <span><strong>画面を整える</strong><small>余白・配色・表の読みやすさを調整</small></span>
+          <input id="restyle" type="checkbox">
+          <span class="switch" aria-hidden="true"></span>
+        </label>
+        <label class="toggle-row">
+          <span><strong>時間割をカード表示</strong><small>元の時間割・お知らせ・コース一覧を見やすく</small></span>
+          <input id="modernizeNativeLayout" type="checkbox">
+          <span class="switch" aria-hidden="true"></span>
+        </label>
+        <label class="toggle-row">
+          <span><strong>科目名の下にバッジ表示</strong><small>教室・担当・曜日時限</small></span>
+          <input id="showInlineMetadata" type="checkbox">
+          <span class="switch" aria-hidden="true"></span>
+        </label>
+        <label class="toggle-row">
+          <span><strong>週間時間割を別に追加</strong><small>必要な人だけ。通常はオフでOK</small></span>
+          <input id="showEnhancedTimetable" type="checkbox">
+          <span class="switch" aria-hidden="true"></span>
+        </label>
+      </div>
+    </details>
+
+    <p id="datasetSummary" class="dataset">収録範囲を確認中です。</p>
+    <section id="datasetQuality" class="dataset-quality" data-kind="warning" aria-live="polite">
+      <strong id="datasetQualityTitle">データの状態を確認しています</strong>
+      <p id="datasetQualityDetail">時間割と過年度資料の収録状態を読み込んでいます。</p>
+    </section>
+    <p id="saveNotice" class="save-notice" aria-live="polite"></p>
+  </main>
+
+  <footer>
+    <button id="openWebClass" class="primary" type="button">WebClassを開く</button>
+    <button id="openGuide" class="secondary" type="button">使い方</button>
+    <button id="openOptions" class="secondary" type="button">詳細設定</button>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>

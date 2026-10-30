@@ -1,0 +1,53 @@
+{
+  "manifest_version": 3,
+  "name": "TCU WebClass Visual Prototype",
+  "short_name": "WebClass Visual",
+  "version": "0.5.0",
+  "description": "WebClassを見やすく整え、2026年度時間割と原表確認済みの過年度掲載例を表示する学生FD向けプロトタイプです。",
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://webclass.tcu.ac.jp/*"
+  ],
+  "action": {
+    "default_title": "WebClass授業情報",
+    "default_popup": "src/popup.html"
+  },
+  "options_page": "src/options.html",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://webclass.tcu.ac.jp/*"
+      ],
+      "js": [
+        "src/content.js"
+      ],
+      "css": [
+        "src/content.css"
+      ],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "data/timetable-2026.json",
+        "data/historical-course-row-evidence.json"
+      ],
+      "matches": [
+        "https://webclass.tcu.ac.jp/*"
+      ]
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "background": {
+    "service_worker": "src/background.js"
+  }
+}
