@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ja">
+<meta charset="utf-8">
+<title>履修科目の表示範囲テスト</title>
+<link rel="stylesheet" href="../src/content.css">
+<style>
+#main > .row { display: flex; gap: 24px; }
+#main > .row > .col-sm-3 { width: 25%; }
+#main > .row > .col-sm-9 { width: 75%; min-width: 0; }
+@media (max-width: 767px) { #main > .row { display: block; } #main > .row > .col-sm-3, #main > .row > .col-sm-9 { width: 100%; } }
+</style>
+<body>
+<main id="main">
+<div class="row"><aside class="col-sm-3">学習メニュー</aside><div class="col-sm-9">
+  <h3 id="course-list-heading">参加しているコース</h3>
+  <div id="notice"><h4>管理者からのお知らせ</h4><a href="#notice">情報リテラシー演習のお知らせ</a></div>
+  <h4>時間割表</h4>
+  <table id="schedule-table" class="schedule-table"><tbody><tr><td>
+    <a href="/webclass/course.php/26saa132209/login">電子回路_saa132209</a>
+    <a href="/webclass/course.php/26saa131215/login">履修した科目_saa131215</a>
+  </td></tr><tr><td>
+    <a href="/webclass/course.php/26saa132209/login">電子回路_saa132209</a>
+  </td></tr></tbody></table>
+  <section id="other-courses"><h4>その他のコース</h4>
+    <a href="https://webclass.tcu.ac.jp/webclass/course.php/b261044/login">情報リテラシー演習 OS操作スキルテスト2026</a>
+    <a href="https://webclass.tcu.ac.jp/webclass/course.php/26saa142102/login">履修していない科目_saa142102</a>
+    <a hidden href="https://webclass.tcu.ac.jp/webclass/course.php/26saa141105/login">非表示の科目_saa141105</a>
+  </section>
+</div></div></main>
+<p id="test-result">実行中</p>
+<script>
+  const messageListeners = [];
+  window.chrome = {
+    storage: {
+      local: { get: (defaults, callback) => callback({ ...defaults, restyle: false }) },
+      onChanged: { addListener() {} }
+    },
+    runtime: {
+      getURL: (path) => new URL('../' + path, location.href).href,
+      onMessage: { addListener: (callback) => messageListeners.push(callback) }
+    }
+  };
+</script>
+<script src="../src/dataset.js"></script>
+<script src="../src/deadlines.js"></script>
+<script src="../src/content.js"></script>
+<script>
+  (async () => {
+    const assert = (condition, message) => { if (!condition) throw new Error(message); };
+    const deadline = Date.now() + 10000;
+    while (!messageListeners.length && Date.now() < deadline) {
+      await new Promise((resolve) => setTimeout(resolve, 20));
+    }
+    assert(messageListeners.length, '拡張機能の初期化');
+    const status = () => {
+      let result;
+      messageListeners[0]({ type: 'wcv-get-status' }, null, (value) => { result = value; });
+      return result;
+    };
+    const rescan = () => messageListeners[0]({ type: 'wcv-rescan' }, null, () => {});
+    const count = () => status().detectedCount;
+    const timetable = document.getElementById('schedule-table');
+    assert(count() === 2, '時間割表の2科目だけを検出し、重複リンクをまとめる');
+    assert(!status().currentCourse && !document.getElementById('wcv-course-info-card'), 'コース一覧で先頭科目を個別科目扱いしない');
+    assert(document.getElementById('wcv-enhanced-timetable'), '時間割を生成する');
+    assert(document.querySelector('.col-sm-9 > #wcv-enhanced-timetable'), '週間時間割を右側の科目カラムに配置する');
+    assert(!document.querySelector('#other-courses .wcv-inline-meta, #notice .wcv-inline-meta'), 'その他のコース・お知らせを照合しない');
+
+    const fallCourses = [
+      ['sba133105', '電磁気学概論', '平野 拓一', '22C'],
+      ['sba131205', '微分積分学(2a)', '笹尾 哲', '11F'],
+      ['sba132209', '電磁気学基礎', '須藤 誠一', '13L'],
+      ['sba134205', '線形代数学(2a)', '出耒 光夫', '12H'],
+      ['sba131309', '物理学及び演習(1)', '三原 国子', '1BL'],
+      ['sba132314', 'プログラミング基礎(a)', '千葉 邦子', '12L'],
+      ['sbz004435', 'プログラミング基礎', '白鳥 成彦', '12M'],
+      ['sba005510', 'ことづくり/ことづくり(1)', '岸 和幸', 'PBL教室']
+    ];
+    timetable.innerHTML = '<tbody><tr><td>' + fallCourses.map(([code, name]) =>
+      `<a href="/webclass/course.php/26${code}/login?acs_=fixture-${code}">${name}(2026年度後期)_${code}</a>`
+    ).join('') + '</td></tr></tbody>';
+    rescan();
+    assert(count() === 8, '実際の後期8科目を検出する');
+    assert(document.querySelectorAll('#wcv-enhanced-timetable .wcv-timetable-course-card').length === 13, '後期8科目を13枠に配置する');
+    assert(!document.querySelector('#wcv-enhanced-timetable .wcv-irregular-course'), '後期科目を未照合扱いしない');
+    for (const [code, , teacher, room] of fallCourses) {
+      const card = document.querySelector(`#wcv-enhanced-timetable [data-course-code="${code}"]`);
+      assert(card && card.textContent.includes(teacher) && card.textContent.includes(room), `${code}の担当・教室を表示する`);
+      const sourceLink = timetable.querySelector(`a[href*="26${code}/login"]`);
+      for (const titleLink of document.querySelectorAll(`#wcv-enhanced-timetable [data-course-code="${code}"] .wcv-course-page-link`)) {
+        assert(titleLink.href === sourceLink.href, `${code}の元のクラス・年度・クエリを保ったリンクにする`);
+      }
+    }
+    assert(document.querySelectorAll('#wcv-enhanced-timetable .wcv-course-page-link').length === 13, '全13枠の科目名からコースへ移動できる');
+    if (new URLSearchParams(location.search).has('preview')) {
+      document.getElementById('test-result').textContent = 'PREVIEW: 科目名のリンクからコースページへ移動できます';
+      return;
+    }
+
+    timetable.innerHTML = '<tbody><tr><td><a href="https://webclass.tcu.ac.jp/webclass/course.php/26saa142102/login">選択学期の別科目_saa142102</a></td></tr></tbody>';
+    // Exercise the real MutationObserver used when WebClass changes semesters.
+    const updateDeadline = Date.now() + 5000;
+    while (count() !== 1 && Date.now() < updateDeadline) {
+      await new Promise((resolve) => setTimeout(resolve, 30));
+    }
+    assert(count() === 1, '学期切り替えで科目を置換する');
+    assert(document.querySelector('#wcv-enhanced-timetable [data-course-code="saa142102"]'), '新しい学期の科目を表示する');
+    assert(!document.querySelector('#wcv-enhanced-timetable [data-course-code="saa132209"]'), '前の学期の科目を残さない');
+
+    timetable.replaceChildren();
+    rescan();
+    assert(count() === 0 && !document.getElementById('wcv-enhanced-timetable'), '空の時間割でその他のコースへフォールバックしない');
+    timetable.remove();
+    rescan();
+    assert(count() === 0 && !document.getElementById('wcv-enhanced-timetable'), '時間割表がないコース一覧でも混入させない');
+
+    document.getElementById('main').innerHTML = '<h1 data-course-code="saa132209">電子回路</h1>';
+    rescan();
+    assert(status().currentCourse === '電子回路' && document.getElementById('wcv-course-info-card'), '個別コースの情報カードを維持する');
+    assert(!document.getElementById('wcv-enhanced-timetable'), '個別コースで履修時間割を推測しない');
+
+    const originalPath = location.pathname;
+    document.getElementById('main').insertAdjacentHTML('beforeend', '<a href="/webclass/course.php/26saa132209/contents/example/">詳細</a><textarea id="report-draft">入力中のレポート</textarea>');
+    for (const path of ['/webclass/course.php/26saa132209/', '/webclass/course.php/26saa132209/my-reports', '/webclass/course.php/26saa132209/contents/example/']) {
+      history.replaceState(null, '', path);
+      rescan();
+      assert(count() === 0 && !status().currentCourse, '教材・レポート画面で授業情報を検出しない');
+      assert(!document.querySelector('.wcv-inline-meta, #wcv-course-info-card, #wcv-launcher, #wcv-panel, #wcv-enhanced-timetable'), '教材・レポート画面の補助表示をすべて除去する');
+      assert(document.getElementById('report-draft').value === '入力中のレポート', 'レポートの入力内容を維持する');
+    }
+    history.replaceState(null, '', originalPath);
+
+    document.getElementById('test-result').textContent = 'PASS: 全13枠の科目リンク・後期8科目の教室・担当・履修範囲・学期切り替え・レポート画面';
+    document.body.dataset.testStatus = 'passed';
+  })().catch((error) => {
+    document.getElementById('test-result').textContent = 'FAIL: ' + error.message;
+    document.body.dataset.testStatus = 'failed';
+    console.error(error);
+  });
+</script>
+</body>
+</html>

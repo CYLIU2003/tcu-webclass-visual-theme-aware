@@ -24,7 +24,7 @@ def require(condition: bool, message: str) -> None:
 def main() -> None:
     manifest = json.loads((ROOT / "manifest.json").read_text(encoding="utf-8"))
     require(manifest.get("manifest_version") == 3, "manifest_version must be 3")
-    require(manifest.get("version") == "0.6.0", "extension version must be 0.6.0")
+    require(manifest.get("version") == "0.7.0", "extension version must be 0.7.0")
     require(manifest.get("host_permissions") == ["https://webclass.tcu.ac.jp/*"], "host scope must remain limited to WebClass")
     require(bool(manifest.get("content_scripts")), "content_scripts is missing")
     extension_resources = {resource for group in manifest.get("web_accessible_resources", []) for resource in group.get("resources", [])}
@@ -37,11 +37,11 @@ def main() -> None:
     scope = dataset.get("scope") or {}
     courses = data.get("courses")
     require(isinstance(courses, list) and courses, "courses must be a non-empty array")
-    require(len(courses) == 2556, f"expected 2556 unique courses, got {len(courses)}")
+    require(len(courses) == 3736, f"expected 3736 unique courses, got {len(courses)}")
     require(scope.get("uniqueCourses") == len(courses), "scope.uniqueCourses mismatch")
-    require(scope.get("rawOccurrences") == 5569, "raw occurrence count mismatch")
-    require(scope.get("timetablePages") == 107, "timetable page count mismatch")
-    require(len(scope.get("sourceDocuments") or []) == 5, "five source documents are required")
+    require(scope.get("rawOccurrences") == 10077, "raw occurrence count mismatch")
+    require(scope.get("timetablePages") == 196, "timetable page count mismatch")
+    require(len(scope.get("sourceDocuments") or []) == 18, "twelve timetables and six correction notices are required")
     require(report.get("summary", {}).get("uniqueCourses") == len(courses), "report summary mismatch")
 
     period_profiles = dataset.get("periodProfiles") or {}
@@ -80,7 +80,7 @@ def main() -> None:
         require(isinstance(course.get("campuses"), list), f"{name}: campuses must be an array")
         require(isinstance(course.get("scheduleTypes"), list), f"{name}: scheduleTypes must be an array")
 
-    require(no_instructor == ["sbb001518"], f"unexpected courses without instructors: {no_instructor}")
+    require(no_instructor == ["sba132210", "sbb515315"], f"unexpected courses without instructors: {no_instructor}")
 
     history = json.loads((ROOT / "data" / "historical-course-row-evidence.json").read_text(encoding="utf-8"))
     require(history.get("schemaVersion") == 2, "historical evidence schemaVersion must be 2")
@@ -144,6 +144,42 @@ def main() -> None:
         require(row.get("reviewStatus") != "unreviewed-text-extraction" or row.get("titleStatus") != "visually-reviewed", "unreviewed title was marked visually reviewed")
     require(reviewed_row_occurrences == 23 and unreviewed_row_occurrences == 13179, "historical row review-state totals mismatch")
 
+    fall_section = history.get("currentFallCandidates") or {}
+    fall_summary = fall_section.get("summary") or {}
+    fall_rows = fall_section.get("records")
+    fall_sources = fall_section.get("sources")
+    require(isinstance(fall_rows, list) and len(fall_rows) == 2053, f"expected 2053 currentFallCandidates grouped rows, got {len(fall_rows) if isinstance(fall_rows, list) else None}")
+    require(isinstance(fall_sources, list) and len(fall_sources) == 6, "currentFallCandidates must have 6 official 2026 fall PDF sources")
+    require(fall_summary.get("sourceOccurrences") == 4360, "2026 fall source occurrence count mismatch")
+    require(fall_summary.get("visuallyReviewedOccurrences") == 12, "2026 fall visually reviewed count mismatch")
+    require(fall_summary.get("unreviewedOccurrences") == 4348, "2026 fall unreviewed count mismatch")
+    require(fall_summary.get("candidatePairs") == 1885, "2026 fall candidate pair count mismatch")
+    require(fall_summary.get("baseSnapshotMatchedPairs") == 699 and fall_summary.get("baseSnapshotUnmatchedPairs") == 1186, "2026 fall snapshot match counts mismatch")
+    for row in fall_rows:
+        require(row.get("academicYear") == 2026, "non-2026 row in currentFallCandidates")
+        require(CODE_RE.fullmatch(str(row.get("courseCode", ""))) is not None, "invalid course code in currentFallCandidates")
+        require(str(row.get("source", {}).get("url", "")).startswith("https://www.asc.tcu.ac.jp/"), "currentFallCandidates source URL must be official HTTPS")
+
+    corr_section = history.get("correctionEvents") or {}
+    corr_summary = corr_section.get("summary") or {}
+    corr_rows = corr_section.get("records")
+    corr_sources = corr_section.get("sources")
+    require(isinstance(corr_rows, list) and len(corr_rows) == 69, "expected 69 2026 correction event candidates")
+    require(isinstance(corr_sources, list) and len(corr_sources) == 4, "expected 4 official 2026 correction PDF sources")
+    require(corr_summary.get("eventCount") == 69 and corr_summary.get("appliedCount") == 0, "correctionEvents summary mismatch")
+    for event in corr_rows:
+        require(event.get("reviewStatus") == "unreviewed" and event.get("applied") is False and isinstance(event.get("sourcePage"), int) and event["sourcePage"] > 0, "correctionEvents must remain source-linked unapplied candidates")
+        require(CODE_RE.fullmatch(str(event.get("courseCode", ""))) is not None, "invalid course code in correctionEvents")
+        require(str(event.get("source", {}).get("url", "")).startswith("https://www.asc.tcu.ac.jp/"), "correctionEvents source URL must be official HTTPS")
+
+    guide_section = history.get("studyGuideNavigation") or {}
+    guide_summary = guide_section.get("summary") or {}
+    guides = guide_section.get("guides")
+    require(isinstance(guides, list) and sum(row.get("kind") == "study-guide" for row in guides) == 11, "expected 11 official 2026 study guides")
+    require(sum(row.get("kind") == "curriculum-table" for row in guides) == 3, "expected 3 official 2026 graduate curriculum tables")
+    require(guide_summary.get("totalStudyGuidePages") == 1026 and guide_summary.get("indexedTermPagePairs") == 1030, "studyGuideNavigation page/index counts mismatch")
+    require("not certified" in str(guide_summary.get("status", "")), "studyGuideNavigation must not claim certified requirements")
+
     marketing_rows = {
         row["courseCode"]: row for row in history_rows
         if row["academicYear"] == 2024 and row["courseName"] == "マーケティングリサーチ演習(2)"
@@ -176,16 +212,21 @@ def main() -> None:
         require(required_label in labels, f"department scope missing: {required_label}")
 
     required_files = [
+        ROOT / "src" / "dataset.js",
+        ROOT / "src" / "deadlines.js",
         ROOT / "src" / "content.js",
         ROOT / "src" / "content.css",
         ROOT / "src" / "popup.html",
         ROOT / "src" / "options.html",
         ROOT / "demo" / "preview.html",
+        ROOT / "demo" / "preview-standalone.html",
         ROOT / "demo" / "preview-live-dom.html",
         ROOT / "demo" / "preview-live-dom-standalone.html",
         ROOT / "tests" / "test_live_dom.py",
         ROOT / "docs" / "VALIDATION.md",
+        ROOT / "docs" / "DEADLINE_TEST_REPORT.md",
         ROOT / "data" / "timetable-2026.js",
+        ROOT / "data" / "timetable-changes-2026.json",
         ROOT / "data" / "historical-course-row-evidence.json",
         ROOT / "data" / "build_extension_course_data.py",
         ROOT / "tests" / "build_live_dom_preview.py",

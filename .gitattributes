@@ -5,3 +5,4 @@
 *.sqlite binary
 *.sqlite3 binary
 *.db binary
+data/source-checks/objects/* -text -diff

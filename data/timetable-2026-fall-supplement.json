@@ -1,0 +1,596 @@
+{
+  "schemaVersion": 2,
+  "dataset": {
+    "id": "undergraduate-setagaya-fall-supplement",
+    "academicYear": 2026,
+    "title": "2026年度 世田谷・学部 後期 補完（8科目）",
+    "verifiedAt": "2026-10-13",
+    "source": {
+      "id": "undergraduate-setagaya-fall-supplement",
+      "document": "2026年度 学部授業時間表（世田谷キャンパス・後期、9/10更新）",
+      "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/63645e5e27f2b67bd54fe4fbf71e6ed9.pdf",
+      "fileName": "63645e5e27f2b67bd54fe4fbf71e6ed9.pdf",
+      "sha256": "c007f318b8e2574a15a799a2f503e5b8082d666b7ad10275ffd5fef9dc0ef705",
+      "level": "学部",
+      "scope": "世田谷キャンパス・学部（8科目の補完）",
+      "pagesUsed": [
+        7,
+        8,
+        56,
+        61
+      ]
+    },
+    "changesChecked": {
+      "updatedAt": "2026-10-06",
+      "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sha256": "39cfdb15159ffbbb0bb29689f7b3236af9907923af600a8db3c93aab2ba3d7ed",
+      "affectedCourseCodes": []
+    }
+  },
+  "courses": [
+    {
+      "academicYear": 2026,
+      "courseCode": "sba133105",
+      "courseName": "電磁気学概論",
+      "aliases": [],
+      "instructors": [
+        "平野 拓一"
+      ],
+      "level": "学部",
+      "semester": "後期",
+      "semesters": [
+        "後期"
+      ],
+      "termBlock": "後期前",
+      "termBlocks": [
+        "後期前"
+      ],
+      "campuses": [
+        "世田谷キャンパス"
+      ],
+      "departments": [
+        {
+          "code": "電通",
+          "label": "電気電子通信工学科",
+          "sourceGroup": "世田谷キャンパス・学部"
+        }
+      ],
+      "category": "専門科目",
+      "scheduleTypes": [
+        "通常"
+      ],
+      "meetings": [
+        {
+          "day": "水",
+          "period": 1,
+          "room": "22C",
+          "rooms": [
+            "22C"
+          ],
+          "termBlock": "後期前",
+          "campus": "世田谷キャンパス",
+          "timeProfile": "standard"
+        },
+        {
+          "day": "水",
+          "period": 2,
+          "room": "22C",
+          "rooms": [
+            "22C"
+          ],
+          "termBlock": "後期前",
+          "campus": "世田谷キャンパス",
+          "timeProfile": "standard"
+        }
+      ],
+      "source": {
+        "document": "2026年度 学部授業時間表（世田谷キャンパス・後期、9/10更新）",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/63645e5e27f2b67bd54fe4fbf71e6ed9.pdf",
+        "pages": [
+          8
+        ]
+      },
+      "sources": [
+        {
+          "id": "undergraduate-setagaya-fall-supplement",
+          "document": "2026年度 学部授業時間表（世田谷キャンパス・後期、9/10更新）",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/63645e5e27f2b67bd54fe4fbf71e6ed9.pdf",
+          "pages": [
+            8
+          ]
+        }
+      ],
+      "notes": []
+    },
+    {
+      "academicYear": 2026,
+      "courseCode": "sba131205",
+      "courseName": "微分積分学(2a)",
+      "aliases": [],
+      "instructors": [
+        "笹尾 哲"
+      ],
+      "level": "学部",
+      "semester": "後期",
+      "semesters": [
+        "後期"
+      ],
+      "termBlock": "後期前",
+      "termBlocks": [
+        "後期前"
+      ],
+      "campuses": [
+        "世田谷キャンパス"
+      ],
+      "departments": [
+        {
+          "code": "電通",
+          "label": "電気電子通信工学科",
+          "sourceGroup": "世田谷キャンパス・学部"
+        }
+      ],
+      "category": "基礎科目",
+      "scheduleTypes": [
+        "通常"
+      ],
+      "meetings": [
+        {
+          "day": "月",
+          "period": 2,
+          "room": "11F",
+          "rooms": [
+            "11F"
+          ],
+          "termBlock": "後期前",
+          "campus": "世田谷キャンパス",
+          "timeProfile": "standard"
+        }
+      ],
+      "source": {
+        "document": "2026年度 学部授業時間表（世田谷キャンパス・後期、9/10更新）",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/63645e5e27f2b67bd54fe4fbf71e6ed9.pdf",
+        "pages": [
+          7
+        ]
+      },
+      "sources": [
+        {
+          "id": "undergraduate-setagaya-fall-supplement",
+          "document": "2026年度 学部授業時間表（世田谷キャンパス・後期、9/10更新）",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/63645e5e27f2b67bd54fe4fbf71e6ed9.pdf",
+          "pages": [
+            7
+          ]
+        }
+      ],
+      "notes": []
+    },
+    {
+      "academicYear": 2026,
+      "courseCode": "sba132209",
+      "courseName": "電磁気学基礎",
+      "aliases": [],
+      "instructors": [
+        "須藤 誠一"
+      ],
+      "level": "学部",
+      "semester": "後期",
+      "semesters": [
+        "後期"
+      ],
+      "termBlock": "後期前",
+      "termBlocks": [
+        "後期前"
+      ],
+      "campuses": [
+        "世田谷キャンパス"
+      ],
+      "departments": [
+        {
+          "code": "電通",
+          "label": "電気電子通信工学科",
+          "sourceGroup": "世田谷キャンパス・学部"
+        }
+      ],
+      "category": "専門科目",
+      "scheduleTypes": [
+        "通常"
+      ],
+      "meetings": [
+        {
+          "day": "火",
+          "period": 2,
+          "room": "13L",
+          "rooms": [
+            "13L"
+          ],
+          "termBlock": "後期前",
+          "campus": "世田谷キャンパス",
+          "timeProfile": "standard"
+        },
+        {
+          "day": "金",
+          "period": 2,
+          "room": "13L",
+          "rooms": [
+            "13L"
+          ],
+          "termBlock": "後期前",
+          "campus": "世田谷キャンパス",
+          "timeProfile": "standard"
+        }
+      ],
+      "source": {
+        "document": "2026年度 学部授業時間表（世田谷キャンパス・後期、9/10更新）",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/63645e5e27f2b67bd54fe4fbf71e6ed9.pdf",
+        "pages": [
+          7
+        ]
+      },
+      "sources": [
+        {
+          "id": "undergraduate-setagaya-fall-supplement",
+          "document": "2026年度 学部授業時間表（世田谷キャンパス・後期、9/10更新）",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/63645e5e27f2b67bd54fe4fbf71e6ed9.pdf",
+          "pages": [
+            7
+          ]
+        }
+      ],
+      "notes": []
+    },
+    {
+      "academicYear": 2026,
+      "courseCode": "sba134205",
+      "courseName": "線形代数学(2a)",
+      "aliases": [],
+      "instructors": [
+        "出耒 光夫"
+      ],
+      "level": "学部",
+      "semester": "後期",
+      "semesters": [
+        "後期"
+      ],
+      "termBlock": "後期前",
+      "termBlocks": [
+        "後期前"
+      ],
+      "campuses": [
+        "世田谷キャンパス"
+      ],
+      "departments": [
+        {
+          "code": "電通",
+          "label": "電気電子通信工学科",
+          "sourceGroup": "世田谷キャンパス・学部"
+        }
+      ],
+      "category": "基礎科目",
+      "scheduleTypes": [
+        "通常"
+      ],
+      "meetings": [
+        {
+          "day": "木",
+          "period": 2,
+          "room": "12H",
+          "rooms": [
+            "12H"
+          ],
+          "termBlock": "後期前",
+          "campus": "世田谷キャンパス",
+          "timeProfile": "standard"
+        }
+      ],
+      "source": {
+        "document": "2026年度 学部授業時間表（世田谷キャンパス・後期、9/10更新）",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/63645e5e27f2b67bd54fe4fbf71e6ed9.pdf",
+        "pages": [
+          8
+        ]
+      },
+      "sources": [
+        {
+          "id": "undergraduate-setagaya-fall-supplement",
+          "document": "2026年度 学部授業時間表（世田谷キャンパス・後期、9/10更新）",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/63645e5e27f2b67bd54fe4fbf71e6ed9.pdf",
+          "pages": [
+            8
+          ]
+        }
+      ],
+      "notes": []
+    },
+    {
+      "academicYear": 2026,
+      "courseCode": "sba131309",
+      "courseName": "物理学及び演習(1)",
+      "aliases": [],
+      "instructors": [
+        "三原 国子"
+      ],
+      "level": "学部",
+      "semester": "後期",
+      "semesters": [
+        "後期"
+      ],
+      "termBlock": "後期前",
+      "termBlocks": [
+        "後期前"
+      ],
+      "campuses": [
+        "世田谷キャンパス"
+      ],
+      "departments": [
+        {
+          "code": "電通",
+          "label": "電気電子通信工学科",
+          "sourceGroup": "世田谷キャンパス・学部"
+        }
+      ],
+      "category": "基礎科目",
+      "scheduleTypes": [
+        "通常"
+      ],
+      "meetings": [
+        {
+          "day": "月",
+          "period": 3,
+          "room": "1BL",
+          "rooms": [
+            "1BL"
+          ],
+          "termBlock": "後期前",
+          "campus": "世田谷キャンパス",
+          "timeProfile": "standard"
+        },
+        {
+          "day": "月",
+          "period": 4,
+          "room": "1BL",
+          "rooms": [
+            "1BL"
+          ],
+          "termBlock": "後期前",
+          "campus": "世田谷キャンパス",
+          "timeProfile": "standard"
+        },
+        {
+          "day": "木",
+          "period": 3,
+          "room": "1BL",
+          "rooms": [
+            "1BL"
+          ],
+          "termBlock": "後期前",
+          "campus": "世田谷キャンパス",
+          "timeProfile": "standard"
+        },
+        {
+          "day": "木",
+          "period": 4,
+          "room": "1BL",
+          "rooms": [
+            "1BL"
+          ],
+          "termBlock": "後期前",
+          "campus": "世田谷キャンパス",
+          "timeProfile": "standard"
+        }
+      ],
+      "source": {
+        "document": "2026年度 学部授業時間表（世田谷キャンパス・後期、9/10更新）",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/63645e5e27f2b67bd54fe4fbf71e6ed9.pdf",
+        "pages": [
+          7,
+          8
+        ]
+      },
+      "sources": [
+        {
+          "id": "undergraduate-setagaya-fall-supplement",
+          "document": "2026年度 学部授業時間表（世田谷キャンパス・後期、9/10更新）",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/63645e5e27f2b67bd54fe4fbf71e6ed9.pdf",
+          "pages": [
+            7,
+            8
+          ]
+        }
+      ],
+      "notes": []
+    },
+    {
+      "academicYear": 2026,
+      "courseCode": "sba132314",
+      "courseName": "プログラミング基礎(a)",
+      "aliases": [],
+      "instructors": [
+        "千葉 邦子"
+      ],
+      "level": "学部",
+      "semester": "後期",
+      "semesters": [
+        "後期"
+      ],
+      "termBlock": "後期前",
+      "termBlocks": [
+        "後期前"
+      ],
+      "campuses": [
+        "世田谷キャンパス"
+      ],
+      "departments": [
+        {
+          "code": "電通",
+          "label": "電気電子通信工学科",
+          "sourceGroup": "世田谷キャンパス・学部"
+        }
+      ],
+      "category": "基礎科目",
+      "scheduleTypes": [
+        "通常"
+      ],
+      "meetings": [
+        {
+          "day": "火",
+          "period": 3,
+          "room": "12L",
+          "rooms": [
+            "12L"
+          ],
+          "termBlock": "後期前",
+          "campus": "世田谷キャンパス",
+          "timeProfile": "standard"
+        }
+      ],
+      "source": {
+        "document": "2026年度 学部授業時間表（世田谷キャンパス・後期、9/10更新）",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/63645e5e27f2b67bd54fe4fbf71e6ed9.pdf",
+        "pages": [
+          7
+        ]
+      },
+      "sources": [
+        {
+          "id": "undergraduate-setagaya-fall-supplement",
+          "document": "2026年度 学部授業時間表（世田谷キャンパス・後期、9/10更新）",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/63645e5e27f2b67bd54fe4fbf71e6ed9.pdf",
+          "pages": [
+            7
+          ]
+        }
+      ],
+      "notes": []
+    },
+    {
+      "academicYear": 2026,
+      "courseCode": "sbz004435",
+      "courseName": "プログラミング基礎",
+      "aliases": [],
+      "instructors": [
+        "白鳥 成彦"
+      ],
+      "level": "学部",
+      "semester": "後期",
+      "semesters": [
+        "後期"
+      ],
+      "termBlock": "後期",
+      "termBlocks": [
+        "後期"
+      ],
+      "campuses": [
+        "世田谷キャンパス"
+      ],
+      "departments": [
+        {
+          "code": "共通",
+          "label": "共通科目",
+          "sourceGroup": "世田谷キャンパス・学部"
+        }
+      ],
+      "category": "基礎科目",
+      "scheduleTypes": [
+        "通常"
+      ],
+      "meetings": [
+        {
+          "day": "木",
+          "period": 4,
+          "room": "12M",
+          "rooms": [
+            "12M"
+          ],
+          "termBlock": "後期",
+          "campus": "世田谷キャンパス",
+          "timeProfile": "standard"
+        }
+      ],
+      "source": {
+        "document": "2026年度 学部授業時間表（世田谷キャンパス・後期、9/10更新）",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/63645e5e27f2b67bd54fe4fbf71e6ed9.pdf",
+        "pages": [
+          56
+        ]
+      },
+      "sources": [
+        {
+          "id": "undergraduate-setagaya-fall-supplement",
+          "document": "2026年度 学部授業時間表（世田谷キャンパス・後期、9/10更新）",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/63645e5e27f2b67bd54fe4fbf71e6ed9.pdf",
+          "pages": [
+            56
+          ]
+        }
+      ],
+      "notes": []
+    },
+    {
+      "academicYear": 2026,
+      "courseCode": "sba005510",
+      "courseName": "ことづくり",
+      "aliases": [
+        "ことづくり(1)",
+        "ことづくり/ことづくり(1)"
+      ],
+      "instructors": [
+        "岸 和幸"
+      ],
+      "level": "学部",
+      "semester": "後期",
+      "semesters": [
+        "後期"
+      ],
+      "termBlock": "後期前",
+      "termBlocks": [
+        "後期前"
+      ],
+      "campuses": [
+        "世田谷キャンパス"
+      ],
+      "departments": [
+        {
+          "code": "共通",
+          "label": "共通科目",
+          "sourceGroup": "世田谷キャンパス・学部"
+        }
+      ],
+      "category": "基礎科目",
+      "scheduleTypes": [
+        "通常"
+      ],
+      "meetings": [
+        {
+          "day": "金",
+          "period": 5,
+          "room": "PBL教室",
+          "rooms": [
+            "PBL教室"
+          ],
+          "termBlock": "後期前",
+          "campus": "世田谷キャンパス",
+          "timeProfile": "standard"
+        }
+      ],
+      "source": {
+        "document": "2026年度 学部授業時間表（世田谷キャンパス・後期、9/10更新）",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/63645e5e27f2b67bd54fe4fbf71e6ed9.pdf",
+        "pages": [
+          61
+        ]
+      },
+      "sources": [
+        {
+          "id": "undergraduate-setagaya-fall-supplement",
+          "document": "2026年度 学部授業時間表（世田谷キャンパス・後期、9/10更新）",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/63645e5e27f2b67bd54fe4fbf71e6ed9.pdf",
+          "pages": [
+            61
+          ]
+        }
+      ],
+      "notes": []
+    }
+  ]
+}

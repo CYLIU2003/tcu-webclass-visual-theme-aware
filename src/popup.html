@@ -57,18 +57,18 @@
           <span class="switch" aria-hidden="true"></span>
         </label>
         <label class="toggle-row">
-          <span><strong>時間割をカード表示</strong><small>元の時間割・お知らせ・コース一覧を見やすく</small></span>
+          <span><strong>参加しているコースをカード表示</strong><small>元の時間割に教場・担当先生・講義コードを統合表示</small></span>
           <input id="modernizeNativeLayout" type="checkbox">
           <span class="switch" aria-hidden="true"></span>
         </label>
         <label class="toggle-row">
-          <span><strong>科目名の下にバッジ表示</strong><small>教室・担当・曜日時限</small></span>
+          <span><strong>その他のコースにも補足表示</strong><small>時間割外の科目にも教場・担当先生・曜日時限を表示</small></span>
           <input id="showInlineMetadata" type="checkbox">
           <span class="switch" aria-hidden="true"></span>
         </label>
         <label class="toggle-row">
-          <span><strong>週間時間割を別に追加</strong><small>必要な人だけ。通常はオフでOK</small></span>
-          <input id="showEnhancedTimetable" type="checkbox">
+          <span><strong>締め切りが近い課題</strong><small>ホーム左側に1週間以内の課題を表示</small></span>
+          <input id="showDeadlineList" type="checkbox">
           <span class="switch" aria-hidden="true"></span>
         </label>
       </div>
@@ -88,6 +88,7 @@
     <button id="openOptions" class="secondary" type="button">詳細設定</button>
   </footer>
 
+  <script src="dataset.js"></script>
   <script src="popup.js"></script>
 </body>
 </html>

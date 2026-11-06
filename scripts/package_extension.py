@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build a small, deterministic, installable v0.6.0 extension archive."""
+"""Build a small, deterministic, installable v0.7.0 extension archive."""
 
 from __future__ import annotations
 
@@ -11,7 +11,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = "0.6.0"
+VERSION = "0.7.0"
 ARCHIVE_ROOT = "tcu-webclass-visual-theme-aware"
 OUTPUT = ROOT.parent / f"TCU_WebClass_Visual_Theme_Aware_v{VERSION}.zip"
 
@@ -25,11 +25,15 @@ PACKAGE_FILES = (
     "data/timetable-2026.json",
     "data/historical-course-row-evidence.json",
     "docs/DATA_COVERAGE.md",
+    "docs/DATA_SCHEMA.md",
+    "docs/DEADLINE_TEST_REPORT.md",
     "docs/EXTENSION_DATABASE_INTEGRATION.md",
     "icons/icon16.png",
     "icons/icon48.png",
     "icons/icon128.png",
     "src/background.js",
+    "src/dataset.js",
+    "src/deadlines.js",
     "src/content.css",
     "src/content.js",
     "src/options.css",
@@ -106,6 +110,22 @@ def validate_package_files() -> list[tuple[str, Path]]:
             raise ValueError("visually reviewed rows require the expected review method")
         if row.get("reviewStatus") == "unreviewed-text-extraction" and row.get("reviewMethod"):
             raise ValueError("unreviewed rows must not claim a review method")
+
+    fall_section = history.get("currentFallCandidates", {})
+    fall_summary = fall_section.get("summary", {})
+    if fall_summary.get("sourceOccurrences") != 4360 or fall_summary.get("visuallyReviewedOccurrences") != 12 or len(fall_section.get("records", [])) != 2053:
+        raise ValueError("currentFallCandidates summary/records mismatch")
+
+    corr_section = history.get("correctionEvents", {})
+    corr_summary = corr_section.get("summary", {})
+    if corr_summary.get("eventCount") != 69 or corr_summary.get("appliedCount") != 0 or len(corr_section.get("records", [])) != 69:
+        raise ValueError("correctionEvents summary/records mismatch")
+
+    guide_section = history.get("studyGuideNavigation", {})
+    guide_summary = guide_section.get("summary", {})
+    guides = guide_section.get("guides", [])
+    if sum(g.get("kind") == "study-guide" for g in guides) != 11 or sum(g.get("kind") == "curriculum-table" for g in guides) != 3 or guide_summary.get("totalStudyGuidePages") != 1026 or guide_summary.get("indexedTermPagePairs") != 1030:
+        raise ValueError("studyGuideNavigation summary/guides mismatch")
 
     return files
 

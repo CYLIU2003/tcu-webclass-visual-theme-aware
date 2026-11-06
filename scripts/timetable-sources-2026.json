@@ -1,0 +1,25 @@
+{
+  "academicYear": 2026,
+  "checkedAt": "2026-10-15",
+  "listingPages": ["https://www.asc.tcu.ac.jp/7567/", "https://www.asc.tcu.ac.jp/7580/", "https://www.asc.tcu.ac.jp/8007/"],
+  "sources": [
+    {"id":"ug-setagaya-spring","group":"世田谷キャンパス・学部","level":"学部","campus":"世田谷キャンパス","semester":"前期","type":"timetable","url":"https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/bdd00cb5d971b29dcea530b6758858ef.pdf"},
+    {"id":"ug-setagaya-fall","group":"世田谷キャンパス・学部","level":"学部","campus":"世田谷キャンパス","semester":"後期","type":"timetable","url":"https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/63645e5e27f2b67bd54fe4fbf71e6ed9.pdf"},
+    {"id":"ug-yokohama-spring","group":"横浜キャンパス・学部","level":"学部","campus":"横浜キャンパス","semester":"前期","type":"timetable","url":"https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/9c74fabca74255b40c7b0937b4083631.pdf"},
+    {"id":"ug-yokohama-fall","group":"横浜キャンパス・学部","level":"学部","campus":"横浜キャンパス","semester":"後期","type":"timetable","url":"https://www.asc.tcu.ac.jp/wp-content/uploads/2026/09/0a9c574cbf104dc50b2678fe33f1dc55.pdf"},
+    {"id":"grad-science-spring","group":"総合理工学研究科","level":"大学院","campus":"世田谷キャンパス","semester":"前期","type":"timetable","url":"https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/45f62652853be3c046219378c75c02e4.pdf"},
+    {"id":"grad-science-fall","group":"総合理工学研究科","level":"大学院","campus":"世田谷キャンパス","semester":"後期","type":"timetable","url":"https://www.asc.tcu.ac.jp/wp-content/uploads/2026/09/fb6e01051e507fba8682b137a39a7151.pdf"},
+    {"id":"grad-urban-spring","group":"環境情報学研究科・都市生活学専攻","level":"大学院","campus":"世田谷キャンパス","semester":"前期","type":"timetable","url":"https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/a4da3651bc4018e9dc16f2311af941b4.pdf"},
+    {"id":"grad-urban-fall","group":"環境情報学研究科・都市生活学専攻","level":"大学院","campus":"世田谷キャンパス","semester":"後期","type":"timetable","url":"https://www.asc.tcu.ac.jp/wp-content/uploads/2026/09/87e1e51603db9ddc780e1433cfdc3625.pdf"},
+    {"id":"grad-environment-spring","group":"環境情報学研究科","level":"大学院","campus":"横浜キャンパス","semester":"前期","type":"timetable","url":"https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/20ef6bb7920bc38870a5898b50e40f74-1.pdf"},
+    {"id":"grad-environment-fall","group":"環境情報学研究科","level":"大学院","campus":"横浜キャンパス","semester":"後期","type":"timetable","url":"https://www.asc.tcu.ac.jp/wp-content/uploads/2026/09/6182ba786547bd1f1b4947262c64221f.pdf"},
+    {"id":"grad-data-spring","group":"情報データ科学研究科","level":"大学院","campus":"横浜キャンパス","semester":"前期","type":"timetable","url":"https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/8f0e6e5654ede6e1d81aee0e7c74d4ea.pdf"},
+    {"id":"grad-data-fall","group":"情報データ科学研究科","level":"大学院","campus":"横浜キャンパス","semester":"後期","type":"timetable","url":"https://www.asc.tcu.ac.jp/wp-content/uploads/2026/09/f3b503ba92b2d5a2e42ffe86157093bd.pdf"},
+    {"id":"changes-ug-setagaya-spring","group":"世田谷キャンパス・学部","semester":"前期","type":"changes","url":"https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf"},
+    {"id":"changes-ug-setagaya-fall","group":"世田谷キャンパス・学部","semester":"後期","type":"changes","url":"https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf"},
+    {"id":"changes-ug-yokohama-spring","group":"横浜キャンパス・学部","semester":"前期","type":"changes","url":"https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf"},
+    {"id":"changes-ug-yokohama-fall","group":"横浜キャンパス・学部","semester":"後期","type":"changes","url":"https://www.asc.tcu.ac.jp/wp-content/uploads/2026/09/784127dbe596d739b8ba023bdbb2a67e.pdf"},
+    {"id":"changes-grad-science-fall","group":"総合理工学研究科","semester":"後期","type":"changes","url":"https://www.asc.tcu.ac.jp/wp-content/uploads/2026/09/7d1654a86fec3147e07d63b0039f7c3e-1.pdf"},
+    {"id":"changes-grad-environment-fall","group":"環境情報学研究科","semester":"後期","type":"changes","url":"https://www.asc.tcu.ac.jp/wp-content/uploads/2026/09/8967e5f80a13d5b55b64b970039ee4fb.pdf"}
+  ]
+}

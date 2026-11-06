@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="ja"><meta charset="utf-8">
+<title>課題一覧：履修組み合わせテスト</title>
+<link rel="stylesheet" href="/src/content.css">
+<style>
+body { margin: 20px; font-family: system-ui, sans-serif; }
+#fixture { max-width: 1200px; }
+.row { display: flex; gap: 20px; }
+.col-sm-3 { width: 280px; flex-shrink: 0; }
+.col-sm-9 { flex: 1; min-width: 0; }
+@media (max-width: 767px) { .row { display: block; } .col-sm-3 { width: 100%; } }
+</style>
+<body>
+<h1>課題一覧：履修組み合わせテスト</h1>
+<p>科目名・IDは同梱データ、課題・成績はすべて架空です。</p>
+<p id="test-result">実行中…</p>
+<ol id="results"></ol>
+<main id="fixture"></main>
+<script src="/src/deadlines.js"></script>
+<script type="module" src="/tests/deadline-matrix.mjs"></script>
+</body></html>

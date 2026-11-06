@@ -6,7 +6,7 @@
     restyle: true,
     modernizeNativeLayout: true,
     showInlineMetadata: true,
-    showEnhancedTimetable: false,
+    showDeadlineList: true,
     showSidebarTools: true,
     showFloatingPanel: true,
     showSourceLabel: true,
@@ -18,7 +18,7 @@
     "restyle",
     "modernizeNativeLayout",
     "showInlineMetadata",
-    "showEnhancedTimetable",
+    "showDeadlineList",
     "showSidebarTools",
     "showFloatingPanel",
     "showSourceLabel"
@@ -116,29 +116,37 @@
 
   async function loadBundledData() {
     try {
-      const [response, historyResponse] = await Promise.all([
-        fetch(chrome.runtime.getURL("data/timetable-2026.json")),
+      const [data, historyResponse] = await Promise.all([
+        globalThis.WCV_DATA ? globalThis.WCV_DATA.load() : fetch(chrome.runtime.getURL("data/timetable-2026.json")).then((r) => r.json()),
         fetch(chrome.runtime.getURL("data/historical-course-row-evidence.json"))
       ]);
-      if (!response.ok) throw new Error(`時間割データ: HTTP ${response.status}`);
       if (!historyResponse.ok) throw new Error(`過年度データ: HTTP ${historyResponse.status}`);
-      const [data, history] = await Promise.all([response.json(), historyResponse.json()]);
+      const history = await historyResponse.json();
       const scope = data.dataset?.scope || {};
       const count = scope.uniqueCourses || (Array.isArray(data.courses) ? data.courses.length : 0);
       const departmentLabels = Array.from(new Set((scope.departments || []).map((item) => item.label).filter(Boolean)));
       const generatedDate = String(data.dataset?.generatedAt || "").slice(0, 10);
-      datasetSummary.textContent = `${data.dataset?.title || "時間割データ"}：${count}科目、${scope.sourceDocuments?.length || 0}資料、${scope.timetablePages || 0}頁を収録。対象は${departmentLabels.length}学科・研究科区分、${(scope.campuses || []).join("・")}。${generatedDate ? `${generatedDate}生成の` : ""}調査用スナップショットです。`;
+      const fallSummary = history.currentFallCandidates?.summary || {};
+      const fallOccurrences = Number(fallSummary.sourceOccurrences) || 0;
+      const fallReviewed = Number(fallSummary.visuallyReviewedOccurrences) || 0;
+      const fallUnmatched = Number(fallSummary.baseSnapshotUnmatchedPairs) || 0;
+      const corrCount = Number(history.correctionEvents?.summary?.eventCount) || 0;
+      datasetSummary.textContent = `${data.dataset?.title || "時間割データ"}：${count.toLocaleString("ja-JP")}科目（${scope.sourceDocuments?.length || 0}資料・${scope.timetablePages || 0}頁、${departmentLabels.length}学科・研究科区分、${(scope.campuses || []).join("・")}）。2026後期PDF候補${fallOccurrences.toLocaleString("ja-JP")}行（目視確認${fallReviewed}件）と訂正表候補${corrCount}件は別途表示します。旧2,556科目版との照合では${fallUnmatched.toLocaleString("ja-JP")}組が未収録でした。${generatedDate ? `（${generatedDate}生成）` : ""}`;
       const years = Array.isArray(history.summary?.academicYears) ? history.summary.academicYears.join("・") : "";
       const candidates = Number(history.summary?.sourceOccurrences) || 0;
       const reviewed = Number(history.summary?.visuallyReviewedOccurrences) || 0;
       const unreviewed = Number(history.summary?.unreviewedOccurrences) || 0;
+      const guideSummary = history.studyGuideNavigation?.summary || {};
+      const guideCount = Number(guideSummary.studyGuideCount) || 0;
+      const guidePages = Number(guideSummary.totalStudyGuidePages) || 0;
+      const guideIndexed = Number(guideSummary.indexedTermPagePairs) || 0;
       const pastText = candidates
         ? `過年度${years || "一部年度"}のPDF掲載行${candidates.toLocaleString("ja-JP")}件を授業詳細に候補表示します（目視確認${reviewed.toLocaleString("ja-JP")}件、未確認${unreviewed.toLocaleString("ja-JP")}件）。`
         : "過年度の時間割行候補はありません。";
-      const guideText = history.database?.curriculumStatus === "not-populated"
-        ? "履修要覧のPDF・要件データは未登録です。"
-        : "履修要覧の要件データは確認中です。";
-      datasetQuality.textContent = `現行時間割との全件照合は未完了です。${pastText}未確認候補は公式PDFで確認してください。${guideText}最新の休講・教室変更はWebClassのお知らせを優先してください。`;
+      const guideText = guideCount
+        ? `2026年度履修要覧${guideCount}冊（計${guidePages.toLocaleString("ja-JP")}頁・用語索引${guideIndexed.toLocaleString("ja-JP")}件）のPDFページ案内を収録していますが、確定した卒業・履修要件構造化データは未登録（0件）です。`
+        : "履修要覧のPDF・要件データは未登録です。";
+      datasetQuality.textContent = `現行時間割との全件照合は未完了です。${pastText}未確認候補や訂正表候補は公式PDFで確認してください。${guideText}最新の休講・教室変更はWebClassのお知らせを優先してください。`;
     } catch (error) {
       datasetSummary.textContent = `時間割データを読み込めませんでした: ${error.message}`;
       datasetQuality.textContent = "拡張機能を再読み込みしてから、この設定画面を開き直してください。";

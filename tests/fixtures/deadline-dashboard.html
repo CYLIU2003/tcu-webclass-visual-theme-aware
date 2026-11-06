@@ -1,0 +1,97 @@
+<!doctype html><html lang="ja"><meta charset="utf-8"><title>課題実施状況一覧（テスト用）</title>
+<body><h1>課題実施状況一覧</h1><div id="app"></div>
+<script>
+  const now = Date.now();
+  const format = (offset) => new Date(now + offset + 9 * 3600000).toISOString().slice(0, 16).replace('T', ' ');
+  const day = 86400000;
+  const rows = [
+    ['今日のレポート', format(2 * 3600000), format(-day), '-'],
+    ['予習未回答', format(2 * day), '-', '未回答'],
+    ['提出済み課題', format(3 * day), format(-day), '提出済み'],
+    ['期限切れ課題', format(-day), '-', '未提出'],
+    ['来週以降の課題', format(10 * day), '-', '未提出'],
+    ['締切不明', '-', '-', '-'],
+    ['不正な日付', '2026-02-30 23:59', '-', '-']
+  ];
+  function course(id, name) {
+    const block = document.createElement('div');
+    const heading = document.createElement('a');
+    heading.href = '/webclass/course.php/' + id + '/login';
+    heading.textContent = name;
+    block.append(heading);
+    document.getElementById('app').append(block);
+    return block;
+  }
+  function assignments(block, entries) {
+    const tableWrap = document.createElement('div');
+    const table = document.createElement('table');
+    table.innerHTML = '<thead><tr><th>教材</th><th>締切</th><th>実施日</th><th>最高点</th><th>状態</th></tr></thead><tbody></tbody>';
+    tableWrap.append(table);
+    block.append(tableWrap);
+    if (entries) fillAssignments(table, entries);
+    return table;
+  }
+  function fillAssignments(table, entries) {
+    table.tBodies[0].replaceChildren();
+    if (!entries.length) {
+      const row = table.tBodies[0].insertRow();
+      const cell = row.insertCell();
+      cell.colSpan = 5;
+      cell.textContent = '教材はありません。';
+    }
+    for (const [title, deadline, executed, status] of entries) {
+      const row = document.createElement('tr');
+      for (const value of [title, deadline, executed, '使用しない成績情報', status]) {
+        const cell = document.createElement('td');
+        cell.textContent = value;
+        if (value === '授業評価アンケート (link)') {
+          const link = document.createElement('a');
+          link.href = '/webclass/course.php/evaluation/login';
+          link.textContent = value;
+          cell.replaceChildren(link);
+        }
+        row.append(cell);
+      }
+      table.tBodies[0].append(row);
+    }
+  }
+  // Course links arrive before their independently loaded assignment tables.
+  const first = course('26sba132209', '電磁気学基礎');
+  const second = course('26sba133105', '電磁気学概論');
+  const previous = course('25sba132209', '前年度の科目');
+  const other = course('b261044', '未履修のスキルテスト');
+  const loadNumber = Number(parent.document.body.dataset.fixtureLoads || 0) + 1;
+  parent.document.body.dataset.fixtureLoads = loadNumber;
+  const mode = parent.document.body.dataset.fixtureMode;
+  // The course already has its header and empty tbody while AJAX is pending.
+  // Its actual rows arrive after the old one-second "stable" window.
+  const secondTable = assignments(second, null);
+  const renderFirst = () => {
+    if (mode === 'partial' || mode === 'failed') return;
+    assignments(first, mode === 'empty' ? [] : [...rows, rows[0]]);
+  };
+  const renderSecond = () => {
+    if (mode !== 'failed' && mode !== 'pending') fillAssignments(secondTable, [
+      ['演習課題', format(3 * day), '-', '未実施'],
+      ['授業評価アンケート (link)', format(10 * day), '-', '-']
+    ]);
+    if (mode === 'row-layout') {
+      const caption = secondTable.tHead.insertRow(0);
+      const cell = document.createElement('th');
+      cell.colSpan = 5;
+      cell.textContent = '教材の実施状況';
+      caption.append(cell);
+      // DOM-created tables can have material rows outside a tbody.
+      const body = secondTable.tBodies[0];
+      secondTable.append(...Array.from(body.rows));
+      body.remove();
+    }
+  };
+  setTimeout(() => {
+    (loadNumber % 2 ? renderFirst : renderSecond)();
+    assignments(previous, [['古い年度の課題', format(day), '-', '未提出']]);
+    assignments(other, [['未履修の課題', format(day), '-', '未提出']]);
+    parent.postMessage('deadline-fixture-loaded', location.origin);
+  }, 200);
+  setTimeout(loadNumber % 2 ? renderSecond : renderFirst, 2400);
+</script></body></html>

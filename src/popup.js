@@ -6,17 +6,17 @@
     restyle: true,
     modernizeNativeLayout: true,
     showInlineMetadata: true,
-    showEnhancedTimetable: false
+    showDeadlineList: true
   };
 
-  const SUB_KEYS = ["restyle", "modernizeNativeLayout", "showInlineMetadata", "showEnhancedTimetable"];
+  const SUB_KEYS = ["restyle", "modernizeNativeLayout", "showInlineMetadata", "showDeadlineList"];
 
   const controls = {
     enabled: document.getElementById("enabled"),
     restyle: document.getElementById("restyle"),
     modernizeNativeLayout: document.getElementById("modernizeNativeLayout"),
     showInlineMetadata: document.getElementById("showInlineMetadata"),
-    showEnhancedTimetable: document.getElementById("showEnhancedTimetable")
+    showDeadlineList: document.getElementById("showDeadlineList")
   };
 
   const statusCard = document.getElementById("statusCard");
@@ -89,32 +89,41 @@
 
   async function loadDatasetSummary() {
     try {
-      const [response, historyResponse] = await Promise.all([
-        fetch(chrome.runtime.getURL("data/timetable-2026.json")),
+      const [data, historyResponse] = await Promise.all([
+        globalThis.WCV_DATA ? globalThis.WCV_DATA.load() : fetch(chrome.runtime.getURL("data/timetable-2026.json")).then((r) => r.json()),
         fetch(chrome.runtime.getURL("data/historical-course-row-evidence.json"))
       ]);
-      if (!response.ok) throw new Error(`時間割 ${response.status}`);
       if (!historyResponse.ok) throw new Error(`過年度資料 ${historyResponse.status}`);
-      const [data, history] = await Promise.all([response.json(), historyResponse.json()]);
+      const history = await historyResponse.json();
       const scope = data.dataset?.scope || {};
       const count = (scope.uniqueCourses || data.courses?.length || 0).toLocaleString("ja-JP");
       const year = data.dataset?.academicYear || 2026;
       const generatedDate = String(data.dataset?.generatedAt || "").slice(0, 10);
-      datasetSummary.textContent = `${year}年度の時間割スナップショット：${count}科目${generatedDate ? `（${generatedDate}生成）` : ""}`;
+      const fallSummary = history.currentFallCandidates?.summary || {};
+      const fallOccurrences = Number(fallSummary.sourceOccurrences) || 0;
+      const fallReviewed = Number(fallSummary.visuallyReviewedOccurrences) || 0;
+      const corrCount = Number(history.correctionEvents?.summary?.eventCount) || 0;
+      datasetSummary.textContent = `${year}年度 基本スナップショット${count}科目＋後期PDF候補${fallOccurrences.toLocaleString("ja-JP")}行・訂正表${corrCount}件${generatedDate ? `（${generatedDate}生成）` : ""}`;
       const summary = history.summary || {};
       const years = Array.isArray(summary.academicYears) ? summary.academicYears.join("・") : "";
       const candidates = Number(summary.sourceOccurrences) || 0;
       const reviewed = Number(summary.visuallyReviewedOccurrences) || 0;
       const unreviewed = Number(summary.unreviewedOccurrences) || 0;
+      const guideSummary = history.studyGuideNavigation?.summary || {};
+      const guideCount = Number(guideSummary.studyGuideCount) || 0;
+      const guideIndexed = Number(guideSummary.indexedTermPagePairs) || 0;
       datasetQuality.dataset.kind = "warning";
-      datasetQualityTitle.textContent = "現行資料との全件照合は未完了です";
+      datasetQualityTitle.textContent = "現行資料との全件照合・要件確定は未完了です";
+      const fallText = fallOccurrences
+        ? `2026後期PDF候補${fallOccurrences.toLocaleString("ja-JP")}行（目視確認${fallReviewed}件）・訂正表候補${corrCount}件（未適用）、`
+        : "";
       const pastText = candidates
-        ? `過年度${years || "一部年度"}のPDF掲載行${candidates.toLocaleString("ja-JP")}件を候補として収録（目視確認${reviewed.toLocaleString("ja-JP")}件、未確認${unreviewed.toLocaleString("ja-JP")}件）。`
+        ? `過年度${years || "一部年度"}のPDF掲載行${candidates.toLocaleString("ja-JP")}件（目視確認${reviewed.toLocaleString("ja-JP")}件、未確認${unreviewed.toLocaleString("ja-JP")}件）を区別収録。`
         : "過年度の時間割行候補はありません。";
-      const guideText = history.database?.curriculumStatus === "not-populated"
-        ? "履修要覧のPDF・要件データは未登録です。"
-        : "履修要覧の要件データは確認中です。";
-      datasetQualityDetail.textContent = `${pastText}候補の詳細は公式PDFで確認してください。${guideText}最新の休講・変更はWebClassのお知らせをご確認ください。`;
+      const guideText = guideCount
+        ? `履修要覧${guideCount}冊（用語ページ案内${guideIndexed.toLocaleString("ja-JP")}件）を収録（確定卒業要件は0件）。`
+        : "履修要覧の要件データは未登録です。";
+      datasetQualityDetail.textContent = `${fallText}${pastText}${guideText}最新の休講・変更はWebClassのお知らせと公式PDFをご確認ください。`;
     } catch (error) {
       datasetSummary.textContent = `時間割データを読み込めませんでした（${error.message}）`;
       datasetQuality.dataset.kind = "warning";
@@ -151,6 +160,15 @@
 
     if (!response.enabled) {
       setStatus("off", "いまはオフです", "右上のスイッチをオンにすると、教室と担当教員が表示されます。");
+      return;
+    }
+
+    if (response.isLoginPage) {
+      setStatus(
+        "ready",
+        "ログイン画面で待機しています",
+        "ログインすると時間割に教室・担当教員が出ます。ログイン前でも画面内から全学DB・訂正表を検索できます。"
+      );
       return;
     }
 

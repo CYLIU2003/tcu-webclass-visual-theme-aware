@@ -2157,7 +2157,7 @@ html.wcv-enabled body.wcv-restyle .cm-contentsList {
 /* 章の見出し（お知らせ／第1・2回…）：テーマ色の細い線で区切る */
 html.wcv-enabled body.wcv-restyle .cm-contentsList .cl-contentsList_folder {
   margin-bottom: 14px;
-  overflow: hidden;
+  overflow: visible;
   border: 1px solid var(--wcv-row-line);
   border-radius: 10px;
   background: #fff;
@@ -2165,17 +2165,17 @@ html.wcv-enabled body.wcv-restyle .cm-contentsList .cl-contentsList_folder {
 }
 
 html.wcv-enabled body.wcv-restyle .cm-contentsList .cl-contentsList_folder > .panel-heading {
-  padding: 9px 14px;
+  padding: 12px 16px;
   border: 0;
   border-bottom: 1px solid var(--wcv-row-line);
   border-left: 4px solid var(--wcv-theme, #0b5cad);
-  border-radius: 0;
+  border-radius: 9px 9px 0 0;
   background: #f7f8fb;
 }
 
 html.wcv-enabled body.wcv-restyle .cm-contentsList .cl-contentsList_folder .panel-title {
   color: #2a3140;
-  font-size: 14.5px;
+  font-size: 15px;
   font-weight: 700;
   line-height: 1.5;
 }
@@ -2204,7 +2204,7 @@ html.wcv-enabled body.wcv-restyle .cm-contentsList .cl-contentsList_content {
   align-items: center;
   justify-content: space-between;
   gap: 8px 16px;
-  padding: 11px 14px;
+  padding: 14px 16px;
 }
 
 html.wcv-enabled body.wcv-restyle .cm-contentsList .cl-contentsList_contentInfo {
@@ -2225,7 +2225,9 @@ html.wcv-enabled body.wcv-restyle .cm-contentsList .cm-contentsList_contentName 
 html.wcv-enabled body.wcv-restyle .cm-contentsList .cm-contentsList_contentName a {
   color: #1f2635 !important;
   font-weight: 600;
-  text-decoration: none !important;
+  text-decoration: underline !important;
+  text-decoration-thickness: 1px !important;
+  text-underline-offset: 3px;
 }
 
 html.wcv-enabled body.wcv-restyle .cm-contentsList .cm-contentsList_contentName a:hover {
@@ -2241,7 +2243,7 @@ html.wcv-enabled body.wcv-restyle .cm-contentsList .cl-contentsList_categoryLabe
   border-radius: 999px;
   background: #eef1f6;
   color: #566073;
-  font-size: 11.5px;
+  font-size: 12px;
   font-weight: 600;
   line-height: 1.6;
 }
@@ -2255,7 +2257,9 @@ html.wcv-enabled body.wcv-restyle .cm-contentsList .cl-contentsList_contentInfo 
 
 /* 右側の操作：詳細／利用回数を控えめなボタンに */
 html.wcv-enabled body.wcv-restyle .cm-contentsList .cl-contentsList_contentDetail {
-  flex: 0 0 auto;
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 100%;
   margin: 0 0 0 auto;
   padding: 0;
 }
@@ -2268,7 +2272,6 @@ html.wcv-enabled body.wcv-restyle .cm-contentsList .cl-contentsList_contentDetai
 html.wcv-enabled body.wcv-restyle .cm-contentsList .cl-contentsList_contentDetailList {
   display: flex;
   flex-wrap: wrap;
-  flex-wrap: nowrap;
   gap: 6px;
   margin: 0;
   padding: 0;
@@ -2283,7 +2286,7 @@ html.wcv-enabled body.wcv-restyle .cm-contentsList .cl-contentsList_contentDetai
 html.wcv-enabled body.wcv-restyle .cm-contentsList .cl-contentsList_contentDetailListItem a {
   display: inline-flex;
   align-items: center;
-  min-height: 28px;
+  min-height: 40px;
   padding: 0 11px;
   border: 1px solid #d5dbe5;
   border-radius: 999px;
@@ -2292,7 +2295,8 @@ html.wcv-enabled body.wcv-restyle .cm-contentsList .cl-contentsList_contentDetai
   font-size: 12px;
   font-weight: 600;
   text-decoration: none !important;
-  white-space: nowrap;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 html.wcv-enabled body.wcv-restyle .cm-contentsList .cl-contentsList_contentDetailListItem a:hover {
@@ -2317,8 +2321,8 @@ html.wcv-enabled body.wcv-restyle .cm-contentsList .cm-contentsList_contentName 
 }
 
 html.wcv-enabled body.wcv-restyle .cm-contentsList .cl-contentsList_contentInfo > *:not(.cm-contentsList_contentName):not(.cl-contentsList_categoryLabel) {
-  overflow-wrap: normal;
-  word-break: keep-all;
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
 
 /* 最終調整：タイトルは読みやすい太さ、日本語は文節で折り返す */
@@ -2327,6 +2331,30 @@ html.wcv-enabled body.wcv-restyle .cm-contentsList .cm-contentsList_contentName 
   font-weight: 600;
   word-break: auto-phrase;
   line-break: strict;
+}
+
+html.wcv-enabled body.wcv-restyle .cm-contentsList :is(a, button, input, select):focus-visible {
+  outline: 3px solid var(--wcv-theme-dark, #5a005a);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+@media (max-width: 767px) {
+  html.wcv-enabled body.wcv-restyle .wcv-native-course-heading {
+    display: block;
+  }
+  html.wcv-enabled body.wcv-restyle .wcv-native-heading-tools {
+    display: flex;
+    margin-top: 10px;
+  }
+  html.wcv-enabled body.wcv-restyle .wcv-native-open-search {
+    min-height: 40px;
+    font-size: 12px;
+  }
+  html.wcv-enabled body.wcv-restyle .cm-contentsList .cl-contentsList_contentDetail {
+    margin-left: 0;
+    flex-basis: 100%;
+  }
 }
 
 /* 初回だけ表示する案内 */
@@ -2382,4 +2410,1003 @@ html.wcv-enabled body.wcv-restyle .wcv-native-content > .wcv-native-notices {
   order: 2;
   margin-top: 18px;
   margin-bottom: 0;
+}
+
+/* =========================================================
+   マルチイヤーSQLiteデータベース拡張表示（訂正表・2026後期PDF候補・履修要覧案内・横断検索）
+   ========================================================= */
+
+.wcv-course-correction-badge,
+.wcv-course-provisional-badge {
+  display: inline-flex;
+  align-items: center;
+  order: 3;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.wcv-course-correction-badge {
+  border: 1px solid #f0b89e;
+  background: #fff3ed;
+  color: #9b3412;
+}
+
+.wcv-course-provisional-badge {
+  border: 1px solid #b8d4f0;
+  background: #eef6ff;
+  color: #0b4f8a;
+}
+
+.wcv-inline-correction {
+  border-color: #f0b89e !important;
+  background: #fff3ed !important;
+  color: #9b3412 !important;
+}
+
+.wcv-inline-correction::before {
+  background: #d9480f !important;
+}
+
+.wcv-native-status-correction {
+  background: #fff3ed !important;
+  color: #9b3412 !important;
+  border: 1px solid #f0b89e;
+}
+
+.wcv-panel-correction-badge {
+  display: inline-flex;
+  margin-left: 6px;
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: #fff3ed;
+  color: #9b3412;
+  font-size: 9px;
+  font-weight: 700;
+  vertical-align: middle;
+}
+
+/* 過年度フィルタバー */
+.wcv-history-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 8px;
+}
+
+.wcv-history-filter-btn {
+  padding: 3px 9px;
+  border: 1px solid var(--wcv-line, #d5dfe9);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--wcv-muted, #5c6878);
+  font: inherit;
+  font-size: 10.5px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.wcv-history-filter-btn:hover {
+  border-color: var(--wcv-blue-700, #1864ab);
+  color: var(--wcv-blue-800, #0b4f8a);
+}
+
+.wcv-history-filter-btn.is-active {
+  border-color: var(--wcv-blue-800, #0b4f8a);
+  background: var(--wcv-blue-800, #0b4f8a);
+  color: #fff;
+}
+
+/* 2026年度訂正表セクション / 2026年度後期PDF候補セクション / 履修要覧案内セクション */
+.wcv-correction-evidence,
+.wcv-fall-evidence,
+.wcv-study-guide-evidence {
+  margin-top: 12px;
+  padding: 12px;
+  border: 1px solid var(--wcv-line, #d5dfe9);
+  border-radius: 12px;
+  background: var(--wcv-canvas, #f8fafd);
+}
+
+.wcv-correction-evidence {
+  border-color: #f2c9b6;
+  background: #fffaf7;
+}
+
+.wcv-correction-heading,
+.wcv-fall-heading,
+.wcv-study-guide-heading {
+  margin: 0;
+  color: var(--wcv-ink, #1b2838);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.wcv-correction-heading {
+  color: #8c2d0f;
+}
+
+.wcv-correction-caveat,
+.wcv-fall-caveat,
+.wcv-study-guide-caveat {
+  margin: 5px 0 0;
+  color: var(--wcv-muted, #5c6878);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.wcv-correction-list,
+.wcv-fall-list {
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.wcv-correction-record,
+.wcv-fall-record {
+  padding: 9px 0;
+  border-top: 1px solid var(--wcv-line, #d5dfe9);
+  color: var(--wcv-ink, #1b2838);
+  overflow-wrap: anywhere;
+}
+
+.wcv-correction-record-head,
+.wcv-fall-record-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.wcv-correction-date,
+.wcv-fall-term {
+  font-size: 12px;
+}
+
+.wcv-correction-term,
+.wcv-fall-match {
+  display: inline-flex;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: var(--wcv-blue-050, #eef5fc);
+  color: var(--wcv-blue-800, #0b4f8a);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.wcv-fall-snapshot {
+  display: inline-flex;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: #f1f3f5;
+  color: #495057;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.wcv-correction-status,
+.wcv-fall-status {
+  display: inline-flex;
+  padding: 2px 7px;
+  border: 1px solid var(--wcv-line, #d5dfe9);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--wcv-muted, #5c6878);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.wcv-correction-status {
+  border-color: #f0b89e;
+  color: #9b3412;
+}
+
+.wcv-fall-status.is-reviewed {
+  border-color: #c8e5d3;
+  background: #effaf3;
+  color: #17633a;
+}
+
+.wcv-correction-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+.wcv-correction-chip {
+  display: inline-flex;
+  padding: 1px 7px;
+  border-radius: 5px;
+  background: #ffe8cc;
+  color: #8c3b00;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.wcv-correction-chip.is-danger {
+  background: #ffe3e3;
+  color: #a61e22;
+}
+
+.wcv-fall-title {
+  margin-top: 3px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.wcv-correction-meta,
+.wcv-correction-excerpt,
+.wcv-fall-meta {
+  margin-top: 2px;
+  color: var(--wcv-muted, #5c6878);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.wcv-correction-source,
+.wcv-fall-source,
+.wcv-guide-source {
+  display: inline-block;
+  margin: 4px 8px 0 0;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.wcv-guide-source {
+  padding: 2px 8px;
+  border: 1px solid #c9d8e8;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--wcv-blue-800, #0b4f8a);
+  text-decoration: none;
+}
+
+.wcv-guide-source.is-primary {
+  background: var(--wcv-blue-050, #eef5fc);
+}
+
+.wcv-guide-source:hover {
+  background: #e1effe;
+  text-decoration: underline;
+}
+
+.wcv-study-guide-list {
+  display: grid;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.wcv-study-guide-card {
+  padding: 9px 11px;
+  border: 1px solid #dde5ef;
+  border-radius: 9px;
+  background: #fff;
+}
+
+.wcv-study-guide-card-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.wcv-study-guide-title {
+  font-size: 12px;
+  color: var(--wcv-ink, #1b2838);
+}
+
+.wcv-study-guide-meta {
+  font-size: 10.5px;
+  color: var(--wcv-muted, #5c6878);
+}
+
+.wcv-study-guide-terms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 5px;
+}
+
+.wcv-fall-expand {
+  margin-top: 8px;
+  padding: 7px 10px;
+  border: 1px solid var(--wcv-line, #d5dfe9);
+  border-radius: 8px;
+  background: var(--wcv-canvas, #f8fafd);
+  color: var(--wcv-link, #0b5cad);
+  font: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.wcv-fall-expand:hover {
+  background: var(--wcv-blue-050, #eef5fc);
+}
+
+/* フローティングパネル DB横断検索 */
+.wcv-panel-search {
+  padding: 8px 12px;
+  border-bottom: 1px solid #d9e1ea;
+  background: #fdfefe;
+}
+
+.wcv-panel-search-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 7px 10px;
+  border: 1px solid #c2d0de;
+  border-radius: 7px;
+  background: #fff;
+  color: #1b2838;
+  font: inherit;
+  font-size: 12px;
+}
+
+.wcv-panel-search-input:focus {
+  outline: 2px solid rgba(11, 92, 173, 0.3);
+  border-color: #0b5cad;
+}
+
+.wcv-panel-layer-tag {
+  display: inline-block;
+  margin-bottom: 4px;
+  padding: 2px 7px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.wcv-panel-layer-tag.is-snapshot {
+  background: #e8f1fb;
+  color: #0b4f8a;
+}
+
+.wcv-panel-layer-tag.is-correction {
+  background: #fff3ed;
+  color: #9b3412;
+}
+
+.wcv-panel-layer-tag.is-fall {
+  background: #eef6ff;
+  color: #1864ab;
+}
+
+.wcv-panel-layer-tag.is-history {
+  background: #f1f3f5;
+  color: #495057;
+}
+
+.wcv-panel-layer-tag.is-reviewed {
+  background: #effaf3;
+  color: #17633a;
+}
+
+/* =========================================================
+   UI/UX Pro Max ブラッシュアップ：
+   1) 時間割カードの折り返し防止・ヘッダー横断検索ボタン
+   2) 授業基本情報カードのセクション切り替えタブ・カード型エビデンス
+   3) フローティングパネルのワンタップ切り替え＆空状態クイックハブ
+   4) WebClassログイン入口画面（https://webclass.tcu.ac.jp/）の親しみやすい整形
+   ========================================================= */
+
+.wcv-native-card-title {
+  word-break: auto-phrase;
+  line-break: strict;
+}
+
+.wcv-room-code {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.wcv-native-heading-tools {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.wcv-native-open-search {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 28px;
+  padding: 3px 11px;
+  border: 1px solid var(--wcv-theme-border, #c9a9c9);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--wcv-theme-dark, #5a005a);
+  font: inherit;
+  font-size: 11.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+
+.wcv-native-open-search:hover {
+  border-color: var(--wcv-theme, #700070);
+  background: var(--wcv-theme-soft, #f6eff6);
+  transform: translateY(-1px);
+}
+
+/* 授業基本情報カード：セクション切り替えタブバー */
+.wcv-more-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+  padding: 6px;
+  border: 1px solid #dde5ef;
+  border-radius: 10px;
+  background: #f4f7fb;
+}
+
+.wcv-more-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 4px 11px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  background: transparent;
+  color: #495668;
+  font: inherit;
+  font-size: 11.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.wcv-more-tab-btn:hover {
+  background: rgba(255, 255, 255, 0.75);
+  color: #17253a;
+}
+
+.wcv-more-tab-btn.is-active {
+  border-color: #cbd8e8;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(20, 40, 70, 0.08);
+  color: var(--wcv-blue-800, #0b4f8a);
+}
+
+/* 過年度・後期・訂正表の各行を視認性の高い白カードに整形 */
+.wcv-history-list,
+.wcv-fall-list,
+.wcv-correction-list {
+  display: grid;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.wcv-history-record,
+.wcv-fall-record,
+.wcv-correction-record {
+  padding: 10px 12px;
+  border: 1px solid #dfe6ef;
+  border-radius: 9px;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(20, 35, 60, 0.04);
+}
+
+.wcv-correction-record {
+  border-color: #f3cbb8;
+}
+
+.wcv-history-source,
+.wcv-fall-source,
+.wcv-correction-source {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  margin: 6px 6px 0 0;
+  padding: 2px 10px;
+  border: 1px solid #bfd2e8;
+  border-radius: 999px;
+  background: #f4f9ff;
+  color: #0b4f8a !important;
+  font-size: 11px;
+  font-weight: 700;
+  text-decoration: none !important;
+  transition: background 0.14s ease, border-color 0.14s ease;
+}
+
+.wcv-correction-source {
+  border-color: #f0b89e;
+  background: #fff5f0;
+  color: #9b3412 !important;
+}
+
+.wcv-history-source:hover,
+.wcv-fall-source:hover {
+  border-color: #0b5cad;
+  background: #e3f0ff;
+}
+
+.wcv-correction-source:hover {
+  border-color: #d9480f;
+  background: #ffe8de;
+}
+
+.wcv-course-card-note {
+  margin-top: 12px;
+  padding: 8px 11px;
+  border-radius: 8px;
+  background: #f5f7fa;
+  color: #556173;
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+/* フローティングパネル：クイック切り替えピル＆空状態アクション */
+.wcv-panel:not([hidden]) {
+  display: flex;
+  flex-direction: column;
+}
+
+.wcv-panel-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  max-height: none;
+}
+
+.wcv-panel-quick-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 7px;
+}
+
+.wcv-panel-quick-btn {
+  flex: 1 1 auto;
+  min-height: 27px;
+  padding: 3px 8px;
+  border: 1px solid #cdd8e5;
+  border-radius: 999px;
+  background: #fff;
+  color: #4b586b;
+  font: inherit;
+  font-size: 10.5px;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.14s ease, color 0.14s ease, border-color 0.14s ease;
+}
+
+.wcv-panel-quick-btn:hover {
+  border-color: var(--wcv-blue-700, #1864ab);
+  background: #f5f9ff;
+  color: var(--wcv-blue-800, #0b4f8a);
+}
+
+.wcv-panel-quick-btn.is-active {
+  border-color: var(--wcv-blue-800, #0b4f8a);
+  background: var(--wcv-blue-800, #0b4f8a);
+  color: #fff;
+}
+
+.wcv-panel-mode-note {
+  margin-bottom: 8px;
+  padding: 8px 10px;
+  border: 1px solid #d7e2ee;
+  border-radius: 8px;
+  background: #f6f9fc;
+  color: #465365;
+  font-size: 10.5px;
+  line-height: 1.5;
+}
+
+.wcv-panel-empty-actions {
+  display: grid;
+  gap: 6px;
+  margin-top: 11px;
+  text-align: left;
+}
+
+.wcv-panel-empty-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 34px;
+  padding: 6px 11px;
+  border: 1px solid #c6d4e4;
+  border-radius: 8px;
+  background: #fff;
+  color: #172b44;
+  font: inherit;
+  font-size: 11.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.wcv-panel-empty-btn::after {
+  color: var(--wcv-blue-800, #0b4f8a);
+  content: "→";
+  font-weight: 700;
+}
+
+.wcv-panel-empty-btn:hover {
+  border-color: var(--wcv-blue-700, #1864ab);
+  background: #f0f7ff;
+}
+
+/* WebClass ログイン入口画面（https://webclass.tcu.ac.jp/）の整形 */
+html.wcv-enabled body.wcv-restyle.wcv-native-login-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 24px 16px;
+  background: radial-gradient(circle at 50% 0%, #eef4fb 0%, #f4f5f8 68%) !important;
+}
+
+html.wcv-enabled body.wcv-restyle .wcv-native-login-container {
+  width: min(520px, calc(100vw - 32px)) !important;
+  margin: 0 auto !important;
+  padding: 28px 28px 24px !important;
+  border: 1px solid #d6dfeb !important;
+  border-top: 5px solid var(--wcv-theme, #0b5cad) !important;
+  border-radius: 16px !important;
+  background: #fff !important;
+  box-shadow: 0 14px 36px rgba(22, 38, 64, 0.1) !important;
+}
+
+html.wcv-enabled body.wcv-restyle .wcv-native-login-container .webclass_title {
+  margin-bottom: 20px !important;
+}
+
+html.wcv-enabled body.wcv-restyle .wcv-native-login-container a.showLoginButton {
+  display: block !important;
+  margin: 10px 0 !important;
+  text-decoration: none !important;
+}
+
+html.wcv-enabled body.wcv-restyle .wcv-native-login-container a.wcv-native-login-btn-primary .buttonLabel {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px !important;
+  padding: 12px 18px !important;
+  border: 1px solid #0b5cad !important;
+  border-radius: 10px !important;
+  background: linear-gradient(135deg, #0b5cad, #1768b5) !important;
+  box-shadow: 0 6px 16px rgba(11, 92, 173, 0.22) !important;
+  color: #fff !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+html.wcv-enabled body.wcv-restyle .wcv-native-login-container a.wcv-native-login-btn-primary:hover .buttonLabel {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(11, 92, 173, 0.3) !important;
+}
+
+html.wcv-enabled body.wcv-restyle .wcv-native-login-container a.wcv-native-login-btn-secondary .buttonLabel {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px !important;
+  padding: 9px 14px !important;
+  border: 1px solid #cfd8e3 !important;
+  border-radius: 10px !important;
+  background: #f8fafc !important;
+  color: #364152 !important;
+  font-size: 12.5px !important;
+  font-weight: 600 !important;
+}
+
+html.wcv-enabled body.wcv-restyle .wcv-native-login-container a.wcv-native-login-btn-secondary:hover .buttonLabel {
+  background: #eef3f8 !important;
+}
+
+.wcv-login-assistant {
+  margin-top: 20px;
+  padding: 14px 15px;
+  border: 1px solid #cbe0f5;
+  border-radius: 12px;
+  background: #f5f9ff;
+  text-align: left;
+}
+
+.wcv-login-assistant-badge {
+  color: #0b4f8a;
+  font-size: 12.5px;
+  font-weight: 700;
+}
+
+.wcv-login-assistant-desc {
+  margin: 5px 0 10px !important;
+  color: #465467;
+  font-size: 11.5px;
+  line-height: 1.55;
+}
+
+.wcv-login-assistant-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.wcv-login-assistant-btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 5px 11px;
+  border: 1px solid #bed3ea;
+  border-radius: 8px;
+  background: #fff;
+  color: #0b4f8a;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.wcv-login-assistant-btn.is-primary {
+  border-color: #0b5cad;
+  background: #0b5cad;
+  color: #fff;
+}
+
+.wcv-login-assistant-btn:hover {
+  filter: brightness(0.96);
+}
+
+/* 参加しているコース（時間割表）見出し内インライン凡例・複数開講クラス表示 */
+html.wcv-enabled body.wcv-restyle .wcv-native-timetable-heading {
+  display: flex !important;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.wcv-native-inline-legend {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.wcv-native-legend-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 8px;
+  border: 1px solid #dde3ec;
+  border-radius: 999px;
+  background: #f8fafc;
+  color: #3e4756;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.wcv-native-legend-pill::before {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+  content: "";
+}
+
+.wcv-native-legend-pill.wcv-category-specialist { color: #1768b5; }
+.wcv-native-legend-pill.wcv-category-foundation { color: #2e8b57; }
+.wcv-native-legend-pill.wcv-category-exercise { color: #8152b2; }
+.wcv-native-legend-pill.wcv-category-information { color: #c67908; }
+
+.wcv-native-status-multi {
+  border: 1px solid #cbd5e1;
+  background: #f1f5f9;
+  color: #334155;
+}
+
+/* 同名科目の複数開講クラス一覧（教場・担当先生） */
+.wcv-multi-offering-evidence {
+  margin-top: 12px;
+  padding: 12px 14px;
+  border: 1px solid #cbe0f5;
+  border-radius: 10px;
+  background: #f7fbff;
+}
+
+.wcv-multi-offering-heading {
+  margin: 0 0 4px !important;
+  color: #0b4f8a !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+}
+
+.wcv-multi-offering-caveat {
+  margin: 0 0 10px !important;
+  color: #4b5563 !important;
+  font-size: 11.5px !important;
+  line-height: 1.5 !important;
+}
+
+.wcv-multi-offering-list {
+  display: grid;
+  gap: 6px;
+}
+
+.wcv-offering-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 10px;
+  border: 1px solid #dce6f2;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 12px;
+}
+
+.wcv-offering-row.is-current {
+  border-color: #0b5cad;
+  background: #eef6ff;
+}
+
+.wcv-offering-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: #e2e8f0;
+  color: #334155;
+  font-size: 10.5px;
+  font-weight: 700;
+}
+
+.wcv-offering-badge.is-current {
+  background: #0b5cad;
+  color: #fff;
+}
+
+.wcv-offering-slot {
+  color: #1e293b;
+  font-weight: 700;
+}
+
+.wcv-offering-room {
+  color: #0b4f8a;
+  font-weight: 700;
+}
+
+.wcv-offering-teacher {
+  color: #334155;
+  font-weight: 600;
+}
+
+.wcv-offering-code {
+  margin-left: auto;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: #f1f5f9;
+  color: #475569;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 11px;
+}
+
+.wcv-panel-offerings-details {
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px dashed #d8e2ee;
+}
+
+.wcv-panel-offerings-summary {
+  color: #0b4f8a;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.wcv-panel-offerings-list {
+  display: grid;
+  gap: 4px;
+  margin-top: 5px;
+}
+
+.wcv-panel-offering-line {
+  padding: 4px 7px;
+  border-radius: 6px;
+  background: #f8fafc;
+  color: #334155;
+  font-size: 10.5px;
+  line-height: 1.4;
+}
+
+.wcv-panel-offering-line.is-current {
+  border-left: 3px solid #0b5cad;
+  background: #eef6ff;
+  font-weight: 700;
+}
+
+/* =========================================================
+   締め切りが近い課題一覧（1週間以内の課題）
+   ========================================================= */
+.wcv-deadlines {
+  margin: 16px 0 22px;
+  padding: 22px;
+  border: 1px solid #dae3ee;
+  border-radius: 14px;
+  background: #fff;
+  color: #23324a;
+  font-family: system-ui, -apple-system, "Noto Sans JP", sans-serif;
+  box-shadow: 0 5px 20px #21324a08;
+}
+.wcv-deadline-header, .wcv-deadline-controls { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
+.wcv-deadline-header h2 { margin: 0 !important; font-size: 20px !important; font-weight: 750 !important; }
+.wcv-deadline-count { padding: 3px 10px; border-radius: 20px; background: #eaf1fc; color: #215aa1; font-size: 13px; font-weight: 700; }
+.wcv-deadline-controls { margin-top: 16px; font-size: 13px; }
+.wcv-deadline-controls label { display: flex; align-items: center; gap: 5px; margin: 0; font-weight: 400; }
+.wcv-deadline-controls select, .wcv-deadline-refresh { padding: 7px 11px; border: 1px solid #cad6e5; border-radius: 7px; background: #fff; color: #23324a; font: inherit; }
+.wcv-deadline-refresh { margin-left: auto; cursor: pointer; }
+.wcv-deadline-refresh:disabled { opacity: .65; cursor: wait; }
+.wcv-deadline-status { margin: 12px 0; color: #61718a; font-size: 12px; }
+.wcv-deadline-list { margin: 0 !important; padding: 0 !important; list-style: none !important; max-height: 460px; overflow-y: auto; }
+.wcv-deadline-item { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; align-items: center; gap: 20px; padding: 15px 14px; border-top: 1px solid #e6ebf2; border-left: 3px solid #8eb5e8; }
+.wcv-deadline-content { display: grid; gap: 4px; }
+.wcv-deadline-course { color: #61718a; font-size: 12px; }
+.wcv-deadline-title { color: #23324a; font-size: 14px; overflow-wrap: anywhere; }
+.wcv-deadline-task-status { color: #61718a; font-size: 11px; }
+.wcv-deadline-due { display: grid; gap: 5px; text-align: right; font-size: 13px; white-space: nowrap; }
+.wcv-deadline-remaining { color: #215aa1; font-weight: 700; }
+.wcv-deadline-urgent { border-left-color: #d48329; background: #fff9f0; }
+.wcv-deadline-urgent .wcv-deadline-remaining { color: #9b4f0a; }
+.wcv-deadline-open { padding: 7px 10px; border: 1px solid #cad6e5; border-radius: 7px; color: #215aa1 !important; font-size: 12px; white-space: nowrap; text-decoration: none !important; }
+.wcv-deadline-open:hover, .wcv-deadline-refresh:hover { background: #edf3fc; }
+.wcv-deadlines :is(a, button, input, select):focus-visible { outline: 3px solid #4e8bd3; outline-offset: 3px; }
+.wcv-deadline-note, .wcv-deadline-empty { color: #61718a; font-size: 12px; line-height: 1.7; }
+.wcv-deadline-note { margin: 13px 0 0; }
+.wcv-deadline-diagnostics { margin-top: 12px; font-size: 12px; line-height: 1.6; color: #61718a; overflow-wrap: anywhere; }
+.wcv-deadline-diagnostics summary { cursor: pointer; }
+.wcv-deadline-diagnostic-course { padding: 8px 0; border-top: 1px solid #e6ebf2; }
+.wcv-deadline-diagnostic-course p { margin: 4px 0; white-space: pre-wrap; }
+.wcv-deadline-diagnostic-course ul { padding-left: 18px; }
+.wcv-deadline-diagnostic-course li { margin-bottom: 8px; }
+.wcv-deadline-window { color: #61718a; font-size: 12px; }
+.wcv-deadlines-sidebar { margin: 0 0 20px; padding: 15px 12px; }
+.wcv-deadlines-sidebar .wcv-deadline-header { gap: 7px; }
+.wcv-deadlines-sidebar .wcv-deadline-header h2 { font-size: 16px !important; }
+.wcv-deadlines-sidebar .wcv-deadline-count { padding: 2px 7px; font-size: 11px; }
+.wcv-deadlines-sidebar .wcv-deadline-controls { margin-top: 10px; gap: 5px; }
+.wcv-deadlines-sidebar .wcv-deadline-refresh { padding: 4px 8px; font-size: 11px; }
+.wcv-deadlines-sidebar .wcv-deadline-status { font-size: 10px; line-height: 1.6; }
+.wcv-deadlines-sidebar .wcv-deadline-list { max-height: 60vh; }
+.wcv-deadlines-sidebar .wcv-deadline-item { grid-template-columns: minmax(0, 1fr); gap: 8px; padding: 12px 9px; }
+.wcv-deadlines-sidebar .wcv-deadline-course { font-size: 11px; overflow-wrap: anywhere; }
+.wcv-deadlines-sidebar .wcv-deadline-title { font-size: 13px; }
+.wcv-deadlines-sidebar .wcv-deadline-due { display: flex; flex-wrap: wrap; gap: 8px; text-align: left; font-size: 11px; }
+.wcv-deadlines-sidebar .wcv-deadline-open { justify-self: start; font-size: 11px; padding: 4px 8px; }
+.wcv-deadlines-sidebar .wcv-deadline-note { font-size: 10px; }
+.wcv-home-timetable-column .wcv-enhanced-grid {
+  grid-template-columns: 64px repeat(var(--wcv-day-count, 6), minmax(115px, 1fr));
+  min-width: 780px;
+}
+.wcv-course-page-link {
+  color: inherit !important;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+.wcv-course-page-link:hover { text-decoration-thickness: 2px; }
+.wcv-course-page-link:focus-visible { outline: 3px solid #4e8bd3; outline-offset: 3px; border-radius: 2px; }
+@media (max-width: 620px) {
+  .wcv-deadlines { padding: 14px; }
+  .wcv-deadline-item { grid-template-columns: minmax(0, 1fr) auto; gap: 10px; padding: 12px 9px; }
+  .wcv-deadline-open { grid-column: 1 / -1; justify-self: start; }
+  .wcv-deadline-controls { gap: 10px; }
 }

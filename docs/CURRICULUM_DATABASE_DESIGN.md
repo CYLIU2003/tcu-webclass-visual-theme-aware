@@ -89,8 +89,10 @@ erDiagram
 DDLは [`../data/curriculum-schema-v1.sql`](../data/curriculum-schema-v1.sql) にあり、年度横断DB構築時に適用されます。
 
 ```powershell
-python data/build_multiyear_database.py
-python data/audit_multiyear_database.py
+python data/build_multiyear_database.py --output data/course-catalog-multiyear-rebuilt.sqlite
+python data/audit_multiyear_database.py --database data/course-catalog-multiyear-rebuilt.sqlite --report-json data/rebuilt-audit.json --report-md docs/REBUILT_DATABASE_AUDIT.md
 ```
+
+構築は新規ファイルにのみ行い、出力先が既に存在すると中止します。元のDBに後から追加された履修要覧・確認データを再構築で失わないためです。指定先は同じディレクトリ内でハードリンクを作成できるファイルシステムを使ってください。新しいDBは内容と追加データの移行を確認してから採用してください。
 
 監査ではschema v1の全21表、同じカリキュラム版内の親子関係、兄弟行の表示順重複、同一プログラムで重複する承認済み入学年度範囲、SQLite外部キー、出典ハッシュとPDFページ範囲、承認済み行の確認済み証拠を確認します。現在のDBは構造のみで、カリキュラムデータ件数は0件です。監査は将来の未承認候補行を許容し、承認済み要件が入った場合はカタログのデータ状態も更新されていることを確認します。科目要件の抽出・原本照合後にだけ承認状態へ進めます。

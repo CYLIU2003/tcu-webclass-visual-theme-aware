@@ -50,26 +50,18 @@
       <div class="setting-grid">
         <label class="setting-card">
           <span>
-            <strong>時間割をカード表示</strong>
-            <small>科目名・教室・担当教員を大きく整理し、お知らせやコース一覧も見やすくします。</small>
+            <strong>参加しているコースをカード表示</strong>
+            <small>元の「参加しているコース」時間割に教場・担当先生・講義コードを統合表示し、お知らせやコース一覧も見やすくします。</small>
           </span>
           <input id="modernizeNativeLayout" type="checkbox">
           <span class="switch" aria-hidden="true"></span>
         </label>
         <label class="setting-card">
           <span>
-            <strong>科目名の下にバッジ表示</strong>
-            <small>「その他のコース」などに、教室・担当・曜日時限を小さく添えます。</small>
+            <strong>その他のコースにも補足表示</strong>
+            <small>時間割外の「その他のコース」などに、教場・担当先生・曜日時限を添えます。</small>
           </span>
           <input id="showInlineMetadata" type="checkbox">
-          <span class="switch" aria-hidden="true"></span>
-        </label>
-        <label class="setting-card">
-          <span>
-            <strong>週間時間割を別に追加</strong>
-            <small>検出した科目をまとめた週間表を追加します。通常はオフで構いません。</small>
-          </span>
-          <input id="showEnhancedTimetable" type="checkbox">
           <span class="switch" aria-hidden="true"></span>
         </label>
         <label class="setting-card">
@@ -90,6 +82,14 @@
             <small>WebClass画面の左側から、表示の切り替えができるようにします。</small>
           </span>
           <input id="showSidebarTools" type="checkbox">
+          <span class="switch" aria-hidden="true"></span>
+        </label>
+        <label class="setting-card">
+          <span>
+            <strong>締め切りが近い課題</strong>
+            <small>コースリスト左側に、時間割の科目から1週間以内に終了する課題を一覧表示します。</small>
+          </span>
+          <input id="showDeadlineList" type="checkbox">
           <span class="switch" aria-hidden="true"></span>
         </label>
         <label class="setting-card">
@@ -158,6 +158,7 @@
     </section>
   </main>
 
+  <script src="dataset.js"></script>
   <script src="options.js"></script>
 </body>
 </html>

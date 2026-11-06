@@ -1,0 +1,5243 @@
+{
+  "checkedAt": "2026-10-15",
+  "changes": [
+    {
+      "date": "2026/4/9",
+      "termBlock": "前期前",
+      "slots": "火1・火2",
+      "name": "物理学実験(a)",
+      "teacher": "津村耕司ほか",
+      "field": "担当教員追加",
+      "before": "",
+      "after": "丸山 裕子",
+      "courseCode": "saa262105",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/9",
+      "termBlock": "前期後",
+      "slots": "火1・火2",
+      "name": "物理学実験(b)",
+      "teacher": "津村耕司ほか",
+      "field": "担当教員追加",
+      "before": "",
+      "after": "丸山 裕子",
+      "courseCode": "sab262106",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/9",
+      "termBlock": "前期",
+      "slots": "月3",
+      "name": "SD PBL(1)",
+      "teacher": "早坂信哉ほか",
+      "field": "時限変更",
+      "before": "",
+      "after": "月3→月4",
+      "courseCode": "saz141307",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "schedule"
+      ]
+    },
+    {
+      "date": "2026/4/9",
+      "termBlock": "前期",
+      "slots": "月4",
+      "name": "事例研究(1)",
+      "teacher": "和多田雅哉ほか",
+      "field": "曜日変更・教室変更",
+      "before": "",
+      "after": "月4→月3、1BN→1BJ",
+      "courseCode": "saz141401",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "schedule",
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/4/9",
+      "termBlock": "前期前",
+      "slots": "月2・木2",
+      "name": "ベクトル解析学",
+      "teacher": "渡邉力夫",
+      "field": "教室変更",
+      "before": "",
+      "after": "12P→12K",
+      "courseCode": "saa121202",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/4/9",
+      "termBlock": "前期前",
+      "slots": "火1・火2",
+      "name": "設計製図基礎",
+      "teacher": "栗原哲彦ほか",
+      "field": "教室変更",
+      "before": "",
+      "after": "12K・12L→12L・12M",
+      "courseCode": "saa272109",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/4/9",
+      "termBlock": "前期前",
+      "slots": "火1・金1",
+      "name": "微分積分学(1a)リメディアルクラス",
+      "teacher": "井上浩一ほか",
+      "field": "教室変更",
+      "before": "",
+      "after": "12M→12K",
+      "courseCode": "saa122112",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/4/9",
+      "termBlock": "前期前",
+      "slots": "火2・金2",
+      "name": "微分積分学(1a)リメディアルクラス",
+      "teacher": "井上浩一ほか",
+      "field": "教室変更",
+      "before": "",
+      "after": "12M→12K",
+      "courseCode": "saa112203",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/4/9",
+      "termBlock": "前期後",
+      "slots": "火1・金1",
+      "name": "微分積分学(1b)リメディアルクラス",
+      "teacher": "井上浩一ほか",
+      "field": "教室変更",
+      "before": "",
+      "after": "12M→12K",
+      "courseCode": "sab122113",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/4/9",
+      "termBlock": "前期後",
+      "slots": "火2・金2",
+      "name": "微分積分学(1b)リメディアルクラス",
+      "teacher": "井上浩一ほか",
+      "field": "教室変更",
+      "before": "",
+      "after": "12M→12K",
+      "courseCode": "sab112204",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/4/9",
+      "termBlock": "前期後",
+      "slots": "火1・火2",
+      "name": "生活とメディア",
+      "teacher": "松浦李恵",
+      "field": "教室変更",
+      "before": "",
+      "after": "12K→12L",
+      "courseCode": "sab002117",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/4/9",
+      "termBlock": "前期前",
+      "slots": "金2",
+      "name": "外国語特別講義(1a)",
+      "teacher": "山口和洋",
+      "field": "教室変更",
+      "before": "",
+      "after": "12K→12F",
+      "courseCode": "saa005208",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/4/9",
+      "termBlock": "前期後",
+      "slots": "金2",
+      "name": "外国語特別講義(1b)",
+      "teacher": "山口和洋",
+      "field": "教室変更",
+      "before": "",
+      "after": "12K→12F",
+      "courseCode": "sab005209",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/4/9",
+      "termBlock": "前期前",
+      "slots": "火2・金2",
+      "name": "熱力学(1)及び演習",
+      "teacher": "白鳥英",
+      "field": "教室変更",
+      "before": "",
+      "after": "火2：1BN→21C\n金2：1BN→61B",
+      "courseCode": "saa122245",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/4/9",
+      "termBlock": "前期後",
+      "slots": "火1・金1",
+      "name": "流れ学(1)及び演習",
+      "teacher": "白鳥英",
+      "field": "教室変更",
+      "before": "",
+      "after": "1BN→61A",
+      "courseCode": "sab122110",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/4/10",
+      "termBlock": "前期前",
+      "slots": "水2",
+      "name": "物性化学(a)",
+      "teacher": "金友拓哉",
+      "field": "教室変更",
+      "before": "",
+      "after": "12C→11C",
+      "courseCode": "saa153203",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/4/10",
+      "termBlock": "前期後",
+      "slots": "水2",
+      "name": "物性化学(b)",
+      "teacher": "金友拓哉",
+      "field": "教室変更",
+      "before": "",
+      "after": "12C→11C",
+      "courseCode": "sab153204",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/4/10",
+      "termBlock": "前期前",
+      "slots": "月2・木2",
+      "name": "ベクトル解析学",
+      "teacher": "渡邉力夫",
+      "field": "受講対象修正",
+      "before": "",
+      "after": "23-20:理工学部+建築都市デザイン学部+情報\n工学部,19-18:工学部＋知識工学部\n→24-20:理工学部+建築都市デザイン学部+情\n報工学部,19-18:工学部＋知識工学部",
+      "courseCode": "saa121202",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "2026/4/10",
+      "termBlock": "前期",
+      "slots": "木3・木4",
+      "name": "機械システム設計演習(1)",
+      "teacher": "島野健仁郎,\n土方規実雄",
+      "field": "受講対象修正",
+      "before": "",
+      "after": "24-17→23-17",
+      "courseCode": "saz124301",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "2026/4/10",
+      "termBlock": "前期後",
+      "slots": "月3・木3",
+      "name": "基礎確率統計",
+      "teacher": "ニーナ スヴィリドヴァ",
+      "field": "開講追加",
+      "before": "",
+      "after": "自然科学科",
+      "courseCode": "sab321303",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "2026/4/10",
+      "termBlock": "前期後",
+      "slots": "月3・木3",
+      "name": "基礎確率統計",
+      "teacher": "ニーナ スヴィリドヴァ",
+      "field": "受講対象修正",
+      "before": "",
+      "after": "24-20:情報工学部,19-15:知識工学部\n→25-20:情報工学部,19-15:知識工学部",
+      "courseCode": "sab321303",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "2026/4/10",
+      "termBlock": "前期後",
+      "slots": "月1・木1",
+      "name": "内科・診断学",
+      "teacher": "早坂信哉",
+      "field": "受講対象修正",
+      "before": "",
+      "after": "24-16→24-19",
+      "courseCode": "sab141104",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "2026/4/10",
+      "termBlock": "前期",
+      "slots": "火1前期前,\n火2前期前,\n月1前期後,\n月2前期後",
+      "name": "再・機械要素設計及び演習",
+      "teacher": "佐藤秀明,\n小玉脩平",
+      "field": "受講対象修正",
+      "before": "",
+      "after": "24-17→24-21",
+      "courseCode": "saz112145",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "2026/4/13",
+      "termBlock": "前期後",
+      "slots": "月2・木2",
+      "name": "データサイエンス応用",
+      "teacher": "木村貴幸",
+      "field": "開講追加",
+      "before": "",
+      "after": "23-18",
+      "courseCode": "sab321202",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "2026/4/13",
+      "termBlock": "前集中",
+      "slots": "",
+      "name": "ひとづくり(3)",
+      "teacher": "岸和幸",
+      "field": "開講追加",
+      "before": "",
+      "after": "24自然",
+      "courseCode": "saz137629",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "2026/4/13",
+      "termBlock": "前期後",
+      "slots": "月3・金2",
+      "name": "都市計画(2)",
+      "teacher": "竹上一,\n野溝茂",
+      "field": "受講対象修正",
+      "before": "",
+      "after": "23-20→4年次配当\n19以前→3年次配当",
+      "courseCode": "sab261307",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "2026/4/13",
+      "termBlock": "前期前",
+      "slots": "火4・金4",
+      "name": "都市工学概論",
+      "teacher": "末政直晃ほか",
+      "field": "教室変更",
+      "before": "",
+      "after": "22B→32A",
+      "courseCode": "saa272401",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/4/14",
+      "termBlock": "前期",
+      "slots": "木5",
+      "name": "未来を拓くイノベーション",
+      "teacher": "亀山雄高ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "亀山 雄高,関口 和真,大久保 寛基,北村\n亘,後藤 智香子\n→亀山 雄高,関口 和真,大久保 寛基,佐藤\n剛,長沢 敬祐,周 娟",
+      "courseCode": "saz004519",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/14",
+      "termBlock": "前期",
+      "slots": "木5",
+      "name": "未来を拓くイノベーション",
+      "teacher": "亀山雄高ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "亀山 雄高,関口 和真,大久保 寛基,北村\n亘,後藤 智香子\n→亀山 雄高,関口 和真,大久保 寛基,佐藤\n剛,長沢 敬祐,周 娟",
+      "courseCode": "saz004520",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/14",
+      "termBlock": "前期",
+      "slots": "木5",
+      "name": "未来を拓くイノベーション",
+      "teacher": "亀山雄高ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "亀山 雄高,関口 和真,大久保 寛基,北村\n亘,後藤 智香子\n→亀山 雄高,関口 和真,大久保 寛基,佐藤\n剛,長沢 敬祐,周 娟",
+      "courseCode": "saz004521",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/16",
+      "termBlock": "前期前",
+      "slots": "金3",
+      "name": "情報リテラシー演習(a)",
+      "teacher": "安井浩之",
+      "field": "教室変更",
+      "before": "",
+      "after": "12P→12N",
+      "courseCode": "saa175302",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/4/16",
+      "termBlock": "前期後",
+      "slots": "金3",
+      "name": "情報リテラシー演習(b)",
+      "teacher": "安井浩之",
+      "field": "教室変更",
+      "before": "",
+      "after": "12P→12N",
+      "courseCode": "sab175303",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/4/16",
+      "termBlock": "前期前",
+      "slots": "金4・金5",
+      "name": "建築設備学",
+      "teacher": "梅津史朗",
+      "field": "教室変更",
+      "before": "",
+      "after": "12N→12F",
+      "courseCode": "saa265403",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/4/16",
+      "termBlock": "前期",
+      "slots": "月5",
+      "name": "発達心理学",
+      "teacher": "水野直樹",
+      "field": "教室変更",
+      "before": "",
+      "after": "12D→12G",
+      "courseCode": "saz001511",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/4/16",
+      "termBlock": "前期前",
+      "slots": "火1・火2",
+      "name": "民法と商法",
+      "teacher": "市川貴子",
+      "field": "教室変更",
+      "before": "",
+      "after": "13L→PBL教室",
+      "courseCode": "saa512101",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/4/16",
+      "termBlock": "前期前",
+      "slots": "火3",
+      "name": "Test Taking Skills(3a)",
+      "teacher": "佐竹幸信",
+      "field": "教室変更",
+      "before": "",
+      "after": "11C→13N",
+      "courseCode": "saa002352",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/4/16",
+      "termBlock": "前期後",
+      "slots": "火3",
+      "name": "Test Taking Skills(3b)",
+      "teacher": "佐竹幸信",
+      "field": "教室変更",
+      "before": "",
+      "after": "11C→13N",
+      "courseCode": "sab002353",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/4/16",
+      "termBlock": "前期",
+      "slots": "火4",
+      "name": "技術英語演習II",
+      "teacher": "佐竹幸信",
+      "field": "教室変更",
+      "before": "",
+      "after": "13L→11C",
+      "courseCode": "smaz000181",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/4/16",
+      "termBlock": "前期後",
+      "slots": "火3・金3",
+      "name": "SD PBL(2)",
+      "teacher": "宮坂明宏\n藪井将太",
+      "field": "教室変更",
+      "before": "",
+      "after": "金3のみ\n13K→PBL教室",
+      "courseCode": "sab122301",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/4/16",
+      "termBlock": "前期前",
+      "slots": "月2・木2",
+      "name": "知能情報数学入門",
+      "teacher": "ニーナ スヴィリドヴァ",
+      "field": "教室変更",
+      "before": "",
+      "after": "12M→共用演習室",
+      "courseCode": "saa321209",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/4/21",
+      "termBlock": "前期後",
+      "slots": "火2・金2",
+      "name": "微分方程式論",
+      "teacher": "古田公司",
+      "field": "受講対象追加",
+      "before": "",
+      "after": "24-20:理工学部+建築都市デザイン学部+情報\n工学部,19-15:工学部+知識工学部",
+      "courseCode": "sab122247",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "2026/4/21",
+      "termBlock": "前期前",
+      "slots": "火4・金4",
+      "name": "微分方程式論",
+      "teacher": "末政直晃\n斎藤隆泰",
+      "field": "受講対象追加",
+      "before": "",
+      "after": "24-20:理工学部+建築都市デザイン学部+情報\n工学部,19-15:工学部+知識工学部",
+      "courseCode": "saa272402",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "2026/4/21",
+      "termBlock": "前期後",
+      "slots": "金1・金2",
+      "name": "専門キャリアデザイン",
+      "teacher": "川上誓",
+      "field": "教室変更",
+      "before": "",
+      "after": "1BB→1BM",
+      "courseCode": "sab315101",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/4/21",
+      "termBlock": "前期",
+      "slots": "金3",
+      "name": "保育内容環境指導法",
+      "teacher": "松橋圭子",
+      "field": "教室変更",
+      "before": "",
+      "after": "13M→73C\n※5/1・6/19・7/10を除く",
+      "courseCode": "saz565303",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/4/21",
+      "termBlock": "前期",
+      "slots": "金4",
+      "name": "保育内容環境指導法",
+      "teacher": "松橋圭子",
+      "field": "教室変更",
+      "before": "",
+      "after": "13M→73C\n※5/1・6/19・7/10を除く",
+      "courseCode": "saz565415",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/4/22",
+      "termBlock": "前期",
+      "slots": "月1",
+      "name": "宗教学",
+      "teacher": "長島大輔",
+      "field": "教室変更",
+      "before": "",
+      "after": "71B→1BJ(1Q)\n71B→13P(2Q)",
+      "courseCode": "saz001123",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/4/22",
+      "termBlock": "前期",
+      "slots": "月2",
+      "name": "宗教学",
+      "teacher": "長島大輔",
+      "field": "教室変更",
+      "before": "",
+      "after": "71B→1BJ(1Q)\n71B→13P(2Q)",
+      "courseCode": "saz001238",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          3
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/4/22",
+      "termBlock": "前期前",
+      "slots": "木1",
+      "name": "国際関係論(1a)",
+      "teacher": "長島大輔",
+      "field": "教室変更",
+      "before": "",
+      "after": "71B→1BH",
+      "courseCode": "saa004127",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          3
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/4/22",
+      "termBlock": "前期前",
+      "slots": "木2",
+      "name": "国際関係論(1a)",
+      "teacher": "長島大輔",
+      "field": "教室変更",
+      "before": "",
+      "after": "71B→1BH",
+      "courseCode": "saa004257",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          3
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/4/22",
+      "termBlock": "前期後",
+      "slots": "木1",
+      "name": "国際関係論(1b)",
+      "teacher": "長島大輔",
+      "field": "教室変更",
+      "before": "",
+      "after": "71B→1BH",
+      "courseCode": "sab004128",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          3
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/4/22",
+      "termBlock": "前期後",
+      "slots": "木2",
+      "name": "国際関係論(1b)",
+      "teacher": "長島大輔",
+      "field": "教室変更",
+      "before": "",
+      "after": "71B→1BH",
+      "courseCode": "sab004258",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          3
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/4/22",
+      "termBlock": "前期",
+      "slots": "木3",
+      "name": "技術英語演習I",
+      "teacher": "日高正司",
+      "field": "教室変更",
+      "before": "",
+      "after": "13J→31A(1Q)\n13J→61A(2Q)",
+      "courseCode": "smaz000171",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          3
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/4/22",
+      "termBlock": "前期後",
+      "slots": "月1・月2",
+      "name": "Urban Environment Design",
+      "teacher": "斉藤圭",
+      "field": "教室変更",
+      "before": "",
+      "after": "13P→71A",
+      "courseCode": "sab511102",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          3
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/4/24",
+      "termBlock": "後期後",
+      "slots": "月5・木5",
+      "name": "データサイエンスリテラシー(2)",
+      "teacher": "未定",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "未定→坂本 航太郎",
+      "courseCode": "sbb001518",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          3
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/24",
+      "termBlock": "後期後",
+      "slots": "水1・水2",
+      "name": "文系のための数理基礎",
+      "teacher": "江頭満正",
+      "field": "受講対象修正",
+      "before": "",
+      "after": "学年：2→1\n受講対象：25-20→26-20",
+      "courseCode": "sbb513109",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          3
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "2026/4/24",
+      "termBlock": "前期前",
+      "slots": "火4・金4",
+      "name": "都市工学概論",
+      "teacher": "末政直晃ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "末政 直晃,白旗 弘実,伊藤 和也,栗原 哲\n彦,五艘 隆志,稲垣 具志,秋山 祐樹,関屋\n英彦,珠玖 隆行,小野村 史穂,西田 悠太\n→末政 直晃,白旗 弘実,伊藤 和也,栗原 哲\n彦,五艘 隆志,稲垣 具志,関屋 英彦,珠玖\n隆行,小野村 史穂,西田 悠太,斎藤 隆泰",
+      "courseCode": "saa272401",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          3
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/24",
+      "termBlock": "前期前",
+      "slots": "月3・水2",
+      "name": "インフラデザイン",
+      "teacher": "稲垣具志ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "稲垣 具志,秋山 祐樹,木戸 エバ\n→稲垣 具志,木戸 エバ",
+      "courseCode": "saa271302",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          3
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/24",
+      "termBlock": "前期後",
+      "slots": "月4・木4",
+      "name": "キャリア開発",
+      "teacher": "稲垣具志ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "稲垣 具志\n→伊藤 和也",
+      "courseCode": "sab271410",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          3
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/24",
+      "termBlock": "後期",
+      "slots": "月1",
+      "name": "事例研究",
+      "teacher": "末政直晃ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "末政 直晃,白旗 弘実,伊藤 和也,栗原 哲\n彦,五艘 隆志,稲垣 具志,秋山 祐樹,関屋\n英彦,珠玖 隆行,小野村 史穂\n→末政 直晃,白旗 弘実,伊藤 和也,栗原 哲\n彦,五艘 隆志,稲垣 具志,秋山 祐樹,関屋\n英彦,珠玖 隆行,小野村 史穂,西田 悠太,斎\n藤 隆泰",
+      "courseCode": "sbz271105",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          3
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/24",
+      "termBlock": "後集中",
+      "slots": "",
+      "name": "特別講義(1)(建築設計演習(1))",
+      "teacher": "栗原哲彦",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "栗原 哲彦\n→栗原 哲彦,斎藤 隆泰",
+      "courseCode": "sbz277610",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          3
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/24",
+      "termBlock": "後集中",
+      "slots": "",
+      "name": "特別講義(2)(建築設計演習(2))",
+      "teacher": "栗原哲彦",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "栗原 哲彦\n→栗原 哲彦,斎藤 隆泰",
+      "courseCode": "sbz277611",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          4
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/24",
+      "termBlock": "前集中",
+      "slots": "",
+      "name": "卒業研究(1)",
+      "teacher": "末政直晃ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "末政 直晃,白旗 弘実,伊藤 和也,栗原 哲\n彦,五艘 隆志,関屋 英彦,秋山 祐樹,稲垣\n具志,小野村 史穂,珠玖 隆行,西田 悠太\n→末政 直晃,白旗 弘実,伊藤 和也,栗原 哲\n彦,五艘 隆志,関屋 英彦,秋山 祐樹,稲垣\n具志,小野村 史穂,珠玖 隆行,西田 悠太,斎\n藤 隆泰",
+      "courseCode": "saz277612",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          4
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/24",
+      "termBlock": "前集中",
+      "slots": "",
+      "name": "卒業研究(2)",
+      "teacher": "末政直晃ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "末政 直晃,白旗 弘実,伊藤 和也,栗原 哲\n彦,五艘 隆志,関屋 英彦,秋山 祐樹,稲垣\n具志,小野村 史穂,珠玖 隆行,西田 悠太\n→末政 直晃,白旗 弘実,伊藤 和也,栗原 哲\n彦,五艘 隆志,関屋 英彦,秋山 祐樹,稲垣\n具志,小野村 史穂,珠玖 隆行,西田 悠太,斎\n藤 隆泰",
+      "courseCode": "saz277613",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          4
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/24",
+      "termBlock": "後集中",
+      "slots": "",
+      "name": "卒業研究(2)",
+      "teacher": "末政直晃ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "末政 直晃,白旗 弘実,伊藤 和也,栗原 哲\n彦,五艘 隆志,関屋 英彦,秋山 祐樹,稲垣\n具志,小野村 史穂,珠玖 隆行,西田 悠太\n→末政 直晃,白旗 弘実,伊藤 和也,栗原 哲\n彦,五艘 隆志,関屋 英彦,秋山 祐樹,稲垣\n具志,小野村 史穂,珠玖 隆行,西田 悠太,斎\n藤 隆泰",
+      "courseCode": "sbz277616",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          4
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/24",
+      "termBlock": "後集中",
+      "slots": "",
+      "name": "卒業研究(1)",
+      "teacher": "末政直晃ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "末政 直晃,白旗 弘実,伊藤 和也,栗原 哲\n彦,五艘 隆志,関屋 英彦,秋山 祐樹,稲垣\n具志,小野村 史穂,珠玖 隆行,西田 悠太\n→末政 直晃,白旗 弘実,伊藤 和也,栗原 哲\n彦,五艘 隆志,関屋 英彦,秋山 祐樹,稲垣\n具志,小野村 史穂,珠玖 隆行,西田 悠太,斎\n藤 隆泰",
+      "courseCode": "sbz277617",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          4
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/24",
+      "termBlock": "後集中",
+      "slots": "",
+      "name": "空間情報科学",
+      "teacher": "未定",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "未定\n→秋山 祐樹",
+      "courseCode": "sbz277618",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          4
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/27",
+      "termBlock": "前期後",
+      "slots": "月4・木4",
+      "name": "キャリア開発",
+      "teacher": "伊藤和也",
+      "field": "教室変更",
+      "before": "",
+      "after": "21B→31B",
+      "courseCode": "sab271410",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          5
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/4/29",
+      "termBlock": "前期前",
+      "slots": "月1・木1",
+      "name": "技術者倫理",
+      "teacher": "田中康寛ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "田中 康寛,三宅 弘晃,白鳥 英,渡邉 力夫\n→田中 康寛,三宅 弘晃,白鳥 英,藪井 将\n太,渡邉 力夫",
+      "courseCode": "saa121104",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          5
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/29",
+      "termBlock": "前期後",
+      "slots": "火1・火2",
+      "name": "物理学実験(b)",
+      "teacher": "津村耕司ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "津村 耕司,尼子 淳,小野 督幸,金子 核,木\n浪 信之,武田 実,中島 啓光,西川 浩之,丸\n山 裕子\n→尼子 淳,小野 督幸,金子 核,木浪 信之,\n武田 実,中島 啓光,西川 浩之,丸山 裕子,\n未定",
+      "courseCode": "sab262106",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          5
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/29",
+      "termBlock": "後期前",
+      "slots": "火2・金2",
+      "name": "電磁気学基礎",
+      "teacher": "小林 伸吾",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "小林 伸吾→未定",
+      "courseCode": "sba132210",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          5
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/29",
+      "termBlock": "後期前",
+      "slots": "金1・金2",
+      "name": "物理学実験(a)",
+      "teacher": "津村耕司ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "津村 耕司,浅野 恵美,尼子 淳,岡 笑美,金\n子 核,西川 浩之,平山 博之\n→浅野 恵美,尼子 淳,岡 笑美,金子 核,西\n川 浩之,平山 博之,未定",
+      "courseCode": "sba155101",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          5
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/29",
+      "termBlock": "後期後",
+      "slots": "金1・金2",
+      "name": "物理学実験(b)",
+      "teacher": "津村耕司ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "津村 耕司,浅野 恵美,尼子 淳,岡 笑美,金\n子 核,西川 浩之,平山 博之\n→浅野 恵美,尼子 淳,岡 笑美,金子 核,西\n川 浩之,平山 博之,未定",
+      "courseCode": "sbb155102",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          5
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/29",
+      "termBlock": "後期",
+      "slots": "金1・金2",
+      "name": "物理学実験",
+      "teacher": "津村耕司ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "津村 耕司,浅野 恵美,尼子 淳,岡 笑美,金\n子 核,西川 浩之,平山 博之\n→浅野 恵美,尼子 淳,岡 笑美,金子 核,西\n川 浩之,平山 博之,未定",
+      "courseCode": "sbz005110",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          5
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/29",
+      "termBlock": "前期前",
+      "slots": "月1・月2・木1・木2",
+      "name": "化学実験",
+      "teacher": "吉田真史ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "吉田 真史,高木 晋作,中村 和彦,石井 義\n孝,北川 匡伸,村上 志緒,金子 毅,池島 宏\n子,岸 和央\n→吉田 真史,高木 晋作,中村 和彦,石井 義\n孝,北川 匡伸,池島 宏子,金子 毅,岸 和央",
+      "courseCode": "saa171103",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          5
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/29",
+      "termBlock": "前期前",
+      "slots": "月3・月4・木3・木4",
+      "name": "化学実験",
+      "teacher": "堀越篤史ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "堀越 篤史,田中 健太郎,中村 和彦,石井 義\n孝,北川 匡伸,村上 志緒,池島 宏子,堀田\n芳生,岸 和央,金子 毅\n→堀越 篤史,田中 健太郎,中村 和彦,石井\n義孝,北川 匡伸,池島 宏子,金子 毅,岸 和\n央,堀田 芳生",
+      "courseCode": "saa151310",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          6
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/29",
+      "termBlock": "前期後",
+      "slots": "月1・月2・木1・木2",
+      "name": "化学実験",
+      "teacher": "吉田真史ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "吉田 真史,田中 健太郎,中村 和彦,石井 義\n孝,北川 匡伸,村上 志緒,金子 毅,池島 宏\n子,岸 和央,堀田 芳生\n→吉田 真史,田中 健太郎,中村 和彦,石井\n義孝,北川 匡伸,池島 宏子,金子 毅,岸 和\n央",
+      "courseCode": "sab171104",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          6
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/29",
+      "termBlock": "前期後",
+      "slots": "月3・月4・木3・木4",
+      "name": "化学実験",
+      "teacher": "吉田真史ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "吉田 真史,堀越 篤史,中村 和彦,石井 義\n孝,北川 匡伸,堀田 芳生,岸 和央,金子 毅,\n池島 宏子\n→吉田 真史,堀越 篤史,中村 和彦,石井 義\n孝,北川 匡伸,池島 宏子,金子 毅,岸 和央,\n堀田 芳生",
+      "courseCode": "sab151311",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          6
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/29",
+      "termBlock": "後期後",
+      "slots": "火1・火2・金1・金2",
+      "name": "化学実験",
+      "teacher": "吉田真史ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "吉田 真史,田中 健太郎,満田 深雪,河野 泰\n朗,金子 毅\n→吉田 真史,田中 健太郎,金子 毅,岸 和\n央,池島 宏子",
+      "courseCode": "sbb132111",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          6
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/29",
+      "termBlock": "後期後",
+      "slots": "月3・月4・木3・木4",
+      "name": "化学実験",
+      "teacher": "高木晋作ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "高木 晋作,堀越 篤史,石塚 芽具美,北川 匡\n伸,岸 和央,満田 深雪,木屋 幸蔵,中村 和\n彦,池島 宏子,金子 毅\n→高木 晋作,堀越 篤史,金子 毅,岸 和央,\n石塚 芽具美,北川 匡伸,木屋 幸蔵,堀田 芳\n生,満田 深雪",
+      "courseCode": "sbb141308",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          6
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/29",
+      "termBlock": "後期後",
+      "slots": "火3・火4・金3・金4",
+      "name": "化学実験",
+      "teacher": "吉田真史ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "吉田 真史,田中 健太郎,満田 深雪,河野 泰\n朗,岸 和央,金子 毅\n→吉田 真史,田中 健太郎,金子 毅,岸 和\n央,池島 宏子,中村 和彦",
+      "courseCode": "sbb262310",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          6
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/29",
+      "termBlock": "後期前",
+      "slots": "土1・土2",
+      "name": "地学実験(a)",
+      "teacher": "中島保寿ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "中島 保寿,萩谷 宏,加藤 潔,安井 万奈,清\n家 一馬,荻原 成騎\n→中島 保寿,萩谷 宏,加藤 潔,安井 万奈,\n荻原 成騎,清家 一馬",
+      "courseCode": "sba006105",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          7
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/29",
+      "termBlock": "後期後",
+      "slots": "土1・土2",
+      "name": "地学実験(b)",
+      "teacher": "中島保寿ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "中島 保寿,萩谷 宏,加藤 潔,安井 万奈,清\n家 一馬,荻原 成騎\n→中島 保寿,萩谷 宏,加藤 潔,安井 万奈,\n荻原 成騎,清家 一馬",
+      "courseCode": "sbb006106",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          7
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/29",
+      "termBlock": "後期",
+      "slots": "土1・土2",
+      "name": "地学実験",
+      "teacher": "中島保寿ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "中島 保寿,萩谷 宏,加藤 潔,安井 万奈,清\n家 一馬,荻原 成騎\n→中島 保寿,萩谷 宏,加藤 潔,安井 万奈,\n荻原 成騎,清家 一馬",
+      "courseCode": "sbz006107",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          7
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/29",
+      "termBlock": "後期前",
+      "slots": "土3・土4",
+      "name": "地学実験(a)",
+      "teacher": "中島保寿ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "中島 保寿,萩谷 宏,加藤 潔,安井 万奈,宮\n田 真也,荻原 成騎\n→中島 保寿,萩谷 宏,加藤 潔,安井 万奈,\n荻原 成騎,宮田 真也",
+      "courseCode": "sba006305",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          7
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/29",
+      "termBlock": "後期後",
+      "slots": "土3・土4",
+      "name": "地学実験(b)",
+      "teacher": "中島保寿ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "中島 保寿,萩谷 宏,加藤 潔,安井 万奈,宮\n田 真也,荻原 成騎\n→中島 保寿,萩谷 宏,加藤 潔,安井 万奈,\n荻原 成騎,宮田 真也",
+      "courseCode": "sbb006306",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          7
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/29",
+      "termBlock": "後期",
+      "slots": "土3・土4",
+      "name": "地学実験",
+      "teacher": "中島保寿ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "中島 保寿,萩谷 宏,加藤 潔,安井 万奈,宮\n田 真也,荻原 成騎\n→中島 保寿,萩谷 宏,加藤 潔,安井 万奈,\n荻原 成騎,宮田 真也",
+      "courseCode": "sbz006307",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          7
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/29",
+      "termBlock": "前期",
+      "slots": "水2",
+      "name": "SD PBL(1)",
+      "teacher": "堀越篤史ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "堀越 篤史,須藤 誠一\n→堀越 篤史,須藤 誠一,西村 太樹,田中 健\n太郎,高木 晋作,長田 剛,萩谷 宏,福田 達\n哉,門多 顕司,糸井 充穂,服部 新",
+      "courseCode": "saz173201",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          7
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/29",
+      "termBlock": "後期後",
+      "slots": "月2・木2",
+      "name": "博物館学(1)",
+      "teacher": "萩谷宏",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "萩谷 宏\n→萩谷 宏,難波 美緒",
+      "courseCode": "sbb171204",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          7
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/29",
+      "termBlock": "前期",
+      "slots": "水1・水2",
+      "name": "自然科学科実験及び演習",
+      "teacher": "吉田真史ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "吉田 真史,須藤 誠一,中島 保寿,萩谷 宏,\n堀越 篤史,西村 太樹,津村 耕司,中村 正人\n（講師）,高木 晋作,田中 健太郎,門多 顕\n司,福田 達哉,糸井 充穂\n→吉田 真史,須藤 誠一,中島 保寿,萩谷\n宏,堀越 篤史,西村 太樹,津村 耕司,中村\n正人（講師）,高木 晋作,飯島 正徳,田中 健\n太郎,門多 顕司,福田 達哉,糸井 充穂",
+      "courseCode": "saz173101",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          8
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/29",
+      "termBlock": "前集中",
+      "slots": "",
+      "name": "SD PBL(2)",
+      "teacher": "服部新ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "服部 新,吉田 真史\n→服部 新,吉田 真史,長田 剛",
+      "courseCode": "saz177605",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          8
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/29",
+      "termBlock": "後集中",
+      "slots": "",
+      "name": "英語論文読解",
+      "teacher": "橋本義武ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "橋本 義武,飯島 正徳,福田 達哉,吉田 真\n史,中井 洋史,中島 保寿,萩谷 宏,服部 新,\n堀越 篤史,津村 耕司,門多 顕司,高木 晋\n作,長田 剛,須藤 誠一,西村 太樹,中村 正\n人（講師）\n→橋本 義武,飯島 正徳,福田 達哉,吉田 真\n史,中井 洋史,中島 保寿,萩谷 宏,服部 新,\n堀越 篤史,門多 顕司,高木 晋作,長田 剛,\n須藤 誠一,西村 太樹,中村 正人（講師）,未\n定",
+      "courseCode": "sbz177611",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          8
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/29",
+      "termBlock": "後集中",
+      "slots": "",
+      "name": "事例研究(2)",
+      "teacher": "橋本義武ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "橋本 義武,飯島 正徳,福田 達哉,吉田 真\n史,中井 洋史,中島 保寿,萩谷 宏,服部 新,\n堀越 篤史,津村 耕司,門多 顕司,高木 晋\n作,長田 剛,須藤 誠一,西村 太樹,中村 正\n人（講師）,田中 健太郎,糸井 充穂\n→橋本 義武,飯島 正徳,福田 達哉,吉田 真\n史,中井 洋史,中島 保寿,萩谷 宏,服部 新,\n堀越 篤史,門多 顕司,高木 晋作,長田 剛,\n須藤 誠一,西村 太樹,中村 正人（講師）,田\n中 健太郎,糸井 充穂,未定",
+      "courseCode": "sbz177612",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          8
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/29",
+      "termBlock": "後期後",
+      "slots": "水1・水2",
+      "name": "SD PBL(3)",
+      "teacher": "津村耕司ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "津村 耕司,中村 正人（講師）\n→中村 正人（講師）,未定",
+      "courseCode": "sbb173102",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          8
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/29",
+      "termBlock": "後集中",
+      "slots": "",
+      "name": "卒業研究(2)",
+      "teacher": "福田達哉ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "福田 達哉,飯島 正徳,橋本 義武,吉田 真\n史,中井 洋史,中島 保寿,萩谷 宏,服部 新,\n堀越 篤史,津村 耕司,門多 顕司,高木 晋\n作,長田 剛,須藤 誠一,西村 太樹,田中 健\n太郎,糸井 充穂,中村 正人（講師）\n→福田 達哉,飯島 正徳,橋本 義武,吉田 真\n史,中井 洋史,中島 保寿,萩谷 宏,服部 新,\n堀越 篤史,門多 顕司,高木 晋作,長田 剛,\n須藤 誠一,西村 太樹,田中 健太郎,糸井 充\n穂,中村 正人（講師）,未定",
+      "courseCode": "sbz177617",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          9
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/29",
+      "termBlock": "後集中",
+      "slots": "",
+      "name": "卒業研究(1)",
+      "teacher": "福田達哉ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "福田 達哉,飯島 正徳,橋本 義武,吉田 真\n史,中井 洋史,中島 保寿,萩谷 宏,服部 新,\n堀越 篤史,津村 耕司,門多 顕司,高木 晋\n作,長田 剛,須藤 誠一,西村 太樹,田中 健\n太郎,糸井 充穂,中村 正人（講師）\n→福田 達哉,飯島 正徳,橋本 義武,吉田 真\n史,中井 洋史,中島 保寿,萩谷 宏,服部 新,\n堀越 篤史,門多 顕司,高木 晋作,長田 剛,\n須藤 誠一,西村 太樹,田中 健太郎,糸井 充\n穂,中村 正人（講師）,未定",
+      "courseCode": "sbz177618",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          9
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/29",
+      "termBlock": "通年",
+      "slots": "",
+      "name": "卒業研究",
+      "teacher": "福田達哉ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "福田 達哉,飯島 正徳,橋本 義武,吉田 真\n史,中井 洋史,中島 保寿,萩谷 宏,服部 新,\n堀越 篤史,津村 耕司,門多 顕司,高木 晋\n作,長田 剛,須藤 誠一,西村 太樹,田中 健\n太郎,糸井 充穂,中村 正人（講師）\n→福田 達哉,飯島 正徳,橋本 義武,吉田 真\n史,中井 洋史,中島 保寿,萩谷 宏,服部 新,\n堀越 篤史,津村 耕司,門多 顕司,高木 晋\n作,長田 剛,須藤 誠一,西村 太樹,田中 健\n太郎,糸井 充穂,中村 正人（講師）,未定",
+      "courseCode": "szz177619",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          9
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/29",
+      "termBlock": "前集中",
+      "slots": "",
+      "name": "卒業研究(1)",
+      "teacher": "黒岩崇ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "黒岩 崇,金澤 昭彦,藤森 厚裕,金友 拓哉,\n岩村 武,江場 宏美,高津 淑人,小林 亮太,\n塩月 雅士,秀島 翔,奥中 さゆり\n→黒岩 崇,金澤 昭彦,金友 拓哉,岩村 武,\n江場 宏美,高津 淑人,小林 亮太,塩月 雅\n士,秀島 翔,奥中 さゆり",
+      "courseCode": "saz157601",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          10
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/29",
+      "termBlock": "前集中",
+      "slots": "",
+      "name": "卒業研究(2)",
+      "teacher": "黒岩崇ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "黒岩 崇,金澤 昭彦,藤森 厚裕,金友 拓哉,\n岩村 武,江場 宏美,高津 淑人,小林 亮太,\n塩月 雅士,秀島 翔,奥中 さゆり\n→黒岩 崇,金澤 昭彦,金友 拓哉,岩村 武,\n江場 宏美,高津 淑人,小林 亮太,塩月 雅\n士,秀島 翔,奥中 さゆり",
+      "courseCode": "saz157602",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          10
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/29",
+      "termBlock": "後集中",
+      "slots": "",
+      "name": "卒業研究(2)",
+      "teacher": "黒岩崇ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "黒岩 崇,金澤 昭彦,藤森 厚裕,岩村 武,江\n場 宏美,高津 淑人,小林 亮太,塩月 雅士,\n秀島 翔,奥中 さゆり\n→黒岩 崇,金澤 昭彦,金友 拓哉,岩村 武,\n江場 宏美,高津 淑人,小林 亮太,塩月 雅\n士,秀島 翔,奥中 さゆり",
+      "courseCode": "sbz157603",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          10
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/29",
+      "termBlock": "後集中",
+      "slots": "",
+      "name": "卒業研究(1)",
+      "teacher": "黒岩崇ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "黒岩 崇,金澤 昭彦,藤森 厚裕,岩村 武,江\n場 宏美,高津 淑人,小林 亮太,塩月 雅士,\n秀島 翔,奥中 さゆり\n→黒岩 崇,金澤 昭彦,金友 拓哉,岩村 武,\n江場 宏美,高津 淑人,小林 亮太,塩月 雅\n士,秀島 翔,奥中 さゆり",
+      "courseCode": "sbz157604",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          10
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/29",
+      "termBlock": "通年",
+      "slots": "",
+      "name": "卒業研究",
+      "teacher": "黒岩崇ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "黒岩 崇,金澤 昭彦,藤森 厚裕,岩村 武,江\n場 宏美,高津 淑人,小林 亮太,塩月 雅士,\n秀島 翔,奥中 さゆり\n→黒岩 崇,金澤 昭彦,金友 拓哉,岩村 武,\n江場 宏美,高津 淑人,小林 亮太,塩月 雅\n士,秀島 翔,奥中 さゆり",
+      "courseCode": "szz157605",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          10
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/29",
+      "termBlock": "後期",
+      "slots": "木1",
+      "name": "事例研究",
+      "teacher": "堀場弘ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "堀場 弘,手塚 貴晴,福島 加津也,中川 純,\n斎賀 英二郎,小見 康夫,佐藤 幸恵,落合\n陽,原田 公明,大村 哲矢,須藤 美音,岩下\n剛,小林 茂雄,焦 瑜\n→手塚 貴晴,福島 加津也,中川 純,斎賀 英\n二郎,小見 康夫,佐藤 幸恵,落合 陽,原田\n公明,大村 哲矢,須藤 美音,岩下 剛,小林\n茂雄,焦 瑜,能作 淳平",
+      "courseCode": "sbz264109",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          11
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/29",
+      "termBlock": "後期",
+      "slots": "木3・木4",
+      "name": "再・総合実習",
+      "teacher": "和多田雅哉ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "和多田 雅哉,坂口 勝久,小林 千尋,髙橋 玄\n宇,早坂 信哉,森 晃\n→和多田 雅哉,坂口 勝久,小林 千尋,髙橋\n玄宇,早坂 信哉,杉本 潤,森 晃",
+      "courseCode": "sbz144301",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          11
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/29",
+      "termBlock": "後期前",
+      "slots": "木3・木4",
+      "name": "総合実習(a)",
+      "teacher": "和多田雅哉ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "和多田 雅哉,坂口 勝久,小林 千尋,髙橋 玄\n宇,早坂 信哉,森 晃\n→和多田 雅哉,坂口 勝久,小林 千尋,髙橋\n玄宇,早坂 信哉,杉本 潤,森 晃",
+      "courseCode": "sba144302",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          11
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/29",
+      "termBlock": "後期後",
+      "slots": "木3・木4",
+      "name": "総合実習(b)",
+      "teacher": "和多田雅哉ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "和多田 雅哉,坂口 勝久,小林 千尋,髙橋 玄\n宇,早坂 信哉,森 晃\n→和多田 雅哉,坂口 勝久,小林 千尋,髙橋\n玄宇,早坂 信哉,杉本 潤,森 晃",
+      "courseCode": "sbb144303",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          11
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/30",
+      "termBlock": "通年",
+      "slots": "",
+      "name": "卒業研究",
+      "teacher": "野平博司ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "野平 博司,澤野 憲太郎,傘 昊,中島 達人,\n岡野 好伸,三谷 祐一郎,鈴木 憲吏,鳥居\n粛,林 正博,平野 拓一,星 裕介,N・スラン\nタ,石川 亮佑,天雨 徹,山田 道洋\n→野平 博司,澤野 憲太郎,傘 昊,中島 達\n人,岡野 好伸,三谷 祐一郎,鈴木 憲吏,鳥居\n粛,林 正博,平野 拓一,星 裕介,N・スラン\nタ,石川 亮佑,天雨 徹,勝本 信吾,山田 道\n洋",
+      "courseCode": "szz137606",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          11
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/30",
+      "termBlock": "後期後",
+      "slots": "火2・金2",
+      "name": "電気回路(1)演習",
+      "teacher": "奈良安雄ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "奈良 安雄,勝本 信吾\n→奈良 安雄,伊藤 壽",
+      "courseCode": "sbb132210",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          11
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/30",
+      "termBlock": "後期後",
+      "slots": "水1・水2",
+      "name": "SD PBL(3)",
+      "teacher": "野平博司ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "野平 博司,山田 道洋,中島 達人,石川 亮佑\n→野平 博司,山田 道洋,吉田 智暁,石川 亮\n佑",
+      "courseCode": "sbb133109",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          12
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/30",
+      "termBlock": "後期後",
+      "slots": "月5・木5",
+      "name": "理工学と生活",
+      "teacher": "及川昌訓ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "及川 昌訓,京相 雅樹,高津 淑人,佐藤 大\n祐,佐藤 勇,吉田 智暁\n→杉町 敏之,京相 雅樹,高津 淑人,佐藤 大\n祐,佐藤 勇,吉田 智暁",
+      "courseCode": "sbb001516",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          12
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/30",
+      "termBlock": "前集中",
+      "slots": "",
+      "name": "卒業研究(1)",
+      "teacher": "野平博司ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "野平 博司,傘 昊,中島 達人,岡野 好伸,三\n谷 祐一郎,鈴木 憲吏,鳥居 粛,林 正博,平\n野 拓一,星 裕介,N・スランタ,石川 亮佑,天\n雨 徹,山田 道洋,吉田 智暁,稲垣 雄志,占\n部 千由\n→野平 博司,傘 昊,中島 達人,岡野 好伸,\n三谷 祐一郎,鈴木 憲吏,鳥居 粛,林 正博,\n平野 拓一,星 裕介,N・スランタ,石川 亮佑,\n天雨 徹,勝本 信吾,山田 道洋,吉田 智暁,\n稲垣 雄志,占部 千由",
+      "courseCode": "saz137626",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          12
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/30",
+      "termBlock": "後集中",
+      "slots": "",
+      "name": "卒業研究(2)",
+      "teacher": "野平博司ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "野平 博司,澤野 憲太郎,傘 昊,中島 達人,\n岡野 好伸,三谷 祐一郎,鈴木 憲吏,鳥居\n粛,林 正博,平野 拓一,星 裕介,N・スラン\nタ,石川 亮佑,天雨 徹,山田 道洋,吉田 智\n暁,稲垣 雄志,占部 千由\n→野平 博司,澤野 憲太郎,傘 昊,中島 達\n人,岡野 好伸,三谷 祐一郎,鈴木 憲吏,鳥居\n粛,林 正博,平野 拓一,星 裕介,N・スラン\nタ,石川 亮佑,天雨 徹,勝本 信吾,山田 道\n洋,吉田 智暁,稲垣 雄志,占部 千由",
+      "courseCode": "sbz137627",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          12
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/30",
+      "termBlock": "後集中",
+      "slots": "",
+      "name": "卒業研究(1)",
+      "teacher": "野平博司ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "野平 博司,澤野 憲太郎,傘 昊,中島 達人,\n岡野 好伸,三谷 祐一郎,鈴木 憲吏,鳥居\n粛,林 正博,平野 拓一,星 裕介,N・スラン\nタ,石川 亮佑,天雨 徹,山田 道洋,吉田 智\n暁,稲垣 雄志,占部 千由\n→野平 博司,澤野 憲太郎,傘 昊,中島 達\n人,岡野 好伸,三谷 祐一郎,鈴木 憲吏,鳥居\n粛,林 正博,平野 拓一,星 裕介,N・スラン\nタ,石川 亮佑,天雨 徹,勝本 信吾,山田 道\n洋,吉田 智暁,稲垣 雄志,占部 千由",
+      "courseCode": "sbz137628",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          13
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/30",
+      "termBlock": "後集中",
+      "slots": "",
+      "name": "Next PBL",
+      "teacher": "杉浦正吾ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "杉浦 正吾,五十嵐 美樹\n→杉浦 正吾",
+      "courseCode": "sbb134310",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          13
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/30",
+      "termBlock": "前集中",
+      "slots": "",
+      "name": "卒業研究(2)",
+      "teacher": "野平博司ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "野平 博司,傘 昊,中島 達人,岡野 好伸,三\n谷 祐一郎,鈴木 憲吏,鳥居 粛,林 正博,平\n野 拓一,星 裕介,N・スランタ,石川 亮佑,天\n雨 徹,山田 道洋,吉田 智暁,稲垣 雄志,占\n部 千由\n→野平 博司,傘 昊,中島 達人,岡野 好伸,\n三谷 祐一郎,鈴木 憲吏,鳥居 粛,林 正博,\n平野 拓一,星 裕介,N・スランタ,石川 亮佑,\n天雨 徹,勝本 信吾,山田 道洋,吉田 智暁,\n稲垣 雄志,占部 千由",
+      "courseCode": "saz137631",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          13
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/30",
+      "termBlock": "後集中",
+      "slots": "",
+      "name": "Next PBL(1)",
+      "teacher": "杉浦正吾ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "杉浦 正吾,五十嵐 美樹\n→杉浦 正吾",
+      "courseCode": "sbz137632",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          13
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/4/30",
+      "termBlock": "後集中",
+      "slots": "",
+      "name": "Next PBL(2)",
+      "teacher": "杉浦正吾ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "杉浦 正吾,五十嵐 美樹\n→杉浦 正吾",
+      "courseCode": "sbz137633",
+      "source": {
+        "id": "changes-ug-setagaya-spring",
+        "document": "2026年度 世田谷キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/05/39ee695eae5f9ddcd4256f11b1b5a268.pdf",
+        "pages": [
+          13
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/9/19",
+      "termBlock": "後期",
+      "slots": "水1",
+      "name": "保育・教職実践演習(幼稚園)",
+      "teacher": "紺野 道子",
+      "field": "教室変更",
+      "before": "",
+      "after": "12H教室 → 12L教室",
+      "courseCode": "sbz563111",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/9/19",
+      "termBlock": "後期",
+      "slots": "水2",
+      "name": "保育・教職実践演習(幼稚園)",
+      "teacher": "紺野 道子",
+      "field": "教室変更",
+      "before": "",
+      "after": "12K教室 → 12L教室",
+      "courseCode": "sbz563204",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/9/19",
+      "termBlock": "後期前",
+      "slots": "火3",
+      "name": "Communication Strategies (1a)",
+      "teacher": "三宅 加恵",
+      "field": "開講曜日時限訂正",
+      "before": "",
+      "after": "火3 → 火2",
+      "courseCode": "sba002201",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "schedule"
+      ]
+    },
+    {
+      "date": "2026/9/19",
+      "termBlock": "後期後",
+      "slots": "火3",
+      "name": "Communication Strategies (1b)",
+      "teacher": "三宅 加恵",
+      "field": "開講曜日時限訂正",
+      "before": "",
+      "after": "火3 → 火2",
+      "courseCode": "sbb002202",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "schedule"
+      ]
+    },
+    {
+      "date": "2026/9/19",
+      "termBlock": "後期前",
+      "slots": "水1、水2",
+      "name": "エリアマネジメント",
+      "teacher": "坂井 文",
+      "field": "教室変更",
+      "before": "",
+      "after": "71A教室 → 71B教室",
+      "courseCode": "sba513106",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/9/19",
+      "termBlock": "後期前",
+      "slots": "水2",
+      "name": "電気化学(a)",
+      "teacher": "岡澤 厚",
+      "field": "教室変更",
+      "before": "",
+      "after": "71B教室 → 71A教室",
+      "courseCode": "sba151222",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/9/19",
+      "termBlock": "後期前",
+      "slots": "月3、月4、月5",
+      "name": "設計(3)",
+      "teacher": "能作 淳平 ほか",
+      "field": "担当教員追加",
+      "before": "",
+      "after": "渋谷 篤",
+      "courseCode": "sba261304",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/9/19",
+      "termBlock": "後期後",
+      "slots": "月3、月4、月5",
+      "name": "設計(4)",
+      "teacher": "能作 淳平 ほか",
+      "field": "担当教員追加",
+      "before": "",
+      "after": "渋谷 篤",
+      "courseCode": "sbb261305",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/9/19",
+      "termBlock": "後期前",
+      "slots": "土1、土2、土3、土4",
+      "name": "設計スタジオ(1)",
+      "teacher": "手塚 貴晴 ほか",
+      "field": "担当教員追加",
+      "before": "",
+      "after": "根市 拓",
+      "courseCode": "sba266104",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/9/19",
+      "termBlock": "後期後",
+      "slots": "土1、土2、土3、土4",
+      "name": "設計スタジオ(2)",
+      "teacher": "手塚 貴晴 ほか",
+      "field": "担当教員追加",
+      "before": "",
+      "after": "根市 拓",
+      "courseCode": "sbb266105",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/9/19",
+      "termBlock": "後期後",
+      "slots": "水1、水2",
+      "name": "SD PBL(3)",
+      "teacher": "中村 正人",
+      "field": "担当教員追加",
+      "before": "",
+      "after": "菅原 悠馬",
+      "courseCode": "sbb173102",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/9/19",
+      "termBlock": "後集中",
+      "slots": "",
+      "name": "事例研究(2)",
+      "teacher": "福田 達哉 ほか",
+      "field": "担当教員追加",
+      "before": "",
+      "after": "菅原 悠馬",
+      "courseCode": "sbz177612",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/9/19",
+      "termBlock": "後期前",
+      "slots": "金1、金2",
+      "name": "物理学実験(a)",
+      "teacher": "尼子 淳 ほか",
+      "field": "担当教員追加",
+      "before": "",
+      "after": "菅原 悠馬",
+      "courseCode": "sba155101",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/9/19",
+      "termBlock": "後期後",
+      "slots": "金1、金2",
+      "name": "物理学実験(b)",
+      "teacher": "尼子 淳 ほか",
+      "field": "担当教員追加",
+      "before": "",
+      "after": "菅原 悠馬",
+      "courseCode": "sbb155102",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/9/19",
+      "termBlock": "後集中",
+      "slots": "",
+      "name": "英語論文読解",
+      "teacher": "橋本 義武 ほか",
+      "field": "",
+      "before": "",
+      "after": "本年度非開講のため授業時間表より削除",
+      "courseCode": "sbz177611",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "withdrawn"
+      ]
+    },
+    {
+      "date": "2026/9/19",
+      "termBlock": "後集中",
+      "slots": "",
+      "name": "ことづくり(1)",
+      "teacher": "岸 和幸",
+      "field": "",
+      "before": "",
+      "after": "本年度非開講のため授業時間表より削除",
+      "courseCode": "sbz007653",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "withdrawn"
+      ]
+    },
+    {
+      "date": "2026/9/19",
+      "termBlock": "後期後",
+      "slots": "水1、水2",
+      "name": "Facilitation & Communication",
+      "teacher": "ドリアンダ リーラ プロビ ほか",
+      "field": "開講学年訂正\n担当教員変更",
+      "before": "",
+      "after": "2024年度以前入学生の再履修者向けに開講\nドリアンダ リーラ プロビ、北見 幸一\n→ ドリアンダ リーラ プロビ",
+      "courseCode": "sbb513107",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/9/19",
+      "termBlock": "後期後",
+      "slots": "金3、金4",
+      "name": "ブランド戦略",
+      "teacher": "北見 幸一",
+      "field": "開講期曜日時限変更\n担当教員変更",
+      "before": "",
+      "after": "後期後 金3・金4 → 後集中\n北見 幸一 → 未定",
+      "courseCode": "sbb515315",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "teachers",
+        "schedule"
+      ]
+    },
+    {
+      "date": "2026/9/19",
+      "termBlock": "後期前",
+      "slots": "月1、月2",
+      "name": "エリアマーケティング",
+      "teacher": "林 和眞 ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "林 和眞、北見 幸一 → 林 和眞",
+      "courseCode": "sba511103",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/9/19",
+      "termBlock": "後期前",
+      "slots": "火3、火4",
+      "name": "マーケティングリサーチ演習(1)",
+      "teacher": "菊池 武晴 ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "北見 幸一 → 柏原 沙織",
+      "courseCode": "sba512314",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/9/19",
+      "termBlock": "後期前",
+      "slots": "月4、木4",
+      "name": "光エレクトロニクス",
+      "teacher": "澤野 憲太郎",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "澤野 憲太郎 → 野平 博司、三谷 祐一郎、星\n裕介、勝本 信吾、山田 道洋、石川 亮佑",
+      "courseCode": "sba131404",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/9/19",
+      "termBlock": "後集中",
+      "slots": "",
+      "name": "計算電子工学",
+      "teacher": "野平 博司 ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "澤野 憲太郎 教授を削除",
+      "courseCode": "sbz137619",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/9/19",
+      "termBlock": "後集中",
+      "slots": "",
+      "name": "電気磁気学(2)演習",
+      "teacher": "澤野 憲太郎 ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "澤野 憲太郎、星 裕介 → 星 裕介",
+      "courseCode": "sbz137610",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/9/28",
+      "termBlock": "後期前",
+      "slots": "月2",
+      "name": "基礎体育(2a)",
+      "teacher": "椿原 徹也 ほか",
+      "field": "受講対象変更",
+      "before": "",
+      "after": "医用乙 ＋ 都生DEF → 都生DEF",
+      "courseCode": "sba511203",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "2026/9/28",
+      "termBlock": "後期後",
+      "slots": "月2",
+      "name": "基礎体育(2b)",
+      "teacher": "久保 哲也 ほか",
+      "field": "受講対象変更",
+      "before": "",
+      "after": "医用乙 ＋ 都生DEF → 都生DEF",
+      "courseCode": "sbb511204",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "2026/9/28",
+      "termBlock": "後期前",
+      "slots": "水1",
+      "name": "基礎体育(2a)",
+      "teacher": "椿原 徹也 ほか",
+      "field": "受講対象変更",
+      "before": "",
+      "after": "医用甲 ＋ 自然 → 医用 ＋ 自然",
+      "courseCode": "sba143101",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "2026/9/28",
+      "termBlock": "後期後",
+      "slots": "水1",
+      "name": "基礎体育(2b)",
+      "teacher": "久保 哲也 ほか",
+      "field": "受講対象変更",
+      "before": "",
+      "after": "医用甲 ＋ 自然 → 医用 ＋ 自然",
+      "courseCode": "sbb143102",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "2026/9/28",
+      "termBlock": "後期前",
+      "slots": "月3",
+      "name": "応用化学総合演習(a)",
+      "teacher": "大山 聖一 ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "押鐘 由理子 講師を削除",
+      "courseCode": "sba151303",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/9/28",
+      "termBlock": "後期後",
+      "slots": "月3",
+      "name": "応用化学総合演習(b)",
+      "teacher": "大山 聖一 ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "押鐘 由理子 講師を削除",
+      "courseCode": "sbb151304",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/9/28",
+      "termBlock": "後期前",
+      "slots": "金3、金4",
+      "name": "応用化学実験基礎(2a)",
+      "teacher": "黒岩 崇 ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "押鐘 由理子 講師を削除",
+      "courseCode": "sba155304",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/9/28",
+      "termBlock": "後期後",
+      "slots": "金3、金4",
+      "name": "応用化学実験基礎(2b)",
+      "teacher": "黒岩 崇 ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "押鐘 由理子 講師を削除",
+      "courseCode": "sbb155305",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/9/28",
+      "termBlock": "後期後",
+      "slots": "水1、水2",
+      "name": "SD PBL(3)",
+      "teacher": "高津 淑人 ほか",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "押鐘 由理子 講師を削除",
+      "courseCode": "sbb153106",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/9/28",
+      "termBlock": "後期前",
+      "slots": "月1、月2、木1、木2",
+      "name": "物理学及び演習(1)",
+      "teacher": "深井 佳乃",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "深井 佳乃 → 片山 龍一",
+      "courseCode": "sba111113",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/9/28",
+      "termBlock": "後期後",
+      "slots": "月1、月2、木1、木2",
+      "name": "物理学及び演習(2)",
+      "teacher": "深井 佳乃",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "深井 佳乃 → 片山 龍一",
+      "courseCode": "sbb111115",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/9/28",
+      "termBlock": "後期前",
+      "slots": "火1、火2、金1、金2",
+      "name": "物理学及び演習(1)",
+      "teacher": "片山 龍一",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "片山 龍一 → 深井 佳乃",
+      "courseCode": "sba272114",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/9/28",
+      "termBlock": "後期後",
+      "slots": "火1、火2、金1、金2",
+      "name": "物理学及び演習(2)",
+      "teacher": "片山 龍一",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "片山 龍一 → 深井 佳乃",
+      "courseCode": "sbb272116",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/9/28",
+      "termBlock": "後期前",
+      "slots": "木2",
+      "name": "建築構法(2)",
+      "teacher": "小見 康夫",
+      "field": "教室変更",
+      "before": "",
+      "after": "11B → 22C",
+      "courseCode": "sba264204",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/9/28",
+      "termBlock": "後期前",
+      "slots": "金3",
+      "name": "民俗学(a)",
+      "teacher": "岡田 伊代",
+      "field": "教室変更",
+      "before": "",
+      "after": "13M → 21C",
+      "courseCode": "sba005302",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/9/28",
+      "termBlock": "後期前",
+      "slots": "金4",
+      "name": "民俗学(a)",
+      "teacher": "岡田 伊代",
+      "field": "教室変更",
+      "before": "",
+      "after": "13M → 21C",
+      "courseCode": "sba005401",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/9/28",
+      "termBlock": "後期前",
+      "slots": "金3、金4",
+      "name": "高電圧工学",
+      "teacher": "占部 千曲",
+      "field": "教室変更",
+      "before": "",
+      "after": "12K → 22C",
+      "courseCode": "sba135304",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/9/28",
+      "termBlock": "後期",
+      "slots": "月3、月4",
+      "name": "人間情報システム演習",
+      "teacher": "岡 誠",
+      "field": "教室変更",
+      "before": "",
+      "after": "共用演習室 → 13A",
+      "courseCode": "sbz321304",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/9/28",
+      "termBlock": "後期前",
+      "slots": "月3、木3",
+      "name": "フーリエ解析学",
+      "teacher": "橋本 義武",
+      "field": "教室変更",
+      "before": "",
+      "after": "13J → 31A",
+      "courseCode": "sba161301",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/9/28",
+      "termBlock": "後期前",
+      "slots": "火4、金4",
+      "name": "フーリエ解析学",
+      "teacher": "橋本 義武",
+      "field": "教室変更",
+      "before": "",
+      "after": "11C → 31A",
+      "courseCode": "sba122402",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/9/28",
+      "termBlock": "後期前",
+      "slots": "木2",
+      "name": "Grammar(1a)",
+      "teacher": "日高 正司",
+      "field": "教室変更",
+      "before": "",
+      "after": "1BK → 13P",
+      "courseCode": "sba004223",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/9/28",
+      "termBlock": "後期前",
+      "slots": "木3",
+      "name": "Global Culture(2a)",
+      "teacher": "日高 正司",
+      "field": "教室変更",
+      "before": "",
+      "after": "1BK → 13P",
+      "courseCode": "sba004320",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/9/28",
+      "termBlock": "後期前",
+      "slots": "火2、金2",
+      "name": "プログラミング応用",
+      "teacher": "京相 雅樹",
+      "field": "教室変更",
+      "before": "",
+      "after": "22A → 12K",
+      "courseCode": "sba142205",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/10/1",
+      "termBlock": "後期",
+      "slots": "水2",
+      "name": "材料力学",
+      "teacher": "小林 志好",
+      "field": "教室変更（第3Qのみ）",
+      "before": "",
+      "after": "32A → PBL教室",
+      "courseCode": "sbz113201",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/10/1",
+      "termBlock": "後期前",
+      "slots": "火3、火4、金3、金4",
+      "name": "地盤工学及び演習(2)",
+      "teacher": "末政 直晃",
+      "field": "教室変更",
+      "before": "",
+      "after": "火曜クラス：12G → 22C\n金曜クラス：12G → 12K",
+      "courseCode": "sba272304",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/10/1",
+      "termBlock": "後期",
+      "slots": "土2",
+      "name": "日本国憲法",
+      "teacher": "大沼 友紀恵",
+      "field": "教室変更",
+      "before": "",
+      "after": "13J → 13K",
+      "courseCode": "sbz006202",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/10/1",
+      "termBlock": "後期後",
+      "slots": "月5、木5",
+      "name": "データサイエンスリテラシー(2)",
+      "teacher": "坂本 航太郎",
+      "field": "担当教員変更",
+      "before": "",
+      "after": "坂本 航太郎 → 秦泉寺 久美",
+      "courseCode": "sbb001518",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/10/1",
+      "termBlock": "後期",
+      "slots": "月1",
+      "name": "公衆衛生学",
+      "teacher": "田中 淳司",
+      "field": "受講対象変更",
+      "before": "",
+      "after": "都市生活学科生は2021年度以前入学生のみ履修\n可",
+      "courseCode": "sbz561208",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "2026/10/6",
+      "termBlock": "後期",
+      "slots": "月2",
+      "name": "子ども家庭福祉",
+      "teacher": "泉 秀生",
+      "field": "教室変更",
+      "before": "",
+      "after": "21B → 71A",
+      "courseCode": "sbz561207",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/10/6",
+      "termBlock": "後期前",
+      "slots": "金1、金2",
+      "name": "住まいと環境",
+      "teacher": "斉藤 圭",
+      "field": "教室変更",
+      "before": "",
+      "after": "61B → 22C",
+      "courseCode": "sba515114",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/10/6",
+      "termBlock": "後期前",
+      "slots": "金4",
+      "name": "Test Taking Skills(2a)",
+      "teacher": "浜崎 絵梨",
+      "field": "教室変更",
+      "before": "",
+      "after": "12L → 12C",
+      "courseCode": "sba005417",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/10/6",
+      "termBlock": "後期後",
+      "slots": "金4",
+      "name": "Test Taking Skills(2b)",
+      "teacher": "浜崎 絵梨",
+      "field": "教室変更",
+      "before": "",
+      "after": "12L → 12C",
+      "courseCode": "sbb005418",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/10/6",
+      "termBlock": "後期前",
+      "slots": "金1",
+      "name": "社会学(2a)",
+      "teacher": "吉田 豊",
+      "field": "",
+      "before": "",
+      "after": "開講中止のため授業時間表より削除",
+      "courseCode": "sba005101",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "withdrawn"
+      ]
+    },
+    {
+      "date": "2026/10/6",
+      "termBlock": "後期前",
+      "slots": "金2",
+      "name": "社会学(2a)",
+      "teacher": "吉田 豊",
+      "field": "",
+      "before": "",
+      "after": "開講中止のため授業時間表より削除",
+      "courseCode": "sba005201",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "withdrawn"
+      ]
+    },
+    {
+      "date": "2026/10/6",
+      "termBlock": "後期前",
+      "slots": "金3",
+      "name": "社会学(2a)",
+      "teacher": "吉田 豊",
+      "field": "",
+      "before": "",
+      "after": "開講中止のため授業時間表より削除",
+      "courseCode": "sba005301",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "withdrawn"
+      ]
+    },
+    {
+      "date": "2026/10/6",
+      "termBlock": "後期後",
+      "slots": "金1",
+      "name": "社会学(2b)",
+      "teacher": "吉田 豊",
+      "field": "",
+      "before": "",
+      "after": "開講中止のため授業時間表より削除",
+      "courseCode": "sbb005101",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "withdrawn"
+      ]
+    },
+    {
+      "date": "2026/10/6",
+      "termBlock": "後期後",
+      "slots": "金2",
+      "name": "社会学(2b)",
+      "teacher": "吉田 豊",
+      "field": "",
+      "before": "",
+      "after": "開講中止のため授業時間表より削除",
+      "courseCode": "sbb005201",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "withdrawn"
+      ]
+    },
+    {
+      "date": "2026/10/6",
+      "termBlock": "後期後",
+      "slots": "金3",
+      "name": "社会学(2b)",
+      "teacher": "吉田 豊",
+      "field": "",
+      "before": "",
+      "after": "開講中止のため授業時間表より削除",
+      "courseCode": "sbb005301",
+      "source": {
+        "id": "changes-ug-setagaya-fall",
+        "document": "2026年度 世田谷キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+        "pages": [
+          3
+        ]
+      },
+      "status": [
+        "withdrawn"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "海外現地調査演習",
+      "teacher": "佐藤剛 他",
+      "field": "担当者",
+      "before": "―",
+      "after": "北村亘 追加",
+      "courseCode": "yab601301",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "SD PBL(2)",
+      "teacher": "リジャル 他",
+      "field": "担当者",
+      "before": "―",
+      "after": "史中超 削除",
+      "courseCode": "yab611101",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "ビジネス&アイデア・クリエーション",
+      "teacher": "田口亮 他",
+      "field": "科目名",
+      "before": "ビジネス＆アイデア・クリエーション",
+      "after": "アイデア発想の原点",
+      "courseCode": "sbz007642",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "name"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "ビジネス&アイデア・クリエーション",
+      "teacher": "",
+      "field": "開講日",
+      "before": "9/23,10/7.10/21,11/4,11/25,12\n/9,12/23,1/13",
+      "after": "全日程未定",
+      "courseCode": "sbz007642",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "再・倫理学",
+      "teacher": "笹路 梨咲子",
+      "field": "時限",
+      "before": "２時限",
+      "after": "４時限",
+      "courseCode": "ybz056401",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "schedule"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "倫理学(a)",
+      "teacher": "",
+      "field": "時限",
+      "before": "２時限",
+      "after": "４時限",
+      "courseCode": "yba006401",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "schedule"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "倫理学(b)",
+      "teacher": "",
+      "field": "時限",
+      "before": "２時限",
+      "after": "４時限",
+      "courseCode": "ybb006401",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "schedule"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "卒業研究(1)",
+      "teacher": "大久保 寛基",
+      "field": "―",
+      "before": "―",
+      "after": "追加",
+      "courseCode": "yaz627027",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "卒業研究(2)",
+      "teacher": "大久保 寛基",
+      "field": "―",
+      "before": "―",
+      "after": "追加",
+      "courseCode": "ybz627019",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "SD PBL(1)",
+      "teacher": "中村他",
+      "field": "教室",
+      "before": "７２A",
+      "after": "３２I、３２J、３３K",
+      "courseCode": "yaa713201",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "Global Studies(3)",
+      "teacher": "永盛 他",
+      "field": "教室",
+      "before": "３２K",
+      "after": "７２A",
+      "courseCode": "yaa811301",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "SD PBL(1)",
+      "teacher": "中村他",
+      "field": "教室",
+      "before": "32I、３２J、３3K",
+      "after": "３２I、３２J、３２K",
+      "courseCode": "yaa713201",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "English II-A",
+      "teacher": "畑・ストーン",
+      "field": "受講対象",
+      "before": "２５-23",
+      "after": "26-23",
+      "courseCode": "yba813102",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "English II-B",
+      "teacher": "畑・ストーン",
+      "field": "受講対象",
+      "before": "２５-23",
+      "after": "26-23",
+      "courseCode": "ybb813102",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "事例研究(2)",
+      "teacher": "北村 亘",
+      "field": "―",
+      "before": "―",
+      "after": "追加",
+      "courseCode": "yaz617029",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "事例研究(2)",
+      "teacher": "岡田 啓",
+      "field": "―",
+      "before": "―",
+      "after": "追加",
+      "courseCode": "yaz627028",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          2
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "経済学(1a)",
+      "teacher": "宮田 卓弥",
+      "field": "備考",
+      "before": "学籍番号下一桁０～３",
+      "after": "学籍番号下一桁４～６",
+      "courseCode": "saa002348",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          3
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "経済学(1b)",
+      "teacher": "宮田 卓弥",
+      "field": "備考",
+      "before": "学籍番号下一桁０～３",
+      "after": "学籍番号下一桁４～６",
+      "courseCode": "sab002349",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          3
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "再Communication Strategies(3)",
+      "teacher": "ボルジロフスカヤ アンナ",
+      "field": "再履修者\n科目名",
+      "before": "サバイバルイングリッシュ",
+      "after": "キャリアイングリッシュ",
+      "courseCode": "yaz055201",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          3
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "再Communication Strategies(3)",
+      "teacher": "",
+      "field": "再履修者\n科目名",
+      "before": "サバイバルイングリッシュ",
+      "after": "キャリアイングリッシュ",
+      "courseCode": "ybz055201",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          3
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "卒業研究(2)",
+      "teacher": "北村 亘",
+      "field": "受講対象年度",
+      "before": "１９－１５",
+      "after": "２３－１９",
+      "courseCode": "yaz617024",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          3
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "応用体育(1)",
+      "teacher": "岩嶋 孝夫",
+      "field": "受講対象年度",
+      "before": "２５－１５",
+      "after": "２５－２２",
+      "courseCode": "yaz057001",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          3
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "応用体育(1)",
+      "teacher": "岩嶋 孝夫",
+      "field": "受講対象年度",
+      "before": "２５－１５",
+      "after": "２５－２２",
+      "courseCode": "ybz057002",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          3
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "ビジネス&アイデア・クリエーション",
+      "teacher": "田口亮、芝正孝、\n大久保寛基",
+      "field": "科目名",
+      "before": "ビジネス＆アイデア・クリエーション",
+      "after": "アイデア発想の原点",
+      "courseCode": "sbz007642",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          4
+        ]
+      },
+      "status": [
+        "name"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "ビジネス&アイデア・クリエーション",
+      "teacher": "",
+      "field": "担当者",
+      "before": "田口亮、芝正孝、大久保寛基",
+      "after": "芝正孝、大久保寛基",
+      "courseCode": "sbz007642",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          4
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "ビジネス&アイデア・クリエーション",
+      "teacher": "",
+      "field": "受講対象",
+      "before": "25-15",
+      "after": "２６-１５",
+      "courseCode": "sbz007642",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          4
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "ビジネス&アイデア・クリエーション",
+      "teacher": "",
+      "field": "備考",
+      "before": "開講日",
+      "after": "開講日未定",
+      "courseCode": "sbz007642",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          4
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "デザインシンキング",
+      "teacher": "岸 和幸、杉浦 正吾",
+      "field": "前集中",
+      "before": "１年",
+      "after": "環境学部、メディア情報学部",
+      "courseCode": "saz007657",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          4
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "ひらめきづくり(1)",
+      "teacher": "岸 和幸、杉浦 正吾",
+      "field": "前集中",
+      "before": "１年",
+      "after": "環境学部、メディア情報学部",
+      "courseCode": "saa005508",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          4
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "ひらめきづくり(2)",
+      "teacher": "岸 和幸、杉浦 正吾",
+      "field": "前集中",
+      "before": "１年",
+      "after": "環境学部、メディア情報学部",
+      "courseCode": "sbb005509",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          4
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "ことづくり(2)",
+      "teacher": "岸 和幸、杉浦 正吾",
+      "field": "前集中",
+      "before": "２年",
+      "after": "環境学部、メディア情報学部",
+      "courseCode": "saz007654",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          4
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "ひらめきづくり(3)",
+      "teacher": "杉浦 正吾、N・スランタ、加藤 雄一",
+      "field": "前集中",
+      "before": "２年",
+      "after": "環境学部、メディア情報学部",
+      "courseCode": "saz137615",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          4
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "未来を拓くイノベーション",
+      "teacher": "京相雅樹 他",
+      "field": "担当者",
+      "before": "京相雅樹、田口亮、亀山雄髙、\n大久保寛基、北村亘、後藤智香子",
+      "after": "亀山雄高、関口和真、大久保\n寛基、佐藤剛、長沢敬祐、周娟",
+      "courseCode": "saz004519",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          5
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "未来を拓くイノベーション",
+      "teacher": "京相雅樹 他",
+      "field": "担当者",
+      "before": "京相雅樹、田口亮、亀山雄髙、\n大久保寛基、北村亘、後藤智香子",
+      "after": "亀山雄高、関口和真、大久保\n寛基、佐藤剛、長沢敬祐、周娟",
+      "courseCode": "saz004521",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          5
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "English I-A",
+      "teacher": "畑 和樹",
+      "field": "受講対象",
+      "before": "２６－２６",
+      "after": "２６－２３",
+      "courseCode": "yaa812103",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          5
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "English I-B",
+      "teacher": "畑 和樹",
+      "field": "受講対象",
+      "before": "２６－２６",
+      "after": "２６－２３",
+      "courseCode": "yab812103",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          5
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "国際関係論(1a)",
+      "teacher": "伊藤 隆太",
+      "field": "備考",
+      "before": "学籍番号下一桁7～9が受講可\n（2022年度以前入学生を除く）",
+      "after": "削除",
+      "courseCode": "saa004115",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          5
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "国際関係論(1a)",
+      "teacher": "",
+      "field": "備考",
+      "before": "学籍番号下一桁0～3が受講可\n（2022年度以前入学生を除く）",
+      "after": "削除",
+      "courseCode": "saa004232",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          5
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "国際関係論(1a)",
+      "teacher": "",
+      "field": "備考",
+      "before": "学籍番号下一桁4～6が受講可\n（2022年度以前入学生を除く）",
+      "after": "削除",
+      "courseCode": "saa004356",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          5
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "国際関係論(1b)",
+      "teacher": "伊藤 隆太",
+      "field": "備考",
+      "before": "学籍番号下一桁7～9が受講可\n（2022年度以前入学生を除く）",
+      "after": "削除",
+      "courseCode": "sab004116",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          5
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "国際関係論(1b)",
+      "teacher": "",
+      "field": "備考",
+      "before": "学籍番号下一桁0～3が受講可\n（2022年度以前入学生を除く）",
+      "after": "削除",
+      "courseCode": "sab004233",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          5
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "国際関係論(1b)",
+      "teacher": "",
+      "field": "備考",
+      "before": "学籍番号下一桁4～6が受講可\n（2022年度以前入学生を除く）",
+      "after": "削除",
+      "courseCode": "sab004357",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          5
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "持続可能な食料システム",
+      "teacher": "木下 幸雄",
+      "field": "再履修者科目名",
+      "before": "追加",
+      "after": "22年度以前入学生「食料問\n題と環境」",
+      "courseCode": "ybb603101",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          5
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "海外現地調査演習",
+      "teacher": "佐藤 剛 他",
+      "field": "受講対象",
+      "before": "２５－１６",
+      "after": "２５－１９",
+      "courseCode": "yab601301",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          5
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "環境経営システム学入門",
+      "teacher": "岡田公治 他",
+      "field": "受講対象",
+      "before": "２６－１６",
+      "after": "２６－２０",
+      "courseCode": "yaa622301",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          5
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "アルゴリズムとデータ構造",
+      "teacher": "長沢 敬祐",
+      "field": "受講対象",
+      "before": "２５－１６",
+      "after": "２５－１９",
+      "courseCode": "yab625101",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          5
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "経営管理基礎",
+      "teacher": "岡田 公治",
+      "field": "受講対象",
+      "before": "２６－１６",
+      "after": "２６－１９",
+      "courseCode": "yab622302",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          5
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "プロジェクトマネジメント",
+      "teacher": "岡田 公治",
+      "field": "受講対象",
+      "before": "２５－１６",
+      "after": "２５－１９",
+      "courseCode": "yba625301",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          5
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "オペレーションズマネジメント",
+      "teacher": "長沢 敬祐",
+      "field": "受講対象",
+      "before": "２５－１６",
+      "after": "２５－１９",
+      "courseCode": "yba625101",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          6
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "ビジネスモデル",
+      "teacher": "岡田 公治",
+      "field": "受講対象",
+      "before": "２４－１６",
+      "after": "２４－１９",
+      "courseCode": "yaa621301",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          6
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "SD PBL(3)",
+      "teacher": "北村亘、後藤智香子",
+      "field": "担当者",
+      "before": "北村亘、後藤智香子",
+      "after": "北村亘、内田圭",
+      "courseCode": "ybb613102",
+      "source": {
+        "id": "changes-ug-yokohama-spring",
+        "document": "2026年度 横浜キャンパス・学部 前期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/03/34709aa45ad4308d612e54c8a823ce28.pdf",
+        "pages": [
+          6
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "環境分析演習",
+      "teacher": "咸 泳植",
+      "field": "曜日時限",
+      "before": "月曜３・４／木曜３・４",
+      "after": "火曜３・４／金曜３・４",
+      "courseCode": "yba611302",
+      "source": {
+        "id": "changes-ug-yokohama-fall",
+        "document": "2026年度 横浜キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/09/784127dbe596d739b8ba023bdbb2a67e.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "schedule"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "特別講義(DX・GXが創造するビジネスの新しい潮流)",
+      "teacher": "大久保 寛基",
+      "field": "",
+      "before": "９月２９日（火）５・６時限\n１０月１３日（火）５・６時限\n１０月２７日（火）５・６時限\n１１月１０日（火）５・６時限\n１１月２４日（火）５・６時限\n１２月 ８日（火）５・６時限\n１２月２２日（火）５・６時限\n１月１２日（火）５・６時限",
+      "after": "（各日木曜５時限～）\n９月２４日\n１０月１５日、２２日\n１１月５日、１２日、２６日\n１２月１０日、１７日\n１月１４日",
+      "courseCode": "ybz817001",
+      "source": {
+        "id": "changes-ug-yokohama-fall",
+        "document": "2026年度 横浜キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/09/784127dbe596d739b8ba023bdbb2a67e.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "SD PBL(3)",
+      "teacher": "北村 亘\n後藤 智香子",
+      "field": "担当者限",
+      "before": "後藤 智香子",
+      "after": "内田 圭",
+      "courseCode": "ybb613102",
+      "source": {
+        "id": "changes-ug-yokohama-fall",
+        "document": "2026年度 横浜キャンパス・学部 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/09/784127dbe596d739b8ba023bdbb2a67e.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/9/19",
+      "termBlock": "後期後",
+      "slots": "月3、木3",
+      "name": "偏微分方程式特論",
+      "teacher": "古田 公司",
+      "field": "教室変更",
+      "before": "",
+      "after": "12K教室 → 21B教室",
+      "courseCode": "smbb000011",
+      "source": {
+        "id": "changes-grad-science-fall",
+        "document": "2026年度 総合理工学研究科 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/09/7d1654a86fec3147e07d63b0039f7c3e-1.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/9/19",
+      "termBlock": "後期前",
+      "slots": "火3、金3",
+      "name": "惑星科学特論",
+      "teacher": "津村 耕司",
+      "field": "担当教員追加",
+      "before": "",
+      "after": "津村 耕司 → 菅原 悠馬",
+      "courseCode": "smba110111",
+      "source": {
+        "id": "changes-grad-science-fall",
+        "document": "2026年度 総合理工学研究科 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/09/7d1654a86fec3147e07d63b0039f7c3e-1.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "teachers"
+      ]
+    },
+    {
+      "date": "2026/9/19",
+      "termBlock": "後期前",
+      "slots": "火2、水1",
+      "name": "離散数学特論",
+      "teacher": "中井 洋史",
+      "field": "教室変更",
+      "before": "",
+      "after": "22B教室 → 12H教室",
+      "courseCode": "smba000021",
+      "source": {
+        "id": "changes-grad-science-fall",
+        "document": "2026年度 総合理工学研究科 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/09/7d1654a86fec3147e07d63b0039f7c3e-1.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "2026/9/28",
+      "termBlock": "後期前",
+      "slots": "火2、金2",
+      "name": "電力エネルギー特論",
+      "teacher": "中島 達人",
+      "field": "教室変更",
+      "before": "",
+      "after": "13C教室 → 61A教室",
+      "courseCode": "smba030051",
+      "source": {
+        "id": "changes-grad-science-fall",
+        "document": "2026年度 総合理工学研究科 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/09/7d1654a86fec3147e07d63b0039f7c3e-1.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "rooms"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "環境リスク社会論(英語)",
+      "teacher": "木下／桜井",
+      "field": "開講言語",
+      "before": "9/25、26日本語\n1/22、23英語",
+      "after": "9/25、26英語\n1/22、23日本語",
+      "courseCode": "ymbb110022",
+      "source": {
+        "id": "changes-grad-environment-fall",
+        "document": "2026年度 環境情報学研究科 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/09/8967e5f80a13d5b55b64b970039ee4fb.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "Environment and",
+      "teacher": "",
+      "field": "開講言語",
+      "before": "9/25、26日本語\n1/22、23英語",
+      "after": "9/25、26英語\n1/22、23日本語",
+      "courseCode": "ymbb110022",
+      "source": {
+        "id": "changes-grad-environment-fall",
+        "document": "2026年度 環境情報学研究科 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/09/8967e5f80a13d5b55b64b970039ee4fb.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    },
+    {
+      "date": "",
+      "termBlock": "",
+      "slots": "",
+      "name": "Risk Society",
+      "teacher": "",
+      "field": "開講言語",
+      "before": "9/25、26日本語\n1/22、23英語",
+      "after": "9/25、26英語\n1/22、23日本語",
+      "courseCode": "ymbb110022",
+      "source": {
+        "id": "changes-grad-environment-fall",
+        "document": "2026年度 環境情報学研究科 後期 変更一覧",
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/09/8967e5f80a13d5b55b64b970039ee4fb.pdf",
+        "pages": [
+          1
+        ]
+      },
+      "status": [
+        "notice"
+      ]
+    }
+  ]
+}

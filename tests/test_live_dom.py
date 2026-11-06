@@ -56,6 +56,8 @@ def assert_initial_layout(page: Page) -> None:
     assert page.locator("#schedule-table .wcv-native-course-card").count() == 12
     assert page.locator("#wcv-sidebar-tools").count() == 1
     assert page.locator("#wcv-enhanced-timetable").count() == 0
+    assert page.locator("#wcv-course-info-card").count() == 0
+    assert page.locator(".wcv-native-inline-legend .wcv-native-legend-pill").count() == 4
 
     welcome = page.locator("#wcv-welcome-banner")
     assert welcome.count() == 1
@@ -79,6 +81,11 @@ def assert_initial_layout(page: Page) -> None:
         text = page.locator(f"#schedule-table a[href*='{code}']").first.inner_text()
         for expected in expected_values:
             assert expected in text, (code, expected, text)
+
+    # A combined room string and its component list must not appear twice.
+    lab = page.locator("#schedule-table .wcv-native-course-card").filter(has_text="電気電子通信基礎実験").first
+    room = lab.locator(".wcv-native-card-room").inner_text()
+    assert room.count("PBL教室") == 1, room
 
     # Unrelated mutations must not duplicate cards.
     page.evaluate("document.body.appendChild(document.createElement('span'))")
@@ -188,9 +195,109 @@ def main() -> None:
         if evidence.locator(".wcv-history-expand").count():
             assert "残り" in evidence.locator(".wcv-history-expand").inner_text()
 
+        # Study guide navigation and historical filter buttons are rendered and interactive.
+        guide_sec = page.locator("#wcv-course-info-card .wcv-study-guide-evidence")
+        assert guide_sec.count() == 1
+        assert guide_sec.locator(".wcv-guide-source[href*='#page=']").count() >= 2
+        filter_btns = evidence.locator(".wcv-history-filter-btn")
+        assert filter_btns.count() >= 3
+        same_title_btn = evidence.locator(".wcv-history-filter-btn[data-filter='same-title']")
+        if same_title_btn.count():
+            same_title_btn.click()
+            assert evidence.locator(".wcv-history-record").count() >= 1
+
+        # 2026 correction events and 2026 fall PDF candidates are displayed with official PDF links.
+        page.evaluate("""() => {
+          const marker = document.getElementById('history-evidence-test-course');
+          marker.dataset.courseName = '';
+          marker.dataset.courseCode = 'sba155101';
+          marker.textContent = 'sba155101';
+          document.querySelector('#wcv-course-info-card')?.remove();
+          document.body.appendChild(document.createElement('span'));
+        }""")
+        page.wait_for_selector("#wcv-course-info-card .wcv-course-correction-badge", state="attached", timeout=10_000)
+        page.locator("#wcv-course-info-card .wcv-course-card-toggle").click()
+        corr_sec = page.locator("#wcv-course-info-card .wcv-correction-evidence")
+        assert corr_sec.count() == 1
+        assert "未適用" in corr_sec.inner_text()
+        assert corr_sec.locator(".wcv-correction-source[href*='https://www.asc.tcu.ac.jp/']").count() >= 1
+
+        # Visually reviewed 2026 fall PDF evidence on sbz317604 (now in 3,736-course base snapshot) + provisional fallback on sba005101.
+        page.evaluate("""() => {
+          const marker = document.getElementById('history-evidence-test-course');
+          marker.dataset.courseName = '';
+          marker.dataset.courseCode = 'sbz317604';
+          marker.textContent = 'sbz317604';
+          document.querySelector('#wcv-course-info-card')?.remove();
+          document.body.appendChild(document.createElement('span'));
+        }""")
+        page.wait_for_selector("#wcv-course-info-card .wcv-fall-evidence", state="attached", timeout=10_000)
+        page.locator("#wcv-course-info-card .wcv-course-card-toggle").click()
+        fall_sec = page.locator("#wcv-course-info-card .wcv-fall-evidence")
+        assert fall_sec.count() == 1
+        assert "PDF目視確認済み・参考" in fall_sec.inner_text()
+        assert fall_sec.locator(".wcv-fall-source[href*='#page=']").count() >= 1
+
+        page.evaluate("""() => {
+          const marker = document.getElementById('history-evidence-test-course');
+          marker.dataset.courseName = '';
+          marker.dataset.courseCode = 'sba005101';
+          marker.textContent = 'sba005101';
+          document.querySelector('#wcv-course-info-card')?.remove();
+          document.body.appendChild(document.createElement('span'));
+        }""")
+        page.wait_for_selector("#wcv-course-info-card .wcv-course-provisional-badge", state="attached", timeout=10_000)
+
+        # Multi-offering courses pick up classrooms (教場) and teachers (担当先生) accurately from the database.
+        page.evaluate("""() => {
+          const marker = document.getElementById('history-evidence-test-course');
+          marker.dataset.courseCode = '';
+          marker.dataset.courseName = '░ 情報リテラシー演習(b)(火3、須藤、2026年度前期後半)';
+          marker.textContent = '░ 情報リテラシー演習(b)(火3、須藤、2026年度前期後半)';
+          document.querySelector('#wcv-course-info-card')?.remove();
+          document.body.appendChild(document.createElement('span'));
+        }""")
+        page.wait_for_selector("#wcv-course-info-card", state="attached", timeout=10_000)
+        card_text = page.locator("#wcv-course-info-card").inner_text()
+        assert "須藤 康裕" in card_text, card_text
+        assert "1号館2階・12L" in card_text, card_text
+        assert "sab132309" in card_text, card_text
+        page.locator("#wcv-course-info-card .wcv-course-card-toggle").click()
+        multi_sec = page.locator("#wcv-course-info-card .wcv-multi-offering-evidence")
+        assert multi_sec.count() == 1
+        assert multi_sec.locator(".wcv-offering-row").count() >= 7
+        assert "現在のクラス" in multi_sec.inner_text()
+
+        # Title-only multi-offering lookup pairs each offering's classroom (教場) and teacher (担当先生).
+        page.evaluate("""() => {
+          const marker = document.getElementById('history-evidence-test-course');
+          marker.dataset.courseCode = '';
+          marker.dataset.courseName = '情報リテラシー演習(b)';
+          marker.textContent = '情報リテラシー演習(b)';
+          document.querySelector('#wcv-course-info-card')?.remove();
+          document.body.appendChild(document.createElement('span'));
+        }""")
+        page.wait_for_selector("#wcv-course-info-card", state="attached", timeout=10_000)
+        agg_text = page.locator("#wcv-course-info-card").inner_text()
+        assert "複数開講" in agg_text, agg_text
+        assert "1号館2階・12L（須藤 康裕）" in agg_text, agg_text
+
+        # Floating panel cross-database search across snapshot, correction events, fall candidates, and historical rows.
+        assert page.locator("#wcv-native-open-search").count() == 1
+        assert page.locator("#wcv-course-info-card .wcv-more-tab-btn").count() >= 2
+        page.locator("#wcv-launcher").click()
+        page.wait_for_selector("#wcv-panel .wcv-panel-search-input", state="visible", timeout=10_000)
+        page.locator("#wcv-panel .wcv-panel-quick-btn[data-mode='corrections']").click()
+        assert page.locator("#wcv-panel .wcv-panel-layer-tag.is-correction").count() >= 5
+        search_input = page.locator("#wcv-panel .wcv-panel-search-input")
+        search_input.fill("sba155101")
+        assert page.locator("#wcv-panel .wcv-panel-layer-tag.is-correction").count() >= 1
+        search_input.fill("sbz317604")
+        assert page.locator("#wcv-panel .wcv-panel-layer-tag.is-reviewed").count() >= 1
+
         browser.close()
 
-    print("OK: live DOM / restore / metadata toggle / theme adaptation / source-backed historical title disambiguation")
+    print("OK: live DOM / restore / metadata toggle / theme adaptation / source-backed historical title disambiguation / 2026 fall & correction & study-guide DB integration")
 
 
 if __name__ == "__main__":

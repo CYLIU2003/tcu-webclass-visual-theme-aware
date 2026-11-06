@@ -1,0 +1,269 @@
+{
+  "capturedAt": "2026-11-06T13:27:03.279968+09:00",
+  "notice": "PDF cache is never overwritten; changed remote bytes are saved separately.",
+  "sources": [
+    {
+      "id": "curriculum-grad-total-science-engineering-2026",
+      "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/ea1f8f40b548d8fd94677d6f6de019f3.pdf",
+      "expectedSha256": "036c9595e8408ce80136430c1401a6c59a2da43024b17c37e2d605a08790a7d2",
+      "cachePath": "data/source-cache/current/2026/curriculum-grad-total-science-engineering-2026.pdf",
+      "cacheSha256": "036c9595e8408ce80136430c1401a6c59a2da43024b17c37e2d605a08790a7d2",
+      "remoteSha256": "036c9595e8408ce80136430c1401a6c59a2da43024b17c37e2d605a08790a7d2",
+      "bytes": 3186643,
+      "status": "match"
+    },
+    {
+      "id": "curriculum-grad-environment-information-2026",
+      "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/91448d4a1c79fca78b26aabf7e76df6e.pdf",
+      "expectedSha256": "4abc130ada2a82a31d9f72283c825115dab2f9bacdd44fece15f7fe73f5985e3",
+      "cachePath": "data/source-cache/current/2026/curriculum-grad-environment-information-2026.pdf",
+      "cacheSha256": "4abc130ada2a82a31d9f72283c825115dab2f9bacdd44fece15f7fe73f5985e3",
+      "remoteSha256": "4abc130ada2a82a31d9f72283c825115dab2f9bacdd44fece15f7fe73f5985e3",
+      "bytes": 926957,
+      "status": "match"
+    },
+    {
+      "id": "curriculum-grad-information-data-science-2026",
+      "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/a87a21b976c092f5d809cdfba1474a99.pdf",
+      "expectedSha256": "db0c4339ee26a2764efff450d1422f5ff5abe10e5505046c3434ff0b4c7712fd",
+      "cachePath": "data/source-cache/current/2026/curriculum-grad-information-data-science-2026.pdf",
+      "cacheSha256": "db0c4339ee26a2764efff450d1422f5ff5abe10e5505046c3434ff0b4c7712fd",
+      "remoteSha256": "db0c4339ee26a2764efff450d1422f5ff5abe10e5505046c3434ff0b4c7712fd",
+      "bytes": 572432,
+      "status": "match"
+    },
+    {
+      "id": "schedule-setagaya-undergrad-fall-2026",
+      "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/63645e5e27f2b67bd54fe4fbf71e6ed9.pdf",
+      "expectedSha256": "c007f318b8e2574a15a799a2f503e5b8082d666b7ad10275ffd5fef9dc0ef705",
+      "cachePath": "data/source-cache/current/2026/setagaya-undergrad-2026-post.pdf",
+      "cacheSha256": "c007f318b8e2574a15a799a2f503e5b8082d666b7ad10275ffd5fef9dc0ef705",
+      "remoteSha256": "c007f318b8e2574a15a799a2f503e5b8082d666b7ad10275ffd5fef9dc0ef705",
+      "bytes": 4293154,
+      "status": "match"
+    },
+    {
+      "id": "schedule-setagaya-undergrad-fall-changes-2026",
+      "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "expectedSha256": "39cfdb15159ffbbb0bb29689f7b3236af9907923af600a8db3c93aab2ba3d7ed",
+      "cachePath": "data/source-cache/current/2026/setagaya-undergrad-2026-post-changes-202610.pdf",
+      "cacheSha256": "39cfdb15159ffbbb0bb29689f7b3236af9907923af600a8db3c93aab2ba3d7ed",
+      "remoteSha256": "39cfdb15159ffbbb0bb29689f7b3236af9907923af600a8db3c93aab2ba3d7ed",
+      "bytes": 300750,
+      "status": "match"
+    },
+    {
+      "id": "schedule-yokohama-undergrad-fall-2026",
+      "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/09/0a9c574cbf104dc50b2678fe33f1dc55.pdf",
+      "expectedSha256": "249641bf9a21db4fa9991611797bb8b356fdc38625e29761cd7258a5f496e816",
+      "cachePath": "data/source-cache/current/2026/yokohama-undergrad-2026-post.pdf",
+      "cacheSha256": "249641bf9a21db4fa9991611797bb8b356fdc38625e29761cd7258a5f496e816",
+      "remoteSha256": "249641bf9a21db4fa9991611797bb8b356fdc38625e29761cd7258a5f496e816",
+      "bytes": 458534,
+      "status": "match"
+    },
+    {
+      "id": "schedule-yokohama-undergrad-fall-changes-2026",
+      "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/09/784127dbe596d739b8ba023bdbb2a67e.pdf",
+      "expectedSha256": "bad1d919bbfb757688d622af593f026efd4714f10e1e426ea7df95cd45dbc61c",
+      "cachePath": "data/source-cache/current/2026/yokohama-undergrad-2026-post-changes-202609.pdf",
+      "cacheSha256": "bad1d919bbfb757688d622af593f026efd4714f10e1e426ea7df95cd45dbc61c",
+      "remoteSha256": "bad1d919bbfb757688d622af593f026efd4714f10e1e426ea7df95cd45dbc61c",
+      "bytes": 149536,
+      "status": "match"
+    },
+    {
+      "id": "schedule-setagaya-grad-total-fall-2026",
+      "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/09/fb6e01051e507fba8682b137a39a7151.pdf",
+      "expectedSha256": "43e9930b82a626cb14a7be21867c73a46144cdb9cf683b989f9369b6f524f7dd",
+      "cachePath": "data/source-cache/current/2026/setagaya-grad-total-2026-post.pdf",
+      "cacheSha256": "43e9930b82a626cb14a7be21867c73a46144cdb9cf683b989f9369b6f524f7dd",
+      "remoteSha256": "43e9930b82a626cb14a7be21867c73a46144cdb9cf683b989f9369b6f524f7dd",
+      "bytes": 2862865,
+      "status": "match"
+    },
+    {
+      "id": "schedule-setagaya-grad-total-fall-changes-2026",
+      "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/09/7d1654a86fec3147e07d63b0039f7c3e-1.pdf",
+      "expectedSha256": "1f11e3676980e4390f53714d9f17f3e656f333067db001bd5b0297135538ac14",
+      "cachePath": "data/source-cache/current/2026/setagaya-grad-total-2026-post-changes.pdf",
+      "cacheSha256": "1f11e3676980e4390f53714d9f17f3e656f333067db001bd5b0297135538ac14",
+      "remoteSha256": "1f11e3676980e4390f53714d9f17f3e656f333067db001bd5b0297135538ac14",
+      "bytes": 171190,
+      "status": "match"
+    },
+    {
+      "id": "schedule-setagaya-grad-environment-fall-2026",
+      "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/09/87e1e51603db9ddc780e1433cfdc3625.pdf",
+      "expectedSha256": "d653fd261a76be4ea7ce948890d3e1e825eca351a59cec7b4e71443ed687e3fe",
+      "cachePath": "data/source-cache/current/2026/setagaya-grad-environment-2026-post.pdf",
+      "cacheSha256": "d653fd261a76be4ea7ce948890d3e1e825eca351a59cec7b4e71443ed687e3fe",
+      "remoteSha256": "d653fd261a76be4ea7ce948890d3e1e825eca351a59cec7b4e71443ed687e3fe",
+      "bytes": 683476,
+      "status": "match"
+    },
+    {
+      "id": "schedule-yokohama-grad-environment-fall-2026",
+      "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/09/6182ba786547bd1f1b4947262c64221f.pdf",
+      "expectedSha256": "a332f7de5303671230a9ef338a281ddeeb06a77becb68008da308935f6cb701f",
+      "cachePath": "data/source-cache/current/2026/yokohama-grad-environment-2026-post.pdf",
+      "cacheSha256": "a332f7de5303671230a9ef338a281ddeeb06a77becb68008da308935f6cb701f",
+      "remoteSha256": "a332f7de5303671230a9ef338a281ddeeb06a77becb68008da308935f6cb701f",
+      "bytes": 517024,
+      "status": "match"
+    },
+    {
+      "id": "schedule-yokohama-grad-environment-fall-changes-2026",
+      "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/09/8967e5f80a13d5b55b64b970039ee4fb.pdf",
+      "expectedSha256": "01e9cc80b39086adf0d5ff39a3f1c89de51f4dc2b6209c14d53b519013cdb9bc",
+      "cachePath": "data/source-cache/current/2026/yokohama-grad-environment-2026-post-changes.pdf",
+      "cacheSha256": "01e9cc80b39086adf0d5ff39a3f1c89de51f4dc2b6209c14d53b519013cdb9bc",
+      "remoteSha256": "01e9cc80b39086adf0d5ff39a3f1c89de51f4dc2b6209c14d53b519013cdb9bc",
+      "bytes": 139586,
+      "status": "match"
+    },
+    {
+      "id": "schedule-yokohama-grad-ids-fall-2026",
+      "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/09/f3b503ba92b2d5a2e42ffe86157093bd.pdf",
+      "expectedSha256": "1e41f44b0fafdd5adf4eb9dcfb49aa672953318f27c3bfaffd6e8f41ac758847",
+      "cachePath": "data/source-cache/current/2026/yokohama-grad-information-data-science-2026-post.pdf",
+      "cacheSha256": "1e41f44b0fafdd5adf4eb9dcfb49aa672953318f27c3bfaffd6e8f41ac758847",
+      "remoteSha256": "1e41f44b0fafdd5adf4eb9dcfb49aa672953318f27c3bfaffd6e8f41ac758847",
+      "bytes": 291162,
+      "status": "match"
+    },
+    {
+      "id": "guide-ug-engineering-2026",
+      "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/a0dc671e8eb03cda69fc0648edf104cd.pdf",
+      "expectedSha256": "4eba6ed7529f61e3c955e4e7da3a5d909a2fa6124bcd2a9b012d5a80d499ea13",
+      "cachePath": "data/source-cache/current/2026/ug-guide-engineering-2026.pdf",
+      "cacheSha256": "4eba6ed7529f61e3c955e4e7da3a5d909a2fa6124bcd2a9b012d5a80d499ea13",
+      "remoteSha256": "4eba6ed7529f61e3c955e4e7da3a5d909a2fa6124bcd2a9b012d5a80d499ea13",
+      "bytes": 3546710,
+      "status": "match"
+    },
+    {
+      "id": "guide-ug-architecture-urban-2026",
+      "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/887e7ccb382048811b8840d6003b9a24.pdf",
+      "expectedSha256": "9066a827d2dc47bce1b00e1d880fdc269eb86b34e4ed435e2a7586f30ecde205",
+      "cachePath": "data/source-cache/current/2026/ug-guide-architecture-urban-2026.pdf",
+      "cacheSha256": "9066a827d2dc47bce1b00e1d880fdc269eb86b34e4ed435e2a7586f30ecde205",
+      "remoteSha256": "9066a827d2dc47bce1b00e1d880fdc269eb86b34e4ed435e2a7586f30ecde205",
+      "bytes": 3427246,
+      "status": "match"
+    },
+    {
+      "id": "guide-ug-information-2026",
+      "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/523786516152752ab91293dd787cc0cc.pdf",
+      "expectedSha256": "7d9dc5168a264fab69ca976a9dab6559d86d8d1ac8edb9752de500ae6fcc34a7",
+      "cachePath": "data/source-cache/current/2026/ug-guide-information-2026.pdf",
+      "cacheSha256": "7d9dc5168a264fab69ca976a9dab6559d86d8d1ac8edb9752de500ae6fcc34a7",
+      "remoteSha256": "7d9dc5168a264fab69ca976a9dab6559d86d8d1ac8edb9752de500ae6fcc34a7",
+      "bytes": 3490267,
+      "status": "match"
+    },
+    {
+      "id": "guide-ug-environment-2026",
+      "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/e69aa2716a5d0db78c4241f183a36f63.pdf",
+      "expectedSha256": "bf470ba5280129bf6c9fc62c44c84d47dd7028ca5b35a73a086ff91ee5458c76",
+      "cachePath": "data/source-cache/current/2026/ug-guide-environment-2026.pdf",
+      "cacheSha256": "bf470ba5280129bf6c9fc62c44c84d47dd7028ca5b35a73a086ff91ee5458c76",
+      "remoteSha256": "bf470ba5280129bf6c9fc62c44c84d47dd7028ca5b35a73a086ff91ee5458c76",
+      "bytes": 8608287,
+      "status": "match"
+    },
+    {
+      "id": "guide-ug-media-information-2026",
+      "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/36f4e4062d15fd6e4875f8e78bec3bd6.pdf",
+      "expectedSha256": "3e6d94fa3dd6df3932a7f6f6d3869777f9a886b18113c63b0c6dc5ec290ceb2d",
+      "cachePath": "data/source-cache/current/2026/ug-guide-media-information-2026.pdf",
+      "cacheSha256": "3e6d94fa3dd6df3932a7f6f6d3869777f9a886b18113c63b0c6dc5ec290ceb2d",
+      "remoteSha256": "3e6d94fa3dd6df3932a7f6f6d3869777f9a886b18113c63b0c6dc5ec290ceb2d",
+      "bytes": 8152996,
+      "status": "match"
+    },
+    {
+      "id": "guide-ug-design-data-science-2026",
+      "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/3db8dbc9a70710d1a1cf633fefc085e8.pdf",
+      "expectedSha256": "7a6da9cdcf984327ceb05447a0945dacab61c8c6245078cbc90b42289b69cacb",
+      "cachePath": "data/source-cache/current/2026/ug-guide-design-data-science-2026.pdf",
+      "cacheSha256": "7a6da9cdcf984327ceb05447a0945dacab61c8c6245078cbc90b42289b69cacb",
+      "remoteSha256": "7a6da9cdcf984327ceb05447a0945dacab61c8c6245078cbc90b42289b69cacb",
+      "bytes": 6381564,
+      "status": "match"
+    },
+    {
+      "id": "guide-ug-urban-life-2026",
+      "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/9a97b84ce1f096e0db084e81dac0bf1f.pdf",
+      "expectedSha256": "db464f4cb1b4c8773294d53c83f82126e9fb7935d119d998dc8d95d737291f88",
+      "cachePath": "data/source-cache/current/2026/ug-guide-urban-life-2026.pdf",
+      "cacheSha256": "db464f4cb1b4c8773294d53c83f82126e9fb7935d119d998dc8d95d737291f88",
+      "remoteSha256": "db464f4cb1b4c8773294d53c83f82126e9fb7935d119d998dc8d95d737291f88",
+      "bytes": 6157218,
+      "status": "match"
+    },
+    {
+      "id": "guide-ug-human-sciences-2026",
+      "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/9ac54018ba04a3dadd1774fcaec7facc.pdf",
+      "expectedSha256": "c0e658d1beee8e76708dc00e1fccafe1e07a4115ab0a35572851879a3f1672dd",
+      "cachePath": "data/source-cache/current/2026/ug-guide-human-sciences-2026.pdf",
+      "cacheSha256": "c0e658d1beee8e76708dc00e1fccafe1e07a4115ab0a35572851879a3f1672dd",
+      "remoteSha256": "c0e658d1beee8e76708dc00e1fccafe1e07a4115ab0a35572851879a3f1672dd",
+      "bytes": 4974951,
+      "status": "match"
+    },
+    {
+      "id": "guide-grad-total-science-engineering-2026",
+      "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/f595ecfb04357ab27ea2f4bc341a0858.pdf",
+      "expectedSha256": "0272430bf192339fc0854a237e8ebfae0f9584e17b75358c8c7d9d7f5950c899",
+      "cachePath": "data/source-cache/current/2026/grad-guide-total-science-engineering-2026.pdf",
+      "cacheSha256": "0272430bf192339fc0854a237e8ebfae0f9584e17b75358c8c7d9d7f5950c899",
+      "remoteSha256": "0272430bf192339fc0854a237e8ebfae0f9584e17b75358c8c7d9d7f5950c899",
+      "bytes": 2941693,
+      "status": "match"
+    },
+    {
+      "id": "guide-grad-environment-information-2026",
+      "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/454f36fb9ad48f2ce487cede8bd0df78.pdf",
+      "expectedSha256": "75a762d0eaf6dbb78aaef1e06674c05b26210b643b6b24c914e8246fb41ff5d4",
+      "cachePath": "data/source-cache/current/2026/grad-guide-environment-information-2026.pdf",
+      "cacheSha256": "75a762d0eaf6dbb78aaef1e06674c05b26210b643b6b24c914e8246fb41ff5d4",
+      "remoteSha256": "75a762d0eaf6dbb78aaef1e06674c05b26210b643b6b24c914e8246fb41ff5d4",
+      "bytes": 3439312,
+      "status": "match"
+    },
+    {
+      "id": "guide-grad-information-data-science-2026",
+      "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/f537a6217aa7296bbbde3b54da9c9596.pdf",
+      "expectedSha256": "012052083c7e98804ec95827b21bb7752a0f0cd8794e1f542315179ffeae8153",
+      "cachePath": "data/source-cache/current/2026/grad-guide-information-data-science-2026.pdf",
+      "cacheSha256": "012052083c7e98804ec95827b21bb7752a0f0cd8794e1f542315179ffeae8153",
+      "remoteSha256": "012052083c7e98804ec95827b21bb7752a0f0cd8794e1f542315179ffeae8153",
+      "bytes": 3092481,
+      "status": "match"
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://www.asc.tcu.ac.jp/7567/",
+      "status": "captured",
+      "sha256": "1fa2f6c8545720493502ea4a22316842923f35536d1f64615c6e3dbca53343b9",
+      "bytes": 77079,
+      "snapshotPath": "data/source-checks/objects/1fa2f6c8545720493502ea4a22316842923f35536d1f64615c6e3dbca53343b9.html"
+    },
+    {
+      "url": "https://www.asc.tcu.ac.jp/8007/",
+      "status": "captured",
+      "sha256": "550b6b65ace4e169a5cd9b63895ec8b4411eb81508135b2024aeceb8c3c19eed",
+      "bytes": 68707,
+      "snapshotPath": "data/source-checks/objects/550b6b65ace4e169a5cd9b63895ec8b4411eb81508135b2024aeceb8c3c19eed.html"
+    },
+    {
+      "url": "https://www.asc.tcu.ac.jp/syllabus_archives/",
+      "status": "captured",
+      "sha256": "612c88665055dc4a4e09a3c06666b63f0b92aef1cb6285bb3181a14eb6d207ad",
+      "bytes": 107599,
+      "snapshotPath": "data/source-checks/objects/612c88665055dc4a4e09a3c06666b63f0b92aef1cb6285bb3181a14eb6d207ad.html"
+    }
+  ]
+}

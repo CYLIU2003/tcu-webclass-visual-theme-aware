@@ -1,0 +1,114 @@
+<!doctype html><html lang="ja"><meta charset="utf-8"><title>課題締切一覧のテスト</title>
+<link rel="stylesheet" href="../src/content.css">
+<style>
+body { margin: 0; background: #f5f7fb; font-family: system-ui, sans-serif; }
+main { max-width: 1170px; margin: 24px auto; padding: 0 15px; }
+.row { display: flex; gap: 24px; align-items: flex-start; }
+.col-sm-3 { width: 270px; flex-shrink: 0; }
+.col-sm-9 { flex: 1; min-width: 0; padding: 20px; background: white; border: 1px solid #dae3ee; border-radius: 12px; }
+@media (max-width: 767px) { .row { display: block; } .col-sm-3 { width: 100%; } }
+</style>
+<body><main><div class="row"><aside class="col-sm-3"><h3>学習メニュー</h3>
+<a href="/webclass/ip_mods.php/plugin/score_summary_table/dashboard">課題実施状況一覧</a>
+</aside><div class="col-sm-9"><h1>週間時間割</h1>
+<table id="schedule-table"><tr><td>
+<a href="/webclass/course.php/26sba132209/login">電磁気学基礎(火2・金2、須藤、2026年度後期前半)_sba132209</a>
+<a href="/webclass/course.php/26sba132209/login">電磁気学基礎_sba132209</a>
+<a href="/webclass/course.php/26sba133105/login">電磁気学概論_sba133105</a>
+</td></tr></table>
+</div></div></main><p id="test-result">実行中…</p>
+<script src="../src/deadlines.js"></script>
+<script>
+  let loads = 0;
+  window.addEventListener('message', (event) => { if (event.origin === location.origin && event.data === 'deadline-fixture-loaded') loads++; });
+  const assert = (condition, message) => { if (!condition) throw new Error(message); };
+  const waitUntil = async (condition, timeoutMs = 10000) => {
+    const timeout = Date.now() + timeoutMs;
+    while (!condition() && Date.now() < timeout) await new Promise(resolve => setTimeout(resolve, 30));
+    assert(condition(), '読み込み完了を待つ');
+  };
+  (async () => {
+    WCV_DEADLINES.sync({ enabled: true, showDeadlineList: true });
+    await waitUntil(() => loads === 1);
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    assert(document.querySelector('.wcv-deadline-refresh').disabled, '空の課題表だけで完了せず、遅れて届く教材行を待つ');
+    await waitUntil(() => document.querySelector('.wcv-deadline-refresh')?.disabled === false);
+    const titles = () => Array.from(document.querySelectorAll('.wcv-deadline-title'), element => element.textContent);
+    assert(titles().join(',') === '今日のレポート,予習未回答,演習課題', '履修科目・現在年度の未完了課題だけを締切順に表示');
+    assert(Array.from(document.querySelectorAll('.wcv-deadline-item')).find(item => item.querySelector('.wcv-deadline-title').textContent === '演習課題')?.querySelector('.wcv-deadline-course').textContent === '電磁気学概論', '教材内の別コースへのリンクを科目の判定に混ぜない');
+    assert(document.querySelector('.wcv-deadline-status').textContent.includes('2科目中2科目'), '取得した科目数を表示');
+    const diagnostics = document.querySelector('.wcv-deadline-diagnostics');
+    diagnostics.open = true;
+    await waitUntil(() => document.querySelectorAll('.wcv-deadline-diagnostic-course').length === 2);
+    const firstDiagnostic = document.querySelector('.wcv-deadline-diagnostic-course[data-course-id="26sba132209"]');
+    const secondDiagnostic = document.querySelector('.wcv-deadline-diagnostic-course[data-course-id="26sba133105"]');
+    secondDiagnostic.open = true;
+    assert(secondDiagnostic.textContent.includes('表示対象1件／取得教材2件') && secondDiagnostic.textContent.includes('締切が7日より先のため対象外'), '課題ごとの表示・除外理由を確認できる');
+    assert(firstDiagnostic.textContent.includes('締切なし') && firstDiagnostic.textContent.includes('締切の形式を読み取れません') && firstDiagnostic.textContent.includes('2026-02-30 23:59'), '締切なしと日付の読み取り失敗を分け、取得した締切を示す');
+    assert(document.querySelectorAll('.wcv-deadline-urgent').length === 1, '24時間以内の課題を強調');
+    assert(document.querySelector('.wcv-deadline-task-status').textContent === '提出状況を確認', '実施日のある課題を提出済みと推測しない');
+    assert(!document.getElementById('wcv-deadlines').textContent.includes('使用しない成績情報'), '成績情報を表示しない');
+    assert(new URL(document.querySelector('.wcv-deadline-open').href).pathname === '/webclass/course.php/26sba132209/login', 'リンクのない課題は該当コースへ誘導');
+    assert(document.querySelector('.col-sm-3 > #wcv-deadlines'), '左側の既存カラムに課題一覧を配置');
+    assert(!document.querySelector('#wcv-deadlines select, #wcv-deadlines input'), '1週間以内に固定し、期間・実施済み切り替えを表示しない');
+    assert(!titles().includes('来週以降の課題') && !titles().includes('提出済み課題'), '1週間を超える課題・提出済み課題を表示しない');
+    if (window.innerWidth >= 768) {
+      assert(document.getElementById('wcv-deadlines').getBoundingClientRect().right <= document.querySelector('.col-sm-9').getBoundingClientRect().left, '課題一覧が右側の時間割に重ならない');
+    }
+    if (new URLSearchParams(location.search).has('preview')) {
+      document.getElementById('test-result').textContent = 'PREVIEW: 検証用の架空課題を表示しています';
+      return;
+    }
+    for (let index = 0; index < 4; index++) WCV_DEADLINES.sync({ enabled: true });
+    assert(loads === 1, '再スキャンで繰り返し取得しない');
+    document.querySelector('.wcv-deadline-refresh').click();
+    await waitUntil(() => !document.querySelector('.wcv-deadline-refresh').disabled && loads === 2);
+    assert(titles().length === 3, '更新後も1週間以内の未完了課題だけを表示');
+    document.body.dataset.fixtureMode = 'row-layout';
+    document.querySelector('.wcv-deadline-refresh').click();
+    await waitUntil(() => !document.querySelector('.wcv-deadline-refresh').disabled);
+    assert(titles().join(',') === '今日のレポート,予習未回答,演習課題', '複数のヘッダー行やtbody外の教材行でも正しい列を読み取る');
+    document.body.dataset.fixtureMode = 'pending';
+    document.querySelector('.wcv-deadline-refresh').click();
+    await waitUntil(() => !document.querySelector('.wcv-deadline-refresh').disabled, 25000);
+    assert(titles().length === 3, '空の課題表のままタイムアウトしても、前回の教材を消さない');
+    assert(document.querySelector('.wcv-deadline-diagnostic-course[data-course-id="26sba133105"]').textContent.includes('未読込の課題表あり'), '空の課題表を取得済みと表示しない');
+    assert(document.querySelector('.wcv-deadline-status').textContent.includes('2科目中1科目'), '教材行が届いていない科目を確認済みの数に含めない');
+    document.body.dataset.fixtureMode = 'partial';
+    document.querySelector('.wcv-deadline-refresh').click();
+    await waitUntil(() => !document.querySelector('.wcv-deadline-refresh').disabled, 25000);
+    assert(titles().length === 3, '一部の科目の取得失敗で前回の課題を消さない');
+    assert(document.querySelector('.wcv-deadline-diagnostic-course[data-course-id="26sba132209"]').textContent.includes('今回は未取得・前回の情報'), '未取得の科目の診断にも前回の情報と明示');
+    assert(document.querySelector('.wcv-deadline-diagnostic-course[data-course-id="26sba133105"]').open, '更新時に開いていた科目の診断を維持');
+    assert(document.querySelector('.wcv-deadline-status').textContent.includes('2科目中1科目') && document.querySelector('.wcv-deadline-status').textContent.includes('前回の情報'), '科目リンクだけを取得済み扱いせず古い情報を明示');
+    document.body.dataset.fixtureMode = 'failed';
+    document.querySelector('.wcv-deadline-refresh').click();
+    await waitUntil(() => !document.querySelector('.wcv-deadline-refresh').disabled, 25000);
+    assert(titles().length === 3 && document.querySelector('.wcv-deadline-status').textContent.includes('課題情報を取得できませんでした'), '全科目の取得失敗でも直前の情報を保持');
+    document.body.dataset.fixtureMode = 'empty';
+    document.querySelector('.wcv-deadline-refresh').click();
+    await waitUntil(() => !document.querySelector('.wcv-deadline-refresh').disabled);
+    assert(titles().join(',') === '演習課題', '取得に成功した空の課題表では前回の課題を削除');
+    assert(document.querySelector('.wcv-deadline-diagnostic-course[data-course-id="26sba132209"]').textContent.includes('表示対象0件／取得教材0件'), '正常に取得した空の課題表では古い診断も削除');
+    delete document.body.dataset.fixtureMode;
+    WCV_DEADLINES.sync({ enabled: true, showDeadlineList: false });
+    assert(!document.getElementById('wcv-deadlines') && !document.querySelector('iframe'), '設定OFFでパネル・取得用フレームを除去');
+    const loadsBeforeEnable = loads;
+    WCV_DEADLINES.sync({ enabled: true });
+    await waitUntil(() => !document.querySelector('.wcv-deadline-refresh')?.disabled && loads === loadsBeforeEnable + 1);
+    document.querySelector('#schedule-table a[href*="26sba132209"]').parentElement.innerHTML = '<a href="/webclass/course.php/26sba133105/login">電磁気学概論</a>';
+    const loadsBeforeTermChange = loads;
+    WCV_DEADLINES.sync({ enabled: true });
+    await waitUntil(() => !document.querySelector('.wcv-deadline-refresh')?.disabled && loads === loadsBeforeTermChange + 1);
+    assert(titles().join(',') === '演習課題', '学期変更で対象外になった科目の課題を残さない');
+    document.getElementById('schedule-table').remove();
+    WCV_DEADLINES.sync({ enabled: true });
+    assert(!document.getElementById('wcv-deadlines'), 'レポート画面等では一覧を追加しない');
+    document.getElementById('test-result').textContent = 'PASS: 左側配置・1週間以内限定・締切順・履修範囲・空の表に遅れて届く教材行・未読込タイムアウト・一部/全取得失敗・明示的な教材なし・更新・学期変更・設定OFF';
+    document.body.dataset.testStatus = 'passed';
+  })().catch(error => {
+    document.getElementById('test-result').textContent = 'FAIL: ' + error.message;
+    document.body.dataset.testStatus = 'failed';
+    console.error(error);
+  });
+</script></body></html>

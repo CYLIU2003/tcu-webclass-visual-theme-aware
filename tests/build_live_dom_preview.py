@@ -16,6 +16,8 @@ def javascript_json(value: object) -> str:
 def main() -> None:
     html = (ROOT / "demo" / "preview-live-dom.html").read_text(encoding="utf-8")
     css = (ROOT / "src" / "content.css").read_text(encoding="utf-8")
+    dataset_script = (ROOT / "src" / "dataset.js").read_text(encoding="utf-8")
+    deadlines_script = (ROOT / "src" / "deadlines.js").read_text(encoding="utf-8")
     content_script = (ROOT / "src" / "content.js").read_text(encoding="utf-8")
     dataset = json.loads((ROOT / "data" / "timetable-2026.json").read_text(encoding="utf-8"))
     history = json.loads((ROOT / "data" / "historical-course-row-evidence.json").read_text(encoding="utf-8"))
@@ -71,7 +73,11 @@ window.fetch = async function(url) {{
     source_tag = '<script defer="defer" src="../src/content.js"></script>'
     if source_tag not in html:
         raise ValueError("content script reference is missing from preview source")
-    html = html.replace(source_tag, f"<script>\n{content_script}\n</script>", 1)
+    html = html.replace(
+        source_tag,
+        f"<script>\n{dataset_script}\n</script>\n<script>\n{deadlines_script}\n</script>\n<script>\n{content_script}\n</script>",
+        1,
+    )
     (ROOT / "demo" / "preview-live-dom-standalone.html").write_text(html, encoding="utf-8")
     print("generated: demo/preview-live-dom-standalone.html")
 
