@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "retrievedAt": "2026-11-07",
+  "records": [
+    {
+      "id": "hirameki-2024-hiramekizukuri",
+      "url": "https://hirameki.tcu.ac.jp/wp-content/uploads/2024/03/program19.png",
+      "file": "data/source-cache/curriculum/hirameki-2024-hiramekizukuri.png",
+      "sha256": "39d8b4ebc39fefa19566be906102815d89a267cc40555ba0596819401dded2be",
+      "size": 57883
+    },
+    {
+      "id": "hirameki-2022",
+      "url": "https://hirameki.tcu.ac.jp/wp-content/uploads/2021/04/for_student.pdf",
+      "file": "data/source-cache/curriculum/hirameki-2022.pdf",
+      "sha256": "f194234a360f20d46485127cee1835554211e216010e511c93a576854201c948",
+      "size": 9433717,
+      "pageCount": 4
+    },
+    {
+      "id": "hirameki-2023",
+      "url": "https://hirameki.tcu.ac.jp/wp-content/uploads/2025/04/762a7db6ca8f63cb9f8626a2b6d077f1.pdf",
+      "file": "data/source-cache/curriculum/hirameki-2023.pdf",
+      "sha256": "5e8af29e039fad8941650520a72b2317cca727da7910e26457425c7e366ce97c",
+      "size": 818316,
+      "pageCount": 2
+    },
+    {
+      "id": "hirameki-2024",
+      "url": "https://hirameki.tcu.ac.jp/wp-content/uploads/2025/04/9cdbc5cecaf243dec3c4188f532ef68b.pdf",
+      "file": "data/source-cache/curriculum/hirameki-2024.pdf",
+      "sha256": "e115e0c5974944748dee0dc3b542cef2f8f4aa11cf9a34de76c40420eb2f47fd",
+      "size": 516027,
+      "pageCount": 2
+    },
+    {
+      "id": "hirameki-2025-engineering",
+      "url": "https://hirameki.tcu.ac.jp/wp-content/uploads/2026/03/32f492be1326ea60be4ae3ea9fc2f6af.pdf",
+      "file": "data/source-cache/curriculum/hirameki-2025-engineering.pdf",
+      "sha256": "eddea335f08bc0464c2ec65a635c3f968151478c72ee0dfd7be504b096637a3e",
+      "size": 1509774,
+      "pageCount": 2
+    },
+    {
+      "id": "hirameki-2025-other",
+      "url": "https://hirameki.tcu.ac.jp/wp-content/uploads/2026/03/58429a500560dda0fb299438a739c28f.pdf",
+      "file": "data/source-cache/curriculum/hirameki-2025-other.pdf",
+      "sha256": "9793645328fc59c57f5bb925d921f74b0aa17aae2f2a4c36a062cdb4d3fc240c",
+      "size": 253057,
+      "pageCount": 2
+    },
+    {
+      "id": "hirameki-current",
+      "url": "https://hirameki.tcu.ac.jp/wp-content/uploads/2026/03/1f1a3fbccfa9a0abdfecd08f554a176e.pdf",
+      "file": "data/source-cache/curriculum/hirameki-current.pdf",
+      "sha256": "3f92f712c5d0ddd006420bfb0d9165dbf43dd33244a6ede0bdbbe66b05a1a263",
+      "size": 1687392,
+      "pageCount": 2
+    },
+    {
+      "id": "information-science-2026",
+      "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/4123eec2627f153000328b01720cf021.pdf",
+      "file": "data/source-cache/curriculum/information-science-2026.pdf",
+      "sha256": "2059d01564e6b9a348939630abd7a030ac4aa5297d41765b0785c2ad9ec5f616",
+      "size": 2436923,
+      "pageCount": 22
+    },
+    {
+      "id": "teaching-engineering-2026",
+      "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/1645ea440a266a3749d688602d3256df.pdf",
+      "file": "data/source-cache/curriculum/teaching-engineering-2026.pdf",
+      "sha256": "44d3cea353eec0e3f9ff31527c243ad3ab0992332ff61ca8856caa5399f545d8",
+      "size": 2319770,
+      "pageCount": 40
+    },
+    {
+      "id": "teaching-information-2026",
+      "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/cb381fb96ef7432b0aed7577694e14de.pdf",
+      "file": "data/source-cache/curriculum/teaching-information-2026.pdf",
+      "sha256": "e6545b02e58b574f38fe3e6b935434f9f9d27cbf59a5dd494b74414d40499a35",
+      "size": 2101118,
+      "pageCount": 36
+    },
+    {
+      "id": "hirameki-2023-hiramekizukuri",
+      "url": "https://hirameki.tcu.ac.jp/wp-content/uploads/2023/03/program19.png",
+      "file": "data/source-cache/curriculum/hirameki-2023-hiramekizukuri.png",
+      "sha256": "d13ec7d5a3074f73389910808ba71eb379df77056e4304ffdb8d6f6aa2171948",
+      "size": 104828
+    }
+  ]
+}

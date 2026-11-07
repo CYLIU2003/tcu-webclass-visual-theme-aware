@@ -1,17 +1,18 @@
 #!/usr/bin/env python3
-"""Build a small, deterministic, installable v0.7.1 extension archive."""
+"""Build a small, deterministic, installable extension archive."""
 
 from __future__ import annotations
 
 import hashlib
 import json
+import re
 import tempfile
 import zipfile
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = "0.7.1"
+VERSION = "0.8.0"
 ARCHIVE_ROOT = "tcu-webclass-visual-theme-aware"
 OUTPUT = ROOT.parent / f"TCU_WebClass_Visual_Theme_Aware_v{VERSION}.zip"
 
@@ -23,9 +24,15 @@ PACKAGE_FILES = (
     "THIRD_PARTY_NOTICES.md",
     "はじめにお読みください.html",
     "data/timetable-2026.json",
+    "data/curriculum-candidates.json",
+    "data/sample-user-overrides.json",
     "data/historical-course-row-evidence.json",
     "docs/DATA_COVERAGE.md",
     "docs/DATA_SCHEMA.md",
+    "docs/CURRICULUM_CANDIDATE_PILOT.md",
+    "docs/index.html",
+    "docs/images/chrome-extensions.png",
+    "docs/images/course-settings.png",
     "docs/DEADLINE_TEST_REPORT.md",
     "docs/EXTENSION_DATABASE_INTEGRATION.md",
     "icons/icon16.png",
@@ -33,6 +40,7 @@ PACKAGE_FILES = (
     "icons/icon128.png",
     "src/background.js",
     "src/dataset.js",
+    "src/curriculum.js",
     "src/deadlines.js",
     "src/content.css",
     "src/content.js",
@@ -72,6 +80,12 @@ def validate_package_files() -> list[tuple[str, Path]]:
         referenced.update(content_script.get("css", []))
     for resource_group in manifest.get("web_accessible_resources", []):
         referenced.update(resource_group.get("resources", []))
+    # Include literal runtime URLs used from options/popup/content scripts too.
+    # The manifest alone does not list every extension-owned fetch target.
+    for relative, source in files:
+        if source.suffix == ".js":
+            script = source.read_text(encoding="utf-8")
+            referenced.update(re.findall(r"chrome\.runtime\.getURL\(\s*['\"]([^'\"]+)['\"]\s*\)", script))
     missing_references = sorted(referenced - packaged)
     if missing_references:
         raise ValueError(f"manifest references files not in package: {missing_references}")

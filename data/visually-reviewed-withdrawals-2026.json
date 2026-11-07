@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "notice": "2026年度の世田谷学部変更一覧の原表を目視。後続の変更やポータルの正誤表は未確認。",
+  "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+  "sourceSha256": "39cfdb15159ffbbb0bb29689f7b3236af9907923af600a8db3c93aab2ba3d7ed",
+  "reviewMethod": "official-pdf-visual-inspection",
+  "reviewedAt": "2026-11-07",
+  "records": [
+    {
+      "courseCode": "sbz177611",
+      "sourcePage": 1,
+      "title": "英語論文読解",
+      "eventDate": "2026-09-19",
+      "status": "not-offered-in-source"
+    },
+    {
+      "courseCode": "sbz007653",
+      "sourcePage": 1,
+      "title": "ことづくり(1)",
+      "eventDate": "2026-09-19",
+      "status": "not-offered-in-source"
+    },
+    {
+      "courseCode": "sba005101",
+      "sourcePage": 2,
+      "title": "社会学(2a)",
+      "eventDate": "2026-10-06",
+      "status": "not-offered-in-source"
+    },
+    {
+      "courseCode": "sba005201",
+      "sourcePage": 2,
+      "title": "社会学(2a)",
+      "eventDate": "2026-10-06",
+      "status": "not-offered-in-source"
+    },
+    {
+      "courseCode": "sba005301",
+      "sourcePage": 2,
+      "title": "社会学(2a)",
+      "eventDate": "2026-10-06",
+      "status": "not-offered-in-source"
+    },
+    {
+      "courseCode": "sbb005101",
+      "sourcePage": 2,
+      "title": "社会学(2b)",
+      "eventDate": "2026-10-06",
+      "status": "not-offered-in-source"
+    },
+    {
+      "courseCode": "sbb005201",
+      "sourcePage": 2,
+      "title": "社会学(2b)",
+      "eventDate": "2026-10-06",
+      "status": "not-offered-in-source"
+    },
+    {
+      "courseCode": "sbb005301",
+      "sourcePage": 3,
+      "title": "社会学(2b)",
+      "eventDate": "2026-10-06",
+      "status": "not-offered-in-source"
+    }
+  ]
+}

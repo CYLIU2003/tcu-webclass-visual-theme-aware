@@ -10,7 +10,10 @@
     showSidebarTools: true,
     showFloatingPanel: true,
     showSourceLabel: true,
-    userCourses: []
+    userCourses: [],
+    curriculumPlan: "",
+    curriculumTeaching: false,
+    curriculumHirameki: false
   };
 
   const toggleIds = [
@@ -155,6 +158,16 @@
 
   async function initialize() {
     const settings = await storageGet(DEFAULTS);
+
+    const plan = document.getElementById("curriculumPlan");
+    const teaching = document.getElementById("curriculumTeaching");
+    const hirameki = document.getElementById("curriculumHirameki");
+    plan.value = settings.curriculumPlan || "";
+    teaching.checked = Boolean(settings.curriculumTeaching);
+    hirameki.checked = Boolean(settings.curriculumHirameki);
+    plan.addEventListener("change", async () => { await storageSet({ curriculumPlan: plan.value }); flashSaved(); });
+    teaching.addEventListener("change", async () => { await storageSet({ curriculumTeaching: teaching.checked }); flashSaved(); });
+    hirameki.addEventListener("change", async () => { await storageSet({ curriculumHirameki: hirameki.checked }); flashSaved(); });
 
     for (const id of toggleIds) {
       const control = document.getElementById(id);

@@ -13,7 +13,10 @@
     showFloatingPanel: true,
     showSourceLabel: true,
     debug: false,
-    userCourses: []
+    userCourses: [],
+    curriculumPlan: "",
+    curriculumTeaching: false,
+    curriculumHirameki: false
   });
 
   const UI_IDS = Object.freeze({
@@ -45,6 +48,7 @@
     correctionSummary: null,
     studyGuideNavigation: null,
     databaseStatus: null,
+    curriculumCandidates: null,
     courses: [],
     officialCourseCodes: new Set(),
     codeIndex: new Map(),
@@ -149,7 +153,8 @@
   function rememberNativeElement(element) {
     if (!(element instanceof Element) || state.nativeOriginals.has(element)) return;
     state.nativeOriginals.set(element, {
-      html: element.innerHTML,
+      // Keep the original nodes so their WebClass event listeners survive restoration.
+      children: Array.from(element.childNodes),
       className: element.getAttribute("class"),
       style: element.getAttribute("style"),
       title: element.getAttribute("title"),
@@ -176,7 +181,7 @@
     document.querySelectorAll(".wcv-native-injected").forEach((element) => element.remove());
     for (const [element, original] of state.nativeOriginals.entries()) {
       if (!element?.isConnected) continue;
-      element.innerHTML = original.html;
+      element.replaceChildren(...original.children);
       if (original.className == null) element.removeAttribute("class");
       else element.setAttribute("class", original.className);
       if (original.style == null) element.removeAttribute("style");
@@ -1896,6 +1901,21 @@
     return section;
   }
 
+  function curriculumMatches(course) {
+    return globalThis.WCV_CURRICULUM?.match(state.curriculumCandidates, {
+      plan: state.settings.curriculumPlan, teaching: state.settings.curriculumTeaching, hirameki: state.settings.curriculumHirameki
+    }, course?.courseName) || [];
+  }
+
+  function curriculumLabel(row) {
+    const scope = row.scope.startsWith("hirameki") ? "ひらめき" : row.scope.startsWith("teaching") ? "教職" : "学科";
+    return `${scope}の同名資料・要確認`;
+  }
+
+  function curriculumSourceKind(row) {
+    return row.kind === "choice" ? "資料上は選択必修" : row.kind === "required" ? "資料上は必修" : "資料に掲載";
+  }
+
   function createCourseInfoCard(course) {
     const card = document.createElement("section");
     card.id = UI_IDS.courseCard;
@@ -1982,6 +2002,23 @@
       "現在の授業情報は2026年度時間割の調査用スナップショットです。現行資料との全件照合と履修要覧の要件登録は未完了です。休講・教室変更はWebClassのお知らせを優先してください。"
     );
     more.append(moreList);
+    for (const row of curriculumMatches(course)) {
+      const source = state.curriculumCandidates?.sources?.find(item => item.id === row.sourceId);
+      if (!source) continue;
+      const p = createTextElement("p", "wcv-curriculum-detail", `${curriculumLabel(row)}（${curriculumSourceKind(row)}、この開講科目との対応は未確認）：${row.note} `);
+      const a = createTextElement("a", "", row.sourcePage ? `原資料（${row.sourcePage}ページ）` : "原表画像を開く");
+      a.href = source.url + (row.sourcePage ? `#page=${row.sourcePage}` : "");
+      a.target = "_blank"; a.rel = "noopener noreferrer";
+      p.append(a);
+      for (const page of row.relatedPages || []) {
+        if (!Number.isInteger(page) || page < 1) continue;
+        const detailLink = createTextElement("a", "", `選択単位の条件（${page}ページ）`);
+        detailLink.href = `${source.url}#page=${page}`;
+        detailLink.target = "_blank"; detailLink.rel = "noopener noreferrer";
+        p.append(document.createTextNode(" ・ "), detailLink);
+      }
+      more.append(p);
+    }
     const multiOfferingSection = createMultiOfferingSection(course);
     const correctionSection = createCorrectionEvidenceSection(course);
     const currentFallSection = createCurrentFallEvidenceSection(course);
@@ -2710,6 +2747,13 @@
     const statuses = uniqueBy(rawStatus);
     const statusWrap = document.createElement("span");
     statusWrap.className = "wcv-native-card-statuses";
+    for (const row of curriculumMatches(course)) {
+      const label = curriculumLabel(row);
+      const badge = createTextElement("span", "wcv-native-status wcv-curriculum-candidate", label);
+      badge.title = `${row.note} 授業詳細から原資料を確認できます。`;
+      statusWrap.append(badge);
+      anchor.setAttribute("aria-label", `${anchor.getAttribute("aria-label")}、${label}`);
+    }
     for (const status of statuses.slice(0, 3)) {
       const kind = /締切/.test(status) ? "wcv-native-status-deadline" : "wcv-native-status-new";
       statusWrap.append(createTextElement("span", `wcv-native-status ${kind}`, status));
@@ -3369,10 +3413,12 @@
 
   async function initialize() {
     try {
-      const [dataset, historicalData, stored] = await Promise.all([
-        loadDataset(), loadHistoricalCourseData(), storageGet(DEFAULT_SETTINGS)
+      const [dataset, historicalData, stored, curriculum] = await Promise.all([
+        loadDataset(), loadHistoricalCourseData(), storageGet(DEFAULT_SETTINGS),
+        fetch(chrome.runtime.getURL("data/curriculum-candidates.json")).then(r => r.ok ? r.json() : null).catch(() => null)
       ]);
       state.dataset = dataset;
+      state.curriculumCandidates = curriculum;
       state.officialCourseCodes = new Set((dataset.courses || []).map((course) => normalizeCode(course.courseCode)).filter(Boolean));
       state.historicalEvidence = historicalData.records || [];
       state.historicalDataSummary = historicalData.summary || {};
@@ -3394,7 +3440,7 @@
         for (const [key, change] of Object.entries(changes)) {
           if (key in DEFAULT_SETTINGS) {
             state.settings[key] = change.newValue;
-            if (key === "userCourses") needsRebuild = true;
+            if (["userCourses", "curriculumPlan", "curriculumTeaching", "curriculumHirameki"].includes(key)) needsRebuild = true;
           }
         }
         if (needsRebuild) {

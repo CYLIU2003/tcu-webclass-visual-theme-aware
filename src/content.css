@@ -2155,6 +2155,9 @@ html.wcv-enabled body.wcv-restyle .cm-contentsList {
 }
 
 /* 現行WebClassの教材一覧（cm-接頭辞）。元の表・操作メニューを維持する。 */
+.wcv-native-status.wcv-curriculum-candidate { background: #fff4d8; color: #614200; border: 1px solid #c59c43; line-height: 1.45; overflow-wrap: anywhere; }
+.wcv-curriculum-detail { padding: 12px; border-left: 3px solid #b07d18; background: #fff8e8; color: #342a18; line-height: 1.6; }
+.wcv-deadline-course-code { display: block; color: #4a5568; font-size: 11px; line-height: 1.4; overflow-wrap: anywhere; }
 html.wcv-enabled body.wcv-restyle .cm-contentsList .cm-contentsList_folder {
   margin-bottom: 16px;
   overflow: visible;
@@ -2206,6 +2209,22 @@ html.wcv-enabled body.wcv-restyle .cm-contentsList .cm-contentsList_contentKind 
   color: #44536a;
   font-size: 13px;
   line-height: 1.5;
+}
+/* 実際の教材種別は cm-contentsList_contentKind 内の先頭 span。 */
+html.wcv-enabled body.wcv-restyle .cm-contentsList .cm-contentsList_contentKind > span:first-child {
+  display: inline-block;
+  padding: 1px 8px;
+  border: 1px solid #d4dce7;
+  border-radius: 5px;
+  background: #f1f4f8;
+  color: #344256;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.6;
+}
+html.wcv-enabled body.wcv-restyle .cm-contentsList .cm-contentsList_listGroupItem:focus-within {
+  background: #f8f9fc;
+  box-shadow: inset 3px 0 0 var(--wcv-theme, #700070);
 }
 html.wcv-enabled body.wcv-restyle .cm-contentsList .cm-contentsList_contentDetail {
   flex: 0 1 auto;
@@ -2401,6 +2420,46 @@ html.wcv-enabled body.wcv-restyle .cm-contentsList :is(a, button, input, select)
   outline: 3px solid var(--wcv-theme-dark, #5a005a);
   outline-offset: 3px;
   border-radius: 3px;
+}
+
+/* Narrow layout and controls used by the native cm-contentsList markup. */
+html.wcv-enabled body.wcv-restyle .cm-contentsList .cm-contentsList_content {
+  table-layout: fixed;
+  border-spacing: 0;
+}
+html.wcv-enabled body.wcv-restyle .cm-contentsList .cm-contentsList_checkboxCell,
+html.wcv-enabled body.wcv-restyle .cm-contentsList .cm-contentsList_optionCell {
+  width: 44px;
+  padding: 8px;
+  vertical-align: middle;
+  text-align: center;
+}
+html.wcv-enabled body.wcv-restyle .cm-contentsList .cm-contentsList_contentBody {
+  width: auto;
+  padding: 8px 4px;
+}
+html.wcv-enabled body.wcv-restyle .cm-contentsList .cm-contentsList_checkboxCell input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--wcv-theme, #700070);
+}
+html.wcv-enabled body.wcv-restyle .cm-contentsList .cm-contentsList_optionCell button {
+  min-width: 36px;
+  min-height: 36px;
+  border: 1px solid #d5dbe5;
+  background: #fff;
+  color: #354156;
+  cursor: pointer;
+}
+html.wcv-enabled body.wcv-restyle .cm-contentsList .cm-contentsList_optionCell button:hover {
+  border-color: var(--wcv-theme, #700070);
+  background: var(--wcv-theme-soft, #f6eff6);
+}
+@media (max-width: 480px) {
+  html.wcv-enabled body.wcv-restyle .cm-contentsList .cm-contentsList_checkboxCell,
+  html.wcv-enabled body.wcv-restyle .cm-contentsList .cm-contentsList_optionCell { width: 36px; padding: 4px; }
+  html.wcv-enabled body.wcv-restyle .cm-contentsList .cm-contentsList_contentBody { padding: 7px 2px; }
+  html.wcv-enabled body.wcv-restyle .cm-contentsList .cm-contentsList_contentBodyContainer { gap: 6px 8px; }
 }
 
 @media (max-width: 767px) {
