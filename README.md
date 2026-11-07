@@ -1,10 +1,10 @@
-# TCU WebClass Visual Prototype — v0.8.0 公開準備版
+# TCU WebClass Visual Prototype — v0.8.0
 
 東京都市大学のWebClassコースリスト画面を、元の機能を壊さずに読みやすくするChrome／Edge向けManifest V3拡張機能です。
 
-**現在の公開版:** [v0.7.1 ZIPをダウンロード](https://github.com/CYLIU2003/tcu-webclass-visual-theme-aware/releases/latest/download/TCU_WebClass_Visual_Theme_Aware_v0.7.1.zip) ／ [初めての方向け導入ガイド](はじめにお読みください.html)
+**最新版:** [v0.8.0 ZIPをダウンロード](https://github.com/CYLIU2003/tcu-webclass-visual-theme-aware/releases/latest/download/TCU_WebClass_Visual_Theme_Aware_v0.8.0.zip) ／ [画像付き導入ガイド（Web）](https://cyliu2003.github.io/tcu-webclass-visual-theme-aware/) ／ [同梱ガイド](はじめにお読みください.html)
 
-このブランチはv0.8.0の公開準備版です。時間割・履修資料の全件照合が未完了のため、正式リリースの品質判定は保留中です。
+本拡張は学生制作の非公式ツールです。時間割・履修資料の全件照合は未完了で、科目カタログ監査は `NOT_READY_FOR_RELEASE`、年度横断DB監査は `extensionReady=false` です。表示は参考情報として、最新の教室・履修・卒業要件は大学の公式情報で確認してください。
 
 設定画面で対象を選択すると、一部の科目について同名の履修資料があることを表示します。表示は科目名による資料案内で、対象の開講科目と資料の科目が同一とは限りません。開講との対応や訂正表は未確認で、卒業・免許・プログラム修了を判定できません。詳細は [履修区分候補の試行データ](docs/CURRICULUM_CANDIDATE_PILOT.md) を参照してください。
 

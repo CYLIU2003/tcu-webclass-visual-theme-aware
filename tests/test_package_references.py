@@ -18,7 +18,7 @@ class Images(HTMLParser):
             assert attributes.get("alt"), "Guide screenshots need descriptive alternatives"
             self.sources.append(attributes["src"])
 
-for relative in ("src/welcome.html", "はじめにお読みください.html"):
+for relative in ("src/welcome.html", "はじめにお読みください.html", "docs/index.html"):
     parser = Images()
     parser.feed((root / relative).read_text(encoding="utf8"))
     assert len(parser.sources) >= 2

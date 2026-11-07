@@ -30,6 +30,7 @@ PACKAGE_FILES = (
     "docs/DATA_COVERAGE.md",
     "docs/DATA_SCHEMA.md",
     "docs/CURRICULUM_CANDIDATE_PILOT.md",
+    "docs/index.html",
     "docs/images/chrome-extensions.png",
     "docs/images/course-settings.png",
     "docs/DEADLINE_TEST_REPORT.md",

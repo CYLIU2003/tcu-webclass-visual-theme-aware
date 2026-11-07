@@ -7,7 +7,7 @@ root = Path(__file__).resolve().parents[1]
 chrome = Path(os.environ.get("PROGRAMFILES", r"C:\Program Files")) / "Google/Chrome/Application/chrome.exe"
 with sync_playwright() as p:
     browser = p.chromium.launch(headless=True, **({"executable_path": str(chrome)} if chrome.exists() else {}))
-    for guide in ("はじめにお読みください.html", "src/welcome.html"):
+    for guide in ("はじめにお読みください.html", "src/welcome.html", "docs/index.html"):
         for width in (375, 1440):
             page = browser.new_page(viewport={"width": width, "height": 900})
             page.goto((root / guide).as_uri(), wait_until="load")
