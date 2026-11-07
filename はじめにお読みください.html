@@ -130,7 +130,7 @@ details p { margin: 0; padding: 12px 16px; font-size: 15px; }
       <div class="brand"><div class="mark" aria-hidden="true"><span></span></div><span>WebClass授業情報</span></div>
       <h1>WebClassの時間割に、<br class="pc">教室と担当教員を表示します。</h1>
       <p class="lead">Chrome / Edge に追加するだけ。パソコンにくわしくなくても、下の手順どおりに進めれば<strong>約3分</strong>で使えます。</p>
-      <p class="sub"><a href="https://github.com/CYLIU2003/tcu-webclass-visual-theme-aware/releases/latest/download/TCU_WebClass_Visual_Theme_Aware_v0.7.0.zip">最新版 v0.7.0 のZIPをダウンロード</a></p>
+      <p class="sub"><a href="https://github.com/CYLIU2003/tcu-webclass-visual-theme-aware/releases/latest/download/TCU_WebClass_Visual_Theme_Aware_v0.7.1.zip">最新版 v0.7.1 のZIPをダウンロード</a></p>
       <div id="installedBanner" class="installed" hidden>
         <b>✓ インストールできました！</b>
         <span>あとは <a href="https://webclass.tcu.ac.jp/" target="_blank" rel="noopener">WebClass</a> を開くだけです（手順5へ）。</span>
@@ -156,16 +156,16 @@ details p { margin: 0; padding: 12px 16px; font-size: 15px; }
         <li>ブラウザーは <b>Google Chrome</b> か <b>Microsoft Edge</b>。</li>
         <li>ZIPファイル <code>TCU_WebClass_Visual_…zip</code> をダウンロード済み。</li>
       </ul>
-      <div class="note ok"><b>安全性：</b>この拡張機能は東京都市大学のWebClass（webclass.tcu.ac.jp）でだけ動きます。パスワードや成績は読み取らず、外部へ送信もしません。</div>
+      <div class="note ok"><b>安全性：</b>この拡張機能は東京都市大学のWebClass（webclass.tcu.ac.jp）でだけ動きます。WebClass画面内で、時間割情報と締切一覧用の教材名・締切・状態を読み取ります。パスワード・成績・提出物の内容は読み取りません。拡張機能から外部サーバーへデータを送信しません。</div>
     </section>
 
     <section id="s1" class="card">
       <h2><span class="num">1</span>ZIPファイルを「展開」する</h2>
       <p>ZIPは圧縮された状態です。<b>そのままでは使えない</b>ので、まず展開します。</p>
       <ol class="how">
-        <li>ダウンロードしたZIPファイルを<b>右クリック</b>。</li>
-        <li><b>「すべて展開…」</b>を選び、<b>「展開」</b>を押す。</li>
-        <li>フォルダーが開いたら、中に <code>manifest.json</code> があることを確認。</li>
+        <li><b>Windows：</b>ダウンロードしたZIPを右クリック → <b>「すべて展開…」</b> → <b>「展開」</b>。</li>
+        <li><b>Mac：</b>ダウンロードしたZIPをダブルクリックすると、同じ場所にフォルダーが作られます。</li>
+        <li>展開したフォルダーを開き、<code>manifest.json</code> が直下にあることを確認。</li>
       </ol>
       <div class="mock explorer" aria-hidden="true">
         <div class="mock-bar">📁 tcu-webclass-visual-theme-aware</div>
@@ -192,7 +192,7 @@ details p { margin: 0; padding: 12px 16px; font-size: 15px; }
           <button class="copy" data-copy="edge://extensions" type="button">コピー</button>
         </div>
       </div>
-      <p class="sub">「コピー」を押して、アドレス欄に貼り付け（Ctrl + V）→ Enter が確実です。リンクをクリックしても開けません（ブラウザーの仕様です）。</p>
+      <p class="sub">「コピー」を押して、アドレス欄に貼り付け（Windows：Ctrl + V、Mac：⌘ + V）→ Enter が確実です。リンクをクリックしても開けません（ブラウザーの仕様です）。</p>
       <p class="sub">メニューから開く場合：右上の <b>︙</b>（Edgeは <b>…</b>）→ <b>拡張機能</b> → <b>拡張機能を管理</b></p>
     </section>
 
@@ -210,7 +210,7 @@ details p { margin: 0; padding: 12px 16px; font-size: 15px; }
       <h2><span class="num">4</span>フォルダーを読み込む</h2>
       <ol class="how">
         <li><b>「パッケージ化されていない拡張機能を読み込む」</b>を押す。</li>
-        <li>手順1で展開した<b>フォルダー</b>（<code>manifest.json</code> が直下に見えるもの）を選ぶ。</li>
+        <li>手順1で展開したフォルダーのうち、<code>manifest.json</code> が直下に見える<b>いちばん内側のフォルダー</b>を選ぶ。ChromeでもEdgeでも同じです。</li>
         <li><b>「フォルダーの選択」</b>を押す。</li>
         <li>一覧に<b>「TCU WebClass Visual Prototype」</b>が出て、スイッチがオンなら成功です。</li>
       </ol>
@@ -224,12 +224,14 @@ details p { margin: 0; padding: 12px 16px; font-size: 15px; }
       <ol class="how">
         <li><a href="https://webclass.tcu.ac.jp/" target="_blank" rel="noopener">WebClass</a> を開いて、いつも通りログインする。</li>
         <li>「コースリスト」（時間割が並ぶ画面）を表示する。</li>
-        <li>時間割が<b>カード表示</b>になり、<b>教室</b>と<b>担当教員</b>が科目ごとに出れば完了です 🎉</li>
+        <li>時間割が<b>カード表示</b>になれば完了です 🎉 対応する科目には教室や担当教員も表示されます。</li>
       </ol>
-      <div class="note info"><b>すでにWebClassを開いていた場合：</b>そのタブを一度 <b>F5（更新）</b>してください。</div>
+      <div class="note info"><b>すでにWebClassを開いていた場合：</b>そのタブを一度 <b>更新</b>してください（Windows：Ctrl + R／F5、Mac：⌘ + R）。</div>
+      <h3>キーボード操作</h3>
+      <p>WebClassのタブを再読み込みするときは <b>Windows：Ctrl + R または F5</b>、<b>Mac：⌘ + R</b>。拡張機能ページを開くにはアドレス欄で <b>Windows：Ctrl + L</b>、<b>Mac：⌘ + L</b> を押して、手順2のURLを入力します。</p>
       <h3>できること</h3>
       <div class="feat">
-        <div><b>🏫 教室・担当教員</b><span>科目ごとに常時表示</span></div>
+        <div><b>🏫 教室・担当教員</b><span>対応データがある科目に表示</span></div>
         <div><b>🎨 テーマ色に追従</b><span>WebClassの配色に自動で合わせます</span></div>
         <div><b>📄 訂正表・後期・過年度PDF照合</b><span>出典PDFページへの直リンク付きで候補表示</span></div>
         <div><b>🔎 DB横断検索・要覧案内</b><span>右下パネルから全層検索・履修要覧ページ案内</span></div>
@@ -240,7 +242,7 @@ details p { margin: 0; padding: 12px 16px; font-size: 15px; }
     <section id="trouble" class="card">
       <h2><span class="num">?</span>困ったとき</h2>
       <details><summary>何も表示が変わらない</summary>
-        <p>① WebClassのタブを <b>F5</b> で更新。② 「コースリスト」画面か確認（授業ページの中では一部表示のみです）。③ 拡張機能アイコン → スイッチが<b>オン</b>か確認。④ 拡張機能ページで、この拡張機能が<b>オン</b>か確認。</p></details>
+        <p>① WebClassのタブを <b>WindowsはCtrl + R、Macは⌘ + R</b> で更新。② 「コースリスト」画面か確認（授業ページの中では一部表示のみです）。③ 拡張機能アイコン → スイッチが<b>オン</b>か確認。④ 拡張機能ページで、この拡張機能が<b>オン</b>か確認。</p></details>
       <details><summary>「マニフェスト ファイルがありません」と出る</summary>
         <p>選んだフォルダーが違います。<code>manifest.json</code> が<b>直接</b>入っているフォルダーを選んでください。ZIPの中を開いたままではなく、必ず「すべて展開」してから選びます。</p></details>
       <details><summary>「デベロッパーモードの拡張機能を無効にしてください」と出る</summary>
@@ -251,8 +253,8 @@ details p { margin: 0; padding: 12px 16px; font-size: 15px; }
         <p>展開したフォルダーを削除・移動していないか確認してください。移動した場合は、手順4でもう一度読み込み直します。</p></details>
       <details><summary>元の画面に戻したい</summary>
         <p>拡張機能アイコンの右上スイッチを<b>オフ</b>にするだけで、元のWebClass画面に戻ります。完全に消すときは、拡張機能ページで<b>「削除」</b>。</p></details>
-      <details><summary>新しいバージョンに更新するには</summary>
-        <p>新しいZIPを展開し、拡張機能ページで古いものを<b>削除</b>→手順4で新しいフォルダーを読み込みます。設定は引き継がれない場合があります。</p></details>
+      <details><summary>新しいバージョンに更新するには／設定を移すには</summary>
+        <p>①設定画面の「上級者向け：時間割データの上書き」で<b>「書き出す」</b>を押してJSONを保存します。表示の各スイッチも必要なら控えてください。②新しいZIPを展開します。③拡張機能ページで旧版を<b>オフ</b>にしてから、新版のフォルダー（<code>manifest.json</code> が直下にあるもの）を読み込みます。④新版を有効にして動作を確認し、設定画面でJSONを貼り付けて検証・保存、表示設定を戻します。⑤確認できたら旧版を削除します。ブラウザーや拡張機能IDが変わる場合、設定は自動では引き継がれません。旧版を確認前に削除しないでください。</p></details>
       <details><summary>表示された教室・担当・時間が資料と違う</summary>
         <p>2026年度の時間割は調査用スナップショットで、最新資料との全件照合は未完了です。過年度データの多くは未確認の自動抽出候補です。授業詳細のPDFリンクから元の行を確認してください。休講・教室変更は<b>WebClassのお知らせを優先</b>してください。</p></details>
     </section>
@@ -261,15 +263,15 @@ details p { margin: 0; padding: 12px 16px; font-size: 15px; }
       <h2>プライバシー</h2>
       <ul class="checks">
         <li>動作するのは <code>webclass.tcu.ac.jp</code> のみ。</li>
-        <li>ID・パスワード・成績・提出物は読み取りません。</li>
-        <li>外部サーバーへ何も送信しません。設定はこのブラウザー内だけに保存されます。</li>
+        <li>時間割表示のための科目情報と、締切一覧のための教材名・締切・状態をWebClassの画面から読み取ります。ID・パスワード・成績・提出物の内容は読み取りません。</li>
+        <li>拡張機能は外部サーバーへデータを送信しません。設定と上書きデータはこのブラウザー内に保存されます。</li>
       </ul>
     </section>
   </main>
 
   <footer class="wrap foot">
     <button id="openWebClassBtn" class="cta" type="button">WebClassを開く</button>
-    <p>学生FD向けプロトタイプ v0.7.0 ／ 困ったら README.md も参照してください。</p>
+    <p>学生FD向けプロトタイプ v0.7.1 ／ 困ったら README.md も参照してください。</p>
   </footer>
 
   <script>

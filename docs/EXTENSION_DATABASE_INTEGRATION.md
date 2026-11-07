@@ -56,4 +56,4 @@ python data/audit_multiyear_database.py --database data/course-catalog-multiyear
 
 ## 配布ZIP
 
-`scripts/package_extension.py` はソースとJSONから、再現可能な `TCU_WebClass_Visual_Theme_Aware_v0.7.0.zip` とSHA-256ファイルを作成します。ZIPには拡張機能の実行ファイル、過年度行証拠、初回導入ガイド、データ範囲の説明を入れます。年度横断SQLiteや原PDFキャッシュは含めません。
+`scripts/package_extension.py` はソースとJSONから、再現可能な `TCU_WebClass_Visual_Theme_Aware_v0.7.1.zip` とSHA-256ファイルを作成します。ZIPには拡張機能の実行ファイル、過年度行証拠、初回導入ガイド、データ範囲の説明を入れます。年度横断SQLiteや原PDFキャッシュは含めません。

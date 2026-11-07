@@ -2174,6 +2174,70 @@ html.wcv-enabled body.wcv-restyle .cm-contentsList {
   --wcv-row-line: #e6eaf0;
 }
 
+/* 現行WebClassの教材一覧（cm-接頭辞）。元の表・操作メニューを維持する。 */
+html.wcv-enabled body.wcv-restyle .cm-contentsList .cm-contentsList_folder {
+  margin-bottom: 16px;
+  overflow: visible;
+  border: 1px solid #d9e0ea;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(23, 33, 47, .04);
+}
+
+html.wcv-enabled body.wcv-restyle .cm-contentsList .cm-contentsList_folder > .panel-heading {
+  padding: 12px 16px;
+  border: 0;
+  border-bottom: 1px solid #dfe5ed;
+  border-left: 4px solid var(--wcv-theme);
+  border-radius: 9px 9px 0 0;
+  background: #f7f8fb;
+}
+
+html.wcv-enabled body.wcv-restyle .cm-contentsList .cm-contentsList_listGroupItem {
+  padding: 13px 16px;
+  border: 0;
+  border-top: 1px solid #e6eaf0;
+  border-radius: 0;
+  background: #fff;
+}
+html.wcv-enabled body.wcv-restyle .cm-contentsList .list-group > .cm-contentsList_listGroupItem:first-child { border-top: 0; }
+html.wcv-enabled body.wcv-restyle .cm-contentsList .cm-contentsList_listGroupItem:hover { background: #fafbfd; }
+html.wcv-enabled body.wcv-restyle .cm-contentsList .cm-contentsList_content { width: 100%; }
+html.wcv-enabled body.wcv-restyle .cm-contentsList .cm-contentsList_contentBody { width: 100%; min-width: 0; }
+html.wcv-enabled body.wcv-restyle .cm-contentsList .cm-contentsList_contentBodyContainer {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+html.wcv-enabled body.wcv-restyle .cm-contentsList .cm-contentsList_contentInfo {
+  flex: 1 1 220px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+html.wcv-enabled body.wcv-restyle .cm-contentsList .cm-contentsList_contentName {
+  max-width: 100%;
+  margin: 0 0 5px;
+  font-size: 15px;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+html.wcv-enabled body.wcv-restyle .cm-contentsList .cm-contentsList_contentKind {
+  color: #44536a;
+  font-size: 13px;
+  line-height: 1.5;
+}
+html.wcv-enabled body.wcv-restyle .cm-contentsList .cm-contentsList_contentDetail {
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 767px) {
+  html.wcv-enabled body.wcv-restyle .cm-contentsList .cm-contentsList_contentDetail { flex-basis: 100%; }
+  html.wcv-enabled body.wcv-restyle .cm-contentsList .cm-contentsList_listGroupItem { padding: 12px; }
+}
+
 /* 章の見出し（お知らせ／第1・2回…）：テーマ色の細い線で区切る */
 html.wcv-enabled body.wcv-restyle .cm-contentsList .cl-contentsList_folder {
   margin-bottom: 14px;

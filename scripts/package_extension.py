@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build a small, deterministic, installable v0.7.0 extension archive."""
+"""Build a small, deterministic, installable v0.7.1 extension archive."""
 
 from __future__ import annotations
 
@@ -11,7 +11,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = "0.7.0"
+VERSION = "0.7.1"
 ARCHIVE_ROOT = "tcu-webclass-visual-theme-aware"
 OUTPUT = ROOT.parent / f"TCU_WebClass_Visual_Theme_Aware_v{VERSION}.zip"
 
