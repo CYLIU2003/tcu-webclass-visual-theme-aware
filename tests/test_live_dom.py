@@ -95,6 +95,18 @@ def assert_initial_layout(page: Page) -> None:
 
 def main() -> None:
     html = PREVIEW.read_text(encoding="utf-8")
+    # A native WebClass child may carry a directly registered handler.
+    # Verify restoration preserves the original object and that handler.
+    probe = """<script>document.addEventListener('DOMContentLoaded', () => {
+      const anchor = document.querySelector('#schedule-table a[href*=smaa030081]');
+      window.__nativeProbe = document.createElement('span');
+      window.__nativeProbe.id = 'native-listener-probe';
+      window.__nativeProbe.addEventListener('wcv-test-event', () => window.__nativeProbeCalls++);
+      window.__nativeProbeCalls = 0;
+      anchor.appendChild(window.__nativeProbe);
+    }, {once:true});</script>"""
+    assert "<script>\nwindow.__WCV_DATASET__" in html
+    html = html.replace("<script>\nwindow.__WCV_DATASET__", probe + "<script>\nwindow.__WCV_DATASET__", 1)
     assert not re.search(r"[?&](?:token|sid|session(?:_id)?)=", html, re.IGNORECASE)
     assert not re.search(r"\b[a-f0-9]{40}\b", html, re.IGNORECASE)
     assert not re.search(r"\b(?:student|user)[_-]?(?:id|number)\b|session-id", html, re.IGNORECASE)
@@ -114,6 +126,9 @@ def main() -> None:
         set_sidebar_setting(page, "modernizeNativeLayout", False)
         assert page.locator("#schedule-table .wcv-native-course-card").count() == 0
         assert "_smaa030081" in page.locator("#schedule-table a[href*='smaa030081']").first.inner_text()
+        assert page.evaluate("document.getElementById('native-listener-probe') === window.__nativeProbe")
+        page.evaluate("window.__nativeProbe.dispatchEvent(new Event('wcv-test-event'))")
+        assert page.evaluate("window.__nativeProbeCalls") == 1
 
         # Re-enable via storage to avoid the sidebar being absent while disabled.
         page.evaluate("chrome.storage.local.set({modernizeNativeLayout: true})")

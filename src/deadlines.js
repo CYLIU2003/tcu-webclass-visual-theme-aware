@@ -192,10 +192,20 @@
       list.append(textElement("p", "wcv-deadline-empty", state.loading ? "課題を読み込み中です。" : state.error ? "「更新」で再取得できます。" : "確認できた範囲では、1週間以内に締切を迎える対象課題はありません。"));
       return;
     }
+    // Different enrolled courses can share the same displayed name and task.
+    // Keep them separate and expose their course identifiers when ambiguous.
+    const courseNameCounts = new Map();
+    for (const course of state.courses.values()) {
+      courseNameCounts.set(course.name, (courseNameCounts.get(course.name) || 0) + 1);
+    }
     for (const task of tasks) {
       const item = textElement("li", `wcv-deadline-item${task.deadline - now <= DAY ? " wcv-deadline-urgent" : ""}`);
       const content = textElement("div", "wcv-deadline-content");
-      content.append(textElement("span", "wcv-deadline-course", task.courseName), textElement("strong", "wcv-deadline-title", task.title));
+      content.append(textElement("span", "wcv-deadline-course", task.courseName));
+      if ((courseNameCounts.get(task.courseName) || 0) > 1) {
+        content.append(textElement("span", "wcv-deadline-course-code", `コースID: ${task.courseId}`));
+      }
+      content.append(textElement("strong", "wcv-deadline-title", task.title));
       const knownStatus = task.status !== "-" && task.status !== "—";
       content.append(textElement("span", "wcv-deadline-task-status", knownStatus ? task.status : "提出状況を確認"));
       const due = textElement("div", "wcv-deadline-due");

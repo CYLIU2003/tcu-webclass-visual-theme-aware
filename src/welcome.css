@@ -83,6 +83,9 @@ button.done { border-color: var(--ok); background: var(--ok-soft); color: var(--
 
 /* mock screens */
 .mock { margin: 14px 0; overflow: hidden; border: 1px solid var(--line); border-radius: 12px; background: var(--canvas); font-size: 14px; }
+.capture { margin: 16px 0; }
+.capture img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 10px; }
+.capture figcaption { margin-top: 6px; color: var(--muted); font-size: 13px; line-height: 1.6; }
 .mock-bar { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 9px 14px; background: var(--accent-soft); font-weight: 700; }
 .mock-rows > div { padding: 7px 14px; border-top: 1px solid var(--line); }
 .mock-rows .hl { background: var(--warn-soft); font-weight: 700; }

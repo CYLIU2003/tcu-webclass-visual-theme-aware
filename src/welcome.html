@@ -12,7 +12,7 @@
       <div class="brand"><div class="mark" aria-hidden="true"><span></span></div><span>WebClass授業情報</span></div>
       <h1>WebClassの時間割に、<br class="pc">教室と担当教員を表示します。</h1>
       <p class="lead">Chrome / Edge に追加するだけ。パソコンにくわしくなくても、下の手順どおりに進めれば<strong>約3分</strong>で使えます。</p>
-      <p class="sub"><a href="https://github.com/CYLIU2003/tcu-webclass-visual-theme-aware/releases/latest/download/TCU_WebClass_Visual_Theme_Aware_v0.7.1.zip">最新版 v0.7.1 のZIPをダウンロード</a></p>
+      <p class="sub"><a href="https://github.com/CYLIU2003/tcu-webclass-visual-theme-aware/releases/latest/download/TCU_WebClass_Visual_Theme_Aware_v0.7.1.zip">現在の公開版 v0.7.1 のZIPをダウンロード</a></p>
       <div id="installedBanner" class="installed" hidden>
         <b>✓ インストールできました！</b>
         <span>あとは <a href="https://webclass.tcu.ac.jp/" target="_blank" rel="noopener">WebClass</a> を開くだけです（手順5へ）。</span>
@@ -81,6 +81,10 @@
     <section id="s3" class="card">
       <h2><span class="num">3</span>「デベロッパーモード」をオンにする</h2>
       <p>拡張機能ページの<b>右上</b>（Edgeは<b>左下</b>）にあるスイッチをオンにします。</p>
+      <figure class="capture">
+        <img src="../docs/images/chrome-extensions.png" alt="Chrome拡張機能ページ。右上にデベロッパーモード、左上にパッケージ化されていない拡張機能を読み込むボタンがあります。">
+        <figcaption>実際のChrome画面の例。①右上をオン → ②左上の読み込みボタン → ③読み込み後は拡張機能が一覧に表示されます。Edgeは配置や名称が少し異なります。</figcaption>
+      </figure>
       <div class="mock ext" aria-hidden="true">
         <div class="mock-bar"><span>拡張機能</span><span class="devtoggle">デベロッパー モード <i class="sw on"></i></span></div>
         <div class="mock-body">オンにすると、上に<b>「パッケージ化されていない拡張機能を読み込む」</b>ボタンが現れます。</div>
@@ -111,6 +115,12 @@
       <div class="note info"><b>すでにWebClassを開いていた場合：</b>そのタブを一度 <b>更新</b>してください（Windows：Ctrl + R／F5、Mac：⌘ + R）。</div>
       <h3>キーボード操作</h3>
       <p>WebClassのタブを再読み込みするときは <b>Windows：Ctrl + R または F5</b>、<b>Mac：⌘ + R</b>。拡張機能ページを開くにはアドレス欄で <b>Windows：Ctrl + L</b>、<b>Mac：⌘ + L</b> を押して、手順2のURLを入力します。</p>
+      <h3>同名の履修資料を探す設定</h3>
+      <p>拡張機能ページでこの拡張機能の<b>「詳細」→「拡張機能のオプション」</b>を開き、「入学年度と所属・プログラム」を選びます。教職や2026年度ひらめきの対象者は該当スイッチもオンにします。設定が不要な場合は「設定しない」のままで使えます。</p>
+      <figure class="capture">
+        <img src="../docs/images/course-settings.png" alt="拡張機能の設定画面。同名の履修資料を探す欄に入学年度と所属の選択肢、教職課程とひらめきのスイッチがあります。">
+        <figcaption>実際の設定画面の例。選択内容は自動保存されます。案内が出ても、対象の開講科目と同一かは公式資料で確認してください。</figcaption>
+      </figure>
       <h3>できること</h3>
       <div class="feat">
         <div><b>🏫 教室・担当教員</b><span>対応データがある科目に表示</span></div>
@@ -119,6 +129,7 @@
         <div><b>🔎 DB横断検索・要覧案内</b><span>右下パネルから全層検索・履修要覧ページ案内</span></div>
       </div>
       <div class="note info"><b>収録データについて：</b>2026年度の時間割データは3,736科目の調査用スナップショットです。2026年度後期PDF候補（4,360行・目視確認12行）、訂正表候補（69件・別表示）、2022〜2025年度PDF候補（13,202行・目視確認23行）、2026年度の学修要覧等のページ案内も収録しています。未確認候補や変更は公式PDFとWebClassのお知らせで確認してください。卒業要件の構造化データは未登録です。</div>
+      <div class="note info"><b>履修資料の案内：</b>設定画面で対象を選ぶと、一部の科目に同名の履修資料があることを表示します。開講科目との対応や訂正表は未確認です。表示が出ない科目も含め、入学年度・所属に合う公式資料を確認してください。</div>
     </section>
 
     <section id="trouble" class="card">
@@ -153,7 +164,7 @@
 
   <footer class="wrap foot">
     <button id="openWebClassBtn" class="cta" type="button">WebClassを開く</button>
-    <p>学生FD向けプロトタイプ v0.7.1 ／ 困ったら README.md も参照してください。</p>
+    <p>学生FD向けプロトタイプ v0.8.0 公開準備版 ／ 困ったら README.md も参照してください。</p>
   </footer>
 
   <script src="welcome.js"></script>

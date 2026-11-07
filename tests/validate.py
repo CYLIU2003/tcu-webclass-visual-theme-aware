@@ -24,7 +24,7 @@ def require(condition: bool, message: str) -> None:
 def main() -> None:
     manifest = json.loads((ROOT / "manifest.json").read_text(encoding="utf-8"))
     require(manifest.get("manifest_version") == 3, "manifest_version must be 3")
-    require(manifest.get("version") == "0.7.1", "extension version must be 0.7.1")
+    require(manifest.get("version") == "0.8.0", "extension version must be 0.8.0")
     require(manifest.get("host_permissions") == ["https://webclass.tcu.ac.jp/*"], "host scope must remain limited to WebClass")
     require(bool(manifest.get("content_scripts")), "content_scripts is missing")
     extension_resources = {resource for group in manifest.get("web_accessible_resources", []) for resource in group.get("resources", [])}

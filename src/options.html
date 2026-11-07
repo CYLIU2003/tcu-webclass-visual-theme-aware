@@ -38,6 +38,25 @@
       </label>
     </section>
 
+    <section class="panel">
+      <div class="panel-head"><div><h2>同名の履修資料を探す</h2><p>対象を選ぶと、一部の科目について同じ名前の公式資料を案内します。</p></div></div>
+      <label class="field-label" for="curriculumPlan">入学年度と所属・プログラム</label>
+      <select id="curriculumPlan" aria-describedby="curriculumHelp">
+        <option value="">設定しない（区分を表示しない）</option>
+        <option value="2026-information-science">2026年度入学・情報工学部 情報科学科</option>
+        <option value="2026-hirameki-eligible">2026年度入学・ひらめき対象学部（学科区分は未対応）</option>
+        <option value="2025-hirameki-engineering">2025年度入学・理工学部 ひらめきプログラム</option>
+        <option value="2025-hirameki-other">2025年度入学・ひらめき（理工を除く掲載6学部）</option>
+        <option value="2024-hirameki-engineering">2024年度入学・理工学部 ひらめきプログラム</option>
+        <option value="2023-hirameki-engineering">2023年度入学・理工学部 ひらめき（自然科学科を除く）</option>
+        <option value="2022-hirameki-engineering">2022年度入学・ひらめき（理工学部の機械・機械システム・電気電子通信）</option>
+      </select>
+      <label class="setting-card"><span><strong>教職課程の候補も表示</strong><small>現在は2026年度入学・情報科学科の一部科目のみ対応。</small></span><input id="curriculumTeaching" type="checkbox"><span class="switch" aria-hidden="true"></span></label>
+      <label class="setting-card"><span><strong>2026年度ひらめき基礎プログラムの掲載候補も表示</strong><small>対象は2026年度入学の理工・建築都市デザイン・情報工・環境・メディア情報・都市生活・人間科学の7学部。必修・選択の別は原本と要覧を確認してください。</small></span><input id="curriculumHirameki" type="checkbox"><span class="switch" aria-hidden="true"></span></label>
+      <p id="curriculumHelp" class="field-help">2025年度「理工を除く掲載6学部」は、建築都市デザイン・情報工・環境・メディア情報・都市生活・人間科学です。原本を目視した一部科目のみ表示します。同名の資料と開講科目が同一かは未確認で、履修区分の確定判定には使えません。必ず公式資料と訂正表を確認してください。未掲載は「自由」や「不要」を意味しません。選択内容はこのブラウザーに保存されます。</p>
+      <p><a href="https://www.asc.tcu.ac.jp/syllabus_archives/" target="_blank" rel="noopener noreferrer">教学課の過年度学修要覧</a> · <a href="https://hirameki.tcu.ac.jp/program/list/" target="_blank" rel="noopener noreferrer">ひらめき科目一覧</a> · <a href="https://hirameki.tcu.ac.jp/program/pdf/" target="_blank" rel="noopener noreferrer">リーフレット</a></p>
+    </section>
+
     <section class="panel" id="detailPanel">
       <div class="panel-head">
         <div>

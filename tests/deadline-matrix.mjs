@@ -95,6 +95,12 @@ for (const scenario of scenarios) {
           href: item.querySelector('.wcv-deadline-open').href
         }));
         assert(JSON.stringify(actual) === JSON.stringify(expected), `教材の欠落・混入・科目・締切順・リンクを検証（期待${expected.length}件／実際${actual.length}件）\n期待: ${JSON.stringify(expected)}\n実際: ${JSON.stringify(actual)}`);
+        if (scenario.id === 'same-name') {
+          const matching = [...document.querySelectorAll('.wcv-deadline-item')].filter(item => item.querySelector('.wcv-deadline-course').textContent === '同名の模擬科目');
+          assert(matching.length > 0 && matching.every(item => item.querySelector('.wcv-deadline-course-code')?.textContent.startsWith('コースID: ')), '同名の別コースには識別子を表示');
+          const distinctCodes = new Set(matching.map(item => item.querySelector('.wcv-deadline-course-code').textContent));
+          assert(distinctCodes.size >= 2, '同名の異なるコースIDを区別');
+        }
         assert(document.querySelector('.wcv-deadline-count').textContent === `${expected.length}件`, '件数が実際の表示と一致');
         const panel = document.getElementById('wcv-deadlines');
         assert(!panel.textContent.includes('架空の成績') && !panel.querySelector('img'), '成績情報とHTMLとしての教材名を出力しない');
