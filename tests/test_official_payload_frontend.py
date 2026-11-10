@@ -10,7 +10,7 @@ dataset = json.loads((ROOT / "data/timetable-2026.json").read_text(encoding="utf
 payload = json.loads((ROOT / "data/historical-course-row-evidence.json").read_text(encoding="utf-8"))
 payload["records"] = []
 payload["currentFallCandidates"]["records"] = [r for r in payload["currentFallCandidates"]["records"] if r["courseCode"] in {"saa151309", "smbb000011"}]
-payload["correctionEvents"]["records"] = [r for r in payload["correctionEvents"]["records"] if r["courseCode"] == "smbb000011"]
+payload["correctionEvents"]["records"] = [r for r in payload["correctionEvents"]["records"] if r["courseCode"] in {"smbb000011", "sba155304", "ymbb110022"}]
 content = (ROOT / "src/content.js").read_text(encoding="utf-8")
 mock = """window.chrome={storage:{local:{get(d,cb){cb({...d,onboardingSeen:true,showSidebarTools:false,showFloatingPanel:false})},set(v,cb){if(cb)cb()}},onChanged:{addListener(){}}},runtime:{getURL(p){return p},onMessage:{addListener(){}},lastError:null}};
 window.fetch=async u=>({ok:true,status:200,json:async()=>String(u).includes('historical-course-row-evidence')?window.testPayload:window.testDataset});"""
@@ -44,6 +44,14 @@ with sync_playwright() as playwright:
     assert "未適用" in correction.locator("#wcv-course-info-card").text_content()
     assert correction.locator("#wcv-course-info-card a[href*='7d1654a86fec3147e07d63b0039f7c3e-1.pdf'][href*='page=1']").count() > 0
     correction.close()
+    instructor = show("応用化学実験基礎(2a)", "sba155304")
+    assert instructor.locator(".wcv-correction-chip").all_text_contents() == ["担当教員変更候補"]
+    assert "講師を削除" in instructor.locator(".wcv-correction-excerpt").text_content()
+    instructor.close()
+    language = show("環境リスク社会論(英語)", "ymbb110022")
+    assert language.locator(".wcv-correction-chip").all_text_contents() == ["開講言語変更候補"]
+    assert "2026-09-17" in language.locator(".wcv-correction-date").text_content()
+    language.close()
     unknown = show("惑星科学特論", "szz999999", open_details=False)
     assert unknown.locator("#wcv-course-info-card").count() == 0, "an explicit unknown code must not match a different course by title"
     unknown.close()

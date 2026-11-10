@@ -1,0 +1,1876 @@
+{
+  "schemaVersion": 1,
+  "academicYear": 2026,
+  "generatedFrom": "official-sources-2026.json",
+  "notice": "公式PDFの訂正表から行単位で抽出した候補。講義データへは未適用。",
+  "events": [
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:1",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 1,
+      "sourceRowBox": [
+        16.08,
+        66.12,
+        811.19,
+        80.28
+      ],
+      "courseCode": "sbz563111",
+      "courseNameFromSource": "保育・教職実践演習(幼稚園)",
+      "courseNameFromBaseSnapshot": "保育・教職実践演習(幼稚園)",
+      "changeDate": "2026-09-19",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "room"
+      ],
+      "beforeAfterTextCandidate": [
+        {
+          "before": "12H教室",
+          "after": "12L教室"
+        }
+      ],
+      "sourceExcerpt": "sbz563111 | 保育・教職実践演習(幼稚園) | 教室変更 | 12H教室 → 12L教室",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:2",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 1,
+      "sourceRowBox": [
+        16.08,
+        80.28,
+        811.19,
+        94.44
+      ],
+      "courseCode": "sbz563204",
+      "courseNameFromSource": "保育・教職実践演習(幼稚園)",
+      "courseNameFromBaseSnapshot": "保育・教職実践演習(幼稚園)",
+      "changeDate": "2026-09-19",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "room"
+      ],
+      "beforeAfterTextCandidate": [
+        {
+          "before": "12K教室",
+          "after": "12L教室"
+        }
+      ],
+      "sourceExcerpt": "sbz563204 | 保育・教職実践演習(幼稚園) | 教室変更 | 12K教室 → 12L教室",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:3",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 1,
+      "sourceRowBox": [
+        16.08,
+        94.44,
+        811.19,
+        108.6
+      ],
+      "courseCode": "sba002201",
+      "courseNameFromSource": "Communication Strategies (1a)",
+      "courseNameFromBaseSnapshot": "Communication Strategies(1a)",
+      "changeDate": "2026-09-19",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "meeting"
+      ],
+      "beforeAfterTextCandidate": [
+        {
+          "before": "火3",
+          "after": "火2"
+        }
+      ],
+      "sourceExcerpt": "sba002201 | Communication Strategies (1a) | 開講曜日時限訂正 | 火3 → 火2",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:4",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 1,
+      "sourceRowBox": [
+        16.08,
+        108.6,
+        811.19,
+        122.76
+      ],
+      "courseCode": "sbb002202",
+      "courseNameFromSource": "Communication Strategies (1b)",
+      "courseNameFromBaseSnapshot": "Communication Strategies(1b)",
+      "changeDate": "2026-09-19",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "meeting"
+      ],
+      "beforeAfterTextCandidate": [
+        {
+          "before": "火3",
+          "after": "火2"
+        }
+      ],
+      "sourceExcerpt": "sbb002202 | Communication Strategies (1b) | 開講曜日時限訂正 | 火3 → 火2",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:5",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 1,
+      "sourceRowBox": [
+        16.08,
+        122.76,
+        811.19,
+        136.92
+      ],
+      "courseCode": "sba513106",
+      "courseNameFromSource": "エリアマネジメント",
+      "courseNameFromBaseSnapshot": "エリアマネジメント",
+      "changeDate": "2026-09-19",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "room"
+      ],
+      "beforeAfterTextCandidate": [
+        {
+          "before": "71A教室",
+          "after": "71B教室"
+        }
+      ],
+      "sourceExcerpt": "sba513106 | エリアマネジメント | 教室変更 | 71A教室 → 71B教室",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:6",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 1,
+      "sourceRowBox": [
+        16.08,
+        136.92,
+        811.19,
+        151.08
+      ],
+      "courseCode": "sba151222",
+      "courseNameFromSource": "電気化学(a)",
+      "courseNameFromBaseSnapshot": "電気化学(a)",
+      "changeDate": "2026-09-19",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "room"
+      ],
+      "beforeAfterTextCandidate": [
+        {
+          "before": "71B教室",
+          "after": "71A教室"
+        }
+      ],
+      "sourceExcerpt": "sba151222 | 電気化学(a) | 教室変更 | 71B教室 → 71A教室",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:7",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 1,
+      "sourceRowBox": [
+        16.08,
+        151.08,
+        811.19,
+        165.24
+      ],
+      "courseCode": "sba261304",
+      "courseNameFromSource": "設計(3)",
+      "courseNameFromBaseSnapshot": "設計(3)",
+      "changeDate": "2026-09-19",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "instructor"
+      ],
+      "beforeAfterTextCandidate": [],
+      "sourceExcerpt": "sba261304 | 設計(3) | 担当教員追加 | 渋谷 篤",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:8",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 1,
+      "sourceRowBox": [
+        16.08,
+        165.24,
+        811.19,
+        179.4
+      ],
+      "courseCode": "sbb261305",
+      "courseNameFromSource": "設計(4)",
+      "courseNameFromBaseSnapshot": "設計(4)",
+      "changeDate": "2026-09-19",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "instructor"
+      ],
+      "beforeAfterTextCandidate": [],
+      "sourceExcerpt": "sbb261305 | 設計(4) | 担当教員追加 | 渋谷 篤",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:9",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 1,
+      "sourceRowBox": [
+        16.08,
+        179.4,
+        811.19,
+        193.56
+      ],
+      "courseCode": "sba266104",
+      "courseNameFromSource": "設計スタジオ(1)",
+      "courseNameFromBaseSnapshot": "設計スタジオ(1)",
+      "changeDate": "2026-09-19",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "instructor"
+      ],
+      "beforeAfterTextCandidate": [],
+      "sourceExcerpt": "sba266104 | 設計スタジオ(1) | 担当教員追加 | 根市 拓",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:10",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 1,
+      "sourceRowBox": [
+        16.08,
+        193.56,
+        811.19,
+        207.72
+      ],
+      "courseCode": "sbb266105",
+      "courseNameFromSource": "設計スタジオ(2)",
+      "courseNameFromBaseSnapshot": "設計スタジオ(2)",
+      "changeDate": "2026-09-19",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "instructor"
+      ],
+      "beforeAfterTextCandidate": [],
+      "sourceExcerpt": "sbb266105 | 設計スタジオ(2) | 担当教員追加 | 根市 拓",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:11",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 1,
+      "sourceRowBox": [
+        16.08,
+        207.72,
+        811.19,
+        221.88
+      ],
+      "courseCode": "sbb173102",
+      "courseNameFromSource": "SD PBL(3)",
+      "courseNameFromBaseSnapshot": "SD PBL(3)",
+      "changeDate": "2026-09-19",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "instructor"
+      ],
+      "beforeAfterTextCandidate": [],
+      "sourceExcerpt": "sbb173102 | SD PBL(3) | 担当教員追加 | 菅原 悠馬",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:12",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 1,
+      "sourceRowBox": [
+        16.08,
+        221.88,
+        811.19,
+        236.04
+      ],
+      "courseCode": "sbz177612",
+      "courseNameFromSource": "事例研究(2)",
+      "courseNameFromBaseSnapshot": "事例研究(2)",
+      "changeDate": "2026-09-19",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "instructor"
+      ],
+      "beforeAfterTextCandidate": [],
+      "sourceExcerpt": "sbz177612 | 事例研究(2) | 担当教員追加 | 菅原 悠馬",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:13",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 1,
+      "sourceRowBox": [
+        16.08,
+        236.04,
+        811.19,
+        250.2
+      ],
+      "courseCode": "sba155101",
+      "courseNameFromSource": "物理学実験(a)",
+      "courseNameFromBaseSnapshot": "物理学実験(a)",
+      "changeDate": "2026-09-19",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "instructor"
+      ],
+      "beforeAfterTextCandidate": [],
+      "sourceExcerpt": "sba155101 | 物理学実験(a) | 担当教員追加 | 菅原 悠馬",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:14",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 1,
+      "sourceRowBox": [
+        16.08,
+        250.2,
+        811.19,
+        264.36
+      ],
+      "courseCode": "sbb155102",
+      "courseNameFromSource": "物理学実験(b)",
+      "courseNameFromBaseSnapshot": "物理学実験(b)",
+      "changeDate": "2026-09-19",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "instructor"
+      ],
+      "beforeAfterTextCandidate": [],
+      "sourceExcerpt": "sbb155102 | 物理学実験(b) | 担当教員追加 | 菅原 悠馬",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:15",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 1,
+      "sourceRowBox": [
+        16.08,
+        264.36,
+        811.19,
+        278.52
+      ],
+      "courseCode": "sbz177611",
+      "courseNameFromSource": "英語論文読解",
+      "courseNameFromBaseSnapshot": "",
+      "changeDate": "2026-09-19",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "withdrawal"
+      ],
+      "beforeAfterTextCandidate": [],
+      "sourceExcerpt": "sbz177611 | 英語論文読解 | 本年度非開講のため授業時間表より削除",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:16",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 1,
+      "sourceRowBox": [
+        16.08,
+        278.52,
+        811.19,
+        292.68
+      ],
+      "courseCode": "sbz007653",
+      "courseNameFromSource": "ことづくり(1)",
+      "courseNameFromBaseSnapshot": "",
+      "changeDate": "2026-09-19",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "withdrawal"
+      ],
+      "beforeAfterTextCandidate": [],
+      "sourceExcerpt": "sbz007653 | ことづくり(1) | 本年度非開講のため授業時間表より削除",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:17",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 1,
+      "sourceRowBox": [
+        16.08,
+        292.68,
+        811.19,
+        334.92
+      ],
+      "courseCode": "sbb513107",
+      "courseNameFromSource": "Facilitation & Communication",
+      "courseNameFromBaseSnapshot": "Facilitation &Communication",
+      "changeDate": "2026-09-19",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "instructor",
+        "audience"
+      ],
+      "beforeAfterTextCandidate": [],
+      "sourceExcerpt": "sbb513107 | Facilitation & Communication | 開講学年訂正 担当教員変更 | 2024年度以前入学生の再履修者向けに開講 ドリアンダ リーラ プロビ、北見 幸一 → ドリアンダ リーラ プロビ",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:18",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 1,
+      "sourceRowBox": [
+        16.08,
+        334.92,
+        811.19,
+        363.0
+      ],
+      "courseCode": "sbb515315",
+      "courseNameFromSource": "ブランド戦略",
+      "courseNameFromBaseSnapshot": "ブランド戦略",
+      "changeDate": "2026-09-19",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "instructor",
+        "meeting"
+      ],
+      "beforeAfterTextCandidate": [],
+      "sourceExcerpt": "sbb515315 | ブランド戦略 | 開講期曜日時限変更 担当教員変更 | 後期後 金3・金4 → 後集中 北見 幸一 → 未定",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:19",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 1,
+      "sourceRowBox": [
+        16.08,
+        363.0,
+        811.19,
+        377.16
+      ],
+      "courseCode": "sba511103",
+      "courseNameFromSource": "エリアマーケティング",
+      "courseNameFromBaseSnapshot": "Urban Area Marketing",
+      "changeDate": "2026-09-19",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "instructor"
+      ],
+      "beforeAfterTextCandidate": [
+        {
+          "before": "林 和眞、北見 幸一",
+          "after": "林 和眞"
+        }
+      ],
+      "sourceExcerpt": "sba511103 | エリアマーケティング | 担当教員変更 | 林 和眞、北見 幸一 → 林 和眞",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:20",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 1,
+      "sourceRowBox": [
+        16.08,
+        377.16,
+        811.19,
+        391.32
+      ],
+      "courseCode": "sba512314",
+      "courseNameFromSource": "マーケティングリサーチ演習(1)",
+      "courseNameFromBaseSnapshot": "マーケティングリサーチ演習(1)",
+      "changeDate": "2026-09-19",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "instructor"
+      ],
+      "beforeAfterTextCandidate": [
+        {
+          "before": "北見 幸一",
+          "after": "柏原 沙織"
+        }
+      ],
+      "sourceExcerpt": "sba512314 | マーケティングリサーチ演習(1) | 担当教員変更 | 北見 幸一 → 柏原 沙織",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:21",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 1,
+      "sourceRowBox": [
+        16.08,
+        391.32,
+        811.19,
+        414.12
+      ],
+      "courseCode": "sba131404",
+      "courseNameFromSource": "光エレクトロニクス",
+      "courseNameFromBaseSnapshot": "光工学",
+      "changeDate": "2026-09-19",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "instructor"
+      ],
+      "beforeAfterTextCandidate": [],
+      "sourceExcerpt": "sba131404 | 光エレクトロニクス | 担当教員変更 | 澤野 憲太郎 → 野平 博司、三谷 祐一郎、星 裕介、勝本 信吾、山田 道洋、石川 亮佑",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:22",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 1,
+      "sourceRowBox": [
+        16.08,
+        414.12,
+        811.19,
+        428.52
+      ],
+      "courseCode": "sbz137619",
+      "courseNameFromSource": "計算電子工学",
+      "courseNameFromBaseSnapshot": "計算電子工学",
+      "changeDate": "2026-09-19",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "instructor"
+      ],
+      "beforeAfterTextCandidate": [],
+      "sourceExcerpt": "sbz137619 | 計算電子工学 | 担当教員変更 | 澤野 憲太郎 教授を削除",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:23",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 1,
+      "sourceRowBox": [
+        16.08,
+        428.52,
+        811.19,
+        442.92
+      ],
+      "courseCode": "sbz137610",
+      "courseNameFromSource": "電気磁気学(2)演習",
+      "courseNameFromBaseSnapshot": "電気磁気学(2)演習",
+      "changeDate": "2026-09-19",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "instructor"
+      ],
+      "beforeAfterTextCandidate": [
+        {
+          "before": "澤野 憲太郎、星 裕介",
+          "after": "星 裕介"
+        }
+      ],
+      "sourceExcerpt": "sbz137610 | 電気磁気学(2)演習 | 担当教員変更 | 澤野 憲太郎、星 裕介 → 星 裕介",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:24",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 1,
+      "sourceRowBox": [
+        16.08,
+        442.92,
+        811.19,
+        457.08
+      ],
+      "courseCode": "sba511203",
+      "courseNameFromSource": "基礎体育(2a)",
+      "courseNameFromBaseSnapshot": "基礎体育(2a)",
+      "changeDate": "2026-09-28",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "audience"
+      ],
+      "beforeAfterTextCandidate": [
+        {
+          "before": "医用乙 + 都生DEF",
+          "after": "都生DEF"
+        }
+      ],
+      "sourceExcerpt": "sba511203 | 基礎体育(2a) | 受講対象変更 | 医用乙 + 都生DEF → 都生DEF",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:25",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 1,
+      "sourceRowBox": [
+        16.08,
+        457.08,
+        811.19,
+        471.24
+      ],
+      "courseCode": "sbb511204",
+      "courseNameFromSource": "基礎体育(2b)",
+      "courseNameFromBaseSnapshot": "基礎体育(2b)",
+      "changeDate": "2026-09-28",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "audience"
+      ],
+      "beforeAfterTextCandidate": [
+        {
+          "before": "医用乙 + 都生DEF",
+          "after": "都生DEF"
+        }
+      ],
+      "sourceExcerpt": "sbb511204 | 基礎体育(2b) | 受講対象変更 | 医用乙 + 都生DEF → 都生DEF",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:26",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 1,
+      "sourceRowBox": [
+        16.08,
+        471.24,
+        811.19,
+        485.4
+      ],
+      "courseCode": "sba143101",
+      "courseNameFromSource": "基礎体育(2a)",
+      "courseNameFromBaseSnapshot": "基礎体育(2a)",
+      "changeDate": "2026-09-28",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "audience"
+      ],
+      "beforeAfterTextCandidate": [
+        {
+          "before": "医用甲 + 自然",
+          "after": "医用 + 自然"
+        }
+      ],
+      "sourceExcerpt": "sba143101 | 基礎体育(2a) | 受講対象変更 | 医用甲 + 自然 → 医用 + 自然",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:27",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 1,
+      "sourceRowBox": [
+        16.08,
+        485.4,
+        811.19,
+        499.56
+      ],
+      "courseCode": "sbb143102",
+      "courseNameFromSource": "基礎体育(2b)",
+      "courseNameFromBaseSnapshot": "基礎体育(2b)",
+      "changeDate": "2026-09-28",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "audience"
+      ],
+      "beforeAfterTextCandidate": [
+        {
+          "before": "医用甲 + 自然",
+          "after": "医用 + 自然"
+        }
+      ],
+      "sourceExcerpt": "sbb143102 | 基礎体育(2b) | 受講対象変更 | 医用甲 + 自然 → 医用 + 自然",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:28",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 1,
+      "sourceRowBox": [
+        16.08,
+        499.56,
+        811.19,
+        513.72
+      ],
+      "courseCode": "sba151303",
+      "courseNameFromSource": "応用化学総合演習(a)",
+      "courseNameFromBaseSnapshot": "応用化学総合演習(a)",
+      "changeDate": "2026-09-28",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "instructor"
+      ],
+      "beforeAfterTextCandidate": [],
+      "sourceExcerpt": "sba151303 | 応用化学総合演習(a) | 担当教員変更 | 押鐘 由理子 講師を削除",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:29",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 1,
+      "sourceRowBox": [
+        16.08,
+        513.72,
+        811.19,
+        527.92
+      ],
+      "courseCode": "sbb151304",
+      "courseNameFromSource": "応用化学総合演習(b)",
+      "courseNameFromBaseSnapshot": "応用化学総合演習(b)",
+      "changeDate": "2026-09-28",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "instructor"
+      ],
+      "beforeAfterTextCandidate": [],
+      "sourceExcerpt": "sbb151304 | 応用化学総合演習(b) | 担当教員変更 | 押鐘 由理子 講師を削除",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:30",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 2,
+      "sourceRowBox": [
+        16.03,
+        66.2,
+        811.12,
+        80.28
+      ],
+      "courseCode": "sba155304",
+      "courseNameFromSource": "応用化学実験基礎(2a)",
+      "courseNameFromBaseSnapshot": "応用化学実験基礎(2a)",
+      "changeDate": "2026-09-28",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "instructor"
+      ],
+      "beforeAfterTextCandidate": [],
+      "sourceExcerpt": "sba155304 | 応用化学実験基礎(2a) | 担当教員変更 | 押鐘 由理子 講師を削除",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:31",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 2,
+      "sourceRowBox": [
+        16.03,
+        80.28,
+        811.12,
+        94.44
+      ],
+      "courseCode": "sbb155305",
+      "courseNameFromSource": "応用化学実験基礎(2b)",
+      "courseNameFromBaseSnapshot": "応用化学実験基礎(2b)",
+      "changeDate": "2026-09-28",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "instructor"
+      ],
+      "beforeAfterTextCandidate": [],
+      "sourceExcerpt": "sbb155305 | 応用化学実験基礎(2b) | 担当教員変更 | 押鐘 由理子 講師を削除",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:32",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 2,
+      "sourceRowBox": [
+        16.03,
+        94.44,
+        811.12,
+        108.6
+      ],
+      "courseCode": "sbb153106",
+      "courseNameFromSource": "SD PBL(3)",
+      "courseNameFromBaseSnapshot": "SD PBL(3)",
+      "changeDate": "2026-09-28",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "instructor"
+      ],
+      "beforeAfterTextCandidate": [],
+      "sourceExcerpt": "sbb153106 | SD PBL(3) | 担当教員変更 | 押鐘 由理子 講師を削除",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:33",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 2,
+      "sourceRowBox": [
+        16.03,
+        108.6,
+        811.12,
+        122.76
+      ],
+      "courseCode": "sba111113",
+      "courseNameFromSource": "物理学及び演習(1)",
+      "courseNameFromBaseSnapshot": "物理学及び演習(1)",
+      "changeDate": "2026-09-28",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "instructor"
+      ],
+      "beforeAfterTextCandidate": [
+        {
+          "before": "深井 佳乃",
+          "after": "片山 龍一"
+        }
+      ],
+      "sourceExcerpt": "sba111113 | 物理学及び演習(1) | 担当教員変更 | 深井 佳乃 → 片山 龍一",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:34",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 2,
+      "sourceRowBox": [
+        16.03,
+        122.76,
+        811.12,
+        136.92
+      ],
+      "courseCode": "sbb111115",
+      "courseNameFromSource": "物理学及び演習(2)",
+      "courseNameFromBaseSnapshot": "物理学及び演習(2)",
+      "changeDate": "2026-09-28",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "instructor"
+      ],
+      "beforeAfterTextCandidate": [
+        {
+          "before": "深井 佳乃",
+          "after": "片山 龍一"
+        }
+      ],
+      "sourceExcerpt": "sbb111115 | 物理学及び演習(2) | 担当教員変更 | 深井 佳乃 → 片山 龍一",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:35",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 2,
+      "sourceRowBox": [
+        16.03,
+        136.92,
+        811.12,
+        151.08
+      ],
+      "courseCode": "sba272114",
+      "courseNameFromSource": "物理学及び演習(1)",
+      "courseNameFromBaseSnapshot": "物理学及び演習(1)",
+      "changeDate": "2026-09-28",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "instructor"
+      ],
+      "beforeAfterTextCandidate": [
+        {
+          "before": "片山 龍一",
+          "after": "深井 佳乃"
+        }
+      ],
+      "sourceExcerpt": "sba272114 | 物理学及び演習(1) | 担当教員変更 | 片山 龍一 → 深井 佳乃",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:36",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 2,
+      "sourceRowBox": [
+        16.03,
+        151.08,
+        811.12,
+        165.24
+      ],
+      "courseCode": "sbb272116",
+      "courseNameFromSource": "物理学及び演習(2)",
+      "courseNameFromBaseSnapshot": "物理学及び演習(2)",
+      "changeDate": "2026-09-28",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "instructor"
+      ],
+      "beforeAfterTextCandidate": [
+        {
+          "before": "片山 龍一",
+          "after": "深井 佳乃"
+        }
+      ],
+      "sourceExcerpt": "sbb272116 | 物理学及び演習(2) | 担当教員変更 | 片山 龍一 → 深井 佳乃",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:37",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 2,
+      "sourceRowBox": [
+        16.03,
+        165.24,
+        811.12,
+        179.4
+      ],
+      "courseCode": "sba264204",
+      "courseNameFromSource": "建築構法(2)",
+      "courseNameFromBaseSnapshot": "建築構法(2)",
+      "changeDate": "2026-09-28",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "room"
+      ],
+      "beforeAfterTextCandidate": [
+        {
+          "before": "11B",
+          "after": "22C"
+        }
+      ],
+      "sourceExcerpt": "sba264204 | 建築構法(2) | 教室変更 | 11B → 22C",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:38",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 2,
+      "sourceRowBox": [
+        16.03,
+        179.4,
+        811.12,
+        193.56
+      ],
+      "courseCode": "sba005302",
+      "courseNameFromSource": "民俗学(a)",
+      "courseNameFromBaseSnapshot": "民俗学(a)",
+      "changeDate": "2026-09-28",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "room"
+      ],
+      "beforeAfterTextCandidate": [
+        {
+          "before": "13M",
+          "after": "21C"
+        }
+      ],
+      "sourceExcerpt": "sba005302 | 民俗学(a) | 教室変更 | 13M → 21C",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:39",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 2,
+      "sourceRowBox": [
+        16.03,
+        193.56,
+        811.12,
+        207.72
+      ],
+      "courseCode": "sba005401",
+      "courseNameFromSource": "民俗学(a)",
+      "courseNameFromBaseSnapshot": "民俗学(a)",
+      "changeDate": "2026-09-28",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "room"
+      ],
+      "beforeAfterTextCandidate": [
+        {
+          "before": "13M",
+          "after": "21C"
+        }
+      ],
+      "sourceExcerpt": "sba005401 | 民俗学(a) | 教室変更 | 13M → 21C",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:40",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 2,
+      "sourceRowBox": [
+        16.03,
+        207.72,
+        811.12,
+        221.88
+      ],
+      "courseCode": "sba135304",
+      "courseNameFromSource": "高電圧工学",
+      "courseNameFromBaseSnapshot": "高電圧工学",
+      "changeDate": "2026-09-28",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "room"
+      ],
+      "beforeAfterTextCandidate": [
+        {
+          "before": "12K",
+          "after": "22C"
+        }
+      ],
+      "sourceExcerpt": "sba135304 | 高電圧工学 | 教室変更 | 12K → 22C",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:41",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 2,
+      "sourceRowBox": [
+        16.03,
+        221.88,
+        811.12,
+        236.04
+      ],
+      "courseCode": "sbz321304",
+      "courseNameFromSource": "人間情報システム演習",
+      "courseNameFromBaseSnapshot": "人間情報システム演習",
+      "changeDate": "2026-09-28",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "room"
+      ],
+      "beforeAfterTextCandidate": [
+        {
+          "before": "共用演習室",
+          "after": "13A"
+        }
+      ],
+      "sourceExcerpt": "sbz321304 | 人間情報システム演習 | 教室変更 | 共用演習室 → 13A",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:42",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 2,
+      "sourceRowBox": [
+        16.03,
+        236.04,
+        811.12,
+        250.2
+      ],
+      "courseCode": "sba161301",
+      "courseNameFromSource": "フーリエ解析学",
+      "courseNameFromBaseSnapshot": "フーリエ解析学",
+      "changeDate": "2026-09-28",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "room"
+      ],
+      "beforeAfterTextCandidate": [
+        {
+          "before": "13J",
+          "after": "31A"
+        }
+      ],
+      "sourceExcerpt": "sba161301 | フーリエ解析学 | 教室変更 | 13J → 31A",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:43",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 2,
+      "sourceRowBox": [
+        16.03,
+        250.2,
+        811.12,
+        264.36
+      ],
+      "courseCode": "sba122402",
+      "courseNameFromSource": "フーリエ解析学",
+      "courseNameFromBaseSnapshot": "フーリエ解析学",
+      "changeDate": "2026-09-28",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "room"
+      ],
+      "beforeAfterTextCandidate": [
+        {
+          "before": "11C",
+          "after": "31A"
+        }
+      ],
+      "sourceExcerpt": "sba122402 | フーリエ解析学 | 教室変更 | 11C → 31A",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:44",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 2,
+      "sourceRowBox": [
+        16.03,
+        264.36,
+        811.12,
+        278.52
+      ],
+      "courseCode": "sba004223",
+      "courseNameFromSource": "Grammar(1a)",
+      "courseNameFromBaseSnapshot": "Grammar(1a)",
+      "changeDate": "2026-09-28",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "room"
+      ],
+      "beforeAfterTextCandidate": [
+        {
+          "before": "1BK",
+          "after": "13P"
+        }
+      ],
+      "sourceExcerpt": "sba004223 | Grammar(1a) | 教室変更 | 1BK → 13P",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:45",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 2,
+      "sourceRowBox": [
+        16.03,
+        278.52,
+        811.12,
+        292.68
+      ],
+      "courseCode": "sba004320",
+      "courseNameFromSource": "Global Culture(2a)",
+      "courseNameFromBaseSnapshot": "Global Culture(2a)",
+      "changeDate": "2026-09-28",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "room"
+      ],
+      "beforeAfterTextCandidate": [
+        {
+          "before": "1BK",
+          "after": "13P"
+        }
+      ],
+      "sourceExcerpt": "sba004320 | Global Culture(2a) | 教室変更 | 1BK → 13P",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:46",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 2,
+      "sourceRowBox": [
+        16.03,
+        292.68,
+        811.12,
+        306.84
+      ],
+      "courseCode": "sba142205",
+      "courseNameFromSource": "プログラミング応用",
+      "courseNameFromBaseSnapshot": "プログラミング応用",
+      "changeDate": "2026-09-28",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "room"
+      ],
+      "beforeAfterTextCandidate": [
+        {
+          "before": "22A",
+          "after": "12K"
+        }
+      ],
+      "sourceExcerpt": "sba142205 | プログラミング応用 | 教室変更 | 22A → 12K",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:47",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 2,
+      "sourceRowBox": [
+        16.03,
+        306.84,
+        811.12,
+        321.0
+      ],
+      "courseCode": "sbz113201",
+      "courseNameFromSource": "材料力学",
+      "courseNameFromBaseSnapshot": "材料力学",
+      "changeDate": "2026-10-01",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "room"
+      ],
+      "beforeAfterTextCandidate": [
+        {
+          "before": "32A",
+          "after": "PBL教室"
+        }
+      ],
+      "sourceExcerpt": "sbz113201 | 材料力学 | 教室変更(第3Qのみ) | 32A → PBL教室",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:48",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 2,
+      "sourceRowBox": [
+        16.03,
+        321.0,
+        811.12,
+        349.08
+      ],
+      "courseCode": "sba272304",
+      "courseNameFromSource": "地盤工学及び演習(2)",
+      "courseNameFromBaseSnapshot": "地盤工学及び演習(2)",
+      "changeDate": "2026-10-01",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "room"
+      ],
+      "beforeAfterTextCandidate": [],
+      "sourceExcerpt": "sba272304 | 地盤工学及び演習(2) | 教室変更 | 火曜クラス:12G → 22C 金曜クラス:12G → 12K",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:49",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 2,
+      "sourceRowBox": [
+        16.03,
+        349.08,
+        811.12,
+        363.24
+      ],
+      "courseCode": "sbz006202",
+      "courseNameFromSource": "日本国憲法",
+      "courseNameFromBaseSnapshot": "日本国憲法",
+      "changeDate": "2026-10-01",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "room"
+      ],
+      "beforeAfterTextCandidate": [
+        {
+          "before": "13J",
+          "after": "13K"
+        }
+      ],
+      "sourceExcerpt": "sbz006202 | 日本国憲法 | 教室変更 | 13J → 13K",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:50",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 2,
+      "sourceRowBox": [
+        16.03,
+        363.24,
+        811.12,
+        377.4
+      ],
+      "courseCode": "sbb001518",
+      "courseNameFromSource": "データサイエンスリテラシー(2)",
+      "courseNameFromBaseSnapshot": "データサイエンスリテラシー(2)",
+      "changeDate": "2026-10-01",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "instructor"
+      ],
+      "beforeAfterTextCandidate": [
+        {
+          "before": "坂本 航太郎",
+          "after": "秦泉寺 久美"
+        }
+      ],
+      "sourceExcerpt": "sbb001518 | データサイエンスリテラシー(2) | 担当教員変更 | 坂本 航太郎 → 秦泉寺 久美",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:51",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 2,
+      "sourceRowBox": [
+        16.03,
+        377.4,
+        811.12,
+        405.48
+      ],
+      "courseCode": "sbz561208",
+      "courseNameFromSource": "公衆衛生学",
+      "courseNameFromBaseSnapshot": "公衆衛生学",
+      "changeDate": "2026-10-01",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "audience"
+      ],
+      "beforeAfterTextCandidate": [],
+      "sourceExcerpt": "sbz561208 | 公衆衛生学 | 受講対象変更 | 都市生活学科生は2021年度以前入学生のみ履修 可",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:52",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 2,
+      "sourceRowBox": [
+        16.03,
+        405.48,
+        811.12,
+        419.64
+      ],
+      "courseCode": "sbz561207",
+      "courseNameFromSource": "子ども家庭福祉",
+      "courseNameFromBaseSnapshot": "子ども家庭福祉",
+      "changeDate": "2026-10-06",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "room"
+      ],
+      "beforeAfterTextCandidate": [
+        {
+          "before": "21B",
+          "after": "71A"
+        }
+      ],
+      "sourceExcerpt": "sbz561207 | 子ども家庭福祉 | 教室変更 | 21B → 71A",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:53",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 2,
+      "sourceRowBox": [
+        16.03,
+        419.64,
+        811.12,
+        433.8
+      ],
+      "courseCode": "sba515114",
+      "courseNameFromSource": "住まいと環境",
+      "courseNameFromBaseSnapshot": "住まいと環境",
+      "changeDate": "2026-10-06",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "room"
+      ],
+      "beforeAfterTextCandidate": [
+        {
+          "before": "61B",
+          "after": "22C"
+        }
+      ],
+      "sourceExcerpt": "sba515114 | 住まいと環境 | 教室変更 | 61B → 22C",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:54",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 2,
+      "sourceRowBox": [
+        16.03,
+        433.8,
+        811.12,
+        447.96
+      ],
+      "courseCode": "sba005417",
+      "courseNameFromSource": "Test Taking Skills(2a)",
+      "courseNameFromBaseSnapshot": "Test Taking Skills(2a)",
+      "changeDate": "2026-10-06",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "room"
+      ],
+      "beforeAfterTextCandidate": [
+        {
+          "before": "12L",
+          "after": "12C"
+        }
+      ],
+      "sourceExcerpt": "sba005417 | Test Taking Skills(2a) | 教室変更 | 12L → 12C",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:55",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 2,
+      "sourceRowBox": [
+        16.03,
+        447.96,
+        811.12,
+        462.12
+      ],
+      "courseCode": "sbb005418",
+      "courseNameFromSource": "Test Taking Skills(2b)",
+      "courseNameFromBaseSnapshot": "Test Taking Skills(2b)",
+      "changeDate": "2026-10-06",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "room"
+      ],
+      "beforeAfterTextCandidate": [
+        {
+          "before": "12L",
+          "after": "12C"
+        }
+      ],
+      "sourceExcerpt": "sbb005418 | Test Taking Skills(2b) | 教室変更 | 12L → 12C",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:56",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 2,
+      "sourceRowBox": [
+        16.03,
+        462.12,
+        811.12,
+        476.28
+      ],
+      "courseCode": "sba005101",
+      "courseNameFromSource": "社会学(2a)",
+      "courseNameFromBaseSnapshot": "",
+      "changeDate": "2026-10-06",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "withdrawal"
+      ],
+      "beforeAfterTextCandidate": [],
+      "sourceExcerpt": "sba005101 | 社会学(2a) | 開講中止のため授業時間表より削除",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:57",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 2,
+      "sourceRowBox": [
+        16.03,
+        476.28,
+        811.12,
+        490.44
+      ],
+      "courseCode": "sba005201",
+      "courseNameFromSource": "社会学(2a)",
+      "courseNameFromBaseSnapshot": "",
+      "changeDate": "2026-10-06",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "withdrawal"
+      ],
+      "beforeAfterTextCandidate": [],
+      "sourceExcerpt": "sba005201 | 社会学(2a) | 開講中止のため授業時間表より削除",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:58",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 2,
+      "sourceRowBox": [
+        16.03,
+        490.44,
+        811.12,
+        504.6
+      ],
+      "courseCode": "sba005301",
+      "courseNameFromSource": "社会学(2a)",
+      "courseNameFromBaseSnapshot": "",
+      "changeDate": "2026-10-06",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "withdrawal"
+      ],
+      "beforeAfterTextCandidate": [],
+      "sourceExcerpt": "sba005301 | 社会学(2a) | 開講中止のため授業時間表より削除",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:59",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 2,
+      "sourceRowBox": [
+        16.03,
+        504.6,
+        811.12,
+        518.76
+      ],
+      "courseCode": "sbb005101",
+      "courseNameFromSource": "社会学(2b)",
+      "courseNameFromBaseSnapshot": "",
+      "changeDate": "2026-10-06",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "withdrawal"
+      ],
+      "beforeAfterTextCandidate": [],
+      "sourceExcerpt": "sbb005101 | 社会学(2b) | 開講中止のため授業時間表より削除",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:60",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 2,
+      "sourceRowBox": [
+        16.03,
+        518.76,
+        811.12,
+        532.96
+      ],
+      "courseCode": "sbb005201",
+      "courseNameFromSource": "社会学(2b)",
+      "courseNameFromBaseSnapshot": "",
+      "changeDate": "2026-10-06",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "withdrawal"
+      ],
+      "beforeAfterTextCandidate": [],
+      "sourceExcerpt": "sbb005201 | 社会学(2b) | 開講中止のため授業時間表より削除",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-undergrad-fall-changes-2026:3:61",
+      "sourceId": "schedule-setagaya-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/10/d392d80dc3181badce8f10a145b92871-1.pdf",
+      "sourcePage": 3,
+      "sourceRowBox": [
+        16.03,
+        66.2,
+        811.12,
+        80.32
+      ],
+      "courseCode": "sbb005301",
+      "courseNameFromSource": "社会学(2b)",
+      "courseNameFromBaseSnapshot": "",
+      "changeDate": "2026-10-06",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "withdrawal"
+      ],
+      "beforeAfterTextCandidate": [],
+      "sourceExcerpt": "sbb005301 | 社会学(2b) | 開講中止のため授業時間表より削除",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-yokohama-undergrad-fall-changes-2026:1:1",
+      "sourceId": "schedule-yokohama-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/09/784127dbe596d739b8ba023bdbb2a67e.pdf",
+      "sourcePage": 1,
+      "sourceRowBox": [
+        53.79,
+        158.0,
+        758.72,
+        178.97
+      ],
+      "courseCode": "yba611302",
+      "courseNameFromSource": "環境分析演習",
+      "courseNameFromBaseSnapshot": "環境分析演習",
+      "changeDate": "2026-09-11",
+      "changeDateBasis": "section-heading",
+      "changeCategoriesCandidate": [
+        "meeting"
+      ],
+      "beforeAfterTextCandidate": [
+        {
+          "before": "月曜3・4/木曜3・4",
+          "after": "火曜3・4/金曜3・4"
+        }
+      ],
+      "sourceExcerpt": "yba611302 | 環境分析演習 | 曜日時限 | 月曜3・4/木曜3・4 → 火曜3・4/金曜3・4",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-yokohama-undergrad-fall-changes-2026:1:2",
+      "sourceId": "schedule-yokohama-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/09/784127dbe596d739b8ba023bdbb2a67e.pdf",
+      "sourcePage": 1,
+      "sourceRowBox": [
+        53.79,
+        253.99,
+        790.64,
+        399.53
+      ],
+      "courseCode": "ybz817001",
+      "courseNameFromSource": "特別講義(DX・GXが創造するビジネスの新しい潮流)",
+      "courseNameFromBaseSnapshot": "特別講義(DX・GXが創造するビジネスの新しい潮流)",
+      "changeDate": "2026-09-11",
+      "changeDateBasis": "section-heading",
+      "changeCategoriesCandidate": [
+        "meeting"
+      ],
+      "beforeAfterTextCandidate": [
+        {
+          "before": "9月29日(火)5・6時限 10月13日(火)5・6時限 10月27日(火)5・6時限 11月10日(火)5・6時限 11月24日(火)5・6時限 12月 8日(火)5・6時限 12月22日(火)5・6時限 1月12日(火)5・6時限",
+          "after": "(各日木曜5時限~) 9月24日 10月15日、22日 11月5日、12日、26日 12月10日、17日 1月14日"
+        }
+      ],
+      "sourceExcerpt": "ybz817001 | 特別講義(DX・GXが創造するビジネスの新しい潮流) | 実施日 | 9月29日(火)5・6時限 10月13日(火)5・6時限 10月27日(火)5・6時限 11月10日(火)5・6時限 11月24日(火)5・6時限 12月 8日(火)5・6時限 12月22日(火)5・6時限 1月12日(火)5・6時限 → (各日木曜5時限~) 9月24日 10月15日、22日 11月5日、12日、26日 12月10日、17日 1月14日",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-yokohama-undergrad-fall-changes-2026:1:3",
+      "sourceId": "schedule-yokohama-undergrad-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/09/784127dbe596d739b8ba023bdbb2a67e.pdf",
+      "sourcePage": 1,
+      "sourceRowBox": [
+        53.79,
+        474.32,
+        758.72,
+        512.09
+      ],
+      "courseCode": "ybb613102",
+      "courseNameFromSource": "SD PBL(3)",
+      "courseNameFromBaseSnapshot": "SD PBL(3)",
+      "changeDate": "2026-09-24",
+      "changeDateBasis": "section-heading",
+      "changeCategoriesCandidate": [
+        "instructor"
+      ],
+      "beforeAfterTextCandidate": [
+        {
+          "before": "後藤 智香子",
+          "after": "内田 圭"
+        }
+      ],
+      "sourceExcerpt": "ybb613102 | SD PBL(3) | 担当者限 | 後藤 智香子 → 内田 圭",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-grad-total-fall-changes-2026:1:1",
+      "sourceId": "schedule-setagaya-grad-total-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/09/7d1654a86fec3147e07d63b0039f7c3e-1.pdf",
+      "sourcePage": 1,
+      "sourceRowBox": [
+        16.08,
+        66.36,
+        815.97,
+        80.76
+      ],
+      "courseCode": "smbb000011",
+      "courseNameFromSource": "偏微分方程式特論",
+      "courseNameFromBaseSnapshot": "偏微分方程式特論",
+      "changeDate": "2026-09-19",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "room"
+      ],
+      "beforeAfterTextCandidate": [
+        {
+          "before": "12K教室",
+          "after": "21B教室"
+        }
+      ],
+      "sourceExcerpt": "smbb000011 | 偏微分方程式特論 | 教室変更 | 12K教室 → 21B教室",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-grad-total-fall-changes-2026:1:2",
+      "sourceId": "schedule-setagaya-grad-total-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/09/7d1654a86fec3147e07d63b0039f7c3e-1.pdf",
+      "sourcePage": 1,
+      "sourceRowBox": [
+        16.08,
+        80.76,
+        815.97,
+        95.16
+      ],
+      "courseCode": "smba110111",
+      "courseNameFromSource": "惑星科学特論",
+      "courseNameFromBaseSnapshot": "惑星科学特論",
+      "changeDate": "2026-09-19",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "instructor"
+      ],
+      "beforeAfterTextCandidate": [
+        {
+          "before": "津村 耕司",
+          "after": "菅原 悠馬"
+        }
+      ],
+      "sourceExcerpt": "smba110111 | 惑星科学特論 | 担当教員追加 | 津村 耕司 → 菅原 悠馬",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-grad-total-fall-changes-2026:1:3",
+      "sourceId": "schedule-setagaya-grad-total-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/09/7d1654a86fec3147e07d63b0039f7c3e-1.pdf",
+      "sourcePage": 1,
+      "sourceRowBox": [
+        16.08,
+        95.16,
+        815.97,
+        109.56
+      ],
+      "courseCode": "smba000021",
+      "courseNameFromSource": "離散数学特論",
+      "courseNameFromBaseSnapshot": "離散数学特論",
+      "changeDate": "2026-09-19",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "room"
+      ],
+      "beforeAfterTextCandidate": [
+        {
+          "before": "22B教室",
+          "after": "12H教室"
+        }
+      ],
+      "sourceExcerpt": "smba000021 | 離散数学特論 | 教室変更 | 22B教室 → 12H教室",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-setagaya-grad-total-fall-changes-2026:1:4",
+      "sourceId": "schedule-setagaya-grad-total-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/09/7d1654a86fec3147e07d63b0039f7c3e-1.pdf",
+      "sourcePage": 1,
+      "sourceRowBox": [
+        16.08,
+        109.56,
+        815.97,
+        124.0
+      ],
+      "courseCode": "smba030051",
+      "courseNameFromSource": "電力エネルギー特論",
+      "courseNameFromBaseSnapshot": "電力エネルギー特論",
+      "changeDate": "2026-09-28",
+      "changeDateBasis": "row-date",
+      "changeCategoriesCandidate": [
+        "room"
+      ],
+      "beforeAfterTextCandidate": [
+        {
+          "before": "13C教室",
+          "after": "61A教室"
+        }
+      ],
+      "sourceExcerpt": "smba030051 | 電力エネルギー特論 | 教室変更 | 13C教室 → 61A教室",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    },
+    {
+      "eventId": "schedule-yokohama-grad-environment-fall-changes-2026:1:1",
+      "sourceId": "schedule-yokohama-grad-environment-fall-changes-2026",
+      "sourceUrl": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/09/8967e5f80a13d5b55b64b970039ee4fb.pdf",
+      "sourcePage": 1,
+      "sourceRowBox": [
+        54.03,
+        158.47,
+        787.04,
+        213.6
+      ],
+      "courseCode": "ymbb110022",
+      "courseNameFromSource": "環境リスク社会論(英語) Environment and Risk Society",
+      "courseNameFromBaseSnapshot": "環境リスク社会論(英語)",
+      "changeDate": "2026-09-17",
+      "changeDateBasis": "section-heading",
+      "changeCategoriesCandidate": [
+        "language"
+      ],
+      "beforeAfterTextCandidate": [
+        {
+          "before": "9/25、26日本語 1/22、23英語",
+          "after": "9/25、26英語 1/22、23日本語"
+        }
+      ],
+      "sourceExcerpt": "ymbb110022 | 環境リスク社会論(英語) Environment and Risk Society | 開講言語 | 9/25、26日本語 1/22、23英語 → 9/25、26英語 1/22、23日本語",
+      "reviewStatus": "unreviewed",
+      "applied": false
+    }
+  ]
+}

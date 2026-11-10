@@ -11,7 +11,7 @@ with sync_playwright() as p:
         for width in (375, 1440):
             page = browser.new_page(viewport={"width": width, "height": 900})
             page.goto((root / guide).as_uri(), wait_until="load")
-            assert page.locator(".capture img").count() == 2
+            assert page.locator(".capture img").count() == 3
             assert page.locator(".capture img").evaluate_all("imgs => imgs.every(i => i.complete && i.naturalWidth > 0)")
             assert page.evaluate("document.documentElement.scrollWidth <= document.documentElement.clientWidth"), (guide, width)
             assert page.get_by_text("Windows：Ctrl + R または F5").count() >= 1

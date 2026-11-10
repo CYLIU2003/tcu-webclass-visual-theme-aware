@@ -8,7 +8,6 @@ import { startTestServer } from './serve.mjs';
 const workspace = fileURLToPath(new URL('../', import.meta.url));
 const outputDirectory = path.join(workspace, 'tmp', 'deadline-matrix');
 await fs.mkdir(outputDirectory, { recursive: true });
-const profiles = await fs.mkdtemp(path.join(outputDirectory, 'profiles-'));
 const exists = async candidate => candidate && await fs.access(candidate).then(() => true, () => false);
 async function locate(candidates) {
   for (const candidate of candidates) if (await exists(candidate)) return candidate;
@@ -40,21 +39,16 @@ const origin = `http://127.0.0.1:${server.address().port}`;
 const summaries = [];
 
 async function runPage(environment, page, suffix) {
-  const profile = path.resolve(profiles, environment.id);
-  const relative = path.relative(profiles, profile);
-  if (relative.startsWith('..') || path.isAbsolute(relative)) throw new Error('Profile path is outside the test directory');
-  const child = spawn(environment.executable, [
-    '--headless', '--no-sandbox', '--disable-gpu', '--disable-software-rasterizer',
-    '--no-first-run', '--no-default-browser-check', `--user-data-dir=${profile}`,
-    `--window-size=${environment.viewport}`, '--dump-dom', '--virtual-time-budget=900000',
-    origin + page
+  const child = spawn(process.env.PYTHON || 'python', [
+    '-X', 'utf8', path.join(workspace, 'tests', 'run_deadline_browser.py'),
+    environment.executable, environment.viewport, origin + page
   ], { windowsHide: true, stdio: ['ignore', 'pipe', 'pipe'] });
   let html = '', errors = '', timedOut = false;
   child.stdout.setEncoding('utf8');
   child.stderr.setEncoding('utf8');
   child.stdout.on('data', data => { html += data; });
   child.stderr.on('data', data => { errors += data; });
-  const timeout = setTimeout(() => { timedOut = true; child.kill(); }, 120000);
+  const timeout = setTimeout(() => { timedOut = true; child.kill(); }, 155000);
   let exitCode;
   try {
     exitCode = await new Promise((resolve, reject) => { child.once('error', reject); child.once('close', resolve); });
@@ -95,8 +89,4 @@ try {
   if (!result.passed) process.exitCode = 1;
 } finally {
   await new Promise(resolve => server.close(resolve));
-  const target = path.resolve(profiles);
-  const relative = path.relative(path.resolve(outputDirectory), target);
-  if (relative.startsWith('..') || path.isAbsolute(relative) || !path.basename(target).startsWith('profiles-')) throw new Error('Refusing to remove an unexpected profile directory');
-  await fs.rm(target, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
 }

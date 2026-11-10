@@ -39,6 +39,7 @@ Windows x64、Node.js v24.19.0。ブラウザーの新規テスト用プロフ�
 リポジトリー直下で実行します。
 
 ```powershell
+python -m pip install playwright
 node tests/test_deadlines.mjs
 node tests/test_deadline_matrix.mjs
 ```
@@ -50,9 +51,9 @@ node tests/test_deadline_matrix.mjs --case multiple-tables
 node tests/test_deadline_matrix.mjs --case multiple-tables-timeout
 ```
 
-`tests/serve.mjs` はコマンドからも起動でき、`http://127.0.0.1:8765/tests/deadline-matrix.html` で模擬画面を確認できます。直接ブラウザーで開いた場合、取得待ちは実時間で進みます。自動実行ではブラウザーの仮想時刻で待ち時間を進めます。
+`tests/serve.mjs` はコマンドからも起動でき、`http://127.0.0.1:8765/tests/deadline-matrix.html` で模擬画面を確認できます。直接ブラウザーで開いた場合、取得待ちは実時間で進みます。自動実行ではPlaywrightでChrome・Edgeを起動し、仮想時刻を進めてページの完了を待ちます。
 
-機械可読な結果は `tmp/deadline-matrix/results.json`、各環境の描画HTML・ログ・結果JSONは同じフォルダーに保存します。初回の修正前結果は `baseline-results.json` に保存しました。テスト用ブラウザープロファイルは実行後に削除します。
+機械可読な結果は `tmp/deadline-matrix/results.json`、各環境の描画HTML・ログ・結果JSONは同じフォルダーに保存します。初回の修正前結果は `baseline-results.json` に保存しました。テストは実際のログインと分離した一時コンテキストで実行します。
 
 検証した `src/deadlines.js` のSHA-256：
 

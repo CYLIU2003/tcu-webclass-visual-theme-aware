@@ -4,6 +4,7 @@
   const DEFAULTS = {
     enabled: true,
     restyle: true,
+    appearance: "standard",
     modernizeNativeLayout: true,
     showInlineMetadata: true,
     showDeadlineList: true
@@ -32,6 +33,8 @@
   const reloadCard = document.getElementById("reloadCard");
   const optionsSummary = document.getElementById("optionsSummary");
   const openWebClass = document.getElementById("openWebClass");
+  const appearancePicker = document.getElementById("appearancePicker");
+  const appearanceHelp = document.getElementById("appearanceHelp");
 
   let activeTab = null;
   let noticeTimer = 0;
@@ -79,6 +82,10 @@
     const on = SUB_KEYS.filter((key) => controls[key].checked).length;
     optionsSummary.textContent = `${on} / ${SUB_KEYS.length} 項目がオン`;
     SUB_KEYS.forEach((key) => { controls[key].disabled = !controls.enabled.checked; });
+    appearancePicker.disabled = !controls.enabled.checked || !controls.restyle.checked;
+    appearanceHelp.textContent = !controls.enabled.checked ? "拡張機能をオンにすると選べます。"
+      : !controls.restyle.checked ? "「画面を整える」をオンにすると選べます。"
+      : "時間割・コース一覧・教材一覧に反映します。";
   }
 
   function showSaved(text = "保存しました。画面へ自動反映します。") {
@@ -185,6 +192,26 @@
 
   async function initialize() {
     const settings = await storageGet(DEFAULTS);
+    const appearanceChoices = [...appearancePicker.querySelectorAll("input")];
+    const showAppearance = (mode) => {
+      const selected = mode === "modern" ? "modern" : "standard";
+      appearanceChoices.forEach((choice) => { choice.checked = choice.value === selected; });
+    };
+    showAppearance(settings.appearance);
+    for (const choice of appearanceChoices) {
+      choice.addEventListener("change", async () => {
+        await storageSet({ appearance: choice.value });
+        showSaved(choice.value === "modern" ? "モダンに切り替えました。" : "標準に切り替えました。");
+      });
+    }
+    chrome.storage.onChanged.addListener((changes, area) => {
+      if (area !== "local") return;
+      if (changes.appearance) showAppearance(changes.appearance.newValue);
+      for (const key of ["enabled", "restyle"]) {
+        if (changes[key]) controls[key].checked = Boolean(changes[key].newValue ?? DEFAULTS[key]);
+      }
+      if (changes.enabled || changes.restyle) updateOptionsSummary();
+    });
 
     Object.entries(controls).forEach(([key, control]) => {
       control.checked = Boolean(settings[key]);

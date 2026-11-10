@@ -14,11 +14,13 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
-BASE_DB = DATA / "course-catalog-2026.sqlite"
 parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument("--base-database", type=Path, default=DATA / "course-catalog-2026.sqlite",
+                    help="読み取り専用で開く基礎カタログのSQLiteファイル")
 parser.add_argument("--output", type=Path, default=DATA / "course-catalog-multiyear.sqlite",
                     help="新規に作成するSQLiteファイル。既存ファイルは上書きしません")
-OUTPUT = parser.parse_args().output.resolve()
+args = parser.parse_args()
+OUTPUT = args.output.resolve()
 if OUTPUT.exists():
     raise FileExistsError(f"出力先は既に存在します。既存データを保護するため別の --output を指定してください: {OUTPUT}")
 if not OUTPUT.parent.is_dir():
@@ -44,7 +46,7 @@ for source in source_manifest["records"]:
 fd, temp_name = tempfile.mkstemp(prefix="course-catalog-multiyear-", suffix=".sqlite.tmp", dir=OUTPUT.parent)
 os.close(fd)
 try:
-    src = sqlite3.connect(BASE_DB)
+    src = sqlite3.connect(f"{args.base_database.resolve().as_uri()}?mode=ro", uri=True)
     dst = sqlite3.connect(temp_name)
     src.backup(dst)
     src.close()

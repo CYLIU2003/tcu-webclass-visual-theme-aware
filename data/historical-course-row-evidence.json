@@ -3,8 +3,8 @@
   "database": {
     "schemaVersion": 8,
     "curriculumSchemaVersion": 1,
-    "sourceDocumentCount": 46,
-    "currentOfferingCount": 2556,
+    "sourceDocumentCount": 59,
+    "currentOfferingCount": 3736,
     "currentCatalogStatus": "research-foundation-not-certified",
     "currentFallCandidatesStatus": "provisional-staging-only; not merged into course_offering",
     "currentFallCandidatePairs": 1885,
@@ -520395,8 +520395,8 @@
     "summary": {
       "eventCount": 69,
       "sourceDocuments": 4,
-      "matchedToBaseOfferings": 10,
-      "unmatchedToBaseOfferings": 59,
+      "matchedToBaseOfferings": 61,
+      "unmatchedToBaseOfferings": 8,
       "appliedCount": 0,
       "scope": "Official 2026 timetable correction PDF excerpts; unreviewed and unapplied candidate events."
     },
@@ -520444,17 +520444,17 @@
         "courseCode": "smbb000011",
         "baseOfferingId": "2026:smbb000011",
         "baseSnapshotMatch": true,
-        "changeDate": "2026/9/19",
+        "changeDate": "2026-09-19",
         "categories": [
           "room"
         ],
         "beforeAfter": [
           {
-            "before": "smbb000011 古田 公司 教室変更 12K教室",
-            "after": "21B教室 2026/9/19 自然 後期前 火3、金3 惑星科学特論"
+            "before": "12K教室",
+            "after": "21B教室"
           }
         ],
-        "sourceExcerpt": "smbb000011 古田 公司 教室変更 12K教室 → 21B教室 2026/9/19 自然 後期前 火3、金3 惑星科学特論",
+        "sourceExcerpt": "smbb000011 | 偏微分方程式特論 | 教室変更 | 12K教室 → 21B教室",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 1,
@@ -520473,15 +520473,17 @@
         "courseCode": "smba110111",
         "baseOfferingId": "2026:smba110111",
         "baseSnapshotMatch": true,
-        "changeDate": "2026/9/19",
-        "categories": [],
+        "changeDate": "2026-09-19",
+        "categories": [
+          "instructor"
+        ],
         "beforeAfter": [
           {
-            "before": "smba110111 津村 耕司 担当教員追加 津村 耕司",
-            "after": "菅原 悠馬 2026/9/19 共通 後期前 火2、水1 離散数学特論"
+            "before": "津村 耕司",
+            "after": "菅原 悠馬"
           }
         ],
-        "sourceExcerpt": "smba110111 津村 耕司 担当教員追加 津村 耕司 → 菅原 悠馬 2026/9/19 共通 後期前 火2、水1 離散数学特論",
+        "sourceExcerpt": "smba110111 | 惑星科学特論 | 担当教員追加 | 津村 耕司 → 菅原 悠馬",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 1,
@@ -520500,17 +520502,17 @@
         "courseCode": "smba000021",
         "baseOfferingId": "2026:smba000021",
         "baseSnapshotMatch": true,
-        "changeDate": "2026/9/19",
+        "changeDate": "2026-09-19",
         "categories": [
           "room"
         ],
         "beforeAfter": [
           {
-            "before": "smba000021 中井 洋史 教室変更 22B教室",
-            "after": "12H教室 2026/9/28 電気・化学 後期前 火2、金2 電力エネルギー特論"
+            "before": "22B教室",
+            "after": "12H教室"
           }
         ],
-        "sourceExcerpt": "smba000021 中井 洋史 教室変更 22B教室 → 12H教室 2026/9/28 電気・化学 後期前 火2、金2 電力エネルギー特論",
+        "sourceExcerpt": "smba000021 | 離散数学特論 | 教室変更 | 22B教室 → 12H教室",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 1,
@@ -520529,17 +520531,17 @@
         "courseCode": "smba030051",
         "baseOfferingId": "2026:smba030051",
         "baseSnapshotMatch": true,
-        "changeDate": "2026/9/28",
+        "changeDate": "2026-09-28",
         "categories": [
           "room"
         ],
         "beforeAfter": [
           {
-            "before": "smba030051 中島 達人 教室変更 13C教室",
+            "before": "13C教室",
             "after": "61A教室"
           }
         ],
-        "sourceExcerpt": "smba030051 中島 達人 教室変更 13C教室 → 61A教室",
+        "sourceExcerpt": "smba030051 | 電力エネルギー特論 | 教室変更 | 13C教室 → 61A教室",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 1,
@@ -520556,19 +520558,19 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:1",
         "courseCode": "sbz563111",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/9/19",
+        "baseOfferingId": "2026:sbz563111",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-09-19",
         "categories": [
           "room"
         ],
         "beforeAfter": [
           {
-            "before": "sbz563111 紺野 道子 教室変更 12H教室",
-            "after": "12L教室 2026/9/19 人間 後期 水2 保育・教職実践演習(幼稚園)"
+            "before": "12H教室",
+            "after": "12L教室"
           }
         ],
-        "sourceExcerpt": "sbz563111 紺野 道子 教室変更 12H教室 → 12L教室 2026/9/19 人間 後期 水2 保育・教職実践演習(幼稚園)",
+        "sourceExcerpt": "sbz563111 | 保育・教職実践演習(幼稚園) | 教室変更 | 12H教室 → 12L教室",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 1,
@@ -520585,12 +520587,14 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:10",
         "courseCode": "sbb266105",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/9/19",
-        "categories": [],
+        "baseOfferingId": "2026:sbb266105",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-09-19",
+        "categories": [
+          "instructor"
+        ],
         "beforeAfter": [],
-        "sourceExcerpt": "sbb266105 手塚 貴晴 ほか 担当教員追加 根市 拓 2026/9/19 自然 後期後 水1、水2 SD PBL(3)",
+        "sourceExcerpt": "sbb266105 | 設計スタジオ(2) | 担当教員追加 | 根市 拓",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 1,
@@ -520607,12 +520611,14 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:11",
         "courseCode": "sbb173102",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/9/19",
-        "categories": [],
+        "baseOfferingId": "2026:sbb173102",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-09-19",
+        "categories": [
+          "instructor"
+        ],
         "beforeAfter": [],
-        "sourceExcerpt": "sbb173102 中村 正人 担当教員追加 菅原 悠馬 2026/9/19 自然 後集中 事例研究(2)",
+        "sourceExcerpt": "sbb173102 | SD PBL(3) | 担当教員追加 | 菅原 悠馬",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 1,
@@ -520629,12 +520635,14 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:12",
         "courseCode": "sbz177612",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/9/19",
-        "categories": [],
+        "baseOfferingId": "2026:sbz177612",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-09-19",
+        "categories": [
+          "instructor"
+        ],
         "beforeAfter": [],
-        "sourceExcerpt": "sbz177612 福田 達哉 ほか 担当教員追加 菅原 悠馬 2026/9/19 物理 後期前 金1、金2 物理学実験(a)",
+        "sourceExcerpt": "sbz177612 | 事例研究(2) | 担当教員追加 | 菅原 悠馬",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 1,
@@ -520651,12 +520659,14 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:13",
         "courseCode": "sba155101",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/9/19",
-        "categories": [],
+        "baseOfferingId": "2026:sba155101",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-09-19",
+        "categories": [
+          "instructor"
+        ],
         "beforeAfter": [],
-        "sourceExcerpt": "sba155101 尼子 淳 ほか 担当教員追加 菅原 悠馬 2026/9/19 物理 後期後 金1、金2 物理学実験(b)",
+        "sourceExcerpt": "sba155101 | 物理学実験(a) | 担当教員追加 | 菅原 悠馬",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 1,
@@ -520673,12 +520683,14 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:14",
         "courseCode": "sbb155102",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/9/19",
-        "categories": [],
+        "baseOfferingId": "2026:sbb155102",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-09-19",
+        "categories": [
+          "instructor"
+        ],
         "beforeAfter": [],
-        "sourceExcerpt": "sbb155102 尼子 淳 ほか 担当教員追加 菅原 悠馬 2026/9/19 自然 後集中 英語論文読解",
+        "sourceExcerpt": "sbb155102 | 物理学実験(b) | 担当教員追加 | 菅原 悠馬",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 1,
@@ -520697,12 +520709,12 @@
         "courseCode": "sbz177611",
         "baseOfferingId": null,
         "baseSnapshotMatch": false,
-        "changeDate": "2026/9/19",
+        "changeDate": "2026-09-19",
         "categories": [
           "withdrawal"
         ],
         "beforeAfter": [],
-        "sourceExcerpt": "sbz177611 橋本 義武 ほか 本年度非開講のため授業時間表より削除 2026/9/19 ひらめき 後集中 ことづくり(1)",
+        "sourceExcerpt": "sbz177611 | 英語論文読解 | 本年度非開講のため授業時間表より削除",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 1,
@@ -520721,12 +520733,12 @@
         "courseCode": "sbz007653",
         "baseOfferingId": null,
         "baseSnapshotMatch": false,
-        "changeDate": "2026/9/19",
+        "changeDate": "2026-09-19",
         "categories": [
           "withdrawal"
         ],
         "beforeAfter": [],
-        "sourceExcerpt": "sbz007653 岸 和幸 本年度非開講のため授業時間表より削除 2026/9/19 都生 後期後 水1、水2 Facilitation & Communication",
+        "sourceExcerpt": "sbz007653 | ことづくり(1) | 本年度非開講のため授業時間表より削除",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 1,
@@ -520743,19 +520755,15 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:17",
         "courseCode": "sbb513107",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/9/19",
+        "baseOfferingId": "2026:sbb513107",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-09-19",
         "categories": [
-          "instructor"
+          "instructor",
+          "audience"
         ],
-        "beforeAfter": [
-          {
-            "before": "担当教員変更 2024年度以前入学生の再履修者向けに開講 ドリアンダ リーラ プロビ、北見 幸一",
-            "after": "ドリアンダ リーラ プロビ 2026/9/19 都生 後期後 金3、金4 ブランド戦略"
-          }
-        ],
-        "sourceExcerpt": "sbb513107 ドリアンダ リーラ プロビ ほか 開講学年訂正 担当教員変更 2024年度以前入学生の再履修者向けに開講 ドリアンダ リーラ プロビ、北見 幸一 → ドリアンダ リーラ プロビ 2026/9/19 都生 後期後 金3、金4 ブランド戦略",
+        "beforeAfter": [],
+        "sourceExcerpt": "sbb513107 | Facilitation & Communication | 開講学年訂正 担当教員変更 | 2024年度以前入学生の再履修者向けに開講 ドリアンダ リーラ プロビ、北見 幸一 → ドリアンダ リーラ プロビ",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 1,
@@ -520772,20 +520780,15 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:18",
         "courseCode": "sbb515315",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/9/19",
+        "baseOfferingId": "2026:sbb515315",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-09-19",
         "categories": [
           "instructor",
           "meeting"
         ],
-        "beforeAfter": [
-          {
-            "before": "sbb515315 北見 幸一 開講期曜日時限変更 担当教員変更 後期後 金3・金4",
-            "after": "後集中 北見 幸一 → 未定 2026/9/19 都生 後期前 月1、月2 エリアマーケティング"
-          }
-        ],
-        "sourceExcerpt": "sbb515315 北見 幸一 開講期曜日時限変更 担当教員変更 後期後 金3・金4 → 後集中 北見 幸一 → 未定 2026/9/19 都生 後期前 月1、月2 エリアマーケティング",
+        "beforeAfter": [],
+        "sourceExcerpt": "sbb515315 | ブランド戦略 | 開講期曜日時限変更 担当教員変更 | 後期後 金3・金4 → 後集中 北見 幸一 → 未定",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 1,
@@ -520802,19 +520805,19 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:19",
         "courseCode": "sba511103",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/9/19",
+        "baseOfferingId": "2026:sba511103",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-09-19",
         "categories": [
           "instructor"
         ],
         "beforeAfter": [
           {
-            "before": "sba511103 林 和眞 ほか 担当教員変更 林 和眞、北見 幸一",
-            "after": "林 和眞 2026/9/19 都生 後期前 火3、火4 マーケティングリサーチ演習(1)"
+            "before": "林 和眞、北見 幸一",
+            "after": "林 和眞"
           }
         ],
-        "sourceExcerpt": "sba511103 林 和眞 ほか 担当教員変更 林 和眞、北見 幸一 → 林 和眞 2026/9/19 都生 後期前 火3、火4 マーケティングリサーチ演習(1)",
+        "sourceExcerpt": "sba511103 | エリアマーケティング | 担当教員変更 | 林 和眞、北見 幸一 → 林 和眞",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 1,
@@ -520831,19 +520834,19 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:2",
         "courseCode": "sbz563204",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/9/19",
+        "baseOfferingId": "2026:sbz563204",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-09-19",
         "categories": [
           "room"
         ],
         "beforeAfter": [
           {
-            "before": "sbz563204 紺野 道子 教室変更 12K教室",
-            "after": "12L教室 2026/9/19 外語 後期前 火3 Communication Strategie"
+            "before": "12K教室",
+            "after": "12L教室"
           }
         ],
-        "sourceExcerpt": "sbz563204 紺野 道子 教室変更 12K教室 → 12L教室 2026/9/19 外語 後期前 火3 Communication Strategies (1a)",
+        "sourceExcerpt": "sbz563204 | 保育・教職実践演習(幼稚園) | 教室変更 | 12K教室 → 12L教室",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 1,
@@ -520860,19 +520863,19 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:20",
         "courseCode": "sba512314",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/9/19",
+        "baseOfferingId": "2026:sba512314",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-09-19",
         "categories": [
           "instructor"
         ],
         "beforeAfter": [
           {
-            "before": "sba512314 菊池 武晴 ほか 担当教員変更 北見 幸一",
-            "after": "柏原 沙織 2026/9/19 電通 後期前 月4、木4 光エレクトロニクス"
+            "before": "北見 幸一",
+            "after": "柏原 沙織"
           }
         ],
-        "sourceExcerpt": "sba512314 菊池 武晴 ほか 担当教員変更 北見 幸一 → 柏原 沙織 2026/9/19 電通 後期前 月4、木4 光エレクトロニクス",
+        "sourceExcerpt": "sba512314 | マーケティングリサーチ演習(1) | 担当教員変更 | 北見 幸一 → 柏原 沙織",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 1,
@@ -520889,19 +520892,14 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:21",
         "courseCode": "sba131404",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/9/19",
+        "baseOfferingId": "2026:sba131404",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-09-19",
         "categories": [
           "instructor"
         ],
-        "beforeAfter": [
-          {
-            "before": "sba131404 澤野 憲太郎 担当教員変更 澤野 憲太郎",
-            "after": "野平 博司、三谷 祐一郎、星 裕介、勝本 信吾、山田 道洋、石川 亮佑 2026/9/19 電通"
-          }
-        ],
-        "sourceExcerpt": "sba131404 澤野 憲太郎 担当教員変更 澤野 憲太郎 → 野平 博司、三谷 祐一郎、星 裕介、勝本 信吾、山田 道洋、石川 亮佑 2026/9/19 電通 後集中 計算電子工学",
+        "beforeAfter": [],
+        "sourceExcerpt": "sba131404 | 光エレクトロニクス | 担当教員変更 | 澤野 憲太郎 → 野平 博司、三谷 祐一郎、星 裕介、勝本 信吾、山田 道洋、石川 亮佑",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 1,
@@ -520918,15 +520916,14 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:22",
         "courseCode": "sbz137619",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/9/19",
+        "baseOfferingId": "2026:sbz137619",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-09-19",
         "categories": [
-          "instructor",
-          "withdrawal"
+          "instructor"
         ],
         "beforeAfter": [],
-        "sourceExcerpt": "sbz137619 野平 博司 ほか 担当教員変更 澤野 憲太郎 教授を削除 2026/9/19 電通 後集中 電気磁気学(2)演習",
+        "sourceExcerpt": "sbz137619 | 計算電子工学 | 担当教員変更 | 澤野 憲太郎 教授を削除",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 1,
@@ -520943,19 +520940,19 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:23",
         "courseCode": "sbz137610",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/9/19",
+        "baseOfferingId": "2026:sbz137610",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-09-19",
         "categories": [
           "instructor"
         ],
         "beforeAfter": [
           {
-            "before": "sbz137610 澤野 憲太郎 ほか 担当教員変更 澤野 憲太郎、星 裕介",
-            "after": "星 裕介 2026/9/28 体育 後期前 月2 基礎体育(2a)"
+            "before": "澤野 憲太郎、星 裕介",
+            "after": "星 裕介"
           }
         ],
-        "sourceExcerpt": "sbz137610 澤野 憲太郎 ほか 担当教員変更 澤野 憲太郎、星 裕介 → 星 裕介 2026/9/28 体育 後期前 月2 基礎体育(2a)",
+        "sourceExcerpt": "sbz137610 | 電気磁気学(2)演習 | 担当教員変更 | 澤野 憲太郎、星 裕介 → 星 裕介",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 1,
@@ -520972,19 +520969,19 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:24",
         "courseCode": "sba511203",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/9/28",
+        "baseOfferingId": "2026:sba511203",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-09-28",
         "categories": [
           "audience"
         ],
         "beforeAfter": [
           {
-            "before": "sba511203 椿原 徹也 ほか 受講対象変更 医用乙 + 都生DEF",
-            "after": "都生"
+            "before": "医用乙 + 都生DEF",
+            "after": "都生DEF"
           }
         ],
-        "sourceExcerpt": "sba511203 椿原 徹也 ほか 受講対象変更 医用乙 + 都生DEF → 都生",
+        "sourceExcerpt": "sba511203 | 基礎体育(2a) | 受講対象変更 | 医用乙 + 都生DEF → 都生DEF",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 1,
@@ -521001,19 +520998,19 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:25",
         "courseCode": "sbb511204",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/9/28",
+        "baseOfferingId": "2026:sbb511204",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-09-28",
         "categories": [
           "audience"
         ],
         "beforeAfter": [
           {
-            "before": "sbb511204 久保 哲也 ほか 受講対象変更 医用乙 + 都生DEF",
-            "after": "都生"
+            "before": "医用乙 + 都生DEF",
+            "after": "都生DEF"
           }
         ],
-        "sourceExcerpt": "sbb511204 久保 哲也 ほか 受講対象変更 医用乙 + 都生DEF → 都生",
+        "sourceExcerpt": "sbb511204 | 基礎体育(2b) | 受講対象変更 | 医用乙 + 都生DEF → 都生DEF",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 1,
@@ -521030,19 +521027,19 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:26",
         "courseCode": "sba143101",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/9/28",
+        "baseOfferingId": "2026:sba143101",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-09-28",
         "categories": [
           "audience"
         ],
         "beforeAfter": [
           {
-            "before": "sba143101 椿原 徹也 ほか 受講対象変更 医用甲 + 自然",
-            "after": "医用 + 自然 2026/9/28 体育 後期後 水1 基礎体育(2b)"
+            "before": "医用甲 + 自然",
+            "after": "医用 + 自然"
           }
         ],
-        "sourceExcerpt": "sba143101 椿原 徹也 ほか 受講対象変更 医用甲 + 自然 → 医用 + 自然 2026/9/28 体育 後期後 水1 基礎体育(2b)",
+        "sourceExcerpt": "sba143101 | 基礎体育(2a) | 受講対象変更 | 医用甲 + 自然 → 医用 + 自然",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 1,
@@ -521059,19 +521056,19 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:27",
         "courseCode": "sbb143102",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/9/28",
+        "baseOfferingId": "2026:sbb143102",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-09-28",
         "categories": [
           "audience"
         ],
         "beforeAfter": [
           {
-            "before": "sbb143102 久保 哲也 ほか 受講対象変更 医用甲 + 自然",
-            "after": "医用 + 自然 2026/9/28 応化 後期前 月3 応用化学総合演習(a)"
+            "before": "医用甲 + 自然",
+            "after": "医用 + 自然"
           }
         ],
-        "sourceExcerpt": "sbb143102 久保 哲也 ほか 受講対象変更 医用甲 + 自然 → 医用 + 自然 2026/9/28 応化 後期前 月3 応用化学総合演習(a)",
+        "sourceExcerpt": "sbb143102 | 基礎体育(2b) | 受講対象変更 | 医用甲 + 自然 → 医用 + 自然",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 1,
@@ -521088,15 +521085,14 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:28",
         "courseCode": "sba151303",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/9/28",
+        "baseOfferingId": "2026:sba151303",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-09-28",
         "categories": [
-          "instructor",
-          "withdrawal"
+          "instructor"
         ],
         "beforeAfter": [],
-        "sourceExcerpt": "sba151303 大山 聖一 ほか 担当教員変更 押鐘 由理子 講師を削除 2026/9/28 応化 後期後 月3 応用化学総合演習(b)",
+        "sourceExcerpt": "sba151303 | 応用化学総合演習(a) | 担当教員変更 | 押鐘 由理子 講師を削除",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 1,
@@ -521113,15 +521109,14 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:29",
         "courseCode": "sbb151304",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/9/28",
+        "baseOfferingId": "2026:sbb151304",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-09-28",
         "categories": [
-          "instructor",
-          "withdrawal"
+          "instructor"
         ],
         "beforeAfter": [],
-        "sourceExcerpt": "sbb151304 大山 聖一 ほか 担当教員変更 押鐘 由理子 講師を削除",
+        "sourceExcerpt": "sbb151304 | 応用化学総合演習(b) | 担当教員変更 | 押鐘 由理子 講師を削除",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 1,
@@ -521138,17 +521133,19 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:3",
         "courseCode": "sba002201",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/9/19",
-        "categories": [],
+        "baseOfferingId": "2026:sba002201",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-09-19",
+        "categories": [
+          "meeting"
+        ],
         "beforeAfter": [
           {
-            "before": "sba002201 三宅 加恵 開講曜日時限訂正 火3",
-            "after": "火2 2026/9/19 外語 後期後 火3 Communication Strategies ("
+            "before": "火3",
+            "after": "火2"
           }
         ],
-        "sourceExcerpt": "sba002201 三宅 加恵 開講曜日時限訂正 火3 → 火2 2026/9/19 外語 後期後 火3 Communication Strategies (1b)",
+        "sourceExcerpt": "sba002201 | Communication Strategies (1a) | 開講曜日時限訂正 | 火3 → 火2",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 1,
@@ -521165,17 +521162,19 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:4",
         "courseCode": "sbb002202",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/9/19",
-        "categories": [],
+        "baseOfferingId": "2026:sbb002202",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-09-19",
+        "categories": [
+          "meeting"
+        ],
         "beforeAfter": [
           {
-            "before": "sbb002202 三宅 加恵 開講曜日時限訂正 火3",
-            "after": "火2 2026/9/19 都生 後期前 水1、水2 エリアマネジメント"
+            "before": "火3",
+            "after": "火2"
           }
         ],
-        "sourceExcerpt": "sbb002202 三宅 加恵 開講曜日時限訂正 火3 → 火2 2026/9/19 都生 後期前 水1、水2 エリアマネジメント",
+        "sourceExcerpt": "sbb002202 | Communication Strategies (1b) | 開講曜日時限訂正 | 火3 → 火2",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 1,
@@ -521192,19 +521191,19 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:5",
         "courseCode": "sba513106",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/9/19",
+        "baseOfferingId": "2026:sba513106",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-09-19",
         "categories": [
           "room"
         ],
         "beforeAfter": [
           {
-            "before": "sba513106 坂井 文 教室変更 71A教室",
-            "after": "71B教室 2026/9/19 応化 後期前 水2 電気化学(a)"
+            "before": "71A教室",
+            "after": "71B教室"
           }
         ],
-        "sourceExcerpt": "sba513106 坂井 文 教室変更 71A教室 → 71B教室 2026/9/19 応化 後期前 水2 電気化学(a)",
+        "sourceExcerpt": "sba513106 | エリアマネジメント | 教室変更 | 71A教室 → 71B教室",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 1,
@@ -521221,19 +521220,19 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:6",
         "courseCode": "sba151222",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/9/19",
+        "baseOfferingId": "2026:sba151222",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-09-19",
         "categories": [
           "room"
         ],
         "beforeAfter": [
           {
-            "before": "sba151222 岡澤 厚 教室変更 71B教室",
-            "after": "71A教室 2026/9/19 建築 後期前 月3、月4、月5 設計(3)"
+            "before": "71B教室",
+            "after": "71A教室"
           }
         ],
-        "sourceExcerpt": "sba151222 岡澤 厚 教室変更 71B教室 → 71A教室 2026/9/19 建築 後期前 月3、月4、月5 設計(3)",
+        "sourceExcerpt": "sba151222 | 電気化学(a) | 教室変更 | 71B教室 → 71A教室",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 1,
@@ -521250,12 +521249,14 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:7",
         "courseCode": "sba261304",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/9/19",
-        "categories": [],
+        "baseOfferingId": "2026:sba261304",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-09-19",
+        "categories": [
+          "instructor"
+        ],
         "beforeAfter": [],
-        "sourceExcerpt": "sba261304 能作 淳平 ほか 担当教員追加 渋谷 篤 2026/9/19 建築 後期後 月3、月4、月5 設計(4)",
+        "sourceExcerpt": "sba261304 | 設計(3) | 担当教員追加 | 渋谷 篤",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 1,
@@ -521272,12 +521273,14 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:8",
         "courseCode": "sbb261305",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/9/19",
-        "categories": [],
+        "baseOfferingId": "2026:sbb261305",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-09-19",
+        "categories": [
+          "instructor"
+        ],
         "beforeAfter": [],
-        "sourceExcerpt": "sbb261305 能作 淳平 ほか 担当教員追加 渋谷 篤 2026/9/19 建築 後期前 土1、土2、土3、土4 設計スタジオ(1)",
+        "sourceExcerpt": "sbb261305 | 設計(4) | 担当教員追加 | 渋谷 篤",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 1,
@@ -521294,12 +521297,14 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:1:9",
         "courseCode": "sba266104",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/9/19",
-        "categories": [],
+        "baseOfferingId": "2026:sba266104",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-09-19",
+        "categories": [
+          "instructor"
+        ],
         "beforeAfter": [],
-        "sourceExcerpt": "sba266104 手塚 貴晴 ほか 担当教員追加 根市 拓 2026/9/19 建築 後期後 土1、土2、土3、土4 設計スタジオ(2)",
+        "sourceExcerpt": "sba266104 | 設計スタジオ(1) | 担当教員追加 | 根市 拓",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 1,
@@ -521316,15 +521321,14 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:30",
         "courseCode": "sba155304",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/9/28",
+        "baseOfferingId": "2026:sba155304",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-09-28",
         "categories": [
-          "instructor",
-          "withdrawal"
+          "instructor"
         ],
         "beforeAfter": [],
-        "sourceExcerpt": "sba155304 黒岩 崇 ほか 担当教員変更 押鐘 由理子 講師を削除 2026/9/28 応化 後期後 金3、金4 応用化学実験基礎(2b)",
+        "sourceExcerpt": "sba155304 | 応用化学実験基礎(2a) | 担当教員変更 | 押鐘 由理子 講師を削除",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 2,
@@ -521341,15 +521345,14 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:31",
         "courseCode": "sbb155305",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/9/28",
+        "baseOfferingId": "2026:sbb155305",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-09-28",
         "categories": [
-          "instructor",
-          "withdrawal"
+          "instructor"
         ],
         "beforeAfter": [],
-        "sourceExcerpt": "sbb155305 黒岩 崇 ほか 担当教員変更 押鐘 由理子 講師を削除 2026/9/28 応化 後期後 水1、水2 SD PBL(3)",
+        "sourceExcerpt": "sbb155305 | 応用化学実験基礎(2b) | 担当教員変更 | 押鐘 由理子 講師を削除",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 2,
@@ -521366,15 +521369,14 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:32",
         "courseCode": "sbb153106",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/9/28",
+        "baseOfferingId": "2026:sbb153106",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-09-28",
         "categories": [
-          "instructor",
-          "withdrawal"
+          "instructor"
         ],
         "beforeAfter": [],
-        "sourceExcerpt": "sbb153106 高津 淑人 ほか 担当教員変更 押鐘 由理子 講師を削除 2026/9/28 物理 後期前 月1、月2、木1、木2 物理学及び演習(1)",
+        "sourceExcerpt": "sbb153106 | SD PBL(3) | 担当教員変更 | 押鐘 由理子 講師を削除",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 2,
@@ -521391,19 +521393,19 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:33",
         "courseCode": "sba111113",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/9/28",
+        "baseOfferingId": "2026:sba111113",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-09-28",
         "categories": [
           "instructor"
         ],
         "beforeAfter": [
           {
-            "before": "sba111113 深井 佳乃 担当教員変更 深井 佳乃",
-            "after": "片山 龍一 2026/9/28 物理 後期後 月1、月2、木1、木2 物理学及び演習(2)"
+            "before": "深井 佳乃",
+            "after": "片山 龍一"
           }
         ],
-        "sourceExcerpt": "sba111113 深井 佳乃 担当教員変更 深井 佳乃 → 片山 龍一 2026/9/28 物理 後期後 月1、月2、木1、木2 物理学及び演習(2)",
+        "sourceExcerpt": "sba111113 | 物理学及び演習(1) | 担当教員変更 | 深井 佳乃 → 片山 龍一",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 2,
@@ -521420,19 +521422,19 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:34",
         "courseCode": "sbb111115",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/9/28",
+        "baseOfferingId": "2026:sbb111115",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-09-28",
         "categories": [
           "instructor"
         ],
         "beforeAfter": [
           {
-            "before": "sbb111115 深井 佳乃 担当教員変更 深井 佳乃",
-            "after": "片山 龍一 2026/9/28 物理 後期前 火1、火2、金1、金2 物理学及び演習(1)"
+            "before": "深井 佳乃",
+            "after": "片山 龍一"
           }
         ],
-        "sourceExcerpt": "sbb111115 深井 佳乃 担当教員変更 深井 佳乃 → 片山 龍一 2026/9/28 物理 後期前 火1、火2、金1、金2 物理学及び演習(1)",
+        "sourceExcerpt": "sbb111115 | 物理学及び演習(2) | 担当教員変更 | 深井 佳乃 → 片山 龍一",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 2,
@@ -521449,19 +521451,19 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:35",
         "courseCode": "sba272114",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/9/28",
+        "baseOfferingId": "2026:sba272114",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-09-28",
         "categories": [
           "instructor"
         ],
         "beforeAfter": [
           {
-            "before": "sba272114 片山 龍一 担当教員変更 片山 龍一",
-            "after": "深井 佳乃 2026/9/28 物理 後期後 火1、火2、金1、金2 物理学及び演習(2)"
+            "before": "片山 龍一",
+            "after": "深井 佳乃"
           }
         ],
-        "sourceExcerpt": "sba272114 片山 龍一 担当教員変更 片山 龍一 → 深井 佳乃 2026/9/28 物理 後期後 火1、火2、金1、金2 物理学及び演習(2)",
+        "sourceExcerpt": "sba272114 | 物理学及び演習(1) | 担当教員変更 | 片山 龍一 → 深井 佳乃",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 2,
@@ -521478,19 +521480,19 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:36",
         "courseCode": "sbb272116",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/9/28",
+        "baseOfferingId": "2026:sbb272116",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-09-28",
         "categories": [
           "instructor"
         ],
         "beforeAfter": [
           {
-            "before": "sbb272116 片山 龍一 担当教員変更 片山 龍一",
-            "after": "深井 佳乃 2026/9/28 建築 後期前 木2 建築構法(2)"
+            "before": "片山 龍一",
+            "after": "深井 佳乃"
           }
         ],
-        "sourceExcerpt": "sbb272116 片山 龍一 担当教員変更 片山 龍一 → 深井 佳乃 2026/9/28 建築 後期前 木2 建築構法(2)",
+        "sourceExcerpt": "sbb272116 | 物理学及び演習(2) | 担当教員変更 | 片山 龍一 → 深井 佳乃",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 2,
@@ -521507,19 +521509,19 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:37",
         "courseCode": "sba264204",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/9/28",
+        "baseOfferingId": "2026:sba264204",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-09-28",
         "categories": [
           "room"
         ],
         "beforeAfter": [
           {
-            "before": "sba264204 小見 康夫 教室変更 11B",
-            "after": "22C 2026/9/28 人社 後期前 金3 民俗学(a)"
+            "before": "11B",
+            "after": "22C"
           }
         ],
-        "sourceExcerpt": "sba264204 小見 康夫 教室変更 11B → 22C 2026/9/28 人社 後期前 金3 民俗学(a)",
+        "sourceExcerpt": "sba264204 | 建築構法(2) | 教室変更 | 11B → 22C",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 2,
@@ -521536,19 +521538,19 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:38",
         "courseCode": "sba005302",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/9/28",
+        "baseOfferingId": "2026:sba005302",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-09-28",
         "categories": [
           "room"
         ],
         "beforeAfter": [
           {
-            "before": "sba005302 岡田 伊代 教室変更 13M",
-            "after": "21C 2026/9/28 人社 後期前 金4 民俗学(a)"
+            "before": "13M",
+            "after": "21C"
           }
         ],
-        "sourceExcerpt": "sba005302 岡田 伊代 教室変更 13M → 21C 2026/9/28 人社 後期前 金4 民俗学(a)",
+        "sourceExcerpt": "sba005302 | 民俗学(a) | 教室変更 | 13M → 21C",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 2,
@@ -521565,19 +521567,19 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:39",
         "courseCode": "sba005401",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/9/28",
+        "baseOfferingId": "2026:sba005401",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-09-28",
         "categories": [
           "room"
         ],
         "beforeAfter": [
           {
-            "before": "sba005401 岡田 伊代 教室変更 13M",
-            "after": "21C 2026/9/28 電通 後期前 金3、金4 高電圧工学"
+            "before": "13M",
+            "after": "21C"
           }
         ],
-        "sourceExcerpt": "sba005401 岡田 伊代 教室変更 13M → 21C 2026/9/28 電通 後期前 金3、金4 高電圧工学",
+        "sourceExcerpt": "sba005401 | 民俗学(a) | 教室変更 | 13M → 21C",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 2,
@@ -521594,19 +521596,19 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:40",
         "courseCode": "sba135304",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/9/28",
+        "baseOfferingId": "2026:sba135304",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-09-28",
         "categories": [
           "room"
         ],
         "beforeAfter": [
           {
-            "before": "sba135304 占部 千曲 教室変更 12K",
-            "after": "22C 2026/9/28 知能 後期 月3、月4 人間情報システム演習"
+            "before": "12K",
+            "after": "22C"
           }
         ],
-        "sourceExcerpt": "sba135304 占部 千曲 教室変更 12K → 22C 2026/9/28 知能 後期 月3、月4 人間情報システム演習",
+        "sourceExcerpt": "sba135304 | 高電圧工学 | 教室変更 | 12K → 22C",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 2,
@@ -521623,19 +521625,19 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:41",
         "courseCode": "sbz321304",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/9/28",
+        "baseOfferingId": "2026:sbz321304",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-09-28",
         "categories": [
           "room"
         ],
         "beforeAfter": [
           {
-            "before": "sbz321304 岡 誠 教室変更 共用演習室",
-            "after": "13A 2026/9/28 数学 後期前 月3、木3 フーリエ解析学"
+            "before": "共用演習室",
+            "after": "13A"
           }
         ],
-        "sourceExcerpt": "sbz321304 岡 誠 教室変更 共用演習室 → 13A 2026/9/28 数学 後期前 月3、木3 フーリエ解析学",
+        "sourceExcerpt": "sbz321304 | 人間情報システム演習 | 教室変更 | 共用演習室 → 13A",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 2,
@@ -521652,19 +521654,19 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:42",
         "courseCode": "sba161301",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/9/28",
+        "baseOfferingId": "2026:sba161301",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-09-28",
         "categories": [
           "room"
         ],
         "beforeAfter": [
           {
-            "before": "sba161301 橋本 義武 教室変更 13J",
-            "after": "31A 2026/9/28 数学 後期前 火4、金4 フーリエ解析学"
+            "before": "13J",
+            "after": "31A"
           }
         ],
-        "sourceExcerpt": "sba161301 橋本 義武 教室変更 13J → 31A 2026/9/28 数学 後期前 火4、金4 フーリエ解析学",
+        "sourceExcerpt": "sba161301 | フーリエ解析学 | 教室変更 | 13J → 31A",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 2,
@@ -521681,19 +521683,19 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:43",
         "courseCode": "sba122402",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/9/28",
+        "baseOfferingId": "2026:sba122402",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-09-28",
         "categories": [
           "room"
         ],
         "beforeAfter": [
           {
-            "before": "sba122402 橋本 義武 教室変更 11C",
-            "after": "31A 2026/9/28 外語 後期前 木2 Grammar(1a)"
+            "before": "11C",
+            "after": "31A"
           }
         ],
-        "sourceExcerpt": "sba122402 橋本 義武 教室変更 11C → 31A 2026/9/28 外語 後期前 木2 Grammar(1a)",
+        "sourceExcerpt": "sba122402 | フーリエ解析学 | 教室変更 | 11C → 31A",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 2,
@@ -521710,19 +521712,19 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:44",
         "courseCode": "sba004223",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/9/28",
+        "baseOfferingId": "2026:sba004223",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-09-28",
         "categories": [
           "room"
         ],
         "beforeAfter": [
           {
-            "before": "sba004223 日高 正司 教室変更 1BK",
-            "after": "13P 2026/9/28 外語 後期前 木3 Global Culture(2a)"
+            "before": "1BK",
+            "after": "13P"
           }
         ],
-        "sourceExcerpt": "sba004223 日高 正司 教室変更 1BK → 13P 2026/9/28 外語 後期前 木3 Global Culture(2a)",
+        "sourceExcerpt": "sba004223 | Grammar(1a) | 教室変更 | 1BK → 13P",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 2,
@@ -521739,19 +521741,19 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:45",
         "courseCode": "sba004320",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/9/28",
+        "baseOfferingId": "2026:sba004320",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-09-28",
         "categories": [
           "room"
         ],
         "beforeAfter": [
           {
-            "before": "sba004320 日高 正司 教室変更 1BK",
-            "after": "13P 2026/9/28 医用 後期前 火2、金2 プログラミング応用"
+            "before": "1BK",
+            "after": "13P"
           }
         ],
-        "sourceExcerpt": "sba004320 日高 正司 教室変更 1BK → 13P 2026/9/28 医用 後期前 火2、金2 プログラミング応用",
+        "sourceExcerpt": "sba004320 | Global Culture(2a) | 教室変更 | 1BK → 13P",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 2,
@@ -521768,19 +521770,19 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:46",
         "courseCode": "sba142205",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/9/28",
+        "baseOfferingId": "2026:sba142205",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-09-28",
         "categories": [
           "room"
         ],
         "beforeAfter": [
           {
-            "before": "sba142205 京相 雅樹 教室変更 22A",
-            "after": "12K 2026/10/1 機械 後期 水2 材料力学"
+            "before": "22A",
+            "after": "12K"
           }
         ],
-        "sourceExcerpt": "sba142205 京相 雅樹 教室変更 22A → 12K 2026/10/1 機械 後期 水2 材料力学",
+        "sourceExcerpt": "sba142205 | プログラミング応用 | 教室変更 | 22A → 12K",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 2,
@@ -521797,19 +521799,19 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:47",
         "courseCode": "sbz113201",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/10/1",
+        "baseOfferingId": "2026:sbz113201",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-10-01",
         "categories": [
           "room"
         ],
         "beforeAfter": [
           {
-            "before": "sbz113201 小林 志好 教室変更(第3Qのみ) 32A",
-            "after": "PBL教室 2026/10/1 都市 後期前 火3、火4、金3、金4 地盤工学及び演習(2)"
+            "before": "32A",
+            "after": "PBL教室"
           }
         ],
-        "sourceExcerpt": "sbz113201 小林 志好 教室変更(第3Qのみ) 32A → PBL教室 2026/10/1 都市 後期前 火3、火4、金3、金4 地盤工学及び演習(2)",
+        "sourceExcerpt": "sbz113201 | 材料力学 | 教室変更(第3Qのみ) | 32A → PBL教室",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 2,
@@ -521826,19 +521828,14 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:48",
         "courseCode": "sba272304",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/10/1",
+        "baseOfferingId": "2026:sba272304",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-10-01",
         "categories": [
           "room"
         ],
-        "beforeAfter": [
-          {
-            "before": "sba272304 末政 直晃 教室変更 火曜クラス:12G",
-            "after": "22C 金曜クラス:12G → 12K 2026/10/1 人社 後期 土2 日本国憲法"
-          }
-        ],
-        "sourceExcerpt": "sba272304 末政 直晃 教室変更 火曜クラス:12G → 22C 金曜クラス:12G → 12K 2026/10/1 人社 後期 土2 日本国憲法",
+        "beforeAfter": [],
+        "sourceExcerpt": "sba272304 | 地盤工学及び演習(2) | 教室変更 | 火曜クラス:12G → 22C 金曜クラス:12G → 12K",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 2,
@@ -521857,17 +521854,17 @@
         "courseCode": "sbz006202",
         "baseOfferingId": "2026:sbz006202",
         "baseSnapshotMatch": true,
-        "changeDate": "2026/10/1",
+        "changeDate": "2026-10-01",
         "categories": [
           "room"
         ],
         "beforeAfter": [
           {
-            "before": "sbz006202 大沼 友紀恵 教室変更 13J",
-            "after": "13K 2026/10/1 DS 後期後 月5、木5 データサイエンスリテラシー(2)"
+            "before": "13J",
+            "after": "13K"
           }
         ],
-        "sourceExcerpt": "sbz006202 大沼 友紀恵 教室変更 13J → 13K 2026/10/1 DS 後期後 月5、木5 データサイエンスリテラシー(2)",
+        "sourceExcerpt": "sbz006202 | 日本国憲法 | 教室変更 | 13J → 13K",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 2,
@@ -521886,17 +521883,17 @@
         "courseCode": "sbb001518",
         "baseOfferingId": "2026:sbb001518",
         "baseSnapshotMatch": true,
-        "changeDate": "2026/10/1",
+        "changeDate": "2026-10-01",
         "categories": [
           "instructor"
         ],
         "beforeAfter": [
           {
-            "before": "sbb001518 坂本 航太郎 担当教員変更 坂本 航太郎",
-            "after": "秦泉寺 久美 2026/10/1 人間 後期 月1 公衆衛生学"
+            "before": "坂本 航太郎",
+            "after": "秦泉寺 久美"
           }
         ],
-        "sourceExcerpt": "sbb001518 坂本 航太郎 担当教員変更 坂本 航太郎 → 秦泉寺 久美 2026/10/1 人間 後期 月1 公衆衛生学",
+        "sourceExcerpt": "sbb001518 | データサイエンスリテラシー(2) | 担当教員変更 | 坂本 航太郎 → 秦泉寺 久美",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 2,
@@ -521913,14 +521910,14 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:51",
         "courseCode": "sbz561208",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/10/1",
+        "baseOfferingId": "2026:sbz561208",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-10-01",
         "categories": [
           "audience"
         ],
         "beforeAfter": [],
-        "sourceExcerpt": "sbz561208 田中 淳司 受講対象変更 都市生活学科生は2021年度以前入学生のみ履修 可 2026/10/6 人間 後期 月2 子ども家庭福祉",
+        "sourceExcerpt": "sbz561208 | 公衆衛生学 | 受講対象変更 | 都市生活学科生は2021年度以前入学生のみ履修 可",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 2,
@@ -521937,19 +521934,19 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:52",
         "courseCode": "sbz561207",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/10/6",
+        "baseOfferingId": "2026:sbz561207",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-10-06",
         "categories": [
           "room"
         ],
         "beforeAfter": [
           {
-            "before": "sbz561207 泉 秀生 教室変更 21B",
-            "after": "71A 2026/10/6 都生 後期前 金1、金2 住まいと環境"
+            "before": "21B",
+            "after": "71A"
           }
         ],
-        "sourceExcerpt": "sbz561207 泉 秀生 教室変更 21B → 71A 2026/10/6 都生 後期前 金1、金2 住まいと環境",
+        "sourceExcerpt": "sbz561207 | 子ども家庭福祉 | 教室変更 | 21B → 71A",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 2,
@@ -521966,19 +521963,19 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:53",
         "courseCode": "sba515114",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/10/6",
+        "baseOfferingId": "2026:sba515114",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-10-06",
         "categories": [
           "room"
         ],
         "beforeAfter": [
           {
-            "before": "sba515114 斉藤 圭 教室変更 61B",
-            "after": "22C 2026/10/6 外語 後期前 金4 Test Taking Skills(2a)"
+            "before": "61B",
+            "after": "22C"
           }
         ],
-        "sourceExcerpt": "sba515114 斉藤 圭 教室変更 61B → 22C 2026/10/6 外語 後期前 金4 Test Taking Skills(2a)",
+        "sourceExcerpt": "sba515114 | 住まいと環境 | 教室変更 | 61B → 22C",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 2,
@@ -521995,19 +521992,19 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:54",
         "courseCode": "sba005417",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/10/6",
+        "baseOfferingId": "2026:sba005417",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-10-06",
         "categories": [
           "room"
         ],
         "beforeAfter": [
           {
-            "before": "sba005417 浜崎 絵梨 教室変更 12L",
-            "after": "12C 2026/10/6 外語 後期後 金4 Test Taking Skills(2b)"
+            "before": "12L",
+            "after": "12C"
           }
         ],
-        "sourceExcerpt": "sba005417 浜崎 絵梨 教室変更 12L → 12C 2026/10/6 外語 後期後 金4 Test Taking Skills(2b)",
+        "sourceExcerpt": "sba005417 | Test Taking Skills(2a) | 教室変更 | 12L → 12C",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 2,
@@ -522024,19 +522021,19 @@
       {
         "eventId": "schedule-setagaya-undergrad-fall-changes-2026:2:55",
         "courseCode": "sbb005418",
-        "baseOfferingId": null,
-        "baseSnapshotMatch": false,
-        "changeDate": "2026/10/6",
+        "baseOfferingId": "2026:sbb005418",
+        "baseSnapshotMatch": true,
+        "changeDate": "2026-10-06",
         "categories": [
           "room"
         ],
         "beforeAfter": [
           {
-            "before": "sbb005418 浜崎 絵梨 教室変更 12L",
-            "after": "12C 2026/10/6 人社 後期前 金1 社会学(2a)"
+            "before": "12L",
+            "after": "12C"
           }
         ],
-        "sourceExcerpt": "sbb005418 浜崎 絵梨 教室変更 12L → 12C 2026/10/6 人社 後期前 金1 社会学(2a)",
+        "sourceExcerpt": "sbb005418 | Test Taking Skills(2b) | 教室変更 | 12L → 12C",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 2,
@@ -522055,12 +522052,12 @@
         "courseCode": "sba005101",
         "baseOfferingId": null,
         "baseSnapshotMatch": false,
-        "changeDate": "2026/10/6",
+        "changeDate": "2026-10-06",
         "categories": [
           "withdrawal"
         ],
         "beforeAfter": [],
-        "sourceExcerpt": "sba005101 吉田 豊 開講中止のため授業時間表より削除 2026/10/6 人社 後期前 金2 社会学(2a)",
+        "sourceExcerpt": "sba005101 | 社会学(2a) | 開講中止のため授業時間表より削除",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 2,
@@ -522079,12 +522076,12 @@
         "courseCode": "sba005201",
         "baseOfferingId": null,
         "baseSnapshotMatch": false,
-        "changeDate": "2026/10/6",
+        "changeDate": "2026-10-06",
         "categories": [
           "withdrawal"
         ],
         "beforeAfter": [],
-        "sourceExcerpt": "sba005201 吉田 豊 開講中止のため授業時間表より削除 2026/10/6 人社 後期前 金3 社会学(2a)",
+        "sourceExcerpt": "sba005201 | 社会学(2a) | 開講中止のため授業時間表より削除",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 2,
@@ -522103,12 +522100,12 @@
         "courseCode": "sba005301",
         "baseOfferingId": null,
         "baseSnapshotMatch": false,
-        "changeDate": "2026/10/6",
+        "changeDate": "2026-10-06",
         "categories": [
           "withdrawal"
         ],
         "beforeAfter": [],
-        "sourceExcerpt": "sba005301 吉田 豊 開講中止のため授業時間表より削除 2026/10/6 人社 後期後 金1 社会学(2b)",
+        "sourceExcerpt": "sba005301 | 社会学(2a) | 開講中止のため授業時間表より削除",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 2,
@@ -522127,12 +522124,12 @@
         "courseCode": "sbb005101",
         "baseOfferingId": null,
         "baseSnapshotMatch": false,
-        "changeDate": "2026/10/6",
+        "changeDate": "2026-10-06",
         "categories": [
           "withdrawal"
         ],
         "beforeAfter": [],
-        "sourceExcerpt": "sbb005101 吉田 豊 開講中止のため授業時間表より削除 2026/10/6 人社 後期後 金2 社会学(2b)",
+        "sourceExcerpt": "sbb005101 | 社会学(2b) | 開講中止のため授業時間表より削除",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 2,
@@ -522151,12 +522148,12 @@
         "courseCode": "sbb005201",
         "baseOfferingId": null,
         "baseSnapshotMatch": false,
-        "changeDate": "2026/10/6",
+        "changeDate": "2026-10-06",
         "categories": [
           "withdrawal"
         ],
         "beforeAfter": [],
-        "sourceExcerpt": "sbb005201 吉田 豊 開講中止のため授業時間表より削除",
+        "sourceExcerpt": "sbb005201 | 社会学(2b) | 開講中止のため授業時間表より削除",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 2,
@@ -522175,12 +522172,12 @@
         "courseCode": "sbb005301",
         "baseOfferingId": null,
         "baseSnapshotMatch": false,
-        "changeDate": "2026/10/6",
+        "changeDate": "2026-10-06",
         "categories": [
           "withdrawal"
         ],
         "beforeAfter": [],
-        "sourceExcerpt": "sbb005301 吉田 豊 開講中止のため授業時間表より削除",
+        "sourceExcerpt": "sbb005301 | 社会学(2b) | 開講中止のため授業時間表より削除",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 3,
@@ -522200,9 +522197,16 @@
         "baseOfferingId": "2026:ymbb110022",
         "baseSnapshotMatch": true,
         "changeDate": "2026-09-17",
-        "categories": [],
-        "beforeAfter": [],
-        "sourceExcerpt": "ymbb110022 環境リスク社会論(英語) Environment and Risk Society 木下/桜井 開講言語 9/25、26 日本語 1/22、23 英語 9/25、26 英語 1/22、23 日本語",
+        "categories": [
+          "language"
+        ],
+        "beforeAfter": [
+          {
+            "before": "9/25、26日本語 1/22、23英語",
+            "after": "9/25、26英語 1/22、23日本語"
+          }
+        ],
+        "sourceExcerpt": "ymbb110022 | 環境リスク社会論(英語) Environment and Risk Society | 開講言語 | 9/25、26日本語 1/22、23英語 → 9/25、26英語 1/22、23日本語",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 1,
@@ -522222,9 +522226,16 @@
         "baseOfferingId": "2026:yba611302",
         "baseSnapshotMatch": true,
         "changeDate": "2026-09-11",
-        "categories": [],
-        "beforeAfter": [],
-        "sourceExcerpt": "yba611302 環境分析演習 咸 泳植 曜日時限 月曜3・4/木曜3・4 火曜3・4/金曜3・4 9月11日 訂正 ファイル PDF ページ 講義コード 科目名 担当者 変更箇 所 変更前 変更後 注意事項 11",
+        "categories": [
+          "meeting"
+        ],
+        "beforeAfter": [
+          {
+            "before": "月曜3・4/木曜3・4",
+            "after": "火曜3・4/金曜3・4"
+          }
+        ],
+        "sourceExcerpt": "yba611302 | 環境分析演習 | 曜日時限 | 月曜3・4/木曜3・4 → 火曜3・4/金曜3・4",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 1,
@@ -522244,9 +522255,16 @@
         "baseOfferingId": "2026:ybz817001",
         "baseSnapshotMatch": true,
         "changeDate": "2026-09-11",
-        "categories": [],
-        "beforeAfter": [],
-        "sourceExcerpt": "ybz817001 特別講義(DX・GXが創 造するビジネスの新しい潮 流) 大久保 寛基 実施日 9月29日(火)5・6時限 10月13日(火)5・6時限 10月27日(火)5・6時限 11月10日(火)5・6時限 11月24日(火)5・6時限 12月 8日(火)5・6時限 12月22日(火)5・6時限 1月12日(火)5・6時限 (各日木曜5時限~) 9月24日 10月15日、22日 11月5日、12日、26日 12月10日、17日 1月14日 9月24日 訂正 ファイル PDF ページ 講義コード 科目名 担当者 変更箇所 変更前 変更後 授業時間表 1・2",
+        "categories": [
+          "meeting"
+        ],
+        "beforeAfter": [
+          {
+            "before": "9月29日(火)5・6時限 10月13日(火)5・6時限 10月27日(火)5・6時限 11月10日(火)5・6時限 11月24日(火)5・6時限 12月 8日(火)5・6時限 12月22日(火)5・6時限 1月12日(火)5・6時限",
+            "after": "(各日木曜5時限~) 9月24日 10月15日、22日 11月5日、12日、26日 12月10日、17日 1月14日"
+          }
+        ],
+        "sourceExcerpt": "ybz817001 | 特別講義(DX・GXが創造するビジネスの新しい潮流) | 実施日 | 9月29日(火)5・6時限 10月13日(火)5・6時限 10月27日(火)5・6時限 11月10日(火)5・6時限 11月24日(火)5・6時限 12月 8日(火)5・6時限 12月22日(火)5・6時限 1月12日(火)5・6時限 → (各日木曜5時限~) 9月24日 10月15日、22日 11月5日、12日、26日 12月10日、17日 1月14日",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 1,
@@ -522266,9 +522284,16 @@
         "baseOfferingId": "2026:ybb613102",
         "baseSnapshotMatch": true,
         "changeDate": "2026-09-24",
-        "categories": [],
-        "beforeAfter": [],
-        "sourceExcerpt": "ybb613102 SD PBL(3) 北村 亘 後藤 智香子 担当者限 後藤 智香子 内田 圭",
+        "categories": [
+          "instructor"
+        ],
+        "beforeAfter": [
+          {
+            "before": "後藤 智香子",
+            "after": "内田 圭"
+          }
+        ],
+        "sourceExcerpt": "ybb613102 | SD PBL(3) | 担当者限 | 後藤 智香子 → 内田 圭",
         "reviewStatus": "unreviewed",
         "applied": false,
         "sourcePage": 1,

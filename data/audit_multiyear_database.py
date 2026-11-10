@@ -15,6 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument("--database", type=Path, default=DATA / "course-catalog-multiyear.sqlite")
+parser.add_argument("--catalog-audit", type=Path, default=DATA / "course-catalog-quality-audit-2026.json")
 parser.add_argument("--report-json", type=Path)
 parser.add_argument("--report-md", type=Path)
 args = parser.parse_args()
@@ -37,7 +38,7 @@ excluded_title_keys = title_review_rules["identitySearchExcludedTitleKeys"]
 excluded_title_key_set = set(excluded_title_keys)
 excluded_title_sql = "title_key NOT IN (" + ",".join("'" + key.replace("'", "''") + "'" for key in excluded_title_keys) + ")"
 official_sources = json.loads((DATA / "official-sources-2026.json").read_text(encoding="utf-8"))["sources"]
-audit = json.loads((DATA / "course-catalog-quality-audit-2026.json").read_text(encoding="utf-8"))
+audit = json.loads(args.catalog_audit.read_text(encoding="utf-8"))
 
 checks = []
 

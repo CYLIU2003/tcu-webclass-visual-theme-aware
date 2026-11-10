@@ -24,7 +24,8 @@ def require(condition: bool, message: str) -> None:
 def main() -> None:
     manifest = json.loads((ROOT / "manifest.json").read_text(encoding="utf-8"))
     require(manifest.get("manifest_version") == 3, "manifest_version must be 3")
-    require(manifest.get("version") == "0.8.0", "extension version must be 0.8.0")
+    require(manifest.get("version") == "0.9.0" and manifest.get("version_name") == "0.9.0-rc.1",
+            "extension version must match the v0.9.0-rc.1 candidate")
     require(manifest.get("host_permissions") == ["https://webclass.tcu.ac.jp/*"], "host scope must remain limited to WebClass")
     require(bool(manifest.get("content_scripts")), "content_scripts is missing")
     extension_resources = {resource for group in manifest.get("web_accessible_resources", []) for resource in group.get("resources", [])}
@@ -171,6 +172,20 @@ def main() -> None:
         require(event.get("reviewStatus") == "unreviewed" and event.get("applied") is False and isinstance(event.get("sourcePage"), int) and event["sourcePage"] > 0, "correctionEvents must remain source-linked unapplied candidates")
         require(CODE_RE.fullmatch(str(event.get("courseCode", ""))) is not None, "invalid course code in correctionEvents")
         require(str(event.get("source", {}).get("url", "")).startswith("https://www.asc.tcu.ac.jp/"), "correctionEvents source URL must be official HTTPS")
+    withdrawal_ledger = json.loads((ROOT / "data/visually-reviewed-withdrawals-2026.json").read_text(encoding="utf-8"))
+    actual_withdrawals = {(event["courseCode"], event["sourcePage"], event["changeDate"]) for event in corr_rows
+                          if "withdrawal" in event["categories"]}
+    require(actual_withdrawals == {(row["courseCode"], row["sourcePage"], row["eventDate"])
+                                   for row in withdrawal_ledger["records"]},
+            "course withdrawals must match the reviewed source rows, excluding instructor removals")
+    by_correction_code = {event["courseCode"]: event for event in corr_rows}
+    require("ことづくり" not in by_correction_code["sbz177611"]["sourceExcerpt"],
+            "correction excerpt contains the next course title")
+    require(by_correction_code["sba155304"]["categories"] == ["instructor"], "instructor removal is not a course withdrawal")
+    language = by_correction_code["ymbb110022"]
+    require(language["categories"] == ["language"] and language["changeDate"] == "2026-09-17",
+            "lesson dates in the Yokohama graduate table must not override the correction heading")
+    require(by_correction_code["ybb613102"]["changeDate"] == "2026-09-24", "each Yokohama table uses its own heading")
 
     guide_section = history.get("studyGuideNavigation") or {}
     guide_summary = guide_section.get("summary") or {}

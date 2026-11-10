@@ -39,13 +39,17 @@ python data/extract_all_fall_candidates.py
 python data/extract_timetable_corrections.py
 python data/profile_study_guides.py
 python data/build_all_candidate_review_queue.py
-python data/build_multiyear_database.py --output data/course-catalog-multiyear-rebuilt.sqlite
+python data/build_course_catalog.py --output-root tmp/catalog-rebuilt
+python data/build_multiyear_database.py --base-database tmp/catalog-rebuilt/data/course-catalog-2026.sqlite --output tmp/catalog-rebuilt/data/course-catalog-multiyear.sqlite
+python data/build_extension_course_data.py --database tmp/catalog-rebuilt/data/course-catalog-multiyear.sqlite --output tmp/catalog-rebuilt/data/historical-course-row-evidence.json
 python data/audit_historical_sources.py
-python data/audit_course_catalog_quality.py
-python data/audit_multiyear_database.py --database data/course-catalog-multiyear-rebuilt.sqlite --report-json data/rebuilt-audit.json --report-md docs/REBUILT_DATABASE_AUDIT.md
+python data/audit_course_catalog_quality.py --database tmp/catalog-rebuilt/data/course-catalog-2026.sqlite --output-root tmp/catalog-rebuilt/audit
+python data/audit_multiyear_database.py --database tmp/catalog-rebuilt/data/course-catalog-multiyear.sqlite --catalog-audit tmp/catalog-rebuilt/audit/data/course-catalog-quality-audit-2026.json --report-json tmp/catalog-rebuilt/audit/data/multiyear-database-audit.json --report-md tmp/catalog-rebuilt/audit/docs/MULTIYEAR_DATABASE_AUDIT.md
 ```
 
 取得スクリプトは台帳URLからPDFを取り直し、PDF形式を確認してから原子的に保存します。抽出器は保存済みハッシュが一致することを先に確認し、コードごとに出典ページと原文抜粋を記録します。DB再構築では既存ファイルを上書きしません。監査後、元DBに独自に追加したデータの移行を確認してから新しいDBを採用してください。
+
+2026年度後期の訂正表は、PDFの表罫線を使って同じ行から講義コード・科目名・訂正内容を抽出します。訂正日は世田谷では行の変更日欄、横浜では表の直前の見出しを使います。抽出結果には原表ページと行範囲（左・上・右・下、単位はPDFポイント）を保存します。担当教員の削除と科目の非開講・開講中止を区別し、訂正候補は基礎時間割へ自動適用しません。
 
 ## データの粒度
 

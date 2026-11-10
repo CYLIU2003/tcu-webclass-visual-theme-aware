@@ -135,5 +135,6 @@ button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
   button.danger { margin-left: 0; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
-select#curriculumPlan { width: 100%; max-width: 42rem; padding: 10px 12px; margin: 6px 0 12px; border: 1px solid #8594aa; border-radius: 8px; background: #fff; color: #17212f; font: inherit; }
-select#curriculumPlan:focus-visible { outline: 3px solid #1764ad; outline-offset: 2px; }
+select:is(#curriculumPlan, #appearance) { width: 100%; max-width: 42rem; padding: 10px 12px; margin: 6px 0 12px; border: 1px solid #8594aa; border-radius: 8px; background: #fff; color: #17212f; font: inherit; }
+select#appearance { max-width: 18rem; }
+select:is(#curriculumPlan, #appearance):focus-visible { outline: 3px solid #1764ad; outline-offset: 2px; }

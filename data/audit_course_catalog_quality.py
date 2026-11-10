@@ -5,13 +5,16 @@ import argparse, hashlib, json, re, sqlite3
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from pypdf import PdfReader
+from extract_timetable_corrections import extract_corrections
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 DOCS = ROOT / "docs"
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument("--output-root", type=Path, default=ROOT, help="監査結果の出力先（既存ファイルは上書きしません）")
-output_root = parser.parse_args().output_root.resolve()
+parser.add_argument("--database", type=Path, default=DATA / "course-catalog-2026.sqlite")
+args = parser.parse_args()
+output_root = args.output_root.resolve()
 output_data = output_root / "data"
 output_docs = output_root / "docs"
 output_data.mkdir(parents=True, exist_ok=True)
@@ -78,9 +81,11 @@ record("official_code_index_integrity", not bad_index_refs and not duplicate_ind
 
 missing_pairs = [r for r in code_index["records"] if r["courseCode"].lower() not in base_codes]
 missing_unique = len({r["courseCode"] for r in missing_pairs})
-withdrawal_signals = {
-    e.get("courseCode", "").lower() for e in corrections.get("events", [])
-    if re.search(r"非開講|開講中止", str(e.get("sourceExcerpt", "")))
+withdrawal_events = [event for event in corrections["events"] if "withdrawal" in event["changeCategoriesCandidate"]]
+withdrawal_signals = {event["courseCode"] for event in withdrawal_events}
+withdrawal_evidence = {
+    (event["sourceId"], event["courseCode"], event["sourcePage"], event["changeDate"], event.get("courseNameFromSource"))
+    for event in withdrawal_events
 }
 missing_with_withdrawal_signal = sum(r["courseCode"].lower() in withdrawal_signals for r in missing_pairs)
 withdrawal_ledger = json.loads((DATA / "visually-reviewed-withdrawals-2026.json").read_text(encoding="utf-8"))
@@ -96,7 +101,8 @@ withdrawal_ledger_valid = (withdrawal_source.get("kind") == "timetable-correctio
     and len(withdrawal_codes) == len(set(withdrawal_codes))
     and all(row.get("status") == "not-offered-in-source" and row.get("eventDate")
             and 1 <= row.get("sourcePage", 0) <= withdrawal_source.get("pageCount", 0)
-            and row.get("courseCode", "").lower() in withdrawal_signals for row in withdrawal_rows))
+            and (withdrawal_ledger["sourceId"], row["courseCode"].lower(), row["sourcePage"], row["eventDate"], row.get("title"))
+                in withdrawal_evidence for row in withdrawal_rows))
 reviewed_withdrawn = set(withdrawal_codes) if withdrawal_ledger_valid else set()
 unexpected_missing = [r for r in missing_pairs if r["courseCode"].lower() not in reviewed_withdrawn
                       or r["sourceId"] != "schedule-setagaya-undergrad-fall-2026"]
@@ -134,11 +140,20 @@ record("official_to_staging_candidate_coverage", not candidate_coverage_issues,
 corr_codes = [e for e in corrections["events"] if not valid_code.fullmatch(e["courseCode"]) or e["courseCode"] not in e["sourceExcerpt"].lower()]
 corr_sources = [e for e in corrections["events"] if e["sourceId"] not in source_by_id or source_by_id[e["sourceId"]].get("kind") != "timetable-corrections"]
 corr_dates = [e for e in corrections["events"] if not e.get("changeDate")]
-corr_pages = [e for e in corrections["events"] if e["sourcePage"] < 1 or e["sourcePage"] > source_by_id[e["sourceId"]].get("pageCount",0)]
+corr_pages = [e for e in corrections["events"] if e["sourcePage"] < 1 or e["sourcePage"] > source_by_id.get(e["sourceId"], {}).get("pageCount",0)]
 corr_applied = [e for e in corrections["events"] if e.get("applied")]
 corr_unmatched = [e for e in corrections["events"] if f"2026:{e['courseCode']}" not in offering_ids]
-record("correction_event_provenance", not corr_codes and not corr_sources and not corr_dates and not corr_pages and not corr_applied,
-       {"events": len(corrections["events"]), "invalidCodeOrExcerpt": len(corr_codes), "invalidSource": len(corr_sources), "missingDate": len(corr_dates), "invalidPage": len(corr_pages), "prematurelyApplied": len(corr_applied), "unmatchedToBaseOfferings": len(corr_unmatched)}, "high")
+try:
+    correction_rebuild_matches = extract_corrections(ROOT) == corrections
+    correction_rebuild_error = None
+except (FileNotFoundError, ValueError) as error:
+    correction_rebuild_matches = False
+    correction_rebuild_error = str(error)
+record("correction_event_provenance", correction_rebuild_matches and not any((corr_codes, corr_sources, corr_dates, corr_pages, corr_applied)),
+       {"events": len(corrections["events"]), "rebuildMatchesCachedPdfRows": correction_rebuild_matches,
+        "rebuildError": correction_rebuild_error, "withdrawalCandidates": len(withdrawal_events),
+        "invalidCodeOrExcerpt": len(corr_codes), "invalidSource": len(corr_sources), "missingDate": len(corr_dates),
+        "invalidPage": len(corr_pages), "prematurelyApplied": len(corr_applied), "unmatchedToBaseOfferings": len(corr_unmatched)}, "high")
 
 # Study guide term index bounds and counts.
 guide_bad = []
@@ -201,10 +216,16 @@ record("fall_pdf_candidate_extraction_calibration",
         "promotionAllowed": False, "reason": "Candidate parser calibration does not validate all rows or correction semantics."}, "high")
 
 # Database row counts and foreign keys.
-db = sqlite3.connect(DATA / "course-catalog-2026.sqlite")
+db = sqlite3.connect(f"{args.database.resolve().as_uri()}?mode=ro", uri=True)
 fk = db.execute("PRAGMA foreign_key_check").fetchall()
 db_counts = {t: db.execute(f"SELECT COUNT(*) FROM {t}").fetchone()[0] for t in ("source_document", "course_offering", "official_timetable_code_evidence", "correction_event", "study_guide_term_page")}
-record("sqlite_referential_integrity", not fk and db_counts["course_offering"] == len(base["courses"]) and db_counts["official_timetable_code_evidence"] == len(code_index["records"]) and db_counts["correction_event"] == len(corrections["events"]), {"foreignKeyViolations": len(fk), "tableCounts": db_counts}, "high")
+expected_corrections = {e["eventId"]: (e["sourceId"], e["sourcePage"], e["courseCode"], e["changeDate"], e["sourceExcerpt"],
+                                      e["changeCategoriesCandidate"], e["beforeAfterTextCandidate"], e["reviewStatus"], 0)
+                        for e in corrections["events"]}
+db_corrections = {row[0]: (*row[1:6], json.loads(row[6]), json.loads(row[7]), *row[8:])
+                  for row in db.execute("""SELECT event_id,source_id,source_page,course_code,change_date,source_excerpt,
+                                                  categories_json,before_after_json,review_status,applied FROM correction_event""")}
+record("sqlite_referential_integrity", not fk and db_counts["course_offering"] == len(base["courses"]) and db_counts["official_timetable_code_evidence"] == len(code_index["records"]) and db_corrections == expected_corrections, {"foreignKeyViolations": len(fk), "tableCounts": db_counts, "correctionRowsMatchExtraction": db_corrections == expected_corrections}, "high")
 db.close()
 
 failed = [c for c in checks if c["status"] == "fail"]
