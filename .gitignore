@@ -1,6 +1,7 @@
 __pycache__/
 **/__pycache__/
 *.py[cod]
+tmp/
 
 # The research database and source documents stay outside the extension release.
 data/*.sqlite

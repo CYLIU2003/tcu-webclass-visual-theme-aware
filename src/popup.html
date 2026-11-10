@@ -29,6 +29,23 @@
       </div>
     </section>
 
+    <fieldset id="appearancePicker" class="appearance-picker" aria-describedby="appearanceHelp">
+      <legend>見た目</legend>
+      <div class="appearance-choices">
+        <label>
+          <input type="radio" name="appearance" value="standard">
+          <span class="appearance-sample is-standard" aria-hidden="true"><i></i><i></i></span>
+          <span>標準</span>
+        </label>
+        <label>
+          <input type="radio" name="appearance" value="modern">
+          <span class="appearance-sample is-modern" aria-hidden="true"><i></i><i></i></span>
+          <span>モダン</span>
+        </label>
+      </div>
+      <p id="appearanceHelp">時間割・コース一覧・教材一覧に反映します。</p>
+    </fieldset>
+
     <!-- WebClass 以外のページにいるときの「はじめかた」 -->
     <section id="guideCard" class="guide-card" hidden>
       <h2>はじめかた（3ステップ）</h2>

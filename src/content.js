@@ -5,6 +5,7 @@
     onboardingSeen: false,
     enabled: true,
     restyle: true,
+    appearance: "standard",
     modernizeNativeLayout: true,
     showInlineMetadata: true,
     showEnhancedTimetable: true,
@@ -967,6 +968,20 @@
     applyThemeTokens();
     document.documentElement.classList.toggle("wcv-enabled", Boolean(enabled));
     document.body?.classList.toggle("wcv-restyle", Boolean(enabled));
+    applyAppearance();
+  }
+
+  function applyAppearance() {
+    const modern = state.settings.enabled && state.settings.restyle && state.settings.appearance === "modern";
+    document.documentElement.classList.toggle("wcv-look-modern",
+      modern && (isCourseContentPage() || isCourseListPage() || Boolean(document.querySelector(".cm-contentsList"))));
+    syncSidebarAppearance(document.getElementById("wcv-sidebar-appearance"));
+  }
+
+  function syncSidebarAppearance(select) {
+    if (!select) return;
+    select.disabled = !state.settings.restyle;
+    select.value = state.settings.appearance === "modern" ? "modern" : "standard";
   }
 
   function nativeTimetable() {
@@ -1305,11 +1320,12 @@
       const badges = document.createElement("div");
       badges.className = "wcv-correction-badges";
       const categories = Array.isArray(event.categories) ? event.categories : [];
-      if (categories.includes("withdrawal")) badges.append(createTextElement("span", "wcv-correction-chip is-danger", "非開講・削除候補"));
+      if (categories.includes("withdrawal")) badges.append(createTextElement("span", "wcv-correction-chip is-danger", "非開講・開講中止候補"));
       if (categories.includes("room")) badges.append(createTextElement("span", "wcv-correction-chip", "教室変更候補"));
       if (categories.includes("instructor")) badges.append(createTextElement("span", "wcv-correction-chip", "担当教員変更候補"));
       if (categories.includes("meeting")) badges.append(createTextElement("span", "wcv-correction-chip", "曜日・時限・開講期変更候補"));
       if (categories.includes("audience")) badges.append(createTextElement("span", "wcv-correction-chip", "対象学科・学年変更候補"));
+      if (categories.includes("language")) badges.append(createTextElement("span", "wcv-correction-chip", "開講言語変更候補"));
       if (badges.childElementCount) item.append(badges);
 
       const resolvedTitle = resolveCourseTitleByCode(event.courseCode, event.courseName);
@@ -2861,6 +2877,7 @@
       return;
     }
     if (existing) {
+      syncSidebarAppearance(existing.querySelector("#wcv-sidebar-appearance"));
       const inputs = existing.querySelectorAll("input[data-setting]");
       for (const input of inputs) input.checked = Boolean(state.settings[input.dataset.setting]);
       return;
@@ -2872,6 +2889,14 @@
     const options = document.createElement("section");
     options.className = "wcv-sidebar-card";
     options.append(createTextElement("h4", "wcv-sidebar-title", "表示オプション"));
+    const appearanceLabel = createTextElement("label", "wcv-sidebar-appearance", "見た目");
+    const appearance = document.createElement("select");
+    appearance.id = "wcv-sidebar-appearance";
+    appearance.append(new Option("標準", "standard"), new Option("モダン", "modern"));
+    syncSidebarAppearance(appearance);
+    appearance.addEventListener("change", () => chrome.storage.local.set({ appearance: appearance.value }));
+    appearanceLabel.append(appearance);
+    options.append(appearanceLabel);
     for (const [key, title, description] of [
       ["modernizeNativeLayout", "参加しているコースをカード表示", "時間割表に教場・担当先生・講義コードを統合表示"],
       ["showInlineMetadata", "その他のコースにも補足表示", "時間割外のコース一覧にも教場・担当先生を追加"],
@@ -3437,9 +3462,11 @@
       chrome.storage.onChanged.addListener((changes, areaName) => {
         if (areaName !== "local") return;
         let needsRebuild = false;
+        let needsScan = false;
         for (const [key, change] of Object.entries(changes)) {
           if (key in DEFAULT_SETTINGS) {
-            state.settings[key] = change.newValue;
+            state.settings[key] = change.newValue ?? DEFAULT_SETTINGS[key];
+            if (key !== "appearance") needsScan = true;
             if (["userCourses", "curriculumPlan", "curriculumTeaching", "curriculumHirameki"].includes(key)) needsRebuild = true;
           }
         }
@@ -3448,7 +3475,8 @@
           rebuildIndexes();
           removeInjectedUi();
         }
-        scheduleScan(50);
+        if (changes.appearance) applyAppearance();
+        if (needsScan) scheduleScan(50);
       });
 
       chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {

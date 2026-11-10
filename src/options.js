@@ -4,6 +4,7 @@
   const DEFAULTS = {
     enabled: true,
     restyle: true,
+    appearance: "standard",
     modernizeNativeLayout: true,
     showInlineMetadata: true,
     showDeadlineList: true,
@@ -158,6 +159,24 @@
 
   async function initialize() {
     const settings = await storageGet(DEFAULTS);
+    const appearance = document.getElementById("appearance");
+    const showAppearance = (mode) => { appearance.value = mode === "modern" ? "modern" : "standard"; };
+    const updateAppearanceAvailability = () => {
+      appearance.disabled = !document.getElementById("enabled").checked || !document.getElementById("restyle").checked;
+    };
+    showAppearance(settings.appearance);
+    appearance.addEventListener("change", async () => { await storageSet({ appearance: appearance.value }); flashSaved(); });
+    chrome.storage.onChanged.addListener((changes, area) => {
+      if (area !== "local") return;
+      if (changes.appearance) showAppearance(changes.appearance.newValue);
+      for (const key of ["enabled", "restyle"]) {
+        if (changes[key]) document.getElementById(key).checked = Boolean(changes[key].newValue ?? DEFAULTS[key]);
+      }
+      if (changes.enabled || changes.restyle) {
+        detailPanel.classList.toggle("dim", !document.getElementById("enabled").checked);
+        updateAppearanceAvailability();
+      }
+    });
 
     const plan = document.getElementById("curriculumPlan");
     const teaching = document.getElementById("curriculumTeaching");
@@ -175,11 +194,13 @@
       control.addEventListener("change", async () => {
         await storageSet({ [id]: control.checked });
         if (id === "enabled") detailPanel.classList.toggle("dim", !control.checked);
+        if (id === "enabled" || id === "restyle") updateAppearanceAvailability();
         flashSaved();
       });
     }
 
     detailPanel.classList.toggle("dim", !settings.enabled);
+    updateAppearanceAvailability();
 
     const courses = Array.isArray(settings.userCourses) ? settings.userCourses : [];
     editor.value = prettyOverrides(courses);

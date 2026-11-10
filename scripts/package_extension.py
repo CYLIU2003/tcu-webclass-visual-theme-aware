@@ -12,7 +12,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = "0.8.0"
+VERSION = "0.9.0"
 ARCHIVE_ROOT = "tcu-webclass-visual-theme-aware"
 OUTPUT = ROOT.parent / f"TCU_WebClass_Visual_Theme_Aware_v{VERSION}.zip"
 
@@ -31,6 +31,7 @@ PACKAGE_FILES = (
     "docs/DATA_SCHEMA.md",
     "docs/CURRICULUM_CANDIDATE_PILOT.md",
     "docs/index.html",
+    "docs/images/appearance-picker.png",
     "docs/images/chrome-extensions.png",
     "docs/images/course-settings.png",
     "docs/DEADLINE_TEST_REPORT.md",
@@ -59,7 +60,7 @@ TEXT_SUFFIXES = {".css", ".html", ".js", ".json", ".md", ".py", ".txt"}
 
 def validate_package_files() -> list[tuple[str, Path]]:
     manifest = json.loads((ROOT / "manifest.json").read_text(encoding="utf-8"))
-    if manifest.get("version") != VERSION:
+    if manifest.get("version") != VERSION or manifest.get("version_name", VERSION) != VERSION:
         raise ValueError(f"manifest version must be {VERSION}")
 
     files: list[tuple[str, Path]] = []

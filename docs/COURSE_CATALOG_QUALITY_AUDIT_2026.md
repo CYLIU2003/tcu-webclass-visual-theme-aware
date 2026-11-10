@@ -1,4 +1,4 @@
-# 科目カタログ品質監査（2026-11-07）
+# 科目カタログ品質監査（2026-11-10）
 
 判定: **NOT_READY_FOR_RELEASE**
 
@@ -7,16 +7,16 @@
 | 項目 | 結果 | 根拠 |
 |---|---|---|
 | registered_source_files_integrity | pass | `{"officialSources": 24, "cacheMissing": [], "hashOrSizeMismatch": [], "pageCountMismatchOrUnreadable": []}` |
-| base_snapshot_freshness | pass | `{"snapshotGeneratedAt": "2026-10-15", "auditRunAt": "2026-11-07T08:34:29+00:00", "officialSourcesCheckedOn": "2026-10-28", "ageDays": 23}` |
+| base_snapshot_freshness | pass | `{"snapshotGeneratedAt": "2026-10-15", "auditRunAt": "2026-11-10T05:56:19+00:00", "officialSourcesCheckedOn": "2026-10-28", "ageDays": 26}` |
 | offering_primary_key_unique | pass | `{"rows": 3736, "uniqueKeys": 3736, "duplicates": 0}` |
 | official_code_index_integrity | pass | `{"codeSourcePairs": 1885, "uniqueCodes": 1847, "invalidCodesOrSources": 0, "duplicatePairs": 0, "invalidPages": 0, "snippetsMissingCode": 0}` |
 | official_to_base_code_coverage | pass | `{"sourceCodePairs": 1885, "matchedPairs": 1877, "unmatchedPairs": 8, "reviewedWithdrawnPairs": 8, "unexpectedMissingPairs": 0, "distinctUnmatchedCodes": 8, "unmatchedWithExtractedWithdrawalSignal": 8, "withdrawalLedgerValid": true, "comparison": "current-timetable-2026-codes", "withdrawalEvidence": "visually reviewed against captured source; subsequent corrections not checked"}` |
 | official_to_staging_candidate_coverage | pass | `{"officialCodeSourcePairs": 1885, "candidateCodeSourcePairs": 1885, "officialOccurrences": 4360, "candidateOccurrences": 4360, "stagedRowsRemainProvisional": true, "mismatches": []}` |
-| correction_event_provenance | pass | `{"events": 69, "invalidCodeOrExcerpt": 0, "invalidSource": 0, "missingDate": 0, "invalidPage": 0, "prematurelyApplied": 0, "unmatchedToBaseOfferings": 8}` |
+| correction_event_provenance | pass | `{"events": 69, "rebuildMatchesCachedPdfRows": true, "rebuildError": null, "withdrawalCandidates": 8, "invalidCodeOrExcerpt": 0, "invalidSource": 0, "missingDate": 0, "invalidPage": 0, "prematurelyApplied": 0, "unmatchedToBaseOfferings": 8}` |
 | study_guide_page_index_integrity | pass | `{"guides": 11, "pages": 1026, "badProfiles": [], "interpretation": "keyword navigation only; not validated course requirements"}` |
 | multi_year_registry_and_cohort_model | pass | `{"academicYears": [2022, 2023, 2024, 2025, 2026], "timetableLandingUrls": 10, "missingGuideOrTimetableYears": [], "historicalTimetableFiles": 10, "historicalCorrectionFiles": 7, "officialRootPagesRecorded": 3, "currentRootsMatchYearRegistry": true, "offeringKey": ["academicYear", "courseCode"], "curriculumVersionKey": ["admissionYear", "program", "degreeLevel", "campus"], "courseRowsNormalizedForHistoricalYears": false}` |
 | fall_pdf_candidate_extraction_calibration | pass | `{"sourceId": "schedule-setagaya-undergrad-fall-2026", "candidateCodes": 1305, "rowOccurrences": 3038, "codeCellAnchoredRows": 2988, "baseComparableCodes": 134, "titleAgreements": 124, "instructorOverlaps": 133, "titleConflicts": 111, "instructorConflicts": 22, "promotionAllowed": false, "reason": "Candidate parser calibration does not validate all rows or correction semantics."}` |
-| sqlite_referential_integrity | pass | `{"foreignKeyViolations": 0, "tableCounts": {"source_document": 42, "course_offering": 3736, "official_timetable_code_evidence": 1885, "correction_event": 69, "study_guide_term_page": 1030}}` |
+| sqlite_referential_integrity | pass | `{"foreignKeyViolations": 0, "tableCounts": {"source_document": 42, "course_offering": 3736, "official_timetable_code_evidence": 1885, "correction_event": 69, "study_guide_term_page": 1030}, "correctionRowsMatchExtraction": true}` |
 
 ## リリース阻害事項
 

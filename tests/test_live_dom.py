@@ -117,6 +117,18 @@ def main() -> None:
         load_snapshot(page, html)
         assert_initial_layout(page)
 
+        # Switch the appearance without replacing the currently focused course link.
+        timetable_link = page.locator("#schedule-table .wcv-native-course-card").first
+        timetable_link.evaluate("el => { window.__focusedCourseLink = el; el.focus(); }")
+        page.evaluate("chrome.storage.local.set({appearance:'modern'})")
+        assert page.locator("html.wcv-look-modern").count() == 1
+        assert timetable_link.evaluate("el => el === window.__focusedCourseLink && el === document.activeElement")
+        assert timetable_link.evaluate("el => getComputedStyle(el).borderRadius") == "11px"
+        sidebar_appearance = page.locator("#wcv-sidebar-appearance")
+        assert sidebar_appearance.input_value() == "modern"
+        sidebar_appearance.select_option("standard")
+        assert page.locator("html.wcv-look-modern").count() == 0
+
         page.locator(".wcv-welcome-ok").click()
         page.wait_for_timeout(250)
         assert page.locator("#wcv-welcome-banner").count() == 0
