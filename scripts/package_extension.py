@@ -12,9 +12,10 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = "0.9.0"
+VERSION = "0.10.0"
+VERSION_NAME = "0.10.0"
 ARCHIVE_ROOT = "tcu-webclass-visual-theme-aware"
-OUTPUT = ROOT.parent / f"TCU_WebClass_Visual_Theme_Aware_v{VERSION}.zip"
+OUTPUT = ROOT.parent / f"TCU_WebClass_Visual_Theme_Aware_v{VERSION_NAME}.zip"
 
 PACKAGE_FILES = (
     "manifest.json",
@@ -25,21 +26,27 @@ PACKAGE_FILES = (
     "はじめにお読みください.html",
     "data/timetable-2026.json",
     "data/curriculum-candidates.json",
+    "data/undergraduate-guides.json",
+    "data/progression-rules.json",
     "data/sample-user-overrides.json",
     "data/historical-course-row-evidence.json",
     "docs/DATA_COVERAGE.md",
     "docs/DATA_SCHEMA.md",
+    "docs/RELEASE_DESIGN_0_10.md",
     "docs/CURRICULUM_CANDIDATE_PILOT.md",
     "docs/index.html",
     "docs/images/appearance-picker.png",
     "docs/images/chrome-extensions.png",
     "docs/images/course-settings.png",
+    "docs/images/graduation-guide.png",
+    "docs/images/learning-tools.png",
     "docs/DEADLINE_TEST_REPORT.md",
     "docs/EXTENSION_DATABASE_INTEGRATION.md",
     "icons/icon16.png",
     "icons/icon48.png",
     "icons/icon128.png",
     "src/background.js",
+    "src/appearance.css",
     "src/dataset.js",
     "src/curriculum.js",
     "src/deadlines.js",
@@ -51,6 +58,15 @@ PACKAGE_FILES = (
     "src/popup.css",
     "src/popup.html",
     "src/popup.js",
+    "src/planner.css",
+    "src/planner.html",
+    "src/planner.js",
+    "src/planner-credits.js",
+    "src/planner-guides.js",
+    "src/planner-enrollment.js",
+    "src/enrollment-matching.js",
+    "data/syllabus-credit-evidence.json",
+    "src/planner-tasks.js",
     "src/welcome.css",
     "src/welcome.html",
     "src/welcome.js",
@@ -60,8 +76,8 @@ TEXT_SUFFIXES = {".css", ".html", ".js", ".json", ".md", ".py", ".txt"}
 
 def validate_package_files() -> list[tuple[str, Path]]:
     manifest = json.loads((ROOT / "manifest.json").read_text(encoding="utf-8"))
-    if manifest.get("version") != VERSION or manifest.get("version_name", VERSION) != VERSION:
-        raise ValueError(f"manifest version must be {VERSION}")
+    if manifest.get("version") != VERSION or manifest.get("version_name") != VERSION_NAME:
+        raise ValueError(f"manifest version must be {VERSION} ({VERSION_NAME})")
 
     files: list[tuple[str, Path]] = []
     for relative in PACKAGE_FILES:

@@ -11,6 +11,7 @@ import shutil
 import os
 import re
 from pathlib import Path
+from datetime import datetime
 
 from playwright.sync_api import Browser, Page, sync_playwright
 
@@ -116,6 +117,27 @@ def main() -> None:
         page = browser.new_page(viewport={"width": 1440, "height": 1800})
         load_snapshot(page, html)
         assert_initial_layout(page)
+        page.clock.set_fixed_time(datetime(2026, 11, 17))
+        page.evaluate("""() => {
+          const form = document.forms.condition;
+          form.addEventListener('submit', event => {
+            event.preventDefault();
+            window.__pastCourseRequest = Object.fromEntries(new FormData(form));
+          });
+          chrome.storage.local.set({curriculumPlan:'2024-hirameki-engineering'});
+        }""")
+        past_picker = page.locator("#wcv-past-course-picker")
+        past_picker.wait_for()
+        assert past_picker.locator("option").evaluate_all("nodes => nodes.map(node => node.value)") == ["2025", "2024"]
+        past_picker.locator("select").select_option("2024")
+        past_picker.get_by_role("button", name="全学期を表示").click()
+        assert page.evaluate("[window.__pastCourseRequest.year,window.__pastCourseRequest.semester]") == ["2024", "all"]
+        page.evaluate("""() => {
+          document.forms.condition.elements.year.value = '2026';
+          document.forms.condition.elements.semester.value = '4';
+          chrome.storage.local.set({curriculumPlan:''});
+        }""")
+        past_picker.wait_for(state="detached")
 
         # Switch the appearance without replacing the currently focused course link.
         timetable_link = page.locator("#schedule-table .wcv-native-course-card").first
@@ -312,7 +334,7 @@ def main() -> None:
         # Floating panel cross-database search across snapshot, correction events, fall candidates, and historical rows.
         assert page.locator("#wcv-native-open-search").count() == 1
         assert page.locator("#wcv-course-info-card .wcv-more-tab-btn").count() >= 2
-        page.locator("#wcv-launcher").click()
+        page.get_by_role("button", name="授業・過年度を検索").click()
         page.wait_for_selector("#wcv-panel .wcv-panel-search-input", state="visible", timeout=10_000)
         page.locator("#wcv-panel .wcv-panel-quick-btn[data-mode='corrections']").click()
         assert page.locator("#wcv-panel .wcv-panel-layer-tag.is-correction").count() >= 5
@@ -321,6 +343,8 @@ def main() -> None:
         assert page.locator("#wcv-panel .wcv-panel-layer-tag.is-correction").count() >= 1
         search_input.fill("sbz317604")
         assert page.locator("#wcv-panel .wcv-panel-layer-tag.is-reviewed").count() >= 1
+        search_input.press("Escape")
+        assert page.locator("#wcv-native-open-search").evaluate("el => document.activeElement === el")
 
         browser.close()
 

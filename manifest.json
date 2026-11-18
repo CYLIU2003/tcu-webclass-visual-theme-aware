@@ -1,15 +1,19 @@
 {
   "manifest_version": 3,
-  "name": "TCU WebClass Visual Prototype",
+  "name": "TCU WebClass Visual",
   "short_name": "WebClass Visual",
-  "version": "0.9.0",
-  "description": "WebClassを見やすく整え、現行時間割と2022〜2025年度の出典付き掲載候補を表示する学生FD向けプロトタイプです。",
+  "version": "0.10.0",
+  "version_name": "0.10.0",
+  "description": "WebClassを見やすく整え、現行時間割と2022〜2025年度の出典付き掲載候補を表示する学生制作の非公式拡張機能です。",
   "permissions": [
     "storage",
     "activeTab"
   ],
   "host_permissions": [
     "https://webclass.tcu.ac.jp/*"
+  ],
+  "optional_host_permissions": [
+    "https://websrv.tcu.ac.jp/*"
   ],
   "action": {
     "default_title": "WebClass授業情報",
@@ -25,6 +29,7 @@
         "src/dataset.js",
         "src/curriculum.js",
         "src/deadlines.js",
+        "src/enrollment-matching.js",
         "src/content.js"
       ],
       "css": [
@@ -38,6 +43,7 @@
     {
       "resources": [
         "data/timetable-2026.json",
+        "data/syllabus-credit-evidence.json",
         "data/curriculum-candidates.json",
         "data/historical-course-row-evidence.json"
       ],

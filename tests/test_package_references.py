@@ -8,18 +8,28 @@ spec = importlib.util.spec_from_file_location("package_builder", root / "scripts
 builder = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(builder)
 builder.validate_package_files()
-class Images(HTMLParser):
+class Assets(HTMLParser):
     def __init__(self):
         super().__init__()
         self.sources = []
+        self.stylesheets = []
     def handle_starttag(self, tag, attrs):
+        attributes = dict(attrs)
         if tag == "img":
-            attributes = dict(attrs)
             assert attributes.get("alt"), "Guide screenshots need descriptive alternatives"
             self.sources.append(attributes["src"])
+        if tag == "link" and attributes.get("rel") == "stylesheet":
+            self.stylesheets.append(attributes["href"])
+
+for relative in ("src/popup.html", "src/options.html", "src/planner.html"):
+    parser = Assets()
+    parser.feed((root / relative).read_text(encoding="utf8"))
+    for href in parser.stylesheets:
+        stylesheet = ((root / relative).parent / href).resolve()
+        assert stylesheet.is_file() and stylesheet.relative_to(root).as_posix() in builder.PACKAGE_FILES, href
 
 for relative in ("src/welcome.html", "はじめにお読みください.html", "docs/index.html"):
-    parser = Images()
+    parser = Assets()
     parser.feed((root / relative).read_text(encoding="utf8"))
     assert len(parser.sources) >= 2
     for src in parser.sources:

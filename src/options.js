@@ -13,6 +13,7 @@
     showSourceLabel: true,
     userCourses: [],
     curriculumPlan: "",
+    webclassAdmissionYear: "",
     curriculumTeaching: false,
     curriculumHirameki: false
   };
@@ -31,6 +32,7 @@
   const editor = document.getElementById("jsonEditor");
   const message = document.getElementById("message");
   const overrideCount = document.getElementById("overrideCount");
+  const overridePreviewList = document.getElementById("overridePreviewList");
   const datasetSummary = document.getElementById("datasetSummary");
   const datasetQuality = document.getElementById("datasetQuality");
   const savedChip = document.getElementById("savedChip");
@@ -116,6 +118,49 @@
 
   function updateCount(courses) {
     overrideCount.textContent = `${courses.length}件`;
+    renderOverridePreview(courses);
+  }
+
+  function renderOverridePreview(courses) {
+    if (!overridePreviewList) return;
+    overridePreviewList.replaceChildren();
+    for (let i = 0; i < courses.length; i += 1) {
+      const course = courses[i];
+      const item = document.createElement("div");
+      item.className = "override-preview-item";
+      const main = document.createElement("div");
+      main.className = "override-preview-main";
+      const heading = document.createElement("strong");
+      heading.textContent = course.courseCode ? `${course.courseName} (${course.courseCode})` : course.courseName;
+      const details = [];
+      const meetings = (course.meetings || []).map((m) => `${m.day}${m.period}${m.room ? ` ${m.room}` : ""}`);
+      if (meetings.length) details.push(`時間割: ${meetings.join(" / ")}`);
+      if (course.instructors?.length) details.push(`担当: ${course.instructors.join("・")}`);
+      const sub = document.createElement("span");
+      sub.textContent = details.length ? details.join(" ／ ") : "時間割・担当の指定なし";
+      main.append(heading, sub);
+
+      const removeBtn = document.createElement("button");
+      removeBtn.type = "button";
+      removeBtn.className = "override-remove-btn";
+      removeBtn.textContent = "削除";
+      removeBtn.addEventListener("click", async () => {
+        try {
+          const parsed = JSON.parse(editor.value || '{"courses":[]}');
+          const current = normalizePayload(parsed);
+          current.splice(i, 1);
+          editor.value = prettyOverrides(current);
+          await storageSet({ userCourses: current });
+          updateCount(current);
+          setMessage(`「${course.courseName}」の上書きを削除しました。`, "success");
+        } catch (error) {
+          setMessage(`削除できません: ${error.message}`, "error");
+        }
+      });
+
+      item.append(main, removeBtn);
+      overridePreviewList.append(item);
+    }
   }
 
   async function loadBundledData() {
@@ -159,18 +204,40 @@
 
   async function initialize() {
     const settings = await storageGet(DEFAULTS);
-    const appearance = document.getElementById("appearance");
-    const showAppearance = (mode) => { appearance.value = mode === "modern" ? "modern" : "standard"; };
+    const appearance = document.getElementById("appearancePicker");
+    const appearanceHelp = document.getElementById("appearanceHelp");
+    const choices = [...appearance.querySelectorAll("input")];
+    const showAppearance = (mode) => {
+      const selected = mode === "modern" ? "modern" : "standard";
+      for (const choice of choices) choice.checked = choice.value === selected;
+    };
     const updateAppearanceAvailability = () => {
-      appearance.disabled = !document.getElementById("enabled").checked || !document.getElementById("restyle").checked;
+      const enabled = document.getElementById("enabled").checked;
+      const restyle = document.getElementById("restyle");
+      restyle.disabled = !enabled;
+      appearance.disabled = !enabled || !restyle.checked;
+      appearanceHelp.textContent = !enabled ? "拡張機能をオンにすると選べます。"
+        : !restyle.checked ? "「画面を整える」をオンにすると選べます。"
+        : "時間割・コース一覧・教材一覧に反映します。";
     };
     showAppearance(settings.appearance);
-    appearance.addEventListener("change", async () => { await storageSet({ appearance: appearance.value }); flashSaved(); });
+    appearance.addEventListener("change", async (event) => {
+      await storageSet({ appearance: event.target.value });
+      flashSaved();
+    });
     chrome.storage.onChanged.addListener((changes, area) => {
       if (area !== "local") return;
       if (changes.appearance) showAppearance(changes.appearance.newValue);
-      for (const key of ["enabled", "restyle"]) {
+      for (const key of toggleIds) {
         if (changes[key]) document.getElementById(key).checked = Boolean(changes[key].newValue ?? DEFAULTS[key]);
+      }
+      if (changes.curriculumPlan) document.getElementById("curriculumPlan").value = changes.curriculumPlan.newValue || "";
+      if (changes.curriculumTeaching) document.getElementById("curriculumTeaching").checked = Boolean(changes.curriculumTeaching.newValue);
+      if (changes.curriculumHirameki) document.getElementById("curriculumHirameki").checked = Boolean(changes.curriculumHirameki.newValue);
+      if (changes.userCourses) {
+        const updatedCourses = Array.isArray(changes.userCourses.newValue) ? changes.userCourses.newValue : [];
+        editor.value = prettyOverrides(updatedCourses);
+        updateCount(updatedCourses);
       }
       if (changes.enabled || changes.restyle) {
         detailPanel.classList.toggle("dim", !document.getElementById("enabled").checked);
@@ -179,12 +246,19 @@
     });
 
     const plan = document.getElementById("curriculumPlan");
+    const admissionYear = document.getElementById("webclassAdmissionYear");
     const teaching = document.getElementById("curriculumTeaching");
     const hirameki = document.getElementById("curriculumHirameki");
     plan.value = settings.curriculumPlan || "";
+    admissionYear.value = settings.webclassAdmissionYear || "";
     teaching.checked = Boolean(settings.curriculumTeaching);
     hirameki.checked = Boolean(settings.curriculumHirameki);
     plan.addEventListener("change", async () => { await storageSet({ curriculumPlan: plan.value }); flashSaved(); });
+    admissionYear.addEventListener("change", async () => {
+      if (!admissionYear.reportValidity()) return;
+      await storageSet({ webclassAdmissionYear: admissionYear.value });
+      flashSaved();
+    });
     teaching.addEventListener("change", async () => { await storageSet({ curriculumTeaching: teaching.checked }); flashSaved(); });
     hirameki.addEventListener("change", async () => { await storageSet({ curriculumHirameki: hirameki.checked }); flashSaved(); });
 
@@ -256,6 +330,77 @@
         setMessage("上書きデータを書き出しました。", "success");
       } catch (error) {
         setMessage(`書き出せません: ${error.message}`, "error");
+      }
+    });
+
+    document.getElementById("addQuickOverride")?.addEventListener("click", async () => {
+      try {
+        const courseName = document.getElementById("quickCourseName").value.trim();
+        const courseCode = document.getElementById("quickCourseCode").value.trim();
+        const instructorsRaw = document.getElementById("quickInstructors").value.trim();
+        const day = document.getElementById("quickDay").value.trim();
+        const periodRaw = document.getElementById("quickPeriod").value.trim();
+        const room = document.getElementById("quickRoom").value.trim();
+
+        if (!courseName) {
+          setMessage("科目名を入力してください。", "error");
+          document.getElementById("quickCourseName").focus();
+          return;
+        }
+        if ((day && !periodRaw) || (!day && periodRaw)) {
+          setMessage("曜日と時限はセットで選択してください。", "error");
+          return;
+        }
+        let current = [];
+        try {
+          current = normalizePayload(JSON.parse(editor.value || '{"courses":[]}'));
+        } catch {
+          current = [];
+        }
+        const normalizedCode = courseCode.toLowerCase();
+        const normalizedName = courseName.normalize("NFKC").toLowerCase();
+        const existingIndex = current.findIndex((item) =>
+          (normalizedCode && String(item.courseCode || "").trim().toLowerCase() === normalizedCode)
+          || (!normalizedCode && String(item.courseName || "").normalize("NFKC").toLowerCase() === normalizedName)
+        );
+        const existing = existingIndex >= 0 ? current[existingIndex] : null;
+        if (room && !day && !periodRaw && !(existing?.meetings?.length)) {
+          setMessage("教室を登録するには曜日と時限も選択してください。", "error");
+          return;
+        }
+
+        const instructors = instructorsRaw
+          ? instructorsRaw.split(/[・、,，/／]+/).map((s) => s.trim()).filter(Boolean)
+          : (existing?.instructors || []);
+        let meetings = Array.isArray(existing?.meetings) ? existing.meetings.map((m) => ({ ...m })) : [];
+        if (day && periodRaw) {
+          const period = Number(periodRaw);
+          const slotIdx = meetings.findIndex((m) => m.day === day && Number(m.period) === period);
+          const nextMeeting = { day, period, room: room || meetings[slotIdx]?.room || "" };
+          if (slotIdx >= 0) meetings[slotIdx] = nextMeeting;
+          else meetings.push(nextMeeting);
+        } else if (room && meetings.length) {
+          meetings = meetings.map((m) => ({ ...m, room }));
+        }
+
+        const entry = {
+          ...(existing || {}),
+          courseName,
+          ...(courseCode ? { courseCode } : {}),
+          instructors,
+          meetings
+        };
+        if (existingIndex >= 0) current[existingIndex] = entry;
+        else current.push(entry);
+
+        const validated = normalizePayload(current);
+        editor.value = prettyOverrides(validated);
+        await storageSet({ userCourses: validated });
+        updateCount(validated);
+        flashSaved();
+        setMessage(`「${courseName}」を上書き保存しました（計${validated.length}件）。`, "success");
+      } catch (error) {
+        setMessage(`追加できません: ${error.message}`, "error");
       }
     });
 

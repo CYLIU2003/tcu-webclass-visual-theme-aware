@@ -20,3 +20,11 @@ assert.equal(ambiguous.meetings.length, 0, 'ambiguous classes must not populate 
 assert.equal(standardPeriods([{ meetings: [{ day: '月', period: 7 }] }]).length, 7);
 assert.equal(new Set(data.courses.map(course => course.courseCode)).size, data.courses.length);
 console.log(`OK: ${data.courses.length} indexed URL matches, numeric fallback, ambiguity and late periods`);
+
+vm.runInContext(fs.readFileSync(new URL('../src/enrollment-matching.js', import.meta.url), 'utf8'), context);
+const matching = context.WCV_ENROLLMENT_MATCH;
+const spring = {courseCode: 'abc1001', courseName: '演習', instructors: ['担当A'], meetings: [{day:'火',period:3,termBlock:'前期前'}]};
+const fall = {...spring, courseCode:'abc1002', meetings:[{day:'火',period:3,termBlock:'後期後'}]};
+const registration = {name:'演習（火3、担当A、2026年度後期後半）'};
+assert.equal(matching.identify(registration, matching.createIndex([spring,fall]), 'all', 2026, true).course?.courseCode, fall.courseCode);
+assert.equal(matching.identify(registration, matching.createIndex([spring]), 'all', 2026, true).course, undefined);

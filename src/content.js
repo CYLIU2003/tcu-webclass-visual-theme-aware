@@ -16,6 +16,7 @@
     debug: false,
     userCourses: [],
     curriculumPlan: "",
+    webclassAdmissionYear: "",
     curriculumTeaching: false,
     curriculumHirameki: false
   });
@@ -66,12 +67,22 @@
     currentCourse: null,
     panelSearchQuery: "",
     panelQuickMode: "detected",
+    panelOpener: null,
+    panelLayerFilter: "all",
+    panelSearchLimit: 12,
+    panelCorrectionLimit: 35,
+    panelGuideFilter: "",
+    todaySelectedDay: "",
+    todayStripCollapsed: false,
+    courseListFilter: "all",
+    searchBlobCache: new WeakMap(),
     observer: null,
     rescanTimer: null,
     ownMutationDepth: 0,
     nativeOriginals: new Map(),
     nativeAddedClasses: new Map(),
     nativeDetectedCourses: new Map(),
+    nativeScheduleEntries: [],
     themeSignature: ""
   };
 
@@ -204,6 +215,9 @@
     state.nativeOriginals.clear();
     state.nativeAddedClasses.clear();
     state.nativeDetectedCourses = new Map();
+    state.nativeScheduleEntries = [];
+    document.querySelectorAll(".wcv-native-list-hidden").forEach((element) => element.classList.remove("wcv-native-list-hidden"));
+    document.querySelectorAll(".wcv-jump-highlight").forEach((element) => element.classList.remove("wcv-jump-highlight"));
   }
 
   function normalizeCourseName(value) {
@@ -321,6 +335,7 @@
     state.correctionByCode = new Map();
     state.fallCandidateByCode = new Map();
     state.fallCandidateByTitle = new Map();
+    state.searchBlobCache = new WeakMap();
     state.buildProvisionalFallCourse = buildProvisionalFallCourse;
 
     for (const event of state.correctionEvents || []) {
@@ -659,7 +674,7 @@
     };
   }
 
-  function formatOfferingPairs(offerings, { day = "", period = null, maxVisible = 3 } = {}) {
+  function formatOfferingPairs(offerings, { day = "", period = null, maxVisible = 3, termHints = [] } = {}) {
     const list = Array.isArray(offerings) ? offerings : [];
     if (!list.length) return { roomSummary: "教室未定", teacherSummary: "未登録", pairSummary: "" };
     let scoped = list;
@@ -667,7 +682,17 @@
       const slotMatched = list.filter((item) =>
         (item.meetings || []).some((m) => m.day === day && Number(m.period) === Number(period))
       );
-      if (slotMatched.length) scoped = slotMatched;
+      if (slotMatched.length) {
+        scoped = slotMatched;
+        if (termHints.length) {
+          const termMatched = slotMatched.filter((item) =>
+            (item.meetings || []).some((m) =>
+              m.day === day && Number(m.period) === Number(period) && meetingMatchesTermHints(m, termHints)
+            )
+          );
+          if (termMatched.length) scoped = termMatched;
+        }
+      }
     }
     const summaries = scoped.map((item) => offeringSlotSummary(item, day, period));
     const pairItems = uniqueBy(summaries.map((s) => {
@@ -881,9 +906,9 @@
     return course?.ambiguous ? `複数開講 ${course.candidateCount}クラス: ${label}` : label;
   }
 
-  function roomsLabel(course, { day = "", period = null, maxVisible = 3 } = {}) {
+  function roomsLabel(course, { day = "", period = null, maxVisible = 3, termHints = [] } = {}) {
     if (Array.isArray(course?.offerings) && course.offerings.length > 1) {
-      const paired = formatOfferingPairs(course.offerings, { day, period, maxVisible });
+      const paired = formatOfferingPairs(course.offerings, { day, period, maxVisible, termHints });
       if (paired.roomSummary && paired.roomSummary !== "教室未定") return paired.roomSummary;
     }
     if (course?.isProvisionalFallCandidate) {
@@ -899,9 +924,9 @@
     return course?.ambiguous ? `${label}（クラス別）` : label;
   }
 
-  function instructorsLabel(course, { day = "", period = null, maxVisible = 3 } = {}) {
+  function instructorsLabel(course, { day = "", period = null, maxVisible = 3, termHints = [] } = {}) {
     if (Array.isArray(course?.offerings) && course.offerings.length > 1) {
-      const paired = formatOfferingPairs(course.offerings, { day, period, maxVisible });
+      const paired = formatOfferingPairs(course.offerings, { day, period, maxVisible, termHints });
       if (paired.teacherSummary && paired.teacherSummary !== "未登録") return paired.teacherSummary;
     }
     return shortInstructors(course?.instructors, maxVisible);
@@ -1046,13 +1071,20 @@
     return text.length <= 260 ? text : "";
   }
 
+  function meetingMatchesTermHints(meeting, termHints) {
+    if (!meeting || !Array.isArray(termHints) || !termHints.length) return false;
+    const tb = String(meeting.termBlock || "").replace(/半$/, "");
+    return termHints.some((hint) => {
+      const h = String(hint || "").replace(/半$/, "");
+      if (h === "前期" || h === "後期") return tb.startsWith(h);
+      return tb === h;
+    });
+  }
+
   function courseForContext(course, text) {
     const termHints = extractTermHints(text);
     if (!termHints.length || !Array.isArray(course?.meetings) || course.meetings.length <= 1) return course;
-    const meetings = course.meetings.filter((meeting) => termHints.some((hint) => {
-      if (hint === "前期" || hint === "後期") return String(meeting.termBlock || "").startsWith(hint);
-      return meeting.termBlock === hint;
-    }));
+    const meetings = course.meetings.filter((meeting) => meetingMatchesTermHints(meeting, termHints));
     return meetings.length && meetings.length < course.meetings.length ? { ...course, meetings } : course;
   }
 
@@ -2135,6 +2167,93 @@
     });
   }
 
+  function copyTextWithFeedback(button, text, doneLabel = "コピー済 ✓") {
+    const value = String(text || "").trim();
+    if (!value) return;
+    const prev = button.textContent;
+    const finish = () => {
+      button.textContent = doneLabel;
+      button.classList.add("is-copied");
+      setTimeout(() => {
+        if (!button.isConnected) return;
+        button.textContent = prev;
+        button.classList.remove("is-copied");
+      }, 1500);
+    };
+    if (navigator.clipboard?.writeText) {
+      navigator.clipboard.writeText(value).then(finish).catch(() => {});
+      return;
+    }
+    const ta = document.createElement("textarea");
+    ta.value = value;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.append(ta);
+    ta.select();
+    try { document.execCommand("copy"); finish(); } catch {}
+    ta.remove();
+  }
+
+  function findCourseAnchorOnPage(course) {
+    if (typeof document === "undefined" || !course) return null;
+    const targetCode = normalizeCode(course.courseCode);
+    const targetUrl = String(course.webclassUrl || "").trim();
+    const candidates = Array.from(document.querySelectorAll(
+      "#schedule-table a[href*='/webclass/course.php/'], .schedule-list a[href*='/webclass/course.php/'], ul.courseList a[href*='/webclass/course.php/']"
+    ));
+    const matches = candidates.filter((anchor) => {
+      if (targetUrl && anchor.href === targetUrl) return true;
+      const code = normalizeCode(anchor.dataset.wcvCourseCode)
+        || extractCourseCodes(`${anchor.href} ${anchor.textContent || ""}`)[0]
+        || "";
+      return Boolean(targetCode && code && code === targetCode);
+    });
+    if (!matches.length) return null;
+    return matches.find((anchor) => anchor.getClientRects().length > 0) || matches[0];
+  }
+
+  function jumpToCourseOnPage(course) {
+    const anchor = findCourseAnchorOnPage(course);
+    if (!anchor) return false;
+    if (anchor.classList.contains("wcv-native-list-hidden") || anchor.closest(".wcv-native-list-hidden")) {
+      state.courseListFilter = "all";
+      document.querySelectorAll(".wcv-native-list-hidden").forEach((el) => el.classList.remove("wcv-native-list-hidden"));
+    }
+    document.querySelectorAll(".wcv-jump-highlight").forEach((el) => el.classList.remove("wcv-jump-highlight"));
+    anchor.scrollIntoView({ behavior: "smooth", block: "center" });
+    anchor.classList.add("wcv-jump-highlight");
+    anchor.focus({ preventScroll: true });
+    setTimeout(() => anchor.classList.remove("wcv-jump-highlight"), 2600);
+    return true;
+  }
+
+  function createPanelItemActions(courseOrCode) {
+    const isString = typeof courseOrCode === "string";
+    const code = isString ? courseOrCode : courseOrCode?.courseCode;
+    const course = isString ? null : courseOrCode;
+    const wrap = document.createElement("div");
+    wrap.className = "wcv-panel-item-actions";
+    if (code) {
+      const copyBtn = createTextElement("button", "wcv-panel-action-btn", `コードコピー (${code})`);
+      copyBtn.type = "button";
+      copyBtn.addEventListener("click", () => copyTextWithFeedback(copyBtn, code));
+      wrap.append(copyBtn);
+    }
+    if (course && findCourseAnchorOnPage(course)) {
+      const jumpBtn = createTextElement("button", "wcv-panel-action-btn is-jump", "時間割で位置表示 ↗");
+      jumpBtn.type = "button";
+      jumpBtn.addEventListener("click", () => jumpToCourseOnPage(course));
+      wrap.append(jumpBtn);
+    }
+    if (course?.webclassUrl) {
+      const openLink = createTextElement("a", "wcv-panel-action-btn is-open", "コースを開く →");
+      openLink.href = course.webclassUrl;
+      wrap.append(openLink);
+    }
+    return wrap.childElementCount ? wrap : null;
+  }
+
   function createPanelCourseItem(course) {
     const item = document.createElement("article");
     item.className = "wcv-panel-course";
@@ -2180,25 +2299,179 @@
       meta.append(details);
     }
     item.append(title, meta);
+    const actions = createPanelItemActions(course);
+    if (actions) item.append(actions);
     return item;
   }
 
-  function openPanelAndFocusSearch(initialMode = "") {
+  function openPanelAndFocusSearch(initialMode = "", opener = document.activeElement) {
     ensureFloatingPanel();
     const panel = document.getElementById(UI_IDS.panel);
     const launcher = document.getElementById(UI_IDS.launcher);
     if (!panel || !launcher) return;
+    if (opener instanceof HTMLElement && !panel.contains(opener)) state.panelOpener = opener;
     if (initialMode) {
       state.panelQuickMode = initialMode;
       state.panelSearchQuery = "";
+      state.panelLayerFilter = "all";
       const input = panel.querySelector(".wcv-panel-search-input");
       if (input) input.value = "";
+      const clearBtn = panel.querySelector(".wcv-panel-search-clear");
+      if (clearBtn) clearBtn.hidden = true;
     }
     panel.hidden = false;
     launcher.setAttribute("aria-expanded", "true");
     updatePanelContents();
     const input = panel.querySelector(".wcv-panel-search-input");
     input?.focus();
+  }
+
+  function restoreSearchFocus() {
+    const opener = state.panelOpener;
+    state.panelOpener = null;
+    const fallback = document.getElementById(UI_IDS.launcher);
+    (opener?.isConnected && opener.getClientRects().length && opener !== document.body ? opener : fallback)?.focus();
+  }
+
+  function appendSourcePageLinks(item, record, className, prefix) {
+    const locations = Array.isArray(record.sourceLocations) ? record.sourceLocations : [];
+    const wrap = document.createElement("div");
+    wrap.className = "wcv-panel-page-links";
+    for (const loc of locations.slice(0, 4)) {
+      const url = historicalSourcePageUrl(record, loc.page);
+      if (!url) continue;
+      const link = createTextElement("a", className, `${prefix} p.${loc.page} ↗`);
+      link.href = url;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      wrap.append(link);
+    }
+    if (locations.length > 4) {
+      wrap.append(createTextElement("span", "wcv-panel-more-pages", `ほか${locations.length - 4}頁`));
+    }
+    if (wrap.childElementCount) item.append(wrap);
+  }
+
+  function buildCorrectionPanelItem(event) {
+    const item = document.createElement("article");
+    item.className = "wcv-panel-course wcv-panel-db-item";
+    const resolvedTitle = resolveCourseTitleByCode(event.courseCode, event.courseName);
+    item.append(
+      createTextElement("div", "wcv-panel-layer-tag is-correction", `2026訂正表候補（未適用） ・ ${event.changeDate || "日付未記載"}`),
+      createTextElement("h3", "wcv-panel-course-title", resolvedTitle ? `${resolvedTitle} (${event.courseCode})` : `講義コード ${event.courseCode}`),
+      createTextElement("div", "wcv-panel-meta-line", event.sourceExcerpt || "")
+    );
+    const url = historicalSourcePageUrl(event, event.sourcePage);
+    if (url) {
+      const link = createTextElement("a", "wcv-correction-source", `訂正表PDF p.${event.sourcePage} ↗`);
+      link.href = url;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      item.append(link);
+    }
+    const actions = createPanelItemActions(event.courseCode ? { courseCode: event.courseCode } : null);
+    if (actions) item.append(actions);
+    return item;
+  }
+
+  function buildFallPanelItem(record) {
+    const item = document.createElement("article");
+    item.className = "wcv-panel-course wcv-panel-db-item";
+    const reviewed = record.reviewStatus === "visually-reviewed-provisional";
+    const teacher = (record.instructors || []).join("・") || record.instructorText || "なし";
+    item.append(
+      createTextElement(
+        "div",
+        `wcv-panel-layer-tag ${reviewed ? "is-reviewed" : "is-fall"}`,
+        `2026後期PDF候補（${reviewed ? "目視確認済み" : "未確認抽出"}） ・ ${record.courseCode}`
+      ),
+      createTextElement("h3", "wcv-panel-course-title", record.courseName || "科目名抽出なし"),
+      createTextElement("div", "wcv-panel-meta-line", `担当候補: ${teacher} / 教室候補: ${record.room || "なし"}`)
+    );
+    appendSourcePageLinks(item, record, "wcv-fall-source", "後期PDF");
+    const actions = createPanelItemActions(record.courseCode ? { courseCode: record.courseCode } : null);
+    if (actions) item.append(actions);
+    return item;
+  }
+
+  function buildHistoricalPanelItem(record) {
+    const item = document.createElement("article");
+    item.className = "wcv-panel-course wcv-panel-db-item";
+    const reviewed = record.reviewStatus === "visually-reviewed-provisional";
+    const teacher = (record.instructors || []).join("・") || record.instructorText || "なし";
+    item.append(
+      createTextElement(
+        "div",
+        `wcv-panel-layer-tag ${reviewed ? "is-reviewed" : "is-history"}`,
+        `${record.academicYear}年度PDF候補（${reviewed ? "目視確認済み" : "未確認抽出"}） ・ ${record.courseCode}`
+      ),
+      createTextElement("h3", "wcv-panel-course-title", record.courseName || "科目名抽出なし"),
+      createTextElement("div", "wcv-panel-meta-line", `担当候補: ${teacher} / 教室候補: ${record.room || "なし"}`)
+    );
+    appendSourcePageLinks(item, record, "wcv-history-source", "PDF");
+    const actions = createPanelItemActions(record.courseCode ? { courseCode: record.courseCode } : null);
+    if (actions) item.append(actions);
+    return item;
+  }
+
+  function renderStudyGuideList(guides, filterText, listContainer, count) {
+    listContainer.replaceChildren();
+    const query = String(filterText || "").normalize("NFKC").trim().toLowerCase();
+    const defaultTerms = ["卒業要件", "修了要件", "必修", "授業科目", "単位", "GPA", "進級"];
+    let matchedGuideCount = 0;
+
+    for (const guide of guides) {
+      const termPages = guide.termPages || {};
+      const allTermKeys = Object.keys(termPages);
+      const matchedTerms = query
+        ? allTermKeys.filter((term) => term.normalize("NFKC").toLowerCase().includes(query))
+        : defaultTerms.filter((term) => termPages[term]?.[0]);
+      const titleMatch = !query || String(guide.title || "").normalize("NFKC").toLowerCase().includes(query);
+      if (query && !matchedTerms.length && !titleMatch) continue;
+
+      matchedGuideCount += 1;
+      const item = document.createElement("article");
+      item.className = "wcv-panel-course wcv-panel-db-item";
+      item.append(
+        createTextElement("div", "wcv-panel-layer-tag is-snapshot", guide.kind === "curriculum-table" ? "大学院教育課程表PDF" : `2026学修要覧・履修要綱 ・ 全${guide.pageCount || "?"}頁`),
+        createTextElement("h3", "wcv-panel-course-title", guide.title)
+      );
+      const termsWrap = document.createElement("div");
+      termsWrap.className = "wcv-study-guide-terms";
+      const topUrl = historicalSourcePageUrl({ url: guide.url }, 1);
+      if (topUrl) {
+        const link = createTextElement("a", "wcv-guide-source is-primary", "表紙・目次 p.1 ↗");
+        link.href = topUrl;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        termsWrap.append(link);
+      }
+      const termsToShow = matchedTerms.length ? matchedTerms.slice(0, query ? 8 : 5) : allTermKeys.slice(0, 4);
+      for (const term of termsToShow) {
+        const pageNum = termPages[term]?.[0];
+        if (!pageNum) continue;
+        const pageUrl = historicalSourcePageUrl({ url: guide.url }, pageNum);
+        if (!pageUrl) continue;
+        const link = createTextElement("a", `wcv-guide-source${query ? " is-matched" : ""}`, `${term} p.${pageNum} ↗`);
+        link.href = pageUrl;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        termsWrap.append(link);
+      }
+      if (termsWrap.childElementCount) item.append(termsWrap);
+      listContainer.append(item);
+    }
+
+    count.textContent = query ? `${matchedGuideCount}/${guides.length}資料` : `${guides.length}資料`;
+    if (!matchedGuideCount) {
+      const empty = document.createElement("div");
+      empty.className = "wcv-panel-empty";
+      empty.append(
+        createTextElement("strong", "", "一致する要覧・用語が見つかりません"),
+        createTextElement("p", "", "「卒業」「GPA」「進級」「教職」「単位」などのキーワードでお試しください。")
+      );
+      listContainer.append(empty);
+    }
   }
 
   function renderPanelQuickMode(mode, body, count) {
@@ -2211,24 +2484,23 @@
         "2026年度 公式時間割訂正表PDF（4資料）から抽出した未適用の候補イベント一覧です。必ずPDF原文とWebClassお知らせで確認してください。"
       );
       body.append(banner);
-      for (const event of events.slice(0, 35)) {
-        const item = document.createElement("article");
-        item.className = "wcv-panel-course wcv-panel-db-item";
-        const resolvedTitle = resolveCourseTitleByCode(event.courseCode, event.courseName);
-        item.append(
-          createTextElement("div", "wcv-panel-layer-tag is-correction", `2026訂正表候補（未適用） ・ ${event.changeDate || "日付未記載"}`),
-          createTextElement("h3", "wcv-panel-course-title", resolvedTitle ? `${resolvedTitle} (${event.courseCode})` : `講義コード ${event.courseCode}`),
-          createTextElement("div", "wcv-panel-meta-line", event.sourceExcerpt || "")
+      const visibleCount = Math.min(events.length, state.panelCorrectionLimit || 35);
+      for (const event of events.slice(0, visibleCount)) {
+        body.append(buildCorrectionPanelItem(event));
+      }
+      if (visibleCount < events.length) {
+        const moreBtn = createTextElement(
+          "button",
+          "wcv-panel-expand-btn",
+          `残りをすべて表示（+${events.length - visibleCount}件）`
         );
-        const url = historicalSourcePageUrl(event, event.sourcePage);
-        if (url) {
-          const link = createTextElement("a", "wcv-correction-source", `訂正表PDF p.${event.sourcePage} ↗`);
-          link.href = url;
-          link.target = "_blank";
-          link.rel = "noopener noreferrer";
-          item.append(link);
-        }
-        body.append(item);
+        moreBtn.type = "button";
+        moreBtn.addEventListener("click", () => {
+          state.panelCorrectionLimit = events.length;
+          body.dataset.signature = "";
+          updatePanelContents();
+        });
+        body.append(moreBtn);
       }
       return;
     }
@@ -2243,75 +2515,109 @@
       );
       body.append(banner);
       for (const record of reviewed) {
-        const item = document.createElement("article");
-        item.className = "wcv-panel-course wcv-panel-db-item";
-        item.append(
-          createTextElement("div", "wcv-panel-layer-tag is-reviewed", `2026後期PDF候補（目視確認済み） ・ ${record.courseCode}`),
-          createTextElement("h3", "wcv-panel-course-title", record.courseName || "科目名抽出なし"),
-          createTextElement("div", "wcv-panel-meta-line", `担当: ${(record.instructors || []).join("・") || record.instructorText || "なし"} / 教室: ${record.room || "なし"}`)
-        );
-        const firstPage = record.sourceLocations?.[0]?.page;
-        const url = firstPage ? historicalSourcePageUrl(record, firstPage) : "";
-        if (url) {
-          const link = createTextElement("a", "wcv-fall-source", `後期PDF p.${firstPage} ↗`);
-          link.href = url;
-          link.target = "_blank";
-          link.rel = "noopener noreferrer";
-          item.append(link);
-        }
-        body.append(item);
+        body.append(buildFallPanelItem(record));
       }
       return;
     }
 
     if (mode === "study-guides") {
       const guides = state.studyGuideNavigation?.guides || [];
-      count.textContent = `${guides.length}資料`;
       const banner = createTextElement(
         "div",
         "wcv-panel-mode-note",
-        "2026年度 公式学修要覧・大学院履修要綱・教育課程表PDFの直接リンク一覧です。所属と入学年度に合う資料をPDF本文で確認してください。"
+        "2026年度 公式学修要覧・大学院履修要綱・教育課程表PDF（全11冊・用語索引1,030件）のページ案内です。用語を入力して目的のページに直接移動できます。"
       );
-      body.append(banner);
-      for (const guide of guides) {
-        const item = document.createElement("article");
-        item.className = "wcv-panel-course wcv-panel-db-item";
-        item.append(
-          createTextElement("div", "wcv-panel-layer-tag is-snapshot", guide.kind === "curriculum-table" ? "大学院教育課程表PDF" : `2026学修要覧・履修要綱 ・ 全${guide.pageCount || "?"}頁`),
-          createTextElement("h3", "wcv-panel-course-title", guide.title)
-        );
-        const termsWrap = document.createElement("div");
-        termsWrap.className = "wcv-study-guide-terms";
-        const topUrl = historicalSourcePageUrl({ url: guide.url }, 1);
-        if (topUrl) {
-          const link = createTextElement("a", "wcv-guide-source is-primary", "表紙・目次 p.1 ↗");
-          link.href = topUrl;
-          link.target = "_blank";
-          link.rel = "noopener noreferrer";
-          termsWrap.append(link);
+      const filterBar = document.createElement("div");
+      filterBar.className = "wcv-panel-subsearch-box";
+      const subInput = document.createElement("input");
+      subInput.type = "search";
+      subInput.className = "wcv-panel-subsearch-input";
+      subInput.placeholder = "要覧用語で絞り込み（例: 進級・GPA・教職・単位）…";
+      subInput.setAttribute("aria-label", "履修要覧用語で絞り込み");
+      subInput.value = state.panelGuideFilter || "";
+
+      const chipRow = document.createElement("div");
+      chipRow.className = "wcv-panel-guide-chips";
+      const listContainer = document.createElement("div");
+      listContainer.className = "wcv-guide-results";
+
+      const updateGuideChipStates = () => {
+        for (const chip of chipRow.querySelectorAll("button")) {
+          const active = (chip.dataset.term || "") === (state.panelGuideFilter || "");
+          chip.classList.toggle("is-active", active);
+          chip.setAttribute("aria-pressed", String(active));
         }
-        const termPages = guide.termPages || {};
-        for (const term of ["卒業要件", "修了要件", "必修", "授業科目", "単位"].slice(0, 4)) {
-          const pageNum = termPages[term]?.[0];
-          if (!pageNum) continue;
-          const pageUrl = historicalSourcePageUrl({ url: guide.url }, pageNum);
-          if (!pageUrl) continue;
-          const link = createTextElement("a", "wcv-guide-source", `${term} p.${pageNum} ↗`);
-          link.href = pageUrl;
-          link.target = "_blank";
-          link.rel = "noopener noreferrer";
-          termsWrap.append(link);
-        }
-        if (termsWrap.childElementCount) item.append(termsWrap);
-        body.append(item);
+      };
+
+      for (const [term, label] of [
+        ["", "すべて"],
+        ["卒業要件", "卒業要件"],
+        ["進級", "進級"],
+        ["GPA", "GPA"],
+        ["教職", "教職"],
+        ["休学", "休学"],
+        ["単位", "単位"]
+      ]) {
+        const chip = createTextElement("button", "wcv-panel-guide-chip", label);
+        chip.type = "button";
+        chip.dataset.term = term;
+        chip.addEventListener("click", () => {
+          state.panelGuideFilter = term;
+          subInput.value = term;
+          updateGuideChipStates();
+          renderStudyGuideList(guides, term, listContainer, count);
+        });
+        chipRow.append(chip);
       }
-      return;
+
+      subInput.addEventListener("input", () => {
+        state.panelGuideFilter = subInput.value;
+        updateGuideChipStates();
+        renderStudyGuideList(guides, state.panelGuideFilter, listContainer, count);
+      });
+
+      filterBar.append(subInput, chipRow);
+      body.append(banner, filterBar, listContainer);
+      updateGuideChipStates();
+      renderStudyGuideList(guides, state.panelGuideFilter, listContainer, count);
     }
+  }
+
+  function courseSearchBlob(course) {
+    if (state.searchBlobCache.has(course)) return state.searchBlobCache.get(course);
+    const rooms = (course.meetings || [])
+      .flatMap((m) => meetingRooms(m).flatMap((r) => [r, humanizeRoom(r, false)]))
+      .concat(course.provisionalRooms || []);
+    const slots = (course.meetings || []).flatMap((m) => [
+      m.termBlock || "",
+      m.day && m.period ? `${m.day}${m.period}` : "",
+      m.day && m.period ? `${m.day}${m.period}限` : "",
+      m.campus || ""
+    ]);
+    const depts = (course.departments || []).flatMap((d) => [d.label || "", d.sourceGroup || "", d.code || ""]);
+    const blob = [
+      course.courseCode || "",
+      normalizeCode(course.courseCode),
+      course.courseName || "",
+      ...(course.aliases || []),
+      ...(course.instructors || []),
+      ...(course.campuses || []),
+      ...rooms,
+      ...slots,
+      ...depts
+    ].join(" ").normalize("NFKC").toLowerCase();
+    state.searchBlobCache.set(course, blob);
+    return blob;
+  }
+
+  function textMatchesAllTokens(haystack, tokens) {
+    return tokens.every((token) => haystack.includes(token));
   }
 
   function searchDatabaseAcrossLayers(rawQuery) {
     const query = String(rawQuery || "").normalize("NFKC").trim().toLowerCase();
     if (query.length < 2) return null;
+    const tokens = query.split(/\s+/).filter(Boolean);
     const exactQuery = normalizeExactCourseTitle(query);
     const normTitle = normalizeCourseName(query);
 
@@ -2321,57 +2627,71 @@
       const name = String(course.courseName || "").normalize("NFKC").toLowerCase();
       const exactName = normalizeExactCourseTitle(course.courseName);
       const teachers = (course.instructors || []).join(" ").normalize("NFKC").toLowerCase();
+      const blob = courseSearchBlob(course);
       let score = 0;
       if (code && code === query) score = 100;
       else if (exactQuery && exactName === exactQuery) score = 90;
       else if (code && code.includes(query)) score = 80;
       else if (name.includes(query) || (exactQuery && exactName.includes(exactQuery))) score = 70;
       else if (teachers.includes(query)) score = 60;
+      else if (blob.includes(query)) score = 50;
+      else if (tokens.length > 1 && textMatchesAllTokens(blob, tokens)) score = 45;
       else if (normTitle.length >= 2 && normalizeCourseName(course.courseName).includes(normTitle)) score = 40;
       if (score > 0) scoredBase.push({ course, score });
     }
     scoredBase.sort((a, b) => b.score - a.score);
-    const baseMatches = scoredBase.slice(0, 6).map((item) => item.course);
+    const baseMatches = scoredBase.slice(0, 200).map((item) => item.course);
 
     const correctionMatches = [];
+    let correctionCount = 0;
     for (const event of state.correctionEvents || []) {
-      const code = normalizeCode(event.courseCode);
-      const name = String(event.courseName || "").normalize("NFKC").toLowerCase();
-      const excerpt = String(event.sourceExcerpt || "").normalize("NFKC").toLowerCase();
-      if ((code && code.includes(query)) || name.includes(query) || excerpt.includes(query)) {
-        correctionMatches.push(event);
-        if (correctionMatches.length >= 5) break;
+      const resolvedTitle = resolveCourseTitleByCode(event.courseCode, event.courseName);
+      const hay = [event.courseCode, event.courseName, resolvedTitle, event.sourceExcerpt, event.changeDate]
+        .filter(Boolean).join(" ").normalize("NFKC").toLowerCase();
+      if (hay.includes(query) || (tokens.length > 1 && textMatchesAllTokens(hay, tokens))) {
+        correctionCount += 1;
+        if (correctionMatches.length < 200) correctionMatches.push(event);
       }
     }
 
     const fallMatches = [];
+    let fallCount = 0;
     for (const record of state.currentFallEvidence || []) {
-      const code = normalizeCode(record.courseCode);
-      const name = String(record.courseName || "").normalize("NFKC").toLowerCase();
-      const teacher = String(record.instructorText || "").normalize("NFKC").toLowerCase();
-      if ((code && code.includes(query)) || name.includes(query) || teacher.includes(query)) {
-        fallMatches.push(record);
-        if (fallMatches.length >= 6) break;
+      const slots = (record.scheduleCandidates || [])
+        .map((c) => `${c.termCandidate || ""} ${c.dayCandidate || ""}${c.periodCandidate || ""}`).join(" ");
+      const hay = [record.courseCode, record.courseName, record.instructorText, ...(record.instructors || []), record.room, slots]
+        .filter(Boolean).join(" ").normalize("NFKC").toLowerCase();
+      if (hay.includes(query) || (tokens.length > 1 && textMatchesAllTokens(hay, tokens))) {
+        fallCount += 1;
+        if (fallMatches.length < 200) fallMatches.push(record);
       }
     }
 
     const historicalMatches = [];
+    let historicalCount = 0;
     for (const record of state.historicalEvidence || []) {
-      const code = normalizeCode(record.courseCode);
-      const name = String(record.courseName || "").normalize("NFKC").toLowerCase();
-      const teacher = String(record.instructorText || "").normalize("NFKC").toLowerCase();
-      if ((code && code.includes(query)) || name.includes(query) || teacher.includes(query)) {
-        historicalMatches.push(record);
-        if (historicalMatches.length >= 6) break;
+      const hay = [record.academicYear, record.courseCode, record.courseName, record.instructorText, ...(record.instructors || []), record.room]
+        .filter(Boolean).join(" ").normalize("NFKC").toLowerCase();
+      if (hay.includes(query) || (tokens.length > 1 && textMatchesAllTokens(hay, tokens))) {
+        historicalCount += 1;
+        if (historicalMatches.length < 200) historicalMatches.push(record);
       }
     }
 
+    const counts = {
+      base: scoredBase.length,
+      correction: correctionCount,
+      fall: fallCount,
+      historical: historicalCount
+    };
     return {
+      query,
       baseMatches,
       correctionMatches,
       fallMatches,
       historicalMatches,
-      total: baseMatches.length + correctionMatches.length + fallMatches.length + historicalMatches.length
+      counts,
+      total: counts.base + counts.correction + counts.fall + counts.historical
     };
   }
 
@@ -2381,86 +2701,88 @@
       empty.className = "wcv-panel-empty";
       empty.append(
         createTextElement("strong", "", "該当する科目・候補が見つかりませんでした。"),
-        createTextElement("p", "", "講義コード（例: leb05601）、科目名、担当教員名の一部で検索できます。")
+        createTextElement("p", "", "講義コード（例: leb05601）、科目名、教員名、教室（例: 12K）、曜日時限（例: 水2）の複数条件検索ができます。")
       );
       body.append(empty);
       return;
     }
 
-    for (const course of results.baseMatches) {
-      const item = createPanelCourseItem(course);
-      item.prepend(createTextElement("div", "wcv-panel-layer-tag is-snapshot", `2026基本スナップショット ・ ${course.courseCode || "コード未特定"}`));
-      body.append(item);
+    const layerDefs = [
+      ["all", "すべて", results.total],
+      ["base", "基本DB", results.counts.base],
+      ["correction", "訂正表", results.counts.correction],
+      ["fall", "後期PDF", results.counts.fall],
+      ["history", "過年度", results.counts.historical]
+    ].filter(([key, , cnt]) => key === "all" || cnt > 0);
+
+    if (!layerDefs.some(([key]) => key === state.panelLayerFilter)) {
+      state.panelLayerFilter = "all";
     }
 
-    for (const event of results.correctionMatches) {
-      const item = document.createElement("article");
-      item.className = "wcv-panel-course wcv-panel-db-item";
-      const resolvedTitle = resolveCourseTitleByCode(event.courseCode, event.courseName);
-      item.append(
-        createTextElement("div", "wcv-panel-layer-tag is-correction", `2026訂正表候補（未適用） ・ ${event.changeDate || "日付未記載"}`),
-        createTextElement("h3", "wcv-panel-course-title", resolvedTitle ? `${resolvedTitle} (${event.courseCode})` : `講義コード ${event.courseCode}`),
-        createTextElement("div", "wcv-panel-meta-line", event.sourceExcerpt || "")
-      );
-      const url = historicalSourcePageUrl(event, event.sourcePage);
-      if (url) {
-        const link = createTextElement("a", "wcv-correction-source", `訂正表PDF p.${event.sourcePage} ↗`);
-        link.href = url;
-        link.target = "_blank";
-        link.rel = "noopener noreferrer";
-        item.append(link);
+    if (layerDefs.length > 2) {
+      const bar = document.createElement("div");
+      bar.className = "wcv-panel-layer-bar";
+      bar.setAttribute("role", "group");
+      bar.setAttribute("aria-label", "データベース層で絞り込み");
+      for (const [key, label, cnt] of layerDefs) {
+        const active = state.panelLayerFilter === key;
+        const btn = createTextElement("button", `wcv-panel-layer-btn${active ? " is-active" : ""}`, `${label} (${cnt})`);
+        btn.type = "button";
+        btn.setAttribute("aria-pressed", String(active));
+        btn.addEventListener("click", () => {
+          state.panelLayerFilter = key;
+          state.panelSearchLimit = 12;
+          updatePanelContents();
+        });
+        bar.append(btn);
       }
-      body.append(item);
+      body.append(bar);
     }
 
-    for (const record of results.fallMatches) {
-      const item = document.createElement("article");
-      item.className = "wcv-panel-course wcv-panel-db-item";
-      const reviewed = record.reviewStatus === "visually-reviewed-provisional";
-      item.append(
-        createTextElement(
-          "div",
-          `wcv-panel-layer-tag ${reviewed ? "is-reviewed" : "is-fall"}`,
-          `2026後期PDF候補（${reviewed ? "目視確認済み" : "未確認抽出"}） ・ ${record.courseCode}`
-        ),
-        createTextElement("h3", "wcv-panel-course-title", record.courseName || "科目名抽出なし"),
-        createTextElement("div", "wcv-panel-meta-line", `担当候補: ${record.instructorText || "なし"} / 教室候補: ${record.room || "なし"}`)
-      );
-      const firstPage = record.sourceLocations?.[0]?.page;
-      const url = firstPage ? historicalSourcePageUrl(record, firstPage) : "";
-      if (url) {
-        const link = createTextElement("a", "wcv-fall-source", `後期PDF p.${firstPage} ↗`);
-        link.href = url;
-        link.target = "_blank";
-        link.rel = "noopener noreferrer";
-        item.append(link);
-      }
-      body.append(item);
+    const orderedEntries = [];
+    const filter = state.panelLayerFilter;
+    if (filter === "all" || filter === "base") {
+      for (const course of results.baseMatches) orderedEntries.push({ kind: "base", data: course });
+    }
+    if (filter === "all" || filter === "correction") {
+      for (const event of results.correctionMatches) orderedEntries.push({ kind: "correction", data: event });
+    }
+    if (filter === "all" || filter === "fall") {
+      for (const record of results.fallMatches) orderedEntries.push({ kind: "fall", data: record });
+    }
+    if (filter === "all" || filter === "history") {
+      for (const record of results.historicalMatches) orderedEntries.push({ kind: "history", data: record });
     }
 
-    for (const record of results.historicalMatches) {
-      const item = document.createElement("article");
-      item.className = "wcv-panel-course wcv-panel-db-item";
-      const reviewed = record.reviewStatus === "visually-reviewed-provisional";
-      item.append(
-        createTextElement(
-          "div",
-          `wcv-panel-layer-tag ${reviewed ? "is-reviewed" : "is-history"}`,
-          `${record.academicYear}年度PDF候補（${reviewed ? "目視確認済み" : "未確認抽出"}） ・ ${record.courseCode}`
-        ),
-        createTextElement("h3", "wcv-panel-course-title", record.courseName || "科目名抽出なし"),
-        createTextElement("div", "wcv-panel-meta-line", `担当候補: ${record.instructorText || "なし"} / 教室候補: ${record.room || "なし"}`)
-      );
-      const firstPage = record.sourceLocations?.[0]?.page;
-      const url = firstPage ? historicalSourcePageUrl(record, firstPage) : "";
-      if (url) {
-        const link = createTextElement("a", "wcv-history-source", `PDF p.${firstPage} ↗`);
-        link.href = url;
-        link.target = "_blank";
-        link.rel = "noopener noreferrer";
-        item.append(link);
+    const limit = Math.max(12, state.panelSearchLimit || 12);
+    const slice = orderedEntries.slice(0, limit);
+    for (const entry of slice) {
+      if (entry.kind === "base") {
+        const item = createPanelCourseItem(entry.data);
+        item.prepend(createTextElement("div", "wcv-panel-layer-tag is-snapshot", `2026基本スナップショット ・ ${entry.data.courseCode || "コード未特定"}`));
+        body.append(item);
+      } else if (entry.kind === "correction") {
+        body.append(buildCorrectionPanelItem(entry.data));
+      } else if (entry.kind === "fall") {
+        body.append(buildFallPanelItem(entry.data));
+      } else {
+        body.append(buildHistoricalPanelItem(entry.data));
       }
-      body.append(item);
+    }
+
+    if (orderedEntries.length > limit) {
+      const remaining = orderedEntries.length - limit;
+      const moreBtn = createTextElement(
+        "button",
+        "wcv-panel-expand-btn",
+        `さらに表示（残り${remaining}件を表示）`
+      );
+      moreBtn.type = "button";
+      moreBtn.addEventListener("click", () => {
+        state.panelSearchLimit = limit + 20;
+        updatePanelContents();
+      });
+      body.append(moreBtn);
     }
   }
 
@@ -2472,6 +2794,8 @@
     if (!body || !count) return;
 
     const query = state.panelSearchQuery.trim();
+    const clearBtn = panel.querySelector(".wcv-panel-search-clear");
+    if (clearBtn) clearBtn.hidden = query.length === 0;
     const quickBtns = panel.querySelectorAll(".wcv-panel-quick-btn");
     for (const btn of quickBtns) {
       const active = query.length < 2 && btn.dataset.mode === state.panelQuickMode;
@@ -2480,7 +2804,7 @@
     }
 
     if (query.length >= 2) {
-      const signature = `search:${query}`;
+      const signature = `search:${query}|${state.panelLayerFilter}|${state.panelSearchLimit}`;
       if (body.dataset.signature === signature) return;
       body.dataset.signature = signature;
       body.replaceChildren();
@@ -2491,7 +2815,7 @@
     }
 
     if (state.panelQuickMode !== "detected") {
-      const signature = `mode:${state.panelQuickMode}`;
+      const signature = `mode:${state.panelQuickMode}:${state.panelCorrectionLimit}`;
       if (body.dataset.signature === signature) return;
       body.dataset.signature = signature;
       body.replaceChildren();
@@ -2514,7 +2838,7 @@
       empty.className = "wcv-panel-empty";
       empty.append(
         createTextElement("strong", "", isLoginEntrancePage() ? "ログイン前の画面でも全学DBを検索できます" : "この画面では授業名を検出できませんでした"),
-        createTextElement("p", "", "上の検索欄に講義コード・科目名・教員名を入力するか、下のクイックボタンから公式PDFデータベースを閲覧できます。")
+        createTextElement("p", "", "上の検索欄に講義コード・科目名・教員名・教室・曜日時限を入力するか、下のクイックボタンから公式PDFデータベースを閲覧できます。")
       );
       const actions = document.createElement("div");
       actions.className = "wcv-panel-empty-actions";
@@ -2558,6 +2882,7 @@
       newLauncher.type = "button";
       newLauncher.setAttribute("aria-controls", UI_IDS.panel);
       newLauncher.setAttribute("aria-expanded", "false");
+      newLauncher.title = "授業情報・全学DB検索 (/ または Ctrl+K)";
       newLauncher.innerHTML = '<span class="wcv-launcher-icon" aria-hidden="true"></span><span>授業情報</span>';
 
       const newPanel = document.createElement("aside");
@@ -2583,16 +2908,33 @@
 
       const searchWrap = document.createElement("div");
       searchWrap.className = "wcv-panel-search";
+      const searchBox = document.createElement("div");
+      searchBox.className = "wcv-panel-search-box";
       const searchInput = document.createElement("input");
       searchInput.type = "search";
       searchInput.className = "wcv-panel-search-input";
-      searchInput.placeholder = "講義コード・科目名・教員名でDB横断検索…";
+      searchInput.placeholder = "コード・科目・教員・教室(例: 12K)・曜日(例: 水2)で検索…";
       searchInput.setAttribute("aria-label", "データベース横断検索");
       searchInput.value = state.panelSearchQuery;
+      const clearBtn = createTextElement("button", "wcv-panel-search-clear", "×");
+      clearBtn.type = "button";
+      clearBtn.hidden = !state.panelSearchQuery;
+      clearBtn.setAttribute("aria-label", "検索語をクリア");
+      clearBtn.addEventListener("click", () => {
+        state.panelSearchQuery = "";
+        state.panelLayerFilter = "all";
+        state.panelSearchLimit = 12;
+        searchInput.value = "";
+        updatePanelContents();
+        searchInput.focus();
+      });
       searchInput.addEventListener("input", () => {
         state.panelSearchQuery = searchInput.value;
+        state.panelLayerFilter = "all";
+        state.panelSearchLimit = 12;
         updatePanelContents();
       });
+      searchBox.append(searchInput, clearBtn);
 
       const quickBar = document.createElement("div");
       quickBar.className = "wcv-panel-quick-bar";
@@ -2611,12 +2953,13 @@
         qBtn.addEventListener("click", () => {
           state.panelQuickMode = mode;
           state.panelSearchQuery = "";
+          state.panelLayerFilter = "all";
           searchInput.value = "";
           updatePanelContents();
         });
         quickBar.append(qBtn);
       }
-      searchWrap.append(searchInput, quickBar);
+      searchWrap.append(searchBox, quickBar);
 
       const body = document.createElement("div");
       body.className = "wcv-panel-body";
@@ -2637,10 +2980,30 @@
         if (open) updatePanelContents();
       };
       newLauncher.addEventListener("click", () => setOpen(newPanel.hidden));
-      close.addEventListener("click", () => setOpen(false));
-      document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape" && !newPanel.hidden) setOpen(false);
+      close.addEventListener("click", () => {
+        setOpen(false);
+        restoreSearchFocus();
       });
+      if (!document.documentElement.dataset.wcvPanelKeybound) {
+        document.documentElement.dataset.wcvPanelKeybound = "true";
+        document.addEventListener("keydown", (event) => {
+          const livePanel = document.getElementById(UI_IDS.panel);
+          if (event.key === "Escape" && livePanel && !livePanel.hidden) {
+            livePanel.hidden = true;
+            document.getElementById(UI_IDS.launcher)?.setAttribute("aria-expanded", "false");
+            restoreSearchFocus();
+            return;
+          }
+          const isShortcut = (event.key.toLowerCase() === "k" && (event.ctrlKey || event.metaKey) && !event.altKey)
+            || (event.key === "/" && !event.ctrlKey && !event.metaKey && !event.altKey);
+          if (!isShortcut || !state.settings.enabled || !state.settings.showFloatingPanel || isCourseContentPage()) return;
+          const activeTag = document.activeElement?.tagName;
+          const inEditable = activeTag === "INPUT" || activeTag === "TEXTAREA" || activeTag === "SELECT" || document.activeElement?.isContentEditable;
+          if (inEditable) return;
+          event.preventDefault();
+          openPanelAndFocusSearch();
+        });
+      }
       document.body.append(newLauncher, newPanel);
       updatePanelContents();
     });
@@ -2662,17 +3025,87 @@
     return course?.category || "授業";
   }
 
-  function nativeMeetingFor(course, day, period) {
+  function nativeMeetingFor(course, day, period, contextText = "") {
     const meetings = course?.meetings || [];
-    return meetings.find((meeting) => meeting.day === day && Number(meeting.period) === Number(period))
-      || meetings.find((meeting) => Number(meeting.period) === Number(period))
-      || meetings[0]
-      || null;
+    const termHints = extractTermHints(contextText);
+    const hasPeriod = Number.isInteger(Number(period));
+    if (termHints.length) {
+      const exactTermSlot = meetings.find((m) => m.day === day && Number(m.period) === Number(period) && meetingMatchesTermHints(m, termHints));
+      if (exactTermSlot) return exactTermSlot;
+    }
+    const exactSlot = meetings.find((m) => m.day === day && Number(m.period) === Number(period));
+    if (exactSlot) return exactSlot;
+    if (termHints.length && hasPeriod) {
+      const termPeriod = meetings.find((m) => Number(m.period) === Number(period) && meetingMatchesTermHints(m, termHints));
+      if (termPeriod) return termPeriod;
+    }
+    const byPeriod = hasPeriod ? meetings.find((m) => Number(m.period) === Number(period)) : null;
+    if (byPeriod) return byPeriod;
+    if (termHints.length) {
+      const byTerm = meetings.find((m) => meetingMatchesTermHints(m, termHints));
+      if (byTerm) return byTerm;
+    }
+    return meetings[0] || null;
   }
 
-  function nativePeriodLabel(period) {
-    const profile = state.dataset?.dataset?.periodProfiles?.standard?.periods?.[String(period)];
-    return profile ? `${profile.start}〜${profile.end}` : "";
+  function nativePeriodBounds(meeting, period) {
+    const profiles = state.dataset?.dataset?.periodProfiles || {};
+    const profileId = meeting?.timeProfile || "standard";
+    const profile = profiles[profileId] || profiles.standard;
+    const info = profile?.periods?.[String(period)];
+    if (!info) return null;
+    return {
+      start: meeting?.startsAtNine ? "09:00" : info.start,
+      end: info.end
+    };
+  }
+
+  function nativePeriodLabel(period, meeting = null) {
+    const bounds = nativePeriodBounds(meeting, period);
+    return bounds ? `${bounds.start}〜${bounds.end}` : "";
+  }
+
+  function resolveNativeSlotInfo(course, day, period, contextText = "") {
+    const termHints = extractTermHints(contextText);
+    const meeting = nativeMeetingFor(course, day, period, contextText);
+    const hasMultiOfferings = Array.isArray(course?.offerings) && course.offerings.length > 1;
+    const singleMeetingRoom = meeting ? roomForMeeting(meeting) : "";
+    const room = hasMultiOfferings
+      ? roomsLabel(course, { day, period, maxVisible: 2, termHints })
+      : (singleMeetingRoom && singleMeetingRoom !== "教室未定" ? singleMeetingRoom : roomsLabel(course, { day, period, maxVisible: 2, termHints }));
+    const teacher = hasMultiOfferings
+      ? instructorsLabel(course, { day, period, maxVisible: 2, termHints })
+      : shortInstructors(course?.instructors, 2);
+    const siblings = findSiblingOfferings(course);
+    const corrections = getCorrectionEventsForCourse(course);
+    return { meeting, room, teacher, siblings, corrections };
+  }
+
+  function registerNativeScheduleEntry({ anchor, course, day, period, slotInfo }) {
+    if (!course || !day || !Number.isInteger(Number(period))) return;
+    const key = `${day}|${period}|${courseKey(course)}`;
+    const nextEntry = {
+      key,
+      day,
+      period: Number(period),
+      course,
+      anchor,
+      href: anchor?.href || webclassCourseUrl(anchor) || "",
+      room: slotInfo.room,
+      teacher: slotInfo.teacher,
+      meeting: slotInfo.meeting,
+      correctionsCount: slotInfo.corrections.length
+    };
+    const idx = state.nativeScheduleEntries.findIndex((item) => item.key === key);
+    if (idx < 0) {
+      state.nativeScheduleEntries.push(nextEntry);
+      return;
+    }
+    const existingVisible = state.nativeScheduleEntries[idx].anchor?.getClientRects?.().length > 0;
+    const nextVisible = anchor?.getClientRects?.().length > 0;
+    if (!existingVisible && nextVisible) {
+      state.nativeScheduleEntries[idx] = nextEntry;
+    }
   }
 
   function compactStatusText(text) {
@@ -2691,9 +3124,12 @@
     const text = String(value == null ? "" : value);
     if (className === "wcv-native-card-room" && text.includes("・")) {
       const idx = text.lastIndexOf("・");
+      if (text.length <= 11 && !text.includes("/")) {
+        valueEl.classList.add("wcv-room-nowrap");
+      }
       valueEl.append(
-        document.createTextNode(text.slice(0, idx + 1)),
-        createTextElement("span", "wcv-room-code", text.slice(idx + 1))
+        document.createTextNode(text.slice(0, idx)),
+        createTextElement("span", "wcv-room-code", text.slice(idx))
       );
     } else {
       valueEl.textContent = text;
@@ -2705,25 +3141,17 @@
     return line;
   }
 
-  function enhanceNativeCourseAnchor(anchor, course, day, period) {
-    if (!(anchor instanceof HTMLAnchorElement) || !course) return;
-    if (anchor.dataset.wcvNativeEnhanced === "true") return;
+  function enhanceNativeCourseAnchor(anchor, course, day, period, contextText = "") {
+    if (!(anchor instanceof HTMLAnchorElement) || !course) return null;
+    const slotInfo = resolveNativeSlotInfo(course, day, period, contextText);
+    if (anchor.dataset.wcvNativeEnhanced === "true") return slotInfo;
     rememberNativeElement(anchor);
 
     const rawStatus = Array.from(anchor.querySelectorAll(".course-new-message, .course-contents-info, .badge"))
       .map((element) => element.textContent)
       .map(compactStatusText)
       .filter(Boolean);
-    const meeting = nativeMeetingFor(course, day, period);
-    const hasMultiOfferings = Array.isArray(course.offerings) && course.offerings.length > 1;
-    const singleMeetingRoom = meeting ? roomForMeeting(meeting) : "";
-    const room = hasMultiOfferings
-      ? roomsLabel(course, { day, period, maxVisible: 2 })
-      : (singleMeetingRoom && singleMeetingRoom !== "教室未定" ? singleMeetingRoom : roomsLabel(course, { day, period, maxVisible: 2 }));
-    const teacher = hasMultiOfferings
-      ? instructorsLabel(course, { day, period, maxVisible: 2 })
-      : shortInstructors(course.instructors, 2);
-    const siblings = findSiblingOfferings(course);
+    const { meeting, room, teacher, siblings, corrections } = slotInfo;
 
     anchor.innerHTML = "";
     addNativeClass(anchor, "wcv-native-course-card", categoryClass(course));
@@ -2781,13 +3209,13 @@
         course.courseCode ? `${course.courseCode}・全${siblings.length}開講` : `複数開講 ${siblings.length}クラス`
       ));
     }
-    const corrections = getCorrectionEventsForCourse(course);
     if (corrections.length) {
       statusWrap.append(createTextElement("span", "wcv-native-status wcv-native-status-correction", `訂正表候補${corrections.length}件`));
     }
 
     anchor.append(top, meta);
     if (statusWrap.childElementCount) anchor.append(statusWrap);
+    return slotInfo;
   }
 
   function enhanceNativeScheduleTable() {
@@ -2819,10 +3247,13 @@
         addNativeClass(cell, "wcv-native-schedule-cell");
         const day = dayHeaders[index] || "";
         for (const anchor of cell.querySelectorAll("a[href*='/webclass/course.php/']")) {
-          const course = findCourse(`${anchor.href} ${anchor.textContent || ""}`, { day, period, semesterText });
-          if (!course) continue;
+          const anchorContext = [elementText(anchor), semesterText].filter(Boolean).join(" ");
+          const matched = findCourse(`${anchor.href} ${anchor.textContent || ""}`, { day, period, semesterText });
+          if (!matched) continue;
+          const course = courseForContext(matched, anchorContext);
           state.nativeDetectedCourses.set(courseKey(course), course);
-          enhanceNativeCourseAnchor(anchor, course, day, period);
+          const slotInfo = enhanceNativeCourseAnchor(anchor, course, day, period, anchorContext);
+          if (slotInfo) registerNativeScheduleEntry({ anchor, course, day, period, slotInfo });
         }
       });
     }
@@ -2845,10 +3276,13 @@
         continue;
       }
       if (child.matches("a[href*='/webclass/course.php/']")) {
-        const course = findCourse(`${child.href} ${child.textContent || ""}`, { day, period, semesterText });
-        if (course) {
+        const anchorContext = [elementText(child), semesterText].filter(Boolean).join(" ");
+        const matched = findCourse(`${child.href} ${child.textContent || ""}`, { day, period, semesterText });
+        if (matched) {
+          const course = courseForContext(matched, anchorContext);
           state.nativeDetectedCourses.set(courseKey(course), course);
-          enhanceNativeCourseAnchor(child, course, day, period);
+          const slotInfo = enhanceNativeCourseAnchor(child, course, day, period, anchorContext);
+          if (slotInfo) registerNativeScheduleEntry({ anchor: child, course, day, period, slotInfo });
         }
       }
     }
@@ -2923,6 +3357,333 @@
     sidebar.append(root);
   }
 
+  function jstNowParts(date = new Date()) {
+    const formatter = new Intl.DateTimeFormat("en-US", {
+      timeZone: "Asia/Tokyo",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      weekday: "short",
+      hour: "2-digit",
+      minute: "2-digit",
+      hourCycle: "h23"
+    });
+    const parts = Object.fromEntries(formatter.formatToParts(date).map((p) => [p.type, p.value]));
+    const weekMap = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
+    const dayLabels = ["日", "月", "火", "水", "木", "金", "土"];
+    const weekdayIndex = weekMap[parts.weekday] ?? 0;
+    return {
+      year: Number(parts.year),
+      month: Number(parts.month),
+      day: Number(parts.day),
+      weekdayIndex,
+      weekdayJa: dayLabels[weekdayIndex],
+      hour: Number(parts.hour) % 24,
+      minute: Number(parts.minute)
+    };
+  }
+
+  function timeStringToMinutes(text) {
+    const match = String(text || "").match(/^(\d{1,2}):(\d{2})$/);
+    return match ? Number(match[1]) * 60 + Number(match[2]) : null;
+  }
+
+  function formatIcsDate(year, month, day, hhmm) {
+    const [hh, mm] = String(hhmm || "00:00").split(":");
+    const pad = (v) => String(v).padStart(2, "0");
+    return `${year}${pad(month)}${pad(day)}T${pad(hh)}${pad(mm)}00`;
+  }
+
+  function escapeIcsText(value) {
+    return String(value || "")
+      .replace(/\\/g, "\\\\")
+      .replace(/\r?\n/g, "\\n")
+      .replace(/;/g, "\\;")
+      .replace(/,/g, "\\,");
+  }
+
+  function buildTimetableIcs(entries, options = {}) {
+    const refDate = options.referenceDate instanceof Date ? options.referenceDate : new Date();
+    const now = jstNowParts(refDate);
+    const dayIndexMap = { "日": 0, "月": 1, "火": 2, "水": 3, "木": 4, "金": 5, "土": 6 };
+    const stamp = `${now.year}${String(now.month).padStart(2, "0")}${String(now.day).padStart(2, "0")}T${String(now.hour).padStart(2, "0")}${String(now.minute).padStart(2, "0")}00`;
+
+    const lines = [
+      "BEGIN:VCALENDAR",
+      "VERSION:2.0",
+      "PRODID:-//TCU WebClass Visual//Timetable Export//JA",
+      "CALSCALE:GREGORIAN",
+      "BEGIN:VTIMEZONE",
+      "TZID:Asia/Tokyo",
+      "BEGIN:STANDARD",
+      "DTSTART:19700101T000000",
+      "TZOFFSETFROM:+0900",
+      "TZOFFSETTO:+0900",
+      "TZNAME:JST",
+      "END:STANDARD",
+      "END:VTIMEZONE"
+    ];
+
+    for (const entry of entries || []) {
+      const targetDayIdx = dayIndexMap[entry.day];
+      if (targetDayIdx == null || !Number.isInteger(Number(entry.period))) continue;
+      const bounds = nativePeriodBounds(entry.meeting, entry.period);
+      if (!bounds?.start || !bounds?.end) continue;
+      const deltaDays = (targetDayIdx - now.weekdayIndex + 7) % 7;
+      const dt = new Date(Date.UTC(now.year, now.month - 1, now.day + deltaDays));
+      const y = dt.getUTCFullYear();
+      const m = dt.getUTCMonth() + 1;
+      const d = dt.getUTCDate();
+      const code = entry.course?.courseCode || "";
+      const summary = entry.course?.courseName || "授業";
+      const campus = entry.meeting?.campus && !String(entry.room || "").includes(entry.meeting.campus)
+        ? `${entry.meeting.campus} ` : "";
+      const location = entry.room && entry.room !== "教室未定" ? `${campus}${entry.room}` : (entry.meeting?.campus || "");
+      const descParts = [
+        code ? `講義コード: ${code}` : "",
+        entry.teacher ? `担当: ${entry.teacher}` : "",
+        entry.href ? `WebClass: ${entry.href}` : ""
+      ].filter(Boolean);
+      const uid = `tcu-wcv-${encodeURIComponent(code || summary)}-${targetDayIdx}-${entry.period}@webclass.tcu.ac.jp`;
+
+      lines.push(
+        "BEGIN:VEVENT",
+        `UID:${uid}`,
+        `DTSTAMP;TZID=Asia/Tokyo:${stamp}`,
+        `DTSTART;TZID=Asia/Tokyo:${formatIcsDate(y, m, d, bounds.start)}`,
+        `DTEND;TZID=Asia/Tokyo:${formatIcsDate(y, m, d, bounds.end)}`,
+        "RRULE:FREQ=WEEKLY;COUNT=15",
+        `SUMMARY:${escapeIcsText(summary)}`,
+        ...(location ? [`LOCATION:${escapeIcsText(location)}`] : []),
+        ...(descParts.length ? [`DESCRIPTION:${escapeIcsText(descParts.join("\n"))}`] : []),
+        "END:VEVENT"
+      );
+    }
+
+    lines.push("END:VCALENDAR");
+    return `${lines.join("\r\n")}\r\n`;
+  }
+
+  function downloadTimetableIcs(button) {
+    if (!state.nativeScheduleEntries.length) return;
+    const ics = buildTimetableIcs(state.nativeScheduleEntries);
+    const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "tcu-webclass-timetable.ics";
+    document.body.append(link);
+    link.click();
+    link.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+    if (button) {
+      const prev = button.textContent;
+      button.textContent = "保存済 ✓";
+      button.classList.add("is-copied");
+      setTimeout(() => {
+        if (!button.isConnected) return;
+        button.textContent = prev;
+        button.classList.remove("is-copied");
+      }, 1800);
+    }
+  }
+
+  function ensureTodayTimetableStrip(form) {
+    if (!form) return;
+    const target = form.querySelector(".wcv-native-schedule-viewport, #schedule-table, .wcv-native-mobile-schedule");
+    if (!target || !state.nativeScheduleEntries.length) {
+      document.getElementById("wcv-today-strip")?.remove();
+      return;
+    }
+
+    const now = jstNowParts();
+    const weekdays = ["月", "火", "水", "木", "金", "土"];
+    const defaultDay = weekdays.includes(now.weekdayJa) ? now.weekdayJa : "月";
+    const activeDay = weekdays.includes(state.todaySelectedDay) ? state.todaySelectedDay : defaultDay;
+    const isViewingToday = activeDay === now.weekdayJa;
+    const nowMinutes = now.hour * 60 + now.minute;
+
+    const dayEntries = state.nativeScheduleEntries
+      .filter((entry) => entry.day === activeDay)
+      .sort((a, b) => a.period - b.period);
+
+    const signature = [
+      activeDay,
+      now.weekdayJa,
+      Math.floor(nowMinutes / 5),
+      state.todayStripCollapsed ? "1" : "0",
+      dayEntries.map((e) => `${e.key}:${e.room}:${e.teacher}:${e.correctionsCount}`).join("|"),
+      state.nativeScheduleEntries.length
+    ].join("#");
+
+    let strip = document.getElementById("wcv-today-strip");
+    if (strip && strip.dataset.signature === signature) return;
+
+    withOwnMutation(() => {
+      if (!strip) {
+        strip = document.createElement("section");
+        strip.id = "wcv-today-strip";
+        strip.className = "wcv-today-strip wcv-root wcv-native-injected";
+        strip.setAttribute("aria-label", "今日の授業と時間割ユーティリティ");
+        target.insertAdjacentElement("beforebegin", strip);
+      }
+      strip.dataset.signature = signature;
+      strip.replaceChildren();
+
+      const header = document.createElement("div");
+      header.className = "wcv-today-header";
+      const titleGroup = document.createElement("div");
+      titleGroup.className = "wcv-today-title-group";
+      titleGroup.append(createTextElement(
+        "strong",
+        "wcv-today-title",
+        isViewingToday ? `今日の授業 (${now.weekdayJa}曜)` : `${activeDay}曜の授業`
+      ));
+      if (!weekdays.includes(now.weekdayJa) && activeDay === "月" && !state.todaySelectedDay) {
+        titleGroup.append(createTextElement("span", "wcv-today-subbadge", "日曜のため月曜を表示"));
+      }
+
+      const dayTabs = document.createElement("div");
+      dayTabs.className = "wcv-today-day-tabs";
+      dayTabs.setAttribute("role", "group");
+      dayTabs.setAttribute("aria-label", "表示する曜日を選択");
+      for (const day of weekdays) {
+        const countForDay = state.nativeScheduleEntries.filter((e) => e.day === day).length;
+        const active = day === activeDay;
+        const isToday = day === now.weekdayJa;
+        const label = isToday ? `${day}(今日)` : day;
+        const btn = createTextElement(
+          "button",
+          `wcv-today-day-btn${active ? " is-active" : ""}${isToday ? " is-today" : ""}${countForDay === 0 ? " is-empty" : ""}`,
+          label
+        );
+        btn.type = "button";
+        btn.setAttribute("aria-pressed", String(active));
+        btn.title = countForDay ? `${day}曜: ${countForDay}科目` : `${day}曜: 授業なし`;
+        btn.addEventListener("click", () => {
+          state.todaySelectedDay = day;
+          ensureTodayTimetableStrip(form);
+        });
+        dayTabs.append(btn);
+      }
+
+      const tools = document.createElement("div");
+      tools.className = "wcv-today-tools";
+      const icsBtn = createTextElement("button", "wcv-today-tool-btn is-export", ".ics時間割保存");
+      icsBtn.type = "button";
+      icsBtn.title = "現在の時間割をカレンダーアプリ(.ics)用に書き出します";
+      icsBtn.addEventListener("click", () => downloadTimetableIcs(icsBtn));
+      const collapseBtn = createTextElement(
+        "button",
+        "wcv-today-tool-btn",
+        state.todayStripCollapsed ? "開く" : "閉じる"
+      );
+      collapseBtn.type = "button";
+      collapseBtn.setAttribute("aria-expanded", String(!state.todayStripCollapsed));
+      collapseBtn.addEventListener("click", () => {
+        state.todayStripCollapsed = !state.todayStripCollapsed;
+        ensureTodayTimetableStrip(form);
+      });
+      tools.append(icsBtn, collapseBtn);
+      header.append(titleGroup, dayTabs, tools);
+      strip.append(header);
+
+      if (state.todayStripCollapsed) return;
+
+      const list = document.createElement("div");
+      list.className = "wcv-today-list";
+      if (!dayEntries.length) {
+        list.append(createTextElement("div", "wcv-today-empty", `${activeDay}曜日の時間割に登録された授業はありません。`));
+        strip.append(list);
+        return;
+      }
+
+      let markedNext = false;
+      for (const entry of dayEntries) {
+        const card = document.createElement("article");
+        card.className = `wcv-today-card ${categoryClass(entry.course)}`;
+        const bounds = nativePeriodBounds(entry.meeting, entry.period);
+        const startMin = bounds ? timeStringToMinutes(bounds.start) : null;
+        const endMin = bounds ? timeStringToMinutes(bounds.end) : null;
+        let timingState = "";
+        if (isViewingToday && startMin != null && endMin != null) {
+          if (nowMinutes >= startMin && nowMinutes <= endMin) timingState = "current";
+          else if (!markedNext && nowMinutes < startMin) {
+            timingState = "next";
+            markedNext = true;
+          }
+        }
+        if (timingState === "current") card.classList.add("is-current-period");
+        if (timingState === "next") card.classList.add("is-next-period");
+
+        const top = document.createElement("div");
+        top.className = "wcv-today-card-top";
+        const timeText = bounds ? `${entry.period}限 ${bounds.start}〜${bounds.end}` : `${entry.period}限`;
+        top.append(createTextElement("span", "wcv-today-period", timeText));
+        if (timingState === "current") top.append(createTextElement("span", "wcv-today-live-badge is-now", "受講中"));
+        else if (timingState === "next") top.append(createTextElement("span", "wcv-today-live-badge is-next", "次の授業"));
+        else if (entry.correctionsCount > 0) {
+          top.append(createTextElement("span", "wcv-today-live-badge is-correction", `訂正${entry.correctionsCount}`));
+        }
+
+        const link = createTextElement("a", "wcv-today-course-link", entry.course.courseName);
+        if (entry.href) link.href = entry.href;
+
+        const meta = createTextElement(
+          "div",
+          "wcv-today-card-meta",
+          `${entry.room || "教室未定"} ・ ${entry.teacher || "担当未定"}`
+        );
+        card.append(top, link, meta);
+        list.append(card);
+      }
+      strip.append(list);
+    });
+  }
+
+  function applyCourseListFilter(form) {
+    if (!form) return;
+    const bar = document.getElementById("wcv-course-list-filters");
+    const items = Array.from(form.querySelectorAll("ul.courseList > li"));
+    if (!items.length) {
+      bar?.remove();
+      return;
+    }
+    const mode = state.courseListFilter || "all";
+    const scheduleKeys = new Set(state.nativeDetectedCourses.keys());
+    let visibleCount = 0;
+
+    for (const item of items) {
+      let show = true;
+      if (mode === "active") {
+        show = Boolean(
+          item.querySelector(".course-new-message, .course-contents-info, .badge")
+          || /新着|締切|未読/.test(item.textContent || "")
+        );
+      } else if (mode === "extra") {
+        const anchor = item.querySelector("a[href*='/webclass/course.php/']");
+        if (anchor) {
+          const code = extractCourseCodes(`${anchor.href} ${anchor.textContent || ""}`)[0] || "";
+          const match = code ? (state.codeIndex.get(code) || buildProvisionalFallCourse(code)) : null;
+          const inTable = (code && scheduleKeys.has(code)) || (match && scheduleKeys.has(courseKey(match)));
+          show = !inTable;
+        }
+      }
+      item.classList.toggle("wcv-native-list-hidden", !show);
+      if (show) visibleCount += 1;
+    }
+
+    if (bar) {
+      const countEl = bar.querySelector(".wcv-course-list-filter-count");
+      if (countEl) countEl.textContent = mode === "all" ? `全${items.length}件` : `${visibleCount} / ${items.length}件`;
+      for (const btn of bar.querySelectorAll("button[data-filter]")) {
+        const active = btn.dataset.filter === mode;
+        btn.classList.toggle("is-active", active);
+        btn.setAttribute("aria-pressed", String(active));
+      }
+    }
+  }
+
   function enhanceNativeCourseListArea(form) {
     if (!form) return;
     const heading = Array.from(form.children).find((element) => element.tagName === "H4" && /その他のコース/.test(element.textContent || ""));
@@ -2932,6 +3693,34 @@
     for (const tree of form.querySelectorAll(".courseTree")) addNativeClass(tree, "wcv-native-course-tree");
     for (const levelTitle of form.querySelectorAll(".courseTree-levelTitle")) addNativeClass(levelTitle, "wcv-native-course-group-title");
     for (const item of form.querySelectorAll("ul.courseList > li")) addNativeClass(item, "wcv-native-course-list-item");
+
+    const tree = form.querySelector(".courseTree");
+    const hasListItems = Boolean(form.querySelector("ul.courseList > li"));
+    if (tree && hasListItems && !document.getElementById("wcv-course-list-filters")) {
+      withOwnMutation(() => {
+        const bar = document.createElement("div");
+        bar.id = "wcv-course-list-filters";
+        bar.className = "wcv-course-list-filters wcv-root wcv-native-injected";
+        bar.setAttribute("role", "group");
+        bar.setAttribute("aria-label", "その他のコース絞り込み");
+        for (const [key, label] of [
+          ["all", "すべて"],
+          ["active", "新着・課題あり"],
+          ["extra", "時間割表外のみ"]
+        ]) {
+          const btn = createTextElement("button", "wcv-course-list-filter-btn", label);
+          btn.type = "button";
+          btn.dataset.filter = key;
+          btn.addEventListener("click", () => {
+            state.courseListFilter = key;
+            applyCourseListFilter(form);
+          });
+          bar.append(btn);
+        }
+        bar.append(createTextElement("span", "wcv-course-list-filter-count", ""));
+        tree.insertAdjacentElement("beforebegin", bar);
+      });
+    }
   }
 
   function isLoginEntrancePage() {
@@ -2986,13 +3775,9 @@
       tools = document.createElement("span");
       tools.id = "wcv-native-heading-tools";
       tools.className = "wcv-native-heading-tools wcv-native-injected";
-      const searchBtn = createTextElement("button", "wcv-native-open-search wcv-native-injected", "全学DB・訂正表・過年度検索");
-      searchBtn.id = "wcv-native-open-search";
-      searchBtn.type = "button";
-      searchBtn.addEventListener("click", () => openPanelAndFocusSearch());
       const badge = createTextElement("span", "wcv-native-course-count wcv-native-injected", "");
       badge.id = UI_IDS.nativeCourseCount;
-      tools.append(searchBtn, badge);
+      tools.append(badge);
       heading.append(tools);
     }
     const badge = document.getElementById(UI_IDS.nativeCourseCount);
@@ -3001,6 +3786,186 @@
       .filter((code) => state.codeIndex.has(code)));
     const nextText = `${scheduleCodes.length}科目`;
     if (badge && badge.textContent !== nextText) badge.textContent = nextText;
+  }
+
+  function readEnrollment(form) {
+    const year = Number(form.elements.year?.value);
+    const term = form.elements.semester?.value;
+    const courses = [];
+    const seen = new Set();
+    for (const anchor of form.querySelectorAll("#schedule-table a[href*='/webclass/course.php/'], .schedule-list a[href*='/webclass/course.php/']")) {
+      const url = new URL(anchor.href);
+      if (url.origin !== location.origin) continue;
+      const match = /^\/webclass\/course\.php\/([a-z0-9]+)\//i.exec(url.pathname);
+      if (!match) continue;
+      const identity = match[1].toLowerCase();
+      if (seen.has(identity)) continue;
+      seen.add(identity);
+      const code = /^(?:(\d{2}))?([a-z]{3,4}\d{4,6})$/.exec(identity);
+      const exact = code && (!code[1] || Number(code[1]) === year % 100) ? code[2] : null;
+      const original = state.nativeOriginals.get(anchor)?.children || [...anchor.childNodes];
+      const name = original.filter((node) => !(node instanceof Element) ||
+        !node.matches(".course-new-message, .course-contents-info, .badge, .list-group-item-text, .wcv-root"))
+        .map((node) => node.textContent).join(" ")
+        .trim().replace(/\s+/g, " ").slice(0, 160) || "授業名なし";
+      courses.push({ code: exact, name });
+    }
+    return { year, term, courses };
+  }
+
+  let inlineEnrollmentIndex;
+  let inlineEvidence;
+  async function updateEnrollmentSummary(form, output) {
+    const snapshot = readEnrollment(form);
+    const signature = JSON.stringify(snapshot);
+    // Keep registration names in the isolated script, outside the page DOM.
+    if (output._wcvSignature === signature) return;
+    output._wcvSignature = signature;
+    const current = snapshot.year === state.dataset?.dataset?.academicYear;
+    if (inlineEnrollmentIndex?.year !== snapshot.year) {
+      const rows = current ? state.dataset.courses : state.historicalEvidence.filter(r => r.academicYear === snapshot.year);
+      inlineEnrollmentIndex = { year: snapshot.year, index: WCV_ENROLLMENT_MATCH.createIndex(rows) };
+    }
+    const index = inlineEnrollmentIndex.index;
+    try {
+      inlineEvidence ??= fetch(chrome.runtime.getURL("data/syllabus-credit-evidence.json"))
+        .then(r => { if (!r.ok) throw new Error(); return r.json(); })
+        .catch(error => { inlineEvidence = null; throw error; });
+      const evidence = await inlineEvidence;
+      if (output._wcvSignature !== signature || !output.isConnected) return;
+      const codes = new Set(snapshot.courses.map(row => row.code).filter(Boolean));
+      let matched = 0, verified = 0, units = 0;
+      for (const row of snapshot.courses) {
+        const {course} = WCV_ENROLLMENT_MATCH.identify(row, index, snapshot.term, snapshot.year, current);
+        if (!course || (!row.code && codes.has(course.courseCode))) continue;
+        codes.add(course.courseCode);
+        matched++;
+        const records = evidence.records.filter(record => WCV_ENROLLMENT_MATCH.validEvidence(record,
+          snapshot.year, course.courseCode, [course.courseName, ...(course.aliases || [])],
+          WCV_ENROLLMENT_MATCH.semesterFor(snapshot.term, course)));
+        if (records.length && records.every(record => record.units === records[0].units)) {
+          units += records[0].units;
+          verified++;
+        }
+      }
+      const pending = snapshot.courses.length - matched;
+      const details = output.parentElement.querySelector("button");
+      details.textContent = pending ? "要確認の科目を見る（履修・進級チェック）" : "履修・進級チェック";
+      output.replaceChildren(
+        createTextElement("span", "wcv-enrollment-scope", snapshot.year + "年度・" + (WCV_ENROLLMENT_MATCH.terms[snapshot.term] || "表示中の学期") + "・参加コース " + snapshot.courses.length + "件"),
+        createTextElement("strong", "", "授業データと一致 " + matched + "件"),
+        createTextElement("strong", "", "要確認 " + pending + "件"),
+        createTextElement("span", "wcv-enrollment-units", verified
+          ? "シラバスで確認済みの単位数：" + verified + "件で計" + units / 100 + "単位"
+          : "単位数：同梱資料では未確認")
+      );
+    } catch {
+      output._wcvSignature = null;
+      output.textContent = "自動照合のデータを読み込めませんでした。";
+    }
+  }
+
+  function ensureLearningTools(form) {
+    if (form.name !== "condition" || !form.querySelector("#schedule-table, .schedule-list")) return;
+    const existing = document.getElementById("wcv-learning-tools");
+    if (existing) {
+      updateEnrollmentSummary(form, existing.querySelector(".wcv-enrollment-summary"));
+      existing.querySelector("#wcv-native-open-search").hidden = !state.settings.showFloatingPanel;
+      return;
+    }
+    const nav = document.createElement("nav");
+    nav.id = "wcv-learning-tools";
+    nav.className = "wcv-learning-tools wcv-root wcv-native-injected";
+    nav.setAttribute("aria-labelledby", "wcv-learning-title");
+    const title = createTextElement("h4", "", "履修・学習ツール");
+    title.id = "wcv-learning-title";
+    const review = document.createElement("div");
+    review.className = "wcv-enrollment-review";
+    const actions = document.createElement("div");
+    actions.className = "wcv-learning-actions";
+    const status = createTextElement("p", "wcv-learning-status", "");
+    status.setAttribute("role", "status");
+    for (const [section, label] of [
+      ["plan", "時間割プランナー"], ["credits", "単位の確認"],
+      ["requirements", "卒業要件"], ["tasks", "課題メモ"],
+      ["enrollment", "履修・進級チェック"]
+    ]) {
+      const control = createTextElement("button", "", label);
+      control.type = "button";
+      control.addEventListener("click", async () => {
+        control.disabled = true;
+        status.textContent = "";
+        try {
+          const result = await chrome.runtime.sendMessage({
+            type: "wcv-open-planner", section, snapshot: section === "enrollment" ? readEnrollment(form) : undefined
+          });
+          if (!result?.opened) throw new Error("Planner did not open");
+        } catch {
+          status.textContent = "ツールを開けませんでした。WebClassのタブを更新してお試しください。";
+        } finally {
+          control.disabled = false;
+        }
+      });
+      if (section === "enrollment") review.append(control);
+      else actions.append(control);
+    }
+    const search = createTextElement("button", "", "授業・過年度を検索");
+    search.id = "wcv-native-open-search";
+    search.type = "button";
+    search.hidden = !state.settings.showFloatingPanel;
+    search.addEventListener("click", () => openPanelAndFocusSearch("", search));
+    const deadlines = createTextElement("button", "", "WebClassの締切");
+    deadlines.type = "button";
+    deadlines.className = "wcv-learning-deadlines";
+    deadlines.addEventListener("click", focusDeadlinePanel);
+    actions.append(search, deadlines);
+    const summary = createTextElement("p", "wcv-enrollment-summary", "登録科目を自動照合中…");
+    review.prepend(summary);
+    nav.append(title, review, actions, status);
+    form.before(nav);
+    updateEnrollmentSummary(form, summary);
+  }
+
+  function focusDeadlinePanel() {
+    const panel = document.getElementById("wcv-deadlines");
+    if (!panel) return false;
+    panel.focus({ preventScroll: true });
+    panel.scrollIntoView({ block: "center" });
+    return true;
+  }
+
+  function ensurePastCoursePicker(form) {
+    const id = "wcv-past-course-picker";
+    if (document.getElementById(id) || form.name !== "condition") return;
+    const year = form.querySelector('select[name="year"]');
+    const semester = form.querySelector('select[name="semester"]');
+    const admission = state.settings.webclassAdmissionYear || /^(20\d{2})-/.exec(state.settings.curriculumPlan || "")?.[1];
+    if (!year || !semester || !admission || !Array.from(semester.options).some((option) => option.value === "all")) return;
+    const { year: calendarYear, month } = jstNowParts();
+    const currentYear = month >= 4 ? calendarYear : calendarYear - 1;
+    const pastYears = Array.from(year.options, (option) => option.value)
+      .filter((value) => /^20\d{2}$/.test(value) && Number(value) >= Number(admission) && Number(value) < currentYear)
+      .sort((left, right) => Number(right) - Number(left));
+    if (!pastYears.length) return;
+
+    const row = document.createElement("div");
+    row.className = "wcv-past-course-picker wcv-root wcv-native-injected";
+    row.id = id;
+    const label = createTextElement("label", "", "過年度の参加コース");
+    const picker = document.createElement("select");
+    picker.id = "wcv-past-course-year";
+    label.htmlFor = picker.id;
+    for (const value of pastYears) picker.append(new Option(`${value}年度`, value));
+    if (pastYears.includes(year.value)) picker.value = year.value;
+    const open = createTextElement("button", "", "全学期を表示");
+    open.type = "button";
+    open.addEventListener("click", () => {
+      year.value = picker.value;
+      semester.value = "all";
+      form.requestSubmit();
+    });
+    row.append(label, picker, open);
+    year.parentElement.after(row);
   }
 
   function enhanceNativeWebClassLayout() {
@@ -3026,6 +3991,7 @@
     if (heading && /参加しているコース/.test(heading.textContent || "")) addNativeClass(heading, "wcv-native-course-heading");
     const form = content.querySelector("form[name='condition'], form.form-inline");
     if (form) {
+      ensureLearningTools(form);
       addNativeClass(form, "wcv-native-course-form");
       const directHeadings = Array.from(form.children).filter((element) => element.tagName === "H4");
       if (directHeadings[0]) addNativeClass(directHeadings[0], "wcv-native-semester-heading");
@@ -3052,10 +4018,14 @@
       const addCourse = tableViewport?.nextElementSibling?.nextElementSibling || tableViewport?.nextElementSibling;
       if (addCourse && /コースを追加/.test(addCourse.textContent || "")) addNativeClass(addCourse, "wcv-native-add-course");
       enhanceNativeCourseListArea(form);
+      ensurePastCoursePicker(form);
     }
+    state.nativeScheduleEntries = [];
     ensureSidebarTools(sidebar);
     enhanceNativeScheduleTable();
     enhanceNativeMobileSchedule();
+    ensureTodayTimetableStrip(form);
+    applyCourseListFilter(form);
     updateNativeCourseCount();
   }
 
@@ -3152,7 +4122,7 @@
     header.className = "wcv-enhanced-timetable-header";
     const titleBlock = document.createElement("div");
     titleBlock.append(
-      createTextElement("div", "wcv-enhanced-eyebrow", "WebClass表示改善プロトタイプ・全学科版"),
+      createTextElement("div", "wcv-enhanced-eyebrow", "学生制作・非公式"),
       createTextElement("h2", "wcv-enhanced-title", "担当教員・教室つき時間割"),
       createTextElement("p", "wcv-enhanced-subtitle", "このページで検出した科目を、2026年度の学部・大学院時間割データと講義コード／科目名で照合しています。")
     );
@@ -3321,8 +4291,8 @@
       text.className = "wcv-welcome-text";
       text.append(
         createTextElement("strong", "", "✓ 授業情報が表示されています"),
-        createTextElement("span", "", "時間割の各科目に、教室と担当教員を追加しました。科目カードをクリックすると、これまで通りコースへ移動します。"),
-        createTextElement("span", "wcv-welcome-sub", "オン/オフは、ブラウザー右上の拡張機能アイコンからいつでも切り替えられます。")
+        createTextElement("span", "", "時間割の各科目に教室・担当教員を追加しました。科目カードをクリックするとそのままコースが開きます。"),
+        createTextElement("span", "wcv-welcome-sub", "授業・過年度の検索や履修案づくりは「履修・学習ツール」から開けます。")
       );
 
       const actions = document.createElement("div");
@@ -3466,6 +4436,7 @@
         for (const [key, change] of Object.entries(changes)) {
           if (key in DEFAULT_SETTINGS) {
             state.settings[key] = change.newValue ?? DEFAULT_SETTINGS[key];
+            if (key === "webclassAdmissionYear") document.getElementById("wcv-past-course-picker")?.remove();
             if (key !== "appearance") needsScan = true;
             if (["userCourses", "curriculumPlan", "curriculumTeaching", "curriculumHirameki"].includes(key)) needsRebuild = true;
           }
@@ -3480,12 +4451,40 @@
       });
 
       chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
+        if (message?.type === "wcv-read-enrollment" && _sender.url?.startsWith(chrome.runtime.getURL("src/planner.html"))) {
+          const form = document.forms.condition;
+          sendResponse(state.settings.enabled && form?.querySelector("#schedule-table, .schedule-list") ? readEnrollment(form) : null);
+          return;
+        }
+        if (message?.type === "wcv-open-page-tool") {
+          if (!state.settings.enabled || !document.getElementById("wcv-learning-tools")) {
+            sendResponse({ opened: false });
+          } else if (message.tool === "enrollment") {
+            chrome.runtime.sendMessage({
+              type: "wcv-open-planner", section: "enrollment", snapshot: readEnrollment(document.forms.condition)
+            }).then(sendResponse, () => sendResponse({ opened: false }));
+            return true;
+          } else if (message.tool === "search") {
+            openPanelAndFocusSearch();
+            sendResponse({ opened: Boolean(document.querySelector("#wcv-panel .wcv-panel-search-input")) });
+          } else {
+            sendResponse({ opened: message.tool === "deadlines" && focusDeadlinePanel() });
+          }
+          return;
+        }
         if (message?.type === "wcv-get-status") {
           const scope = state.dataset?.dataset?.scope || {};
+          const pageTools = [];
+          if (document.getElementById("wcv-learning-tools")) {
+            pageTools.push("enrollment");
+            if (state.settings.showFloatingPanel) pageTools.push("search");
+            if (document.getElementById("wcv-deadlines")) pageTools.push("deadlines");
+          }
           sendResponse({
             ready: true,
             enabled: state.settings.enabled,
             isLoginPage: isLoginEntrancePage(),
+            pageTools,
             detectedCount: state.detectedCourses.size,
             currentCourse: state.currentCourse?.courseName || null,
             currentAmbiguous: Boolean(state.currentCourse?.ambiguous),

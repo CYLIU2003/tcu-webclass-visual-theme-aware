@@ -329,6 +329,7 @@
     const sidebar = table.closest(".col-sm-9")?.parentElement?.querySelector(":scope > .col-sm-3");
     const panel = textElement("section", `wcv-root wcv-deadlines${sidebar ? " wcv-deadlines-sidebar" : ""}`);
     panel.id = PANEL_ID;
+    panel.tabIndex = -1;
     panel.setAttribute("aria-label", "1週間以内の課題");
     const header = textElement("div", "wcv-deadline-header");
     const heading = textElement("h2", "", "1週間以内の課題");

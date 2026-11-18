@@ -125,3 +125,28 @@ WHERE title_key <> '' AND instructor_key <> ''
   AND title_key NOT IN ('1', '2', '3', '4', '1q', '2q', '3q', '4q')
 GROUP BY academic_year, title_key HAVING COUNT(DISTINCT instructor_key) > 1;
 ```
+
+## 卒業要件の単位条件と出典
+
+`data/undergraduate-guides.json` は入学年度と学科を主キーにした学部向け索引です。2022年度は17学科、2023〜2026年度は各18学科です。公式PDFのURL、SHA-256、PDFページ数、参照ページを記録します。教職課程の分冊が教学課で別掲されている場合は一緒に案内します。
+
+`graduationTemplates` の各コースには識別子、根拠ページ、単位条件を持たせます。条件の種類は必要単位と算入上限です。空欄は未入力として扱います。専門科目全体と専門必修のように集計範囲が重なる条件は、条件間の合算から除きます。学生の入力はブラウザーのローカル保存です。
+
+再生成には、索引の `indexes` に記録したSHA-256と同名のHTMLを `data/source-checks/objects/` から現行・過年度の順で指定します。原PDFはローカルの `data/source-cache/undergraduate-guides/` に保存し、欠けている場合は `--fetch` で取得できます。
+
+```powershell
+python data/build_undergraduate_guides.py <current-html> <archive-html> --fetch
+python tests/test_undergraduate_guides.py
+```
+
+### 進級の総単位条件
+
+`python data/build_progression_rules.py` で、保存済みの学修要覧から入学年度・学科別の総単位条件を `data/progression-rules.json` に生成します。条件行には進級先、必要な総単位数、PDFの根拠ページを記録します。公開要覧で数値を特定できない組み合わせでは、要覧へのリンクを表示します。
+
+「履修・進級チェック」は操作時にWebClassの時間割を読み込み、授業名と取得できた講義コードをブラウザーのセッション内だけで保持します。科目詳細のURL、認証情報、成績の取得は行いません。見込み単位と取得済み単位を分け、入力した単位と総単位条件の差を表示します。
+
+### 授業名と公開シラバスの照合
+
+`src/enrollment-matching.js` はWebClassの登録名から年度入りの末尾の時間割情報を分離し、科目名にある括弧やクラス表記を保持します。講義コードが無い場合は同じ開講年度の時間割を検索します。担当・時限を使って同年度カタログ内の1件に絞れる場合を除き、候補選択が必要です。
+
+`data/syllabus-credit-evidence.json` は公開シラバスの確認済みの参照行です。単位数は100分の1単位で格納し、元ページURLと保存HTMLのSHA-256を記録します。元HTMLは `data/source-cache/syllabus/<sha256>.html` にあります。照会で追加取得する場合も、講義コード・開講年度・学期・授業名を照合してから単位数を表示します。進級算入区分の判断は学修要覧を使います。

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>WebClass授業情報 設定</title>
   <link rel="stylesheet" href="options.css">
+  <link rel="stylesheet" href="appearance.css">
 </head>
 <body>
   <header class="page-header">
@@ -16,62 +17,61 @@
       </div>
       <a class="guide-link" href="welcome.html" target="_blank">📖 使い方を見る</a>
     </div>
+    <nav class="quick-nav" aria-label="設定セクション">
+      <a href="#basicPanel">1. 基本設定</a>
+      <a href="#detailPanel">2. 見た目・表示のカスタマイズ</a>
+      <a href="#curriculumPanel">3. 同名の履修資料を探す</a>
+      <a href="#advancedPanel">4. 上級者向け</a>
+      <a href="#safetyPanel">5. 収録データと安全性</a>
+    </nav>
   </header>
 
   <main>
-    <section class="panel">
+    <section class="panel" id="basicPanel">
       <div class="panel-head">
         <div>
           <h2>基本</h2>
-          <p>まずはここだけでOKです。</p>
+          <p>まずはここだけでOKです。すべての学部・研究科の時間割が自動でカード表示になります。</p>
         </div>
-        <span id="savedChip" class="saved-chip" aria-live="polite"></span>
+        <span id="savedChip" class="saved-chip" role="status"></span>
       </div>
 
       <label class="setting-card hero-card">
         <span>
           <strong>拡張機能を有効にする</strong>
-          <small>オフにすると、WebClassは元の画面に戻ります。</small>
+          <small>オフにすると、WebClassはいつでも元の画面に戻ります。</small>
         </span>
         <input id="enabled" type="checkbox">
         <span class="switch" aria-hidden="true"></span>
       </label>
     </section>
 
-    <section class="panel">
-      <div class="panel-head"><div><h2>同名の履修資料を探す</h2><p>対象を選ぶと、一部の科目について同じ名前の公式資料を案内します。</p></div></div>
-      <label class="field-label" for="curriculumPlan">入学年度と所属・プログラム</label>
-      <select id="curriculumPlan" aria-describedby="curriculumHelp">
-        <option value="">設定しない（区分を表示しない）</option>
-        <option value="2026-information-science">2026年度入学・情報工学部 情報科学科</option>
-        <option value="2026-hirameki-eligible">2026年度入学・ひらめき対象学部（学科区分は未対応）</option>
-        <option value="2025-hirameki-engineering">2025年度入学・理工学部 ひらめきプログラム</option>
-        <option value="2025-hirameki-other">2025年度入学・ひらめき（理工を除く掲載6学部）</option>
-        <option value="2024-hirameki-engineering">2024年度入学・理工学部 ひらめきプログラム</option>
-        <option value="2023-hirameki-engineering">2023年度入学・理工学部 ひらめき（自然科学科を除く）</option>
-        <option value="2022-hirameki-engineering">2022年度入学・ひらめき（理工学部の機械・機械システム・電気電子通信）</option>
-      </select>
-      <label class="setting-card"><span><strong>教職課程の候補も表示</strong><small>現在は2026年度入学・情報科学科の一部科目のみ対応。</small></span><input id="curriculumTeaching" type="checkbox"><span class="switch" aria-hidden="true"></span></label>
-      <label class="setting-card"><span><strong>2026年度ひらめき基礎プログラムの掲載候補も表示</strong><small>対象は2026年度入学の理工・建築都市デザイン・情報工・環境・メディア情報・都市生活・人間科学の7学部。必修・選択の別は原本と要覧を確認してください。</small></span><input id="curriculumHirameki" type="checkbox"><span class="switch" aria-hidden="true"></span></label>
-      <p id="curriculumHelp" class="field-help">2025年度「理工を除く掲載6学部」は、建築都市デザイン・情報工・環境・メディア情報・都市生活・人間科学です。原本を目視した一部科目のみ表示します。同名の資料と開講科目が同一かは未確認で、履修区分の確定判定には使えません。必ず公式資料と訂正表を確認してください。未掲載は「自由」や「不要」を意味しません。選択内容はこのブラウザーに保存されます。</p>
-      <p><a href="https://www.asc.tcu.ac.jp/syllabus_archives/" target="_blank" rel="noopener noreferrer">教学課の過年度学修要覧</a> · <a href="https://hirameki.tcu.ac.jp/program/list/" target="_blank" rel="noopener noreferrer">ひらめき科目一覧</a> · <a href="https://hirameki.tcu.ac.jp/program/pdf/" target="_blank" rel="noopener noreferrer">リーフレット</a></p>
-    </section>
-
     <section class="panel" id="detailPanel">
       <div class="panel-head">
         <div>
           <h2>表示のカスタマイズ</h2>
-          <p>好みに合わせて、表示する内容を選べます。</p>
+          <p>好みに合わせて、画面の見た目や表示するパーツを選べます。</p>
         </div>
       </div>
 
-      <h3 class="group">時間割まわり</h3>
-      <label class="field-label" for="appearance">WebClassの見た目</label>
-      <select id="appearance" aria-describedby="appearanceHelp">
-        <option value="standard">標準</option>
-        <option value="modern">モダン</option>
-      </select>
-      <p id="appearanceHelp" class="field-help">モダンは時間割・コース一覧・教材一覧の余白や見出しを整えます。「画面全体を整える」がオンのときに反映されます。</p>
+      <h3 class="group">時間割と画面デザイン</h3>
+      <label class="setting-card">
+        <span>
+          <strong>画面を整える</strong>
+          <small>WebClassの余白・配色・文字を調整</small>
+        </span>
+        <input id="restyle" type="checkbox">
+        <span class="switch" aria-hidden="true"></span>
+      </label>
+      <fieldset id="appearancePicker" class="appearance-picker" aria-describedby="appearanceHelp">
+        <legend>見た目</legend>
+        <p id="appearanceHelp" class="appearance-help">時間割・コース一覧・教材一覧に反映します。</p>
+        <div class="appearance-choices">
+          <label><input type="radio" name="appearance" value="standard"><span>標準</span></label>
+          <label><input type="radio" name="appearance" value="modern"><span>モダン</span></label>
+        </div>
+      </fieldset>
+
       <div class="setting-grid">
         <label class="setting-card">
           <span>
@@ -89,38 +89,30 @@
           <input id="showInlineMetadata" type="checkbox">
           <span class="switch" aria-hidden="true"></span>
         </label>
-        <label class="setting-card">
-          <span>
-            <strong>画面全体を整える</strong>
-            <small>フォント・背景・表・フォームの読みやすさを調整します。</small>
-          </span>
-          <input id="restyle" type="checkbox">
-          <span class="switch" aria-hidden="true"></span>
-        </label>
       </div>
 
-      <h3 class="group">補助パーツ</h3>
+      <h3 class="group">便利な補助パーツ</h3>
       <div class="setting-grid">
         <label class="setting-card">
           <span>
-            <strong>左側に表示オプション</strong>
-            <small>WebClass画面の左側から、表示の切り替えができるようにします。</small>
-          </span>
-          <input id="showSidebarTools" type="checkbox">
-          <span class="switch" aria-hidden="true"></span>
-        </label>
-        <label class="setting-card">
-          <span>
             <strong>締め切りが近い課題</strong>
-            <small>コースリスト左側に、時間割の科目から1週間以内に終了する課題を一覧表示します。</small>
+            <small>コースリスト左側に、時間割の科目から1週間以内に終了する課題を締切順で一覧表示します。</small>
           </span>
           <input id="showDeadlineList" type="checkbox">
           <span class="switch" aria-hidden="true"></span>
         </label>
         <label class="setting-card">
           <span>
-            <strong>右下の授業情報パネル</strong>
-            <small>いま開いている画面で見つかった科目を一覧します。</small>
+            <strong>左側に表示オプション</strong>
+            <small>WebClass画面の左側から、表示や見た目の切り替えをすぐに行えるようにします。</small>
+          </span>
+          <input id="showSidebarTools" type="checkbox">
+          <span class="switch" aria-hidden="true"></span>
+        </label>
+        <label class="setting-card">
+          <span>
+            <strong>右下の授業情報・全学DBパネル</strong>
+            <small>いま開いている画面の科目確認や、全学の時間割・訂正表・過年度PDFの横断検索ができます。</small>
           </span>
           <input id="showFloatingPanel" type="checkbox">
           <span class="switch" aria-hidden="true"></span>
@@ -128,7 +120,7 @@
         <label class="setting-card">
           <span>
             <strong>情報源ラベル</strong>
-            <small>「時間割表 p.7」のような出典を表示します。</small>
+            <small>「時間割表 p.7」のような出典ページ番号を表示します。</small>
           </span>
           <input id="showSourceLabel" type="checkbox">
           <span class="switch" aria-hidden="true"></span>
@@ -136,7 +128,54 @@
       </div>
     </section>
 
-    <section class="panel">
+    <section class="panel" id="curriculumPanel">
+      <div class="panel-head">
+        <div>
+          <h2>同名の履修資料を探す（任意）</h2>
+          <p>対象を選ぶと、一部の科目について同じ名前の公式資料（学修要覧・ひらめき・教職）を案内します。</p>
+        </div>
+      </div>
+      <div class="reassure-box">
+        <strong>💡 設定しなくても時間割や課題一覧はすべての学部・研究科で使えます</strong>
+        <span>下の選択肢に自分の学科がない場合は「設定しない」のままで問題ありません。授業詳細カードの「履修要覧・課程表案内」から全学部の公式PDFを開けます。</span>
+      </div>
+      <label class="field-label" for="webclassAdmissionYear">WebClassの過年度コースを探す年</label>
+      <input id="webclassAdmissionYear" type="text" inputmode="numeric" maxlength="4" pattern="20[0-9]{2}" aria-describedby="webclassAdmissionYearHelp">
+      <p class="field-help" id="webclassAdmissionYearHelp">入学年度を西暦4桁で入力します。空欄の場合は、下で選ぶ入学年度を使います。</p>
+      <label class="field-label" for="curriculumPlan">入学年度と所属・プログラム</label>
+      <select id="curriculumPlan" aria-describedby="curriculumHelp">
+        <option value="">設定しない（区分を表示しない）</option>
+        <option value="2026-information-science">2026年度入学・情報工学部 情報科学科</option>
+        <option value="2026-hirameki-eligible">2026年度入学・ひらめき対象学部（学科区分は未対応）</option>
+        <option value="2025-hirameki-engineering">2025年度入学・理工学部 ひらめきプログラム</option>
+        <option value="2025-hirameki-other">2025年度入学・ひらめき（理工を除く掲載6学部）</option>
+        <option value="2024-hirameki-engineering">2024年度入学・理工学部 ひらめきプログラム</option>
+        <option value="2023-hirameki-engineering">2023年度入学・理工学部 ひらめき（自然科学科を除く）</option>
+        <option value="2022-hirameki-engineering">2022年度入学・ひらめき（理工学部の機械・機械システム・電気電子通信）</option>
+      </select>
+      <div class="setting-grid">
+        <label class="setting-card">
+          <span>
+            <strong>教職課程の候補も表示</strong>
+            <small>現在は2026年度入学・情報科学科の一部科目のみ対応。</small>
+          </span>
+          <input id="curriculumTeaching" type="checkbox">
+          <span class="switch" aria-hidden="true"></span>
+        </label>
+        <label class="setting-card">
+          <span>
+            <strong>2026年度ひらめき基礎プログラムの掲載候補も表示</strong>
+            <small>対象は2026年度入学の理工・建築都市デザイン・情報工・環境・メディア情報・都市生活・人間科学の7学部。必修・選択の別は原本と要覧を確認してください。</small>
+          </span>
+          <input id="curriculumHirameki" type="checkbox">
+          <span class="switch" aria-hidden="true"></span>
+        </label>
+      </div>
+      <p id="curriculumHelp" class="field-help">2025年度「理工を除く掲載6学部」は、建築都市デザイン・情報工・環境・メディア情報・都市生活・人間科学です。原本を目視した一部科目のみ表示します。同名の資料と開講科目が同一かは未確認で、履修区分の確定判定には使えません。必ず公式資料と訂正表を確認してください。未掲載は「自由」や「不要」を意味しません。選択内容はこのブラウザーに保存されます。</p>
+      <p class="resource-links"><a href="https://www.asc.tcu.ac.jp/syllabus_archives/" target="_blank" rel="noopener noreferrer">教学課の過年度学修要覧 ↗</a><a href="https://hirameki.tcu.ac.jp/program/list/" target="_blank" rel="noopener noreferrer">ひらめき科目一覧 ↗</a><a href="https://hirameki.tcu.ac.jp/program/pdf/" target="_blank" rel="noopener noreferrer">リーフレット ↗</a></p>
+    </section>
+
+    <section class="panel" id="advancedPanel">
       <details id="advanced" class="advanced">
         <summary>
           <span>
@@ -150,6 +189,59 @@
           <strong>設計上の扱い</strong>
           <p>この欄はプロトタイプ用です。正式運用では、教務側の正規データ/API/CSVを唯一の情報源として自動同期し、学生が二重管理しない構成に置き換えます。</p>
         </div>
+
+        <div class="quick-override-card">
+          <h3>フォームから1件追加・更新</h3>
+          <p class="field-help">JSONを直接書かずに、教室変更や未収録科目の情報を追加・更新できます（下のJSONにも自動反映されます）。</p>
+          <div class="quick-override-grid">
+            <label>
+              <span>科目名（必須）</span>
+              <input id="quickCourseName" type="text" placeholder="例: ソフトウェア工学">
+            </label>
+            <label>
+              <span>講義コード（任意）</span>
+              <input id="quickCourseCode" type="text" placeholder="例: sba131205">
+            </label>
+            <label>
+              <span>担当教員（任意）</span>
+              <input id="quickInstructors" type="text" placeholder="例: 山田 太郎・佐藤 花子">
+            </label>
+            <label>
+              <span>教室（任意）</span>
+              <input id="quickRoom" type="text" placeholder="例: 12K">
+            </label>
+            <label>
+              <span>曜日</span>
+              <select id="quickDay">
+                <option value="">指定なし</option>
+                <option value="月">月曜日</option>
+                <option value="火">火曜日</option>
+                <option value="水">水曜日</option>
+                <option value="木">木曜日</option>
+                <option value="金">金曜日</option>
+                <option value="土">土曜日</option>
+              </select>
+            </label>
+            <label>
+              <span>時限</span>
+              <select id="quickPeriod">
+                <option value="">指定なし</option>
+                <option value="1">1限</option>
+                <option value="2">2限</option>
+                <option value="3">3限</option>
+                <option value="4">4限</option>
+                <option value="5">5限</option>
+                <option value="6">6限</option>
+                <option value="7">7限</option>
+              </select>
+            </label>
+          </div>
+          <div class="button-row">
+            <button id="addQuickOverride" class="primary" type="button">追加・更新して保存</button>
+          </div>
+        </div>
+
+        <div id="overridePreviewList" class="override-preview-list" aria-live="polite"></div>
 
         <label class="field-label" for="jsonEditor">上書きJSON</label>
         <textarea id="jsonEditor" spellcheck="false" aria-describedby="jsonHelp"></textarea>
@@ -167,7 +259,7 @@
       </details>
     </section>
 
-    <section class="panel compact">
+    <section class="panel compact" id="safetyPanel">
       <div class="panel-head">
         <div>
           <h2>収録データと安全性</h2>

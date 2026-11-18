@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>WebClass授業情報</title>
   <link rel="stylesheet" href="popup.css">
+  <link rel="stylesheet" href="appearance.css">
 </head>
 <body>
   <header class="popup-header">
     <div class="mark" aria-hidden="true"><span></span></div>
     <div class="title-block">
-      <h1>WebClass授業情報</h1>
-      <div class="eyebrow">担当教員・教室・時限をひと目で</div>
+      <h1>WebClass Visual</h1>
     </div>
     <label class="master" title="拡張機能の ON / OFF">
       <input id="enabled" type="checkbox" aria-label="拡張機能を有効化">
@@ -20,6 +20,7 @@
   </header>
 
   <main>
+    <button id="openWebClass" class="primary webclass-entry" type="button">WebClassを開く</button>
     <section id="statusCard" class="status-card" data-kind="checking" aria-live="polite">
       <div class="status-icon" aria-hidden="true"></div>
       <div class="status-body">
@@ -29,50 +30,55 @@
       </div>
     </section>
 
-    <fieldset id="appearancePicker" class="appearance-picker" aria-describedby="appearanceHelp">
-      <legend>見た目</legend>
-      <div class="appearance-choices">
-        <label>
-          <input type="radio" name="appearance" value="standard">
-          <span class="appearance-sample is-standard" aria-hidden="true"><i></i><i></i></span>
-          <span>標準</span>
-        </label>
-        <label>
-          <input type="radio" name="appearance" value="modern">
-          <span class="appearance-sample is-modern" aria-hidden="true"><i></i><i></i></span>
-          <span>モダン</span>
-        </label>
+    <nav class="shortcut-nav" aria-labelledby="shortcuts-title">
+      <h2 id="shortcuts-title">履修・学習ツール</h2>
+      <div class="shortcut-grid">
+        <button id="openPlanner" type="button" data-planner-section="plan" aria-label="時間割プランナーを開く"><strong>時間割プランナー</strong><small>授業を探して履修案を作る</small></button>
+        <button type="button" data-planner-section="credits"><strong>単位の確認</strong><small>取得済み・見込みを記録</small></button>
+        <button type="button" data-planner-section="requirements"><strong>卒業要件</strong><small>学修要覧と単位条件</small></button>
+        <button type="button" data-planner-section="tasks"><strong>課題メモ</strong><small>自分で登録・進捗を管理</small></button>
+        <button type="button" data-webclass-tool="search" hidden><strong>授業・過年度を検索</strong><small>時間割の出典や訂正表を見る</small></button>
+        <button type="button" data-webclass-tool="deadlines" hidden><strong>WebClassの締切</strong><small>コースの課題を確認</small></button>
+        <button type="button" data-webclass-tool="enrollment" hidden><strong>履修・進級チェック</strong><small>WebClassの時間割を読み込む</small></button>
       </div>
-      <p id="appearanceHelp">時間割・コース一覧・教材一覧に反映します。</p>
-    </fieldset>
+    </nav>
 
-    <!-- WebClass 以外のページにいるときの「はじめかた」 -->
-    <section id="guideCard" class="guide-card" hidden>
-      <h2>はじめかた（3ステップ）</h2>
-      <ol>
-        <li><b>WebClassを開く</b><span>下のボタンで開き、いつも通りログイン</span></li>
-        <li><b>「コースリスト」を表示</b><span>時間割が並ぶトップ画面です</span></li>
-        <li><b>自動でカード表示に</b><span>教室と担当教員が科目ごとに出ます</span></li>
-      </ol>
-    </section>
-
-    <!-- WebClass で「再読み込み」が必要なとき -->
     <section id="reloadCard" class="reload-card" hidden>
       <span>このタブを更新すると反映されます。</span>
       <button id="reloadTab" type="button">タブを更新</button>
     </section>
 
-    <details class="options" id="optionsBox">
-      <summary>
-        <span>表示のカスタマイズ</span>
-        <small id="optionsSummary"></small>
-      </summary>
-      <div class="settings-card">
-        <label class="toggle-row">
-          <span><strong>画面を整える</strong><small>余白・配色・表の読みやすさを調整</small></span>
+    <details class="options appearance-options">
+      <summary>WebClassの見た目</summary>
+      <div class="appearance-body">
+        <label class="toggle-row appearance-toggle">
+          <span><strong>画面を整える</strong><small>WebClassの余白・配色・文字を調整</small></span>
           <input id="restyle" type="checkbox">
           <span class="switch" aria-hidden="true"></span>
         </label>
+        <fieldset id="appearancePicker" class="appearance-picker" aria-describedby="appearanceHelp">
+          <legend>表示モード</legend>
+          <p id="appearanceHelp" class="appearance-help">時間割・コース一覧・教材一覧に反映します。</p>
+          <div class="appearance-choices">
+            <label>
+              <input type="radio" name="appearance" value="standard">
+              <span>標準</span>
+            </label>
+            <label>
+              <input type="radio" name="appearance" value="modern">
+              <span>モダン</span>
+            </label>
+          </div>
+        </fieldset>
+      </div>
+    </details>
+
+    <details class="options" id="optionsBox">
+      <summary>
+        <span>コース一覧の表示</span>
+        <small id="optionsSummary"></small>
+      </summary>
+      <div class="settings-card">
         <label class="toggle-row">
           <span><strong>参加しているコースをカード表示</strong><small>元の時間割に教場・担当先生・講義コードを統合表示</small></span>
           <input id="modernizeNativeLayout" type="checkbox">
@@ -91,16 +97,18 @@
       </div>
     </details>
 
-    <p id="datasetSummary" class="dataset">収録範囲を確認中です。</p>
-    <section id="datasetQuality" class="dataset-quality" data-kind="warning" aria-live="polite">
-      <strong id="datasetQualityTitle">データの状態を確認しています</strong>
-      <p id="datasetQualityDetail">時間割と過年度資料の収録状態を読み込んでいます。</p>
-    </section>
-    <p id="saveNotice" class="save-notice" aria-live="polite"></p>
+    <details id="data-details" class="options">
+      <summary>収録データと確認状況</summary>
+      <p id="datasetSummary" class="dataset">収録範囲を確認中です。</p>
+      <section id="datasetQuality" class="dataset-quality" data-kind="warning" aria-live="polite">
+        <strong id="datasetQualityTitle">データの状態を確認しています</strong>
+        <p id="datasetQualityDetail">時間割と過年度資料の収録状態を読み込んでいます。</p>
+      </section>
+    </details>
+    <p id="saveNotice" class="save-notice" role="status"></p>
   </main>
 
   <footer>
-    <button id="openWebClass" class="primary" type="button">WebClassを開く</button>
     <button id="openGuide" class="secondary" type="button">使い方</button>
     <button id="openOptions" class="secondary" type="button">詳細設定</button>
   </footer>

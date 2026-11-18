@@ -10,7 +10,7 @@
     showDeadlineList: true
   };
 
-  const SUB_KEYS = ["restyle", "modernizeNativeLayout", "showInlineMetadata", "showDeadlineList"];
+  const SUB_KEYS = ["modernizeNativeLayout", "showInlineMetadata", "showDeadlineList"];
 
   const controls = {
     enabled: document.getElementById("enabled"),
@@ -29,12 +29,12 @@
   const datasetQuality = document.getElementById("datasetQuality");
   const datasetQualityTitle = document.getElementById("datasetQualityTitle");
   const datasetQualityDetail = document.getElementById("datasetQualityDetail");
-  const guideCard = document.getElementById("guideCard");
   const reloadCard = document.getElementById("reloadCard");
   const optionsSummary = document.getElementById("optionsSummary");
   const openWebClass = document.getElementById("openWebClass");
   const appearancePicker = document.getElementById("appearancePicker");
   const appearanceHelp = document.getElementById("appearanceHelp");
+  const webclassTools = [...document.querySelectorAll("[data-webclass-tool]")];
 
   let activeTab = null;
   let noticeTimer = 0;
@@ -65,23 +65,20 @@
     });
   }
 
-  function setStatus(kind, title, detail, countText = "", { guide = false, reload = false } = {}) {
+  function setStatus(kind, title, detail, countText = "", { reload = false } = {}) {
     statusCard.dataset.kind = kind;
     statusTitle.textContent = title;
     statusDetail.textContent = detail;
     statusCount.hidden = !countText;
     statusCount.textContent = countText;
-    guideCard.hidden = !guide;
     reloadCard.hidden = !reload;
-    openWebClass.textContent = activeTab?.url?.startsWith("https://webclass.tcu.ac.jp/")
-      ? "WebClassを新しく開く"
-      : "WebClassを開く";
   }
 
   function updateOptionsSummary() {
     const on = SUB_KEYS.filter((key) => controls[key].checked).length;
     optionsSummary.textContent = `${on} / ${SUB_KEYS.length} 項目がオン`;
     SUB_KEYS.forEach((key) => { controls[key].disabled = !controls.enabled.checked; });
+    controls.restyle.disabled = !controls.enabled.checked;
     appearancePicker.disabled = !controls.enabled.checked || !controls.restyle.checked;
     appearanceHelp.textContent = !controls.enabled.checked ? "拡張機能をオンにすると選べます。"
       : !controls.restyle.checked ? "「画面を整える」をオンにすると選べます。"
@@ -128,8 +125,8 @@
         ? `過年度${years || "一部年度"}のPDF掲載行${candidates.toLocaleString("ja-JP")}件（目視確認${reviewed.toLocaleString("ja-JP")}件、未確認${unreviewed.toLocaleString("ja-JP")}件）を区別収録。`
         : "過年度の時間割行候補はありません。";
       const guideText = guideCount
-        ? `履修要覧${guideCount}冊（用語ページ案内${guideIndexed.toLocaleString("ja-JP")}件）を収録（確定卒業要件は0件）。`
-        : "履修要覧の要件データは未登録です。";
+        ? `授業検索には学修要覧${guideCount}冊の用語ページ案内${guideIndexed.toLocaleString("ja-JP")}件を収録。卒業要件メモは2022〜2026年度の入学者が対象です。`
+        : "";
       datasetQualityDetail.textContent = `${fallText}${pastText}${guideText}最新の休講・変更はWebClassのお知らせと公式PDFをご確認ください。`;
     } catch (error) {
       datasetSummary.textContent = `時間割データを読み込めませんでした（${error.message}）`;
@@ -141,14 +138,13 @@
 
   async function refreshStatus() {
     activeTab = await queryActiveTab();
+    webclassTools.forEach((control) => { control.hidden = true; });
 
     if (!activeTab?.url?.startsWith("https://webclass.tcu.ac.jp/")) {
       setStatus(
         "idle",
-        "WebClassを開いて使います",
-        "このページでは何も変わりません。WebClassのコースリストを開くと自動で動きます。",
-        "",
-        { guide: true }
+        "WebClassのコース一覧に表示を追加します",
+        "課題の締切と過年度検索はWebClassのコース一覧から開けます。"
       );
       return;
     }
@@ -168,6 +164,9 @@
     if (!response.enabled) {
       setStatus("off", "いまはオフです", "右上のスイッチをオンにすると、教室と担当教員が表示されます。");
       return;
+    }
+    for (const control of webclassTools) {
+      control.hidden = !response.pageTools?.includes(control.dataset.webclassTool);
     }
 
     if (response.isLoginPage) {
@@ -207,10 +206,14 @@
     chrome.storage.onChanged.addListener((changes, area) => {
       if (area !== "local") return;
       if (changes.appearance) showAppearance(changes.appearance.newValue);
-      for (const key of ["enabled", "restyle"]) {
-        if (changes[key]) controls[key].checked = Boolean(changes[key].newValue ?? DEFAULTS[key]);
+      let summaryDirty = false;
+      for (const key of Object.keys(controls)) {
+        if (changes[key]) {
+          controls[key].checked = Boolean(changes[key].newValue ?? DEFAULTS[key]);
+          summaryDirty = true;
+        }
       }
-      if (changes.enabled || changes.restyle) updateOptionsSummary();
+      if (summaryDirty) updateOptionsSummary();
     });
 
     Object.entries(controls).forEach(([key, control]) => {
@@ -226,10 +229,47 @@
     });
     updateOptionsSummary();
 
-    openWebClass.addEventListener("click", () => {
-      chrome.tabs.create({ url: "https://webclass.tcu.ac.jp/" });
-      window.close();
+    openWebClass.addEventListener("click", async () => {
+      try {
+        const tabs = await chrome.tabs.query({ url: "https://webclass.tcu.ac.jp/*" });
+        const existing = tabs.find((tab) => tab.id === activeTab?.id)
+          || tabs.find((tab) => tab.url?.startsWith("https://webclass.tcu.ac.jp/webclass/"))
+          || tabs[0];
+        if (existing) {
+          await chrome.tabs.update(existing.id, { active: true });
+          await chrome.windows.update(existing.windowId, { focused: true });
+        } else {
+          await chrome.tabs.create({ url: "https://webclass.tcu.ac.jp/" });
+        }
+        window.close();
+      } catch {
+        showSaved("WebClassを開けませんでした。もう一度お試しください。");
+      }
     });
+
+    for (const button of document.querySelectorAll("[data-planner-section]")) {
+      button.addEventListener("click", async () => {
+        try {
+          const result = await chrome.runtime.sendMessage({
+            type: "wcv-open-planner", section: button.dataset.plannerSection
+          });
+          if (result?.opened) {
+            window.close();
+            return;
+          }
+        } catch {
+          // The popup remains available if the extension was reloaded.
+        }
+        showSaved("ツールを開けませんでした。もう一度お試しください。");
+      });
+    }
+    for (const button of webclassTools) {
+      button.addEventListener("click", async () => {
+        const result = await sendToTab(activeTab.id, { type: "wcv-open-page-tool", tool: button.dataset.webclassTool });
+        if (result?.opened) window.close();
+        else showSaved("WebClassのコース一覧を開いてお試しください。");
+      });
+    }
 
     document.getElementById("openGuide").addEventListener("click", () => {
       chrome.tabs.create({ url: chrome.runtime.getURL("src/welcome.html") });

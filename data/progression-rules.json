@@ -1,0 +1,673 @@
+{
+  "schemaVersion": 1,
+  "profiles": {
+    "2022:機械工学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 6
+      },
+      {
+        "stage": 4,
+        "minimum": 100,
+        "page": 6
+      }
+    ],
+    "2022:機械システム工学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 7
+      }
+    ],
+    "2022:電気電子通信工学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 8
+      },
+      {
+        "stage": 4,
+        "minimum": 100,
+        "page": 8
+      }
+    ],
+    "2022:医用工学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 6
+      }
+    ],
+    "2022:応用化学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 7
+      },
+      {
+        "stage": 4,
+        "minimum": 100,
+        "page": 7
+      }
+    ],
+    "2022:原子力安全工学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 8
+      },
+      {
+        "stage": 4,
+        "minimum": 100,
+        "page": 8
+      }
+    ],
+    "2022:自然科学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 7
+      },
+      {
+        "stage": 4,
+        "minimum": 100,
+        "page": 7
+      }
+    ],
+    "2022:建築学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 7
+      }
+    ],
+    "2022:都市工学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 6
+      },
+      {
+        "stage": 4,
+        "minimum": 100,
+        "page": 6
+      }
+    ],
+    "2022:情報科学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 6
+      },
+      {
+        "stage": 4,
+        "minimum": 100,
+        "page": 6
+      }
+    ],
+    "2022:知能情報工学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 6
+      },
+      {
+        "stage": 4,
+        "minimum": 100,
+        "page": 6
+      }
+    ],
+    "2022:社会メディア学科": [
+      {
+        "stage": 3,
+        "minimum": 66,
+        "page": 93
+      }
+    ],
+    "2022:情報システム学科": [
+      {
+        "stage": 3,
+        "minimum": 66,
+        "page": 109
+      }
+    ],
+    "2023:機械工学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 6
+      },
+      {
+        "stage": 4,
+        "minimum": 100,
+        "page": 6
+      }
+    ],
+    "2023:機械システム工学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 8
+      }
+    ],
+    "2023:電気電子通信工学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 8
+      },
+      {
+        "stage": 4,
+        "minimum": 100,
+        "page": 8
+      }
+    ],
+    "2023:医用工学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 6
+      }
+    ],
+    "2023:応用化学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 8
+      }
+    ],
+    "2023:原子力安全工学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 8
+      }
+    ],
+    "2023:自然科学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 8
+      }
+    ],
+    "2023:建築学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 8
+      }
+    ],
+    "2023:都市工学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 6
+      },
+      {
+        "stage": 4,
+        "minimum": 100,
+        "page": 6
+      }
+    ],
+    "2023:情報科学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 6
+      },
+      {
+        "stage": 4,
+        "minimum": 100,
+        "page": 6
+      }
+    ],
+    "2023:知能情報工学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 6
+      },
+      {
+        "stage": 4,
+        "minimum": 100,
+        "page": 6
+      }
+    ],
+    "2023:社会メディア学科": [
+      {
+        "stage": 3,
+        "minimum": 66,
+        "page": 92
+      }
+    ],
+    "2023:情報システム学科": [
+      {
+        "stage": 3,
+        "minimum": 66,
+        "page": 108
+      }
+    ],
+    "2023:デザイン・データ科学科": [
+      {
+        "stage": 3,
+        "minimum": 50,
+        "page": 76
+      }
+    ],
+    "2024:機械工学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 6
+      },
+      {
+        "stage": 4,
+        "minimum": 100,
+        "page": 6
+      }
+    ],
+    "2024:機械システム工学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 8
+      }
+    ],
+    "2024:電気電子通信工学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 8
+      },
+      {
+        "stage": 4,
+        "minimum": 100,
+        "page": 8
+      }
+    ],
+    "2024:医用工学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 6
+      }
+    ],
+    "2024:応用化学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 8
+      },
+      {
+        "stage": 4,
+        "minimum": 100,
+        "page": 8
+      }
+    ],
+    "2024:原子力安全工学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 8
+      },
+      {
+        "stage": 4,
+        "minimum": 100,
+        "page": 8
+      }
+    ],
+    "2024:自然科学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 8
+      },
+      {
+        "stage": 4,
+        "minimum": 100,
+        "page": 8
+      }
+    ],
+    "2024:建築学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 8
+      }
+    ],
+    "2024:都市工学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 6
+      },
+      {
+        "stage": 4,
+        "minimum": 100,
+        "page": 6
+      }
+    ],
+    "2024:情報科学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 6
+      },
+      {
+        "stage": 4,
+        "minimum": 100,
+        "page": 6
+      }
+    ],
+    "2024:知能情報工学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 6
+      },
+      {
+        "stage": 4,
+        "minimum": 100,
+        "page": 6
+      }
+    ],
+    "2024:社会メディア学科": [
+      {
+        "stage": 3,
+        "minimum": 66,
+        "page": 90
+      }
+    ],
+    "2024:情報システム学科": [
+      {
+        "stage": 3,
+        "minimum": 66,
+        "page": 106
+      }
+    ],
+    "2024:デザイン・データ科学科": [
+      {
+        "stage": 3,
+        "minimum": 50,
+        "page": 74
+      }
+    ],
+    "2025:機械工学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 8
+      },
+      {
+        "stage": 4,
+        "minimum": 100,
+        "page": 8
+      }
+    ],
+    "2025:機械システム工学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 8
+      }
+    ],
+    "2025:電気電子通信工学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 8
+      },
+      {
+        "stage": 4,
+        "minimum": 100,
+        "page": 8
+      }
+    ],
+    "2025:医用工学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 8
+      }
+    ],
+    "2025:応用化学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 8
+      },
+      {
+        "stage": 4,
+        "minimum": 100,
+        "page": 8
+      }
+    ],
+    "2025:原子力安全工学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 8
+      },
+      {
+        "stage": 4,
+        "minimum": 100,
+        "page": 8
+      }
+    ],
+    "2025:自然科学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 8
+      },
+      {
+        "stage": 4,
+        "minimum": 100,
+        "page": 8
+      }
+    ],
+    "2025:建築学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 8
+      }
+    ],
+    "2025:都市工学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 8
+      },
+      {
+        "stage": 4,
+        "minimum": 100,
+        "page": 8
+      }
+    ],
+    "2025:情報科学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 8
+      },
+      {
+        "stage": 4,
+        "minimum": 100,
+        "page": 8
+      }
+    ],
+    "2025:知能情報工学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 8
+      },
+      {
+        "stage": 4,
+        "minimum": 100,
+        "page": 8
+      }
+    ],
+    "2025:社会メディア学科": [
+      {
+        "stage": 3,
+        "minimum": 66,
+        "page": 92
+      }
+    ],
+    "2025:情報システム学科": [
+      {
+        "stage": 3,
+        "minimum": 66,
+        "page": 108
+      }
+    ],
+    "2025:デザイン・データ科学科": [
+      {
+        "stage": 3,
+        "minimum": 50,
+        "page": 77
+      }
+    ],
+    "2026:機械工学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 8
+      },
+      {
+        "stage": 4,
+        "minimum": 100,
+        "page": 8
+      }
+    ],
+    "2026:機械システム工学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 8
+      }
+    ],
+    "2026:電気電子通信工学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 8
+      },
+      {
+        "stage": 4,
+        "minimum": 100,
+        "page": 8
+      }
+    ],
+    "2026:医用工学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 8
+      }
+    ],
+    "2026:応用化学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 8
+      },
+      {
+        "stage": 4,
+        "minimum": 100,
+        "page": 8
+      }
+    ],
+    "2026:原子力安全工学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 8
+      },
+      {
+        "stage": 4,
+        "minimum": 100,
+        "page": 8
+      }
+    ],
+    "2026:自然科学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 8
+      },
+      {
+        "stage": 4,
+        "minimum": 100,
+        "page": 8
+      }
+    ],
+    "2026:建築学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 8
+      }
+    ],
+    "2026:都市工学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 8
+      },
+      {
+        "stage": 4,
+        "minimum": 100,
+        "page": 8
+      }
+    ],
+    "2026:情報科学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 8
+      },
+      {
+        "stage": 4,
+        "minimum": 100,
+        "page": 8
+      }
+    ],
+    "2026:知能情報工学科": [
+      {
+        "stage": 3,
+        "minimum": 60,
+        "page": 8
+      },
+      {
+        "stage": 4,
+        "minimum": 100,
+        "page": 8
+      }
+    ],
+    "2026:社会メディア学科": [
+      {
+        "stage": 3,
+        "minimum": 66,
+        "page": 93
+      }
+    ],
+    "2026:情報システム学科": [
+      {
+        "stage": 3,
+        "minimum": 66,
+        "page": 107
+      }
+    ],
+    "2026:デザイン・データ科学科": [
+      {
+        "stage": 3,
+        "minimum": 50,
+        "page": 78
+      }
+    ]
+  }
+}

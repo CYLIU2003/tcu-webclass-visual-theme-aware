@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "records": [
+    {
+      "year": 2026,
+      "code": "saa001102",
+      "title": "ドイツ語(1a)",
+      "term": "前期前半",
+      "units": 100,
+      "source": "https://websrv.tcu.ac.jp/tcu_web_v3/slbssbdr.do?value%28kougicd%29=saa001102&value%28risyunen%29=2026&value%28semekikn%29=1",
+      "sha256": "e56e3feef6ac7b43eff5aa6b166d03d8ac2400409d4ded3cae7c4b2f4bcc152a"
+    },
+    {
+      "year": 2026,
+      "code": "saa001202",
+      "title": "ドイツ語(1a)",
+      "term": "前期前半",
+      "units": 100,
+      "source": "https://websrv.tcu.ac.jp/tcu_web_v3/slbssbdr.do?value%28kougicd%29=saa001202&value%28risyunen%29=2026&value%28semekikn%29=1",
+      "sha256": "0ac0b8f4e2a9d88217f1c649819e2a6f440ade125e7adc8897413b6900629127"
+    },
+    {
+      "year": 2026,
+      "code": "saa111301",
+      "title": "機械設計製図(a)",
+      "term": "前期前半",
+      "units": 100,
+      "source": "https://websrv.tcu.ac.jp/tcu_web_v3/slbssbdr.do?value%28kougicd%29=saa111301&value%28risyunen%29=2026&value%28semekikn%29=1",
+      "sha256": "3ecc76c2a62aa4ac7196d71d64b3c8f45b62ef027e55a59378b39d020b30ed18"
+    },
+    {
+      "year": 2026,
+      "code": "saz313101",
+      "title": "SD PBL(1)",
+      "term": "前期",
+      "units": 100,
+      "source": "https://websrv.tcu.ac.jp/tcu_web_v3/slbssbdr.do?value%28kougicd%29=saz313101&value%28risyunen%29=2026&value%28semekikn%29=1",
+      "sha256": "09b6f300043a845b9cc5e77389d707dfc0ab34afae53dd8519f23714c0ddac63"
+    }
+  ]
+}
