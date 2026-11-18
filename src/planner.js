@@ -170,7 +170,7 @@
       .flatMap((meeting) => meeting.rooms?.length ? meeting.rooms : [meeting.room])
       .filter(Boolean));
     const meta = [
-      course.courseCode, ...(course.instructors || []), ...(course.campuses || []),
+      course.courseCode, course.level, ...(course.instructors || []), ...(course.campuses || []),
       (course.termBlocks || []).join("・"),
       [...knownSlots].map((key) => `${key[0]}曜${key.slice(1)}限`).join("・"),
       rooms.size ? `教室 ${[...rooms].join("・")}` : ""
@@ -217,8 +217,10 @@
     if (resetLimit) limit = batchSize;
     const query = normalize($("query").value);
     const campus = $("campus").value;
+    const level = $("course-level").value;
     const matches = [...catalog.values()].filter((entry) => entry.quarterSet.has(quarter())
       && (!slot || entry.slotsByQuarter[quarter()].has(slot.key))
+      && (!level || entry.course.level === level)
       && (!campus || entry.course.campuses?.includes(campus))
       && (!query || entry.searchable.some((text) => text.includes(query))));
     $("search-scope").textContent = slot ? `${slot.label}の候補` : "選択中のQの候補";
@@ -251,6 +253,7 @@
       }
       WCV_PLANNER_CREDITS.initialize(stored, storagePrefix, (code) => catalog.get(code)?.course);
       WCV_PLANNER_TASKS.initialize(stored, storagePrefix, (code) => catalog.get(code)?.course);
+      WCV_PLANNER_GRADUATE.initialize();
       WCV_PLANNER_GUIDES.initialize(storagePrefix, (code) => catalog.get(code)?.course);
       WCV_PLANNER_ENROLLMENT.initialize(stored, data.dataset.academicYear, data.courses);
       chrome.storage.onChanged.addListener((changes, area) => {
@@ -284,6 +287,7 @@
         syncNavigation();
       });
       $("campus").addEventListener("change", () => renderResults(true));
+      $("course-level").addEventListener("change", () => renderResults(true));
       $("back-to-timetable").addEventListener("click", () => {
         $("timetable").querySelector('[aria-pressed="true"]')?.focus();
       });

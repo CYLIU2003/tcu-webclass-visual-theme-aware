@@ -28,6 +28,7 @@ with TemporaryDirectory() as profile, sync_playwright() as playwright:
         for destination, target in [
             ("credits", "credits-title"),
             ("requirements", "requirements-title"),
+            ("graduate", "graduate-title"),
             ("tasks", "planner-tasks-title"),
         ]:
             menu = context.new_page()
@@ -41,7 +42,37 @@ with TemporaryDirectory() as profile, sync_playwright() as playwright:
             expect(direct.value.locator(f"#{target}")).to_be_focused()
             expect(direct.value.locator(f'.planner-nav [href="#{target}"]')).to_have_attribute("aria-current", "location")
             assert direct.value.locator(f"#{target}").evaluate("(el) => el.getBoundingClientRect().top < innerHeight")
+            if destination == "graduate":
+                graduate = direct.value
+                graduate.set_viewport_size({"width": 360, "height": 800})
+                graduate.locator("#graduate-year").select_option("2026")
+                graduate.locator("#graduate-school").select_option("情報データ科学研究科")
+                graduate.locator("#graduate-major").select_option("情報データ科学専攻")
+                graduate.locator("#graduate-program").select_option("博士前期課程")
+                expect(graduate.locator("#graduate-result")).to_contain_text("30単位")
+                graduate.locator("#graduate-earned").fill("22")
+                graduate.locator("#graduate-planned").fill("2.5")
+                expect(graduate.locator("#graduate-result")).to_contain_text("見込みを含めて残り 5.5単位")
+                graduate.locator("#graduate-program").select_option("博士後期課程")
+                expect(graduate.locator("#graduate-result")).to_contain_text("24単位")
+                expect(graduate.locator("#graduate-earned")).to_have_value("")
+                graduate.locator("#graduate-year").select_option("2024")
+                expect(graduate.locator("#graduate-school option")).to_have_count(3)
+                graduate.locator("#graduate-school").select_option("環境情報学研究科")
+                graduate.locator("#graduate-major").select_option(label="東京都市大学・エディスコーワン大学 国際連携環境融合科学専攻")
+                expect(graduate.locator("#graduate-program option")).to_have_count(2)
+                expect(graduate.locator("#graduate-result")).to_contain_text("東京都市大学を主大学とする場合")
+                evidence = graduate.get_by_role("link", name="博士前期課程の総単位の根拠")
+                expect(evidence).to_have_attribute("href", re.compile(r"^https://www.asc.tcu.ac.jp/.*#page=63$"))
+                assert graduate.evaluate("document.documentElement.scrollWidth === innerWidth")
             direct.value.close()
+        page.locator("#course-level").select_option("大学院")
+        page.locator("#query").fill("smaa000031")
+        expect(page.locator("#results")).to_contain_text("解析幾何学特論")
+        page.locator("#course-level").select_option("学部")
+        expect(page.locator("#search-status")).to_contain_text("該当する授業がありません")
+        page.locator("#course-level").select_option("")
+        page.locator("#query").fill("")
         existing = context.new_page()
         schedule = """<!doctype html><meta charset="utf-8"><title>WebClass</title>
         <main id="js-main"><div class="container"><div class="row"><aside class="col-sm-3"></aside>

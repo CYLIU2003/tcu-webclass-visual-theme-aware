@@ -3887,7 +3887,7 @@
     status.setAttribute("role", "status");
     for (const [section, label] of [
       ["plan", "時間割プランナー"], ["credits", "単位の確認"],
-      ["requirements", "卒業要件"], ["tasks", "課題メモ"],
+      ["requirements", "卒業要件"], ["graduate", "大学院の修了要件"], ["tasks", "課題メモ"],
       ["enrollment", "履修・進級チェック"]
     ]) {
       const control = createTextElement("button", "", label);

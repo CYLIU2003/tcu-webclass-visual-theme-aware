@@ -4,6 +4,7 @@ const plannerSections = new Map([
   ["plan", ""],
   ["credits", "#credits-title"],
   ["requirements", "#requirements-title"],
+  ["graduate", "#graduate-title"],
   ["tasks", "#planner-tasks-title"],
   ["enrollment", "#enrollment-title"]
 ]);

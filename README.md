@@ -1,5 +1,11 @@
 # TCU WebClass Visual
 
+## v0.10.1 — 大学院の修了要件
+
+- 2022〜2026年度入学の公開履修要綱を、研究科・専攻・課程から開けます。
+- 博士前期課程と、要綱で総単位を確認できた博士後期課程では、取得済み・見込み単位を入力して総単位までの差を確認できます。
+- 時間割プランナーの「課程区分」で大学院科目に絞れます。WebClassの参加コースは講義コードで照合できます。
+
 ## v0.10.0 — WebClass連係と履修・進級チェック
 
 - WebClassで表示中の参加コースを読み込み、授業との照合件数と要確認の科目を表示します。
@@ -19,7 +25,7 @@ WebClassのコース一覧に、表示中の登録科目の照合件数・要確
 
 東京都市大学のWebClassコースリスト画面を、元の機能を壊さずに読みやすくするChrome／Edge向けManifest V3拡張機能です。
 
-**公開版:** [v0.10.0 ZIPをダウンロード](https://github.com/CYLIU2003/tcu-webclass-visual-theme-aware/releases/download/v0.10.0/TCU_WebClass_Visual_Theme_Aware_v0.10.0.zip) ／ [画像付き導入ガイド（Web）](https://cyliu2003.github.io/tcu-webclass-visual-theme-aware/) ／ [同梱ガイド](はじめにお読みください.html)
+**公開版:** [v0.10.1 ZIPをダウンロード](https://github.com/CYLIU2003/tcu-webclass-visual-theme-aware/releases/download/v0.10.1/TCU_WebClass_Visual_Theme_Aware_v0.10.1.zip) ／ [画像付き導入ガイド（Web）](https://cyliu2003.github.io/tcu-webclass-visual-theme-aware/) ／ [同梱ガイド](はじめにお読みください.html)
 
 v0.9.0 では、「標準／モダン」をポップアップまたはコース一覧の表示オプションから切り替えられます。
 

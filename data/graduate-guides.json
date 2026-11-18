@@ -1,0 +1,1876 @@
+{
+  "schemaVersion": 1,
+  "profiles": [
+    {
+      "year": 2026,
+      "school": "総合理工学研究科",
+      "major": "機械専攻",
+      "listing": "https://www.asc.tcu.ac.jp/syllabus_grad/",
+      "sources": [
+        {
+          "label": "専攻の履修要綱",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/574f152e7ea96a266e1a8150e903a464.pdf"
+        },
+        {
+          "label": "総合理工学研究科",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/f595ecfb04357ab27ea2f4bc341a0858.pdf"
+        },
+        {
+          "label": "授業科目教育課程表・教育職員免許状について",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/ea1f8f40b548d8fd94677d6f6de019f3.pdf"
+        }
+      ],
+      "programs": [
+        {
+          "name": "博士前期課程",
+          "minimum": 30,
+          "source": {
+            "label": "博士前期課程の総単位の根拠（PDF 14ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/f595ecfb04357ab27ea2f4bc341a0858.pdf#page=14"
+          }
+        },
+        {
+          "name": "博士後期課程",
+          "minimum": 24,
+          "source": {
+            "label": "博士後期課程の総単位の根拠（PDF 51ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/f595ecfb04357ab27ea2f4bc341a0858.pdf#page=51"
+          }
+        }
+      ]
+    },
+    {
+      "year": 2026,
+      "school": "総合理工学研究科",
+      "major": "電気・化学専攻",
+      "listing": "https://www.asc.tcu.ac.jp/syllabus_grad/",
+      "sources": [
+        {
+          "label": "専攻の履修要綱",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/01faa31cca60894a587f0a9e578c3f90.pdf"
+        },
+        {
+          "label": "総合理工学研究科",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/f595ecfb04357ab27ea2f4bc341a0858.pdf"
+        },
+        {
+          "label": "授業科目教育課程表・教育職員免許状について",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/ea1f8f40b548d8fd94677d6f6de019f3.pdf"
+        }
+      ],
+      "programs": [
+        {
+          "name": "博士前期課程",
+          "minimum": 30,
+          "source": {
+            "label": "博士前期課程の総単位の根拠（PDF 14ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/f595ecfb04357ab27ea2f4bc341a0858.pdf#page=14"
+          }
+        },
+        {
+          "name": "博士後期課程",
+          "minimum": 24,
+          "source": {
+            "label": "博士後期課程の総単位の根拠（PDF 51ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/f595ecfb04357ab27ea2f4bc341a0858.pdf#page=51"
+          }
+        }
+      ]
+    },
+    {
+      "year": 2026,
+      "school": "総合理工学研究科",
+      "major": "共同原子力専攻",
+      "listing": "https://www.asc.tcu.ac.jp/syllabus_grad/",
+      "sources": [
+        {
+          "label": "専攻の履修要綱",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/fb31f5b54ddc480b65a152f91fe1eac9.pdf"
+        },
+        {
+          "label": "総合理工学研究科",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/f595ecfb04357ab27ea2f4bc341a0858.pdf"
+        },
+        {
+          "label": "授業科目教育課程表・教育職員免許状について",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/ea1f8f40b548d8fd94677d6f6de019f3.pdf"
+        }
+      ],
+      "programs": [
+        {
+          "name": "博士前期課程",
+          "minimum": 30,
+          "source": {
+            "label": "博士前期課程の総単位の根拠（PDF 14ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/f595ecfb04357ab27ea2f4bc341a0858.pdf#page=14"
+          }
+        },
+        {
+          "name": "博士後期課程",
+          "minimum": 24,
+          "source": {
+            "label": "博士後期課程の総単位の根拠（PDF 51ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/f595ecfb04357ab27ea2f4bc341a0858.pdf#page=51"
+          }
+        }
+      ]
+    },
+    {
+      "year": 2026,
+      "school": "総合理工学研究科",
+      "major": "自然科学専攻",
+      "listing": "https://www.asc.tcu.ac.jp/syllabus_grad/",
+      "sources": [
+        {
+          "label": "専攻の履修要綱",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/127aa859259adf3ff7bd97d116da7cca.pdf"
+        },
+        {
+          "label": "総合理工学研究科",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/f595ecfb04357ab27ea2f4bc341a0858.pdf"
+        },
+        {
+          "label": "授業科目教育課程表・教育職員免許状について",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/ea1f8f40b548d8fd94677d6f6de019f3.pdf"
+        }
+      ],
+      "programs": [
+        {
+          "name": "博士前期課程",
+          "minimum": 30,
+          "source": {
+            "label": "博士前期課程の総単位の根拠（PDF 14ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/f595ecfb04357ab27ea2f4bc341a0858.pdf#page=14"
+          }
+        },
+        {
+          "name": "博士後期課程",
+          "minimum": 24,
+          "source": {
+            "label": "博士後期課程の総単位の根拠（PDF 51ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/f595ecfb04357ab27ea2f4bc341a0858.pdf#page=51"
+          }
+        }
+      ]
+    },
+    {
+      "year": 2026,
+      "school": "総合理工学研究科",
+      "major": "建築都市デザイン専攻",
+      "listing": "https://www.asc.tcu.ac.jp/syllabus_grad/",
+      "sources": [
+        {
+          "label": "専攻の履修要綱",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/b957018027a5443888a5a0cd6267c544.pdf"
+        },
+        {
+          "label": "総合理工学研究科",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/f595ecfb04357ab27ea2f4bc341a0858.pdf"
+        },
+        {
+          "label": "授業科目教育課程表・教育職員免許状について",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/ea1f8f40b548d8fd94677d6f6de019f3.pdf"
+        }
+      ],
+      "programs": [
+        {
+          "name": "博士前期課程",
+          "minimum": 30,
+          "source": {
+            "label": "博士前期課程の総単位の根拠（PDF 14ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/f595ecfb04357ab27ea2f4bc341a0858.pdf#page=14"
+          }
+        },
+        {
+          "name": "博士後期課程",
+          "minimum": 24,
+          "source": {
+            "label": "博士後期課程の総単位の根拠（PDF 51ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/f595ecfb04357ab27ea2f4bc341a0858.pdf#page=51"
+          }
+        }
+      ]
+    },
+    {
+      "year": 2026,
+      "school": "総合理工学研究科",
+      "major": "情報専攻",
+      "listing": "https://www.asc.tcu.ac.jp/syllabus_grad/",
+      "sources": [
+        {
+          "label": "専攻の履修要綱",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/610d9d687dc94507859280b4e176e3a9.pdf"
+        },
+        {
+          "label": "総合理工学研究科",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/f595ecfb04357ab27ea2f4bc341a0858.pdf"
+        },
+        {
+          "label": "授業科目教育課程表・教育職員免許状について",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/ea1f8f40b548d8fd94677d6f6de019f3.pdf"
+        }
+      ],
+      "programs": [
+        {
+          "name": "博士前期課程",
+          "minimum": 30,
+          "source": {
+            "label": "博士前期課程の総単位の根拠（PDF 14ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/f595ecfb04357ab27ea2f4bc341a0858.pdf#page=14"
+          }
+        },
+        {
+          "name": "博士後期課程",
+          "minimum": 24,
+          "source": {
+            "label": "博士後期課程の総単位の根拠（PDF 51ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/f595ecfb04357ab27ea2f4bc341a0858.pdf#page=51"
+          }
+        }
+      ]
+    },
+    {
+      "year": 2026,
+      "school": "環境情報学研究科",
+      "major": "環境情報学専攻",
+      "listing": "https://www.asc.tcu.ac.jp/syllabus_grad/",
+      "sources": [
+        {
+          "label": "専攻の履修要綱",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/ccf34f063d12411c96762c907345458b.pdf"
+        },
+        {
+          "label": "環境情報学研究科",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/454f36fb9ad48f2ce487cede8bd0df78.pdf"
+        },
+        {
+          "label": "教育課程表",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/91448d4a1c79fca78b26aabf7e76df6e.pdf"
+        }
+      ],
+      "programs": [
+        {
+          "name": "博士前期課程",
+          "minimum": 30,
+          "source": {
+            "label": "博士前期課程の総単位の根拠（PDF 4ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/ccf34f063d12411c96762c907345458b.pdf#page=4"
+          }
+        },
+        {
+          "name": "博士後期課程",
+          "minimum": 24,
+          "source": {
+            "label": "博士後期課程の総単位の根拠（PDF 4ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/ccf34f063d12411c96762c907345458b.pdf#page=4"
+          }
+        }
+      ]
+    },
+    {
+      "year": 2026,
+      "school": "環境情報学研究科",
+      "major": "東京都市大学・エディスコーワン大学 国際連携環境融合科学専攻",
+      "listing": "https://www.asc.tcu.ac.jp/syllabus_grad/",
+      "sources": [
+        {
+          "label": "専攻の履修要綱",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/c25debf649e1d1457db122ac67edad0f.pdf"
+        },
+        {
+          "label": "環境情報学研究科",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/454f36fb9ad48f2ce487cede8bd0df78.pdf"
+        },
+        {
+          "label": "教育課程表",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/91448d4a1c79fca78b26aabf7e76df6e.pdf"
+        }
+      ],
+      "programs": [
+        {
+          "name": "博士前期課程",
+          "minimum": 30,
+          "source": {
+            "label": "博士前期課程の総単位の根拠（PDF 4ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/c25debf649e1d1457db122ac67edad0f.pdf#page=4"
+          },
+          "note": "東京都市大学を主大学とする場合の条件です。両大学の開設科目と指定科目の内訳、論文審査は履修要綱で確認してください。"
+        }
+      ]
+    },
+    {
+      "year": 2026,
+      "school": "環境情報学研究科",
+      "major": "都市生活学専攻",
+      "listing": "https://www.asc.tcu.ac.jp/syllabus_grad/",
+      "sources": [
+        {
+          "label": "専攻の履修要綱",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/82d60000e78c657ce06fe36d65f9992c.pdf"
+        },
+        {
+          "label": "環境情報学研究科",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/454f36fb9ad48f2ce487cede8bd0df78.pdf"
+        },
+        {
+          "label": "教育課程表",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/91448d4a1c79fca78b26aabf7e76df6e.pdf"
+        }
+      ],
+      "programs": [
+        {
+          "name": "博士前期課程",
+          "minimum": 30,
+          "source": {
+            "label": "博士前期課程の総単位の根拠（PDF 4ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/82d60000e78c657ce06fe36d65f9992c.pdf#page=4"
+          }
+        },
+        {
+          "name": "博士後期課程",
+          "minimum": 24,
+          "source": {
+            "label": "博士後期課程の総単位の根拠（PDF 4ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/82d60000e78c657ce06fe36d65f9992c.pdf#page=4"
+          }
+        }
+      ]
+    },
+    {
+      "year": 2026,
+      "school": "情報データ科学研究科",
+      "major": "情報データ科学専攻",
+      "listing": "https://www.asc.tcu.ac.jp/syllabus_grad/",
+      "sources": [
+        {
+          "label": "専攻の履修要綱",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/86a258ebb28776520f9c74f0d03620df.pdf"
+        },
+        {
+          "label": "情報データ科学研究科",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/f537a6217aa7296bbbde3b54da9c9596.pdf"
+        },
+        {
+          "label": "教育課程表",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/a87a21b976c092f5d809cdfba1474a99.pdf"
+        }
+      ],
+      "programs": [
+        {
+          "name": "博士前期課程",
+          "minimum": 30,
+          "source": {
+            "label": "博士前期課程の総単位の根拠（PDF 3ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/86a258ebb28776520f9c74f0d03620df.pdf#page=3"
+          }
+        },
+        {
+          "name": "博士後期課程",
+          "minimum": 24,
+          "source": {
+            "label": "博士後期課程の総単位の根拠（PDF 3ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/86a258ebb28776520f9c74f0d03620df.pdf#page=3"
+          }
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "school": "総合理工学研究科",
+      "major": "機械専攻",
+      "listing": "https://www.asc.tcu.ac.jp/syllabus_grad_archives/",
+      "sources": [
+        {
+          "label": "専攻の履修要綱",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/e8ef628e05e4d028518b69f8d0e79cb2.pdf"
+        },
+        {
+          "label": "総合理工学研究科",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/008edb2002f87a53638a3222fb76d40c.pdf"
+        },
+        {
+          "label": "授業科目教育課程表・教育職員免許状について",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/cf16cfcd24b0ec45f29568c8fc6e8000.pdf"
+        }
+      ],
+      "programs": [
+        {
+          "name": "博士前期課程",
+          "minimum": 30,
+          "source": {
+            "label": "博士前期課程の総単位の根拠（PDF 12ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/008edb2002f87a53638a3222fb76d40c.pdf#page=12"
+          }
+        },
+        {
+          "name": "博士後期課程",
+          "minimum": 24,
+          "source": {
+            "label": "博士後期課程の総単位の根拠（PDF 49ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/008edb2002f87a53638a3222fb76d40c.pdf#page=49"
+          }
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "school": "総合理工学研究科",
+      "major": "電気・化学専攻",
+      "listing": "https://www.asc.tcu.ac.jp/syllabus_grad_archives/",
+      "sources": [
+        {
+          "label": "専攻の履修要綱",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/788b122e9b825541c4ca211c310320a1.pdf"
+        },
+        {
+          "label": "総合理工学研究科",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/008edb2002f87a53638a3222fb76d40c.pdf"
+        },
+        {
+          "label": "授業科目教育課程表・教育職員免許状について",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/cf16cfcd24b0ec45f29568c8fc6e8000.pdf"
+        }
+      ],
+      "programs": [
+        {
+          "name": "博士前期課程",
+          "minimum": 30,
+          "source": {
+            "label": "博士前期課程の総単位の根拠（PDF 12ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/008edb2002f87a53638a3222fb76d40c.pdf#page=12"
+          }
+        },
+        {
+          "name": "博士後期課程",
+          "minimum": 24,
+          "source": {
+            "label": "博士後期課程の総単位の根拠（PDF 49ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/008edb2002f87a53638a3222fb76d40c.pdf#page=49"
+          }
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "school": "総合理工学研究科",
+      "major": "共同原子力専攻",
+      "listing": "https://www.asc.tcu.ac.jp/syllabus_grad_archives/",
+      "sources": [
+        {
+          "label": "専攻の履修要綱",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/89b2966e6254929f7aa16428ba111004.pdf"
+        },
+        {
+          "label": "総合理工学研究科",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/008edb2002f87a53638a3222fb76d40c.pdf"
+        },
+        {
+          "label": "授業科目教育課程表・教育職員免許状について",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/cf16cfcd24b0ec45f29568c8fc6e8000.pdf"
+        }
+      ],
+      "programs": [
+        {
+          "name": "博士前期課程",
+          "minimum": 30,
+          "source": {
+            "label": "博士前期課程の総単位の根拠（PDF 12ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/008edb2002f87a53638a3222fb76d40c.pdf#page=12"
+          }
+        },
+        {
+          "name": "博士後期課程",
+          "minimum": 24,
+          "source": {
+            "label": "博士後期課程の総単位の根拠（PDF 49ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/008edb2002f87a53638a3222fb76d40c.pdf#page=49"
+          }
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "school": "総合理工学研究科",
+      "major": "自然科学専攻",
+      "listing": "https://www.asc.tcu.ac.jp/syllabus_grad_archives/",
+      "sources": [
+        {
+          "label": "専攻の履修要綱",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/5959f0e84125691a7d08eb21bf079063-1.pdf"
+        },
+        {
+          "label": "総合理工学研究科",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/008edb2002f87a53638a3222fb76d40c.pdf"
+        },
+        {
+          "label": "授業科目教育課程表・教育職員免許状について",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/cf16cfcd24b0ec45f29568c8fc6e8000.pdf"
+        }
+      ],
+      "programs": [
+        {
+          "name": "博士前期課程",
+          "minimum": 30,
+          "source": {
+            "label": "博士前期課程の総単位の根拠（PDF 12ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/008edb2002f87a53638a3222fb76d40c.pdf#page=12"
+          }
+        },
+        {
+          "name": "博士後期課程",
+          "minimum": 24,
+          "source": {
+            "label": "博士後期課程の総単位の根拠（PDF 49ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/008edb2002f87a53638a3222fb76d40c.pdf#page=49"
+          }
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "school": "総合理工学研究科",
+      "major": "建築都市デザイン専攻",
+      "listing": "https://www.asc.tcu.ac.jp/syllabus_grad_archives/",
+      "sources": [
+        {
+          "label": "専攻の履修要綱",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/def34815054843eac083124eda9a8a2c.pdf"
+        },
+        {
+          "label": "総合理工学研究科",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/008edb2002f87a53638a3222fb76d40c.pdf"
+        },
+        {
+          "label": "授業科目教育課程表・教育職員免許状について",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/cf16cfcd24b0ec45f29568c8fc6e8000.pdf"
+        }
+      ],
+      "programs": [
+        {
+          "name": "博士前期課程",
+          "minimum": 30,
+          "source": {
+            "label": "博士前期課程の総単位の根拠（PDF 12ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/008edb2002f87a53638a3222fb76d40c.pdf#page=12"
+          }
+        },
+        {
+          "name": "博士後期課程",
+          "minimum": 24,
+          "source": {
+            "label": "博士後期課程の総単位の根拠（PDF 49ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/008edb2002f87a53638a3222fb76d40c.pdf#page=49"
+          }
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "school": "総合理工学研究科",
+      "major": "情報専攻",
+      "listing": "https://www.asc.tcu.ac.jp/syllabus_grad_archives/",
+      "sources": [
+        {
+          "label": "専攻の履修要綱",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/15f2293cdd5c450f835ae8948d79919e-1.pdf"
+        },
+        {
+          "label": "総合理工学研究科",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/008edb2002f87a53638a3222fb76d40c.pdf"
+        },
+        {
+          "label": "授業科目教育課程表・教育職員免許状について",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/cf16cfcd24b0ec45f29568c8fc6e8000.pdf"
+        }
+      ],
+      "programs": [
+        {
+          "name": "博士前期課程",
+          "minimum": 30,
+          "source": {
+            "label": "博士前期課程の総単位の根拠（PDF 12ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/008edb2002f87a53638a3222fb76d40c.pdf#page=12"
+          }
+        },
+        {
+          "name": "博士後期課程",
+          "minimum": 24,
+          "source": {
+            "label": "博士後期課程の総単位の根拠（PDF 49ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/008edb2002f87a53638a3222fb76d40c.pdf#page=49"
+          }
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "school": "環境情報学研究科",
+      "major": "環境情報学専攻",
+      "listing": "https://www.asc.tcu.ac.jp/syllabus_grad_archives/",
+      "sources": [
+        {
+          "label": "専攻の履修要綱",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/2422094035ca4ffb915ddb81539f3c64.pdf"
+        },
+        {
+          "label": "環境情報学研究科",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/10b8e8304526f1a73d324bdd4894d69f.pdf"
+        },
+        {
+          "label": "教育課程表",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/887bc666578ad64bc2e08dc7afa2affb.pdf"
+        }
+      ],
+      "programs": [
+        {
+          "name": "博士前期課程",
+          "minimum": 30,
+          "source": {
+            "label": "博士前期課程の総単位の根拠（PDF 4ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/2422094035ca4ffb915ddb81539f3c64.pdf#page=4"
+          }
+        },
+        {
+          "name": "博士後期課程",
+          "minimum": 24,
+          "source": {
+            "label": "博士後期課程の総単位の根拠（PDF 4ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/2422094035ca4ffb915ddb81539f3c64.pdf#page=4"
+          }
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "school": "環境情報学研究科",
+      "major": "東京都市大学・エディスコーワン大学 国際連携環境融合科学専攻",
+      "listing": "https://www.asc.tcu.ac.jp/syllabus_grad_archives/",
+      "sources": [
+        {
+          "label": "専攻の履修要綱",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/79919e1c155246fa5f706c0e9d738445.pdf"
+        },
+        {
+          "label": "環境情報学研究科",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/10b8e8304526f1a73d324bdd4894d69f.pdf"
+        },
+        {
+          "label": "教育課程表",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/887bc666578ad64bc2e08dc7afa2affb.pdf"
+        }
+      ],
+      "programs": [
+        {
+          "name": "博士前期課程",
+          "minimum": 30,
+          "source": {
+            "label": "博士前期課程の総単位の根拠（PDF 4ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/79919e1c155246fa5f706c0e9d738445.pdf#page=4"
+          },
+          "note": "東京都市大学を主大学とする場合の条件です。両大学の開設科目と指定科目の内訳、論文審査は履修要綱で確認してください。"
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "school": "環境情報学研究科",
+      "major": "都市生活学専攻",
+      "listing": "https://www.asc.tcu.ac.jp/syllabus_grad_archives/",
+      "sources": [
+        {
+          "label": "専攻の履修要綱",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/4405926c0ea66eb76b307cd26ce4ca02.pdf"
+        },
+        {
+          "label": "環境情報学研究科",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/10b8e8304526f1a73d324bdd4894d69f.pdf"
+        },
+        {
+          "label": "教育課程表",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/887bc666578ad64bc2e08dc7afa2affb.pdf"
+        }
+      ],
+      "programs": [
+        {
+          "name": "博士前期課程",
+          "minimum": 30,
+          "source": {
+            "label": "博士前期課程の総単位の根拠（PDF 4ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/4405926c0ea66eb76b307cd26ce4ca02.pdf#page=4"
+          }
+        },
+        {
+          "name": "博士後期課程",
+          "minimum": 24,
+          "source": {
+            "label": "博士後期課程の総単位の根拠（PDF 4ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/4405926c0ea66eb76b307cd26ce4ca02.pdf#page=4"
+          }
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "school": "情報データ科学研究科",
+      "major": "情報データ科学専攻",
+      "listing": "https://www.asc.tcu.ac.jp/syllabus_grad_archives/",
+      "sources": [
+        {
+          "label": "専攻の履修要綱",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/09/dee831ab462e503ec35a8126e78dc05d.pdf"
+        },
+        {
+          "label": "情報データ科学研究科",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/09/1148cf36552b921ce7e68ed7f8687794.pdf"
+        },
+        {
+          "label": "教育課程表",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/09/6ca457cc58289dc8b099c869a7a88da0.pdf"
+        }
+      ],
+      "programs": [
+        {
+          "name": "博士前期課程",
+          "minimum": 30,
+          "source": {
+            "label": "博士前期課程の総単位の根拠（PDF 3ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/09/dee831ab462e503ec35a8126e78dc05d.pdf#page=3"
+          }
+        },
+        {
+          "name": "博士後期課程",
+          "minimum": 24,
+          "source": {
+            "label": "博士後期課程の総単位の根拠（PDF 3ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/09/dee831ab462e503ec35a8126e78dc05d.pdf#page=3"
+          }
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "school": "総合理工学研究科",
+      "major": "機械専攻",
+      "listing": "https://www.asc.tcu.ac.jp/syllabus_grad_archives/",
+      "sources": [
+        {
+          "label": "専攻の履修要綱",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/f39dae6bd8d86e8035041590ad5d6236.pdf"
+        },
+        {
+          "label": "総合理工学研究科",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/d89e47ec82e92e1e535085fe58082009.pdf"
+        },
+        {
+          "label": "授業科目教育課程表・教育職員免許状について",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/70fe86a7dc994b033b9b42b6bd76808d.pdf"
+        }
+      ],
+      "programs": [
+        {
+          "name": "博士前期課程",
+          "minimum": 30,
+          "source": {
+            "label": "博士前期課程の総単位の根拠（PDF 12ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/d89e47ec82e92e1e535085fe58082009.pdf#page=12"
+          }
+        },
+        {
+          "name": "博士後期課程",
+          "minimum": 24,
+          "source": {
+            "label": "博士後期課程の総単位の根拠（PDF 45ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/d89e47ec82e92e1e535085fe58082009.pdf#page=45"
+          }
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "school": "総合理工学研究科",
+      "major": "電気・化学専攻",
+      "listing": "https://www.asc.tcu.ac.jp/syllabus_grad_archives/",
+      "sources": [
+        {
+          "label": "専攻の履修要綱",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/d0f3b248c777816487f94b1c623f04b0.pdf"
+        },
+        {
+          "label": "総合理工学研究科",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/d89e47ec82e92e1e535085fe58082009.pdf"
+        },
+        {
+          "label": "授業科目教育課程表・教育職員免許状について",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/70fe86a7dc994b033b9b42b6bd76808d.pdf"
+        }
+      ],
+      "programs": [
+        {
+          "name": "博士前期課程",
+          "minimum": 30,
+          "source": {
+            "label": "博士前期課程の総単位の根拠（PDF 12ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/d89e47ec82e92e1e535085fe58082009.pdf#page=12"
+          }
+        },
+        {
+          "name": "博士後期課程",
+          "minimum": 24,
+          "source": {
+            "label": "博士後期課程の総単位の根拠（PDF 45ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/d89e47ec82e92e1e535085fe58082009.pdf#page=45"
+          }
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "school": "総合理工学研究科",
+      "major": "共同原子力専攻",
+      "listing": "https://www.asc.tcu.ac.jp/syllabus_grad_archives/",
+      "sources": [
+        {
+          "label": "専攻の履修要綱",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/df3772ea2706e5e252809b4574d8d6fd.pdf"
+        },
+        {
+          "label": "総合理工学研究科",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/d89e47ec82e92e1e535085fe58082009.pdf"
+        },
+        {
+          "label": "授業科目教育課程表・教育職員免許状について",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/70fe86a7dc994b033b9b42b6bd76808d.pdf"
+        }
+      ],
+      "programs": [
+        {
+          "name": "博士前期課程",
+          "minimum": 30,
+          "source": {
+            "label": "博士前期課程の総単位の根拠（PDF 12ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/d89e47ec82e92e1e535085fe58082009.pdf#page=12"
+          }
+        },
+        {
+          "name": "博士後期課程",
+          "minimum": 24,
+          "source": {
+            "label": "博士後期課程の総単位の根拠（PDF 45ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/d89e47ec82e92e1e535085fe58082009.pdf#page=45"
+          }
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "school": "総合理工学研究科",
+      "major": "自然科学専攻",
+      "listing": "https://www.asc.tcu.ac.jp/syllabus_grad_archives/",
+      "sources": [
+        {
+          "label": "専攻の履修要綱",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/5f6fbca57d97ccf9a611a3e407f333ce.pdf"
+        },
+        {
+          "label": "総合理工学研究科",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/d89e47ec82e92e1e535085fe58082009.pdf"
+        },
+        {
+          "label": "授業科目教育課程表・教育職員免許状について",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/70fe86a7dc994b033b9b42b6bd76808d.pdf"
+        }
+      ],
+      "programs": [
+        {
+          "name": "博士前期課程",
+          "minimum": 30,
+          "source": {
+            "label": "博士前期課程の総単位の根拠（PDF 12ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/d89e47ec82e92e1e535085fe58082009.pdf#page=12"
+          }
+        },
+        {
+          "name": "博士後期課程",
+          "minimum": 24,
+          "source": {
+            "label": "博士後期課程の総単位の根拠（PDF 45ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/d89e47ec82e92e1e535085fe58082009.pdf#page=45"
+          }
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "school": "総合理工学研究科",
+      "major": "建築都市デザイン専攻",
+      "listing": "https://www.asc.tcu.ac.jp/syllabus_grad_archives/",
+      "sources": [
+        {
+          "label": "専攻の履修要綱",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/bb96dbb614a8fafd2705c16eafecc74f.pdf"
+        },
+        {
+          "label": "総合理工学研究科",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/d89e47ec82e92e1e535085fe58082009.pdf"
+        },
+        {
+          "label": "授業科目教育課程表・教育職員免許状について",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/70fe86a7dc994b033b9b42b6bd76808d.pdf"
+        }
+      ],
+      "programs": [
+        {
+          "name": "博士前期課程",
+          "minimum": 30,
+          "source": {
+            "label": "博士前期課程の総単位の根拠（PDF 12ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/d89e47ec82e92e1e535085fe58082009.pdf#page=12"
+          }
+        },
+        {
+          "name": "博士後期課程",
+          "minimum": 24,
+          "source": {
+            "label": "博士後期課程の総単位の根拠（PDF 45ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/d89e47ec82e92e1e535085fe58082009.pdf#page=45"
+          }
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "school": "総合理工学研究科",
+      "major": "情報専攻",
+      "listing": "https://www.asc.tcu.ac.jp/syllabus_grad_archives/",
+      "sources": [
+        {
+          "label": "専攻の履修要綱",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/520daa273e67670bae60caa3e49ac590.pdf"
+        },
+        {
+          "label": "総合理工学研究科",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/d89e47ec82e92e1e535085fe58082009.pdf"
+        },
+        {
+          "label": "授業科目教育課程表・教育職員免許状について",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/70fe86a7dc994b033b9b42b6bd76808d.pdf"
+        }
+      ],
+      "programs": [
+        {
+          "name": "博士前期課程",
+          "minimum": 30,
+          "source": {
+            "label": "博士前期課程の総単位の根拠（PDF 12ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/d89e47ec82e92e1e535085fe58082009.pdf#page=12"
+          }
+        },
+        {
+          "name": "博士後期課程",
+          "minimum": 24,
+          "source": {
+            "label": "博士後期課程の総単位の根拠（PDF 45ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/d89e47ec82e92e1e535085fe58082009.pdf#page=45"
+          }
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "school": "環境情報学研究科",
+      "major": "環境情報学専攻",
+      "listing": "https://www.asc.tcu.ac.jp/syllabus_grad_archives/",
+      "sources": [
+        {
+          "label": "専攻の履修要綱",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/566251a64fe9472ed2c5c54e11a23a2c.pdf#page=37"
+        }
+      ],
+      "programs": [
+        {
+          "name": "博士前期課程",
+          "minimum": 30,
+          "source": {
+            "label": "博士前期課程の総単位の根拠（PDF 12ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/566251a64fe9472ed2c5c54e11a23a2c.pdf#page=12"
+          }
+        },
+        {
+          "name": "博士後期課程",
+          "minimum": 24,
+          "source": {
+            "label": "博士後期課程の総単位の根拠（PDF 55ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/566251a64fe9472ed2c5c54e11a23a2c.pdf#page=55"
+          }
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "school": "環境情報学研究科",
+      "major": "東京都市大学・エディスコーワン大学 国際連携環境融合科学専攻",
+      "listing": "https://www.asc.tcu.ac.jp/syllabus_grad_archives/",
+      "sources": [
+        {
+          "label": "専攻の履修要綱",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/566251a64fe9472ed2c5c54e11a23a2c.pdf#page=37"
+        }
+      ],
+      "programs": [
+        {
+          "name": "博士前期課程",
+          "minimum": 30,
+          "source": {
+            "label": "博士前期課程の総単位の根拠（PDF 63ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/566251a64fe9472ed2c5c54e11a23a2c.pdf#page=63"
+          },
+          "note": "東京都市大学を主大学とする場合の条件です。両大学の開設科目と指定科目の内訳、論文審査は履修要綱で確認してください。"
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "school": "環境情報学研究科",
+      "major": "都市生活学専攻",
+      "listing": "https://www.asc.tcu.ac.jp/syllabus_grad_archives/",
+      "sources": [
+        {
+          "label": "専攻の履修要綱",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/566251a64fe9472ed2c5c54e11a23a2c.pdf#page=37"
+        }
+      ],
+      "programs": [
+        {
+          "name": "博士前期課程",
+          "minimum": 30,
+          "source": {
+            "label": "博士前期課程の総単位の根拠（PDF 12ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/566251a64fe9472ed2c5c54e11a23a2c.pdf#page=12"
+          }
+        },
+        {
+          "name": "博士後期課程",
+          "minimum": 24,
+          "source": {
+            "label": "博士後期課程の総単位の根拠（PDF 55ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/566251a64fe9472ed2c5c54e11a23a2c.pdf#page=55"
+          }
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "school": "総合理工学研究科",
+      "major": "機械専攻",
+      "listing": "https://www.asc.tcu.ac.jp/syllabus_grad_archives/",
+      "sources": [
+        {
+          "label": "専攻の履修要綱",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/cd3af44ef71cf86b6a7cd2c4b47b733f.pdf"
+        },
+        {
+          "label": "総合理工学研究科",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/8faea7afe6903e4b21363cdde1eafde1.pdf"
+        },
+        {
+          "label": "授業科目教育課程表・教育職員免許状について",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/f8779759974189aa1a9e0d216105f987.pdf"
+        }
+      ],
+      "programs": [
+        {
+          "name": "博士前期課程",
+          "minimum": 30,
+          "source": {
+            "label": "博士前期課程の総単位の根拠（PDF 12ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/8faea7afe6903e4b21363cdde1eafde1.pdf#page=12"
+          }
+        },
+        {
+          "name": "博士後期課程",
+          "minimum": 24,
+          "source": {
+            "label": "博士後期課程の総単位の根拠（PDF 47ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/8faea7afe6903e4b21363cdde1eafde1.pdf#page=47"
+          }
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "school": "総合理工学研究科",
+      "major": "電気・化学専攻",
+      "listing": "https://www.asc.tcu.ac.jp/syllabus_grad_archives/",
+      "sources": [
+        {
+          "label": "専攻の履修要綱",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/b4bf27b5865690a18b5df28ffa897715.pdf"
+        },
+        {
+          "label": "総合理工学研究科",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/8faea7afe6903e4b21363cdde1eafde1.pdf"
+        },
+        {
+          "label": "授業科目教育課程表・教育職員免許状について",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/f8779759974189aa1a9e0d216105f987.pdf"
+        }
+      ],
+      "programs": [
+        {
+          "name": "博士前期課程",
+          "minimum": 30,
+          "source": {
+            "label": "博士前期課程の総単位の根拠（PDF 12ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/8faea7afe6903e4b21363cdde1eafde1.pdf#page=12"
+          }
+        },
+        {
+          "name": "博士後期課程",
+          "minimum": 24,
+          "source": {
+            "label": "博士後期課程の総単位の根拠（PDF 47ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/8faea7afe6903e4b21363cdde1eafde1.pdf#page=47"
+          }
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "school": "総合理工学研究科",
+      "major": "共同原子力専攻",
+      "listing": "https://www.asc.tcu.ac.jp/syllabus_grad_archives/",
+      "sources": [
+        {
+          "label": "専攻の履修要綱",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/867806a716346c22b2da3dfab900080d.pdf"
+        },
+        {
+          "label": "総合理工学研究科",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/8faea7afe6903e4b21363cdde1eafde1.pdf"
+        },
+        {
+          "label": "授業科目教育課程表・教育職員免許状について",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/f8779759974189aa1a9e0d216105f987.pdf"
+        }
+      ],
+      "programs": [
+        {
+          "name": "博士前期課程",
+          "minimum": 30,
+          "source": {
+            "label": "博士前期課程の総単位の根拠（PDF 12ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/8faea7afe6903e4b21363cdde1eafde1.pdf#page=12"
+          }
+        },
+        {
+          "name": "博士後期課程",
+          "minimum": 24,
+          "source": {
+            "label": "博士後期課程の総単位の根拠（PDF 47ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/8faea7afe6903e4b21363cdde1eafde1.pdf#page=47"
+          }
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "school": "総合理工学研究科",
+      "major": "自然科学専攻",
+      "listing": "https://www.asc.tcu.ac.jp/syllabus_grad_archives/",
+      "sources": [
+        {
+          "label": "専攻の履修要綱",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/1a0155ffe8fab23f7021cefc7dead23f.pdf"
+        },
+        {
+          "label": "総合理工学研究科",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/8faea7afe6903e4b21363cdde1eafde1.pdf"
+        },
+        {
+          "label": "授業科目教育課程表・教育職員免許状について",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/f8779759974189aa1a9e0d216105f987.pdf"
+        }
+      ],
+      "programs": [
+        {
+          "name": "博士前期課程",
+          "minimum": 30,
+          "source": {
+            "label": "博士前期課程の総単位の根拠（PDF 12ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/8faea7afe6903e4b21363cdde1eafde1.pdf#page=12"
+          }
+        },
+        {
+          "name": "博士後期課程",
+          "minimum": 24,
+          "source": {
+            "label": "博士後期課程の総単位の根拠（PDF 47ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/8faea7afe6903e4b21363cdde1eafde1.pdf#page=47"
+          }
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "school": "総合理工学研究科",
+      "major": "建築・都市専攻",
+      "listing": "https://www.asc.tcu.ac.jp/syllabus_grad_archives/",
+      "sources": [
+        {
+          "label": "専攻の履修要綱",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/6e2baea458e2771009b82efc964089f3.pdf"
+        },
+        {
+          "label": "総合理工学研究科",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/8faea7afe6903e4b21363cdde1eafde1.pdf"
+        },
+        {
+          "label": "授業科目教育課程表・教育職員免許状について",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/f8779759974189aa1a9e0d216105f987.pdf"
+        }
+      ],
+      "programs": [
+        {
+          "name": "博士前期課程",
+          "minimum": 30,
+          "source": {
+            "label": "博士前期課程の総単位の根拠（PDF 12ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/8faea7afe6903e4b21363cdde1eafde1.pdf#page=12"
+          }
+        },
+        {
+          "name": "博士後期課程",
+          "minimum": 24,
+          "source": {
+            "label": "博士後期課程の総単位の根拠（PDF 47ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/8faea7afe6903e4b21363cdde1eafde1.pdf#page=47"
+          }
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "school": "総合理工学研究科",
+      "major": "情報専攻",
+      "listing": "https://www.asc.tcu.ac.jp/syllabus_grad_archives/",
+      "sources": [
+        {
+          "label": "専攻の履修要綱",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/02f4991058b9eec98051eab749a53b77.pdf"
+        },
+        {
+          "label": "総合理工学研究科",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/8faea7afe6903e4b21363cdde1eafde1.pdf"
+        },
+        {
+          "label": "授業科目教育課程表・教育職員免許状について",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/f8779759974189aa1a9e0d216105f987.pdf"
+        }
+      ],
+      "programs": [
+        {
+          "name": "博士前期課程",
+          "minimum": 30,
+          "source": {
+            "label": "博士前期課程の総単位の根拠（PDF 12ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/8faea7afe6903e4b21363cdde1eafde1.pdf#page=12"
+          }
+        },
+        {
+          "name": "博士後期課程",
+          "minimum": 24,
+          "source": {
+            "label": "博士後期課程の総単位の根拠（PDF 47ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/8faea7afe6903e4b21363cdde1eafde1.pdf#page=47"
+          }
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "school": "環境情報学研究科",
+      "major": "環境情報学専攻",
+      "listing": "https://www.asc.tcu.ac.jp/syllabus_grad_archives/",
+      "sources": [
+        {
+          "label": "専攻の履修要綱",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/6f3fe03490cf4b39146fca4be23f7eaf.pdf#page=42"
+        }
+      ],
+      "programs": [
+        {
+          "name": "博士前期課程",
+          "minimum": 30,
+          "source": {
+            "label": "博士前期課程の総単位の根拠（PDF 13ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/6f3fe03490cf4b39146fca4be23f7eaf.pdf#page=13"
+          }
+        },
+        {
+          "name": "博士後期課程",
+          "minimum": 24,
+          "source": {
+            "label": "博士後期課程の総単位の根拠（PDF 56ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/6f3fe03490cf4b39146fca4be23f7eaf.pdf#page=56"
+          }
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "school": "環境情報学研究科",
+      "major": "都市生活学専攻",
+      "listing": "https://www.asc.tcu.ac.jp/syllabus_grad_archives/",
+      "sources": [
+        {
+          "label": "専攻の履修要綱",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/6f3fe03490cf4b39146fca4be23f7eaf.pdf#page=42"
+        }
+      ],
+      "programs": [
+        {
+          "name": "博士前期課程",
+          "minimum": 30,
+          "source": {
+            "label": "博士前期課程の総単位の根拠（PDF 13ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/6f3fe03490cf4b39146fca4be23f7eaf.pdf#page=13"
+          }
+        },
+        {
+          "name": "博士後期課程",
+          "minimum": 24,
+          "source": {
+            "label": "博士後期課程の総単位の根拠（PDF 56ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/6f3fe03490cf4b39146fca4be23f7eaf.pdf#page=56"
+          }
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "school": "総合理工学研究科",
+      "major": "機械専攻",
+      "listing": "https://www.asc.tcu.ac.jp/syllabus_grad_archives/",
+      "sources": [
+        {
+          "label": "専攻の履修要綱",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/8af237d016b9d2a7cf0a81c222a0f9b2.pdf"
+        },
+        {
+          "label": "総合理工学研究科",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/6c9603076ad4bb63fb205a5a3c6ee160.pdf"
+        },
+        {
+          "label": "授業科目教育課程表・教育職員免許状について",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/716f0090f6a788a478eed3b9f3f17dd3.pdf"
+        }
+      ],
+      "programs": [
+        {
+          "name": "博士前期課程",
+          "minimum": 30,
+          "source": {
+            "label": "博士前期課程の総単位の根拠（PDF 12ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/6c9603076ad4bb63fb205a5a3c6ee160.pdf#page=12"
+          }
+        },
+        {
+          "name": "博士後期課程",
+          "minimum": 24,
+          "source": {
+            "label": "博士後期課程の総単位の根拠（PDF 45ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/6c9603076ad4bb63fb205a5a3c6ee160.pdf#page=45"
+          }
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "school": "総合理工学研究科",
+      "major": "電気・化学専攻",
+      "listing": "https://www.asc.tcu.ac.jp/syllabus_grad_archives/",
+      "sources": [
+        {
+          "label": "専攻の履修要綱",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/e3738ee029ff0e8176579ca813612169.pdf"
+        },
+        {
+          "label": "総合理工学研究科",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/6c9603076ad4bb63fb205a5a3c6ee160.pdf"
+        },
+        {
+          "label": "授業科目教育課程表・教育職員免許状について",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/716f0090f6a788a478eed3b9f3f17dd3.pdf"
+        }
+      ],
+      "programs": [
+        {
+          "name": "博士前期課程",
+          "minimum": 30,
+          "source": {
+            "label": "博士前期課程の総単位の根拠（PDF 12ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/6c9603076ad4bb63fb205a5a3c6ee160.pdf#page=12"
+          }
+        },
+        {
+          "name": "博士後期課程",
+          "minimum": 24,
+          "source": {
+            "label": "博士後期課程の総単位の根拠（PDF 45ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/6c9603076ad4bb63fb205a5a3c6ee160.pdf#page=45"
+          }
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "school": "総合理工学研究科",
+      "major": "共同原子力専攻",
+      "listing": "https://www.asc.tcu.ac.jp/syllabus_grad_archives/",
+      "sources": [
+        {
+          "label": "専攻の履修要綱",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/15d3046328b4990da4a1885bd206d526.pdf"
+        },
+        {
+          "label": "総合理工学研究科",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/6c9603076ad4bb63fb205a5a3c6ee160.pdf"
+        },
+        {
+          "label": "授業科目教育課程表・教育職員免許状について",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/716f0090f6a788a478eed3b9f3f17dd3.pdf"
+        }
+      ],
+      "programs": [
+        {
+          "name": "博士前期課程",
+          "minimum": 30,
+          "source": {
+            "label": "博士前期課程の総単位の根拠（PDF 12ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/6c9603076ad4bb63fb205a5a3c6ee160.pdf#page=12"
+          }
+        },
+        {
+          "name": "博士後期課程",
+          "minimum": 24,
+          "source": {
+            "label": "博士後期課程の総単位の根拠（PDF 45ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/6c9603076ad4bb63fb205a5a3c6ee160.pdf#page=45"
+          }
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "school": "総合理工学研究科",
+      "major": "自然科学専攻",
+      "listing": "https://www.asc.tcu.ac.jp/syllabus_grad_archives/",
+      "sources": [
+        {
+          "label": "専攻の履修要綱",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/c00c884e18c4e4ddb4bfc903df79cf42.pdf"
+        },
+        {
+          "label": "総合理工学研究科",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/6c9603076ad4bb63fb205a5a3c6ee160.pdf"
+        },
+        {
+          "label": "授業科目教育課程表・教育職員免許状について",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/716f0090f6a788a478eed3b9f3f17dd3.pdf"
+        }
+      ],
+      "programs": [
+        {
+          "name": "博士前期課程",
+          "minimum": 30,
+          "source": {
+            "label": "博士前期課程の総単位の根拠（PDF 12ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/6c9603076ad4bb63fb205a5a3c6ee160.pdf#page=12"
+          }
+        },
+        {
+          "name": "博士後期課程",
+          "minimum": 24,
+          "source": {
+            "label": "博士後期課程の総単位の根拠（PDF 45ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/6c9603076ad4bb63fb205a5a3c6ee160.pdf#page=45"
+          }
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "school": "総合理工学研究科",
+      "major": "建築・都市専攻",
+      "listing": "https://www.asc.tcu.ac.jp/syllabus_grad_archives/",
+      "sources": [
+        {
+          "label": "専攻の履修要綱",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/4a27d22c98d32b7b18e675d07d39834a.pdf"
+        },
+        {
+          "label": "総合理工学研究科",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/6c9603076ad4bb63fb205a5a3c6ee160.pdf"
+        },
+        {
+          "label": "授業科目教育課程表・教育職員免許状について",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/716f0090f6a788a478eed3b9f3f17dd3.pdf"
+        }
+      ],
+      "programs": [
+        {
+          "name": "博士前期課程",
+          "minimum": 30,
+          "source": {
+            "label": "博士前期課程の総単位の根拠（PDF 12ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/6c9603076ad4bb63fb205a5a3c6ee160.pdf#page=12"
+          }
+        },
+        {
+          "name": "博士後期課程",
+          "minimum": 24,
+          "source": {
+            "label": "博士後期課程の総単位の根拠（PDF 45ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/6c9603076ad4bb63fb205a5a3c6ee160.pdf#page=45"
+          }
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "school": "総合理工学研究科",
+      "major": "情報専攻",
+      "listing": "https://www.asc.tcu.ac.jp/syllabus_grad_archives/",
+      "sources": [
+        {
+          "label": "専攻の履修要綱",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/3d4d854613c7b1d6cf2e0ac0a6be322f.pdf"
+        },
+        {
+          "label": "総合理工学研究科",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/6c9603076ad4bb63fb205a5a3c6ee160.pdf"
+        },
+        {
+          "label": "授業科目教育課程表・教育職員免許状について",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/716f0090f6a788a478eed3b9f3f17dd3.pdf"
+        }
+      ],
+      "programs": [
+        {
+          "name": "博士前期課程",
+          "minimum": 30,
+          "source": {
+            "label": "博士前期課程の総単位の根拠（PDF 12ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/6c9603076ad4bb63fb205a5a3c6ee160.pdf#page=12"
+          }
+        },
+        {
+          "name": "博士後期課程",
+          "minimum": 24,
+          "source": {
+            "label": "博士後期課程の総単位の根拠（PDF 45ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/6c9603076ad4bb63fb205a5a3c6ee160.pdf#page=45"
+          }
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "school": "環境情報学研究科",
+      "major": "環境情報学専攻",
+      "listing": "https://www.asc.tcu.ac.jp/syllabus_grad_archives/",
+      "sources": [
+        {
+          "label": "専攻の履修要綱",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/ecac31d580786bcf8ba82255fa6d3bb3.pdf#page=40"
+        }
+      ],
+      "programs": [
+        {
+          "name": "博士前期課程",
+          "minimum": 30,
+          "source": {
+            "label": "博士前期課程の総単位の根拠（PDF 13ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/ecac31d580786bcf8ba82255fa6d3bb3.pdf#page=13"
+          }
+        },
+        {
+          "name": "博士後期課程",
+          "minimum": 24,
+          "source": {
+            "label": "博士後期課程の総単位の根拠（PDF 54ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/ecac31d580786bcf8ba82255fa6d3bb3.pdf#page=54"
+          }
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "school": "環境情報学研究科",
+      "major": "都市生活学専攻",
+      "listing": "https://www.asc.tcu.ac.jp/syllabus_grad_archives/",
+      "sources": [
+        {
+          "label": "専攻の履修要綱",
+          "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/ecac31d580786bcf8ba82255fa6d3bb3.pdf#page=40"
+        }
+      ],
+      "programs": [
+        {
+          "name": "博士前期課程",
+          "minimum": 30,
+          "source": {
+            "label": "博士前期課程の総単位の根拠（PDF 13ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/ecac31d580786bcf8ba82255fa6d3bb3.pdf#page=13"
+          }
+        },
+        {
+          "name": "博士後期課程",
+          "minimum": 24,
+          "source": {
+            "label": "博士後期課程の総単位の根拠（PDF 54ページ）",
+            "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/ecac31d580786bcf8ba82255fa6d3bb3.pdf#page=54"
+          }
+        }
+      ]
+    }
+  ],
+  "documents": {
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/02f4991058b9eec98051eab749a53b77.pdf": {
+      "sha256": "2c9cc449e4fcd3f7e84ec75a9933e68a9cd63a60e95b8df2822d5ae8e66c44ab",
+      "pages": 12
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/15d3046328b4990da4a1885bd206d526.pdf": {
+      "sha256": "b56e0969e7ae56088e2ccd137755aaf55ed7bdc864f885e8b62c45e26aaf6390",
+      "pages": 9
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/1a0155ffe8fab23f7021cefc7dead23f.pdf": {
+      "sha256": "6dea6115ddc9c6962087ad7dd1c2095c22699181cff2a49fbeb7a968f367ad44",
+      "pages": 6
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/3d4d854613c7b1d6cf2e0ac0a6be322f.pdf": {
+      "sha256": "ae0b87ac8379550bd45de7d52e3099e27d1cb59b7beee29ce0c7ddfa19236df8",
+      "pages": 13
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/4a27d22c98d32b7b18e675d07d39834a.pdf": {
+      "sha256": "dc8423260c4cfce4a7bbf5b1f26228c3e5f55c31d0c4d9e614d8df7e8d0e52b8",
+      "pages": 10
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/6c9603076ad4bb63fb205a5a3c6ee160.pdf": {
+      "sha256": "19034790259c9089459f721c5dd4da8b61e2a271a3ed668b70456a1280b7e15a",
+      "pages": 54
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/6e2baea458e2771009b82efc964089f3.pdf": {
+      "sha256": "322c1b43daf52e5332270b0ada0b1302cc00afa0f1bef3c29b403ed7c95a85fb",
+      "pages": 10
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/6f3fe03490cf4b39146fca4be23f7eaf.pdf": {
+      "sha256": "bd3c41fb39a3513e27961fac1c0be65771a585be1e0bbcf0235a26defcad1a8d",
+      "pages": 98
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/716f0090f6a788a478eed3b9f3f17dd3.pdf": {
+      "sha256": "1369a26cb52732d978a9c11fa27f888d06573479c19ca196ad1f91766eb62d2f",
+      "pages": 16
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/867806a716346c22b2da3dfab900080d.pdf": {
+      "sha256": "dbade094c59927ca500eff8fafad1ae478d57ca396c83a4c8eccb4b15b8d2120",
+      "pages": 10
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/8af237d016b9d2a7cf0a81c222a0f9b2.pdf": {
+      "sha256": "cbc6da575c8233c5e83002b80ce2a1a9376c744a7bf14e296d71492f2f056245",
+      "pages": 11
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/8faea7afe6903e4b21363cdde1eafde1.pdf": {
+      "sha256": "1cbe39819898a4e4e38b1e0fc17e12145933674079d9fa038f1d645037e46240",
+      "pages": 56
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/b4bf27b5865690a18b5df28ffa897715.pdf": {
+      "sha256": "c14d607d594ad8245f9e62b4ed0519dc4fbe708e14693f106c6ca953e27a8c1e",
+      "pages": 12
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/c00c884e18c4e4ddb4bfc903df79cf42.pdf": {
+      "sha256": "10e8d68c19dc7a3d035b1290001c645866114c42c80269ec697021b112d76595",
+      "pages": 6
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/cd3af44ef71cf86b6a7cd2c4b47b733f.pdf": {
+      "sha256": "3e03ef37f1c0834b984158ea604cc8fd676f95ee20a2052812e1332c925d79f6",
+      "pages": 12
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/e3738ee029ff0e8176579ca813612169.pdf": {
+      "sha256": "ca9f362816571d9432f65b3920eb0168d37849a760efe9b7c931c1588968d8b2",
+      "pages": 13
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/ecac31d580786bcf8ba82255fa6d3bb3.pdf": {
+      "sha256": "a9241d4478c429876e0f9354fa308779ea4fcf9d0b8b4b2cc4b259602b33f1d7",
+      "pages": 96
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/f8779759974189aa1a9e0d216105f987.pdf": {
+      "sha256": "99491659f6197a02bfcab9e69057760912360bef4aad55d00774459df1dd62c5",
+      "pages": 16
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/520daa273e67670bae60caa3e49ac590.pdf": {
+      "sha256": "6d917d43f00abe31b28232db033a6d586660b6c72113033733ae888b4f430f84",
+      "pages": 10
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/566251a64fe9472ed2c5c54e11a23a2c.pdf": {
+      "sha256": "c9121d3453a48b571fc70b95e45e1776edc3522f7290fd477b6cde8d6e917bf0",
+      "pages": 80
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/5f6fbca57d97ccf9a611a3e407f333ce.pdf": {
+      "sha256": "1f4d3a06a1d1ee999e23dfca0d2b31abc976f8312e7719dc29dbeae9bb87af05",
+      "pages": 6
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/70fe86a7dc994b033b9b42b6bd76808d.pdf": {
+      "sha256": "eb641f3840045c304fad06ea5d46779a5dfc9b84946397cb61f8ac5b28e37602",
+      "pages": 18
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/bb96dbb614a8fafd2705c16eafecc74f.pdf": {
+      "sha256": "c79a7f17e69447ae1e0dbbb0f6710e8074bb0aa796cd3ba81900d60cd096341d",
+      "pages": 10
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/d0f3b248c777816487f94b1c623f04b0.pdf": {
+      "sha256": "edeb9811d383cc87897555786d3a3b2d0cae32714b950d28cdce8ab5a51fcddc",
+      "pages": 10
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/d89e47ec82e92e1e535085fe58082009.pdf": {
+      "sha256": "a440ec99e455387587b776095a310a01545e3a5bfec2b16512bd349cb2cbaf8a",
+      "pages": 54
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/df3772ea2706e5e252809b4574d8d6fd.pdf": {
+      "sha256": "6eed59d4eefac8ee5257a507db2ac3a038ed880c014a06adfb91140e72e254d8",
+      "pages": 8
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/f39dae6bd8d86e8035041590ad5d6236.pdf": {
+      "sha256": "a25790026acf986c67252d73fdcc64a186c847786517710e613c10996640446a",
+      "pages": 12
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/008edb2002f87a53638a3222fb76d40c.pdf": {
+      "sha256": "fdf454fa0e6ae2ade540cac639af5dd552dcdf6908a65a4b8c2e36a885755348",
+      "pages": 60
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/10b8e8304526f1a73d324bdd4894d69f.pdf": {
+      "sha256": "f224c1eb5abe3bab4d605fa99c214cc76772a25fbe368572a8ac34f680917656",
+      "pages": 65
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/15f2293cdd5c450f835ae8948d79919e-1.pdf": {
+      "sha256": "888c8df74ec9ba1f8bed0258e14c82f339c5b2656ed8bf6e3a034ad818a173b4",
+      "pages": 12
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/2422094035ca4ffb915ddb81539f3c64.pdf": {
+      "sha256": "d5d37545dae84ff5ab1c1178ddb36addb60eccb52d76c9d1961c34eaa933bb26",
+      "pages": 10
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/4405926c0ea66eb76b307cd26ce4ca02.pdf": {
+      "sha256": "f4d29c80666534e870fb9466a067cb8c1100369b911349a3c4b9b16a68bda7a4",
+      "pages": 10
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/5959f0e84125691a7d08eb21bf079063-1.pdf": {
+      "sha256": "463b7dc9d8c8705a70cc8ad96f17fa321f38eaa3b38a4ba2e8b4fbac513e9145",
+      "pages": 6
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/788b122e9b825541c4ca211c310320a1.pdf": {
+      "sha256": "f3f35cef2cd30b0ac3319f82f6b30c869f18c75c2aab8151cd06b7f39a3bad22",
+      "pages": 10
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/79919e1c155246fa5f706c0e9d738445.pdf": {
+      "sha256": "5f7a6111a2447938037cea8edfef98cd9edc691428d5fd286df9648db9b9e18d",
+      "pages": 8
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/887bc666578ad64bc2e08dc7afa2affb.pdf": {
+      "sha256": "5e3fcea8195f0e87e25a68845aec6bb56f795b7cee57910b4a1885d613115c59",
+      "pages": 26
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/89b2966e6254929f7aa16428ba111004.pdf": {
+      "sha256": "854e01137dab3ce32cf325d7a3540d7c827f2c286813f4c190ab000c9c1588f6",
+      "pages": 8
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/cf16cfcd24b0ec45f29568c8fc6e8000.pdf": {
+      "sha256": "701719d8f163329db6cc0264c17e7a3795f9df98713e5f6ff2776a757e9e1b84",
+      "pages": 48
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/def34815054843eac083124eda9a8a2c.pdf": {
+      "sha256": "c7742f52ef861adc1df5ef85dc7510ac996f6a7a946816b33052dc98b662f5ed",
+      "pages": 10
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/e8ef628e05e4d028518b69f8d0e79cb2.pdf": {
+      "sha256": "07fb2642ec70dec82b511d4e434d5ac0a7cf5c51bc0166dc2557d7704dafdd68",
+      "pages": 12
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/09/1148cf36552b921ce7e68ed7f8687794.pdf": {
+      "sha256": "675cda791e425fe9c3025c52942c6fa359d1aec63c3c799b9ed78308a5f5e9dc",
+      "pages": 61
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/09/6ca457cc58289dc8b099c869a7a88da0.pdf": {
+      "sha256": "3928e2f0f16a335990fa4066eaf977b599dc6422348ae29834e698ac024d5d3e",
+      "pages": 3
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/09/dee831ab462e503ec35a8126e78dc05d.pdf": {
+      "sha256": "90530096c7ff2501f554412aafad939eb1a1f543e8598a8b932cb7625a45f38f",
+      "pages": 8
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/01faa31cca60894a587f0a9e578c3f90.pdf": {
+      "sha256": "9e99ea1f3b13c5084af72ffc01084ca05322bbc6de6dabd55c70733e85cc0729",
+      "pages": 12
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/127aa859259adf3ff7bd97d116da7cca.pdf": {
+      "sha256": "62427c88a2a38dab19c014546d9499c9b0e3b6ba420b1912791ea26782ebfab8",
+      "pages": 6
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/454f36fb9ad48f2ce487cede8bd0df78.pdf": {
+      "sha256": "75a762d0eaf6dbb78aaef1e06674c05b26210b643b6b24c914e8246fb41ff5d4",
+      "pages": 66
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/574f152e7ea96a266e1a8150e903a464.pdf": {
+      "sha256": "b6d0a245eedd1fbab7b682d80f89638bc1b31df88813d35fd37901359de46940",
+      "pages": 12
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/610d9d687dc94507859280b4e176e3a9.pdf": {
+      "sha256": "01d2e99d2e38c196ec1cca6ae49d7ceb5c7815c6aa1146b32d9cc493272327b6",
+      "pages": 10
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/82d60000e78c657ce06fe36d65f9992c.pdf": {
+      "sha256": "3df83dabfb5ea56415df8f8c6eb754e0a3cfb362f8f75a6c3d1a486312bffc75",
+      "pages": 10
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/86a258ebb28776520f9c74f0d03620df.pdf": {
+      "sha256": "9402b9727073894d65ef85fe803b67c7d5376a7190e9b2fe13d984a33d6843a5",
+      "pages": 8
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/91448d4a1c79fca78b26aabf7e76df6e.pdf": {
+      "sha256": "4abc130ada2a82a31d9f72283c825115dab2f9bacdd44fece15f7fe73f5985e3",
+      "pages": 9
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/a87a21b976c092f5d809cdfba1474a99.pdf": {
+      "sha256": "db0c4339ee26a2764efff450d1422f5ff5abe10e5505046c3434ff0b4c7712fd",
+      "pages": 3
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/b957018027a5443888a5a0cd6267c544.pdf": {
+      "sha256": "19c8f1ccf0e0265027cc040976c7a95758e7e8c13b6bf3adf923862e47b3e968",
+      "pages": 10
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/c25debf649e1d1457db122ac67edad0f.pdf": {
+      "sha256": "2f594f11f104b8d7221413dc9a65c0b7112b3d4587a3c007c8d04031a27b348c",
+      "pages": 8
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/ccf34f063d12411c96762c907345458b.pdf": {
+      "sha256": "ff1e201f633f3a8dfee4d135c078512101257ac27b4fd2845af89c270003388d",
+      "pages": 12
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/ea1f8f40b548d8fd94677d6f6de019f3.pdf": {
+      "sha256": "036c9595e8408ce80136430c1401a6c59a2da43024b17c37e2d605a08790a7d2",
+      "pages": 46
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/f537a6217aa7296bbbde3b54da9c9596.pdf": {
+      "sha256": "012052083c7e98804ec95827b21bb7752a0f0cd8794e1f542315179ffeae8153",
+      "pages": 60
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/f595ecfb04357ab27ea2f4bc341a0858.pdf": {
+      "sha256": "0272430bf192339fc0854a237e8ebfae0f9584e17b75358c8c7d9d7f5950c899",
+      "pages": 64
+    },
+    "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/fb31f5b54ddc480b65a152f91fe1eac9.pdf": {
+      "sha256": "66600a0bfe1c1a0ee025f760eaedb6fc1b22777cfe4e834fb32f940951eeda1a",
+      "pages": 8
+    }
+  }
+}

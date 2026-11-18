@@ -19,6 +19,7 @@
         <a href="#plan-title">時間割</a>
         <a href="#credits-title">単位の確認</a>
         <a href="#requirements-title">卒業要件</a>
+        <a href="#graduate-title">大学院の修了要件</a>
         <a href="#enrollment-title">履修・進級チェック</a>
         <a href="#planner-tasks-title">課題メモ</a>
         <a href="#query">授業を探す</a>
@@ -53,6 +54,8 @@
         <input id="query" type="search" autocomplete="off">
         <label for="campus">キャンパス</label>
         <select id="campus"><option value="">すべて</option></select>
+        <label for="course-level">課程区分</label>
+        <select id="course-level"><option value="">すべて</option><option value="学部">学部</option><option value="大学院">大学院</option></select>
         <div class="filter">
           <span id="search-scope"></span>
           <button type="button" id="clear-slot" hidden>コマ指定を解除</button>
@@ -135,13 +138,32 @@
           <p id="guide-rule-status" role="status"></p>
         </div>
       </section>
+      <section class="graduate" aria-labelledby="graduate-title">
+        <h2 id="graduate-title" tabindex="-1">大学院の修了要件</h2>
+        <p class="help">入学した年度の履修要綱から、専攻・課程ごとの修了条件を確認できます。</p>
+        <div class="credit-inputs" id="graduate-controls" hidden>
+          <label>入学年度<select id="graduate-year"></select></label>
+          <label>研究科<select id="graduate-school"></select></label>
+          <label>専攻<select id="graduate-major"></select></label>
+        </div>
+        <p id="graduate-status" role="status">大学院の履修要綱を読み込んでいます。</p>
+        <div id="graduate-minimum" hidden>
+          <div class="credit-inputs">
+            <label>課程<select id="graduate-program"></select></label>
+            <label>取得済みの算入単位<input id="graduate-earned" type="number" min="0" max="999" step="0.01" inputmode="decimal"></label>
+            <label>見込みの算入単位<input id="graduate-planned" type="number" min="0" max="999" step="0.01" inputmode="decimal"></label>
+          </div>
+          <div id="graduate-result" class="credit-summary" role="status"></div>
+        </div>
+        <ul id="graduate-sources" aria-label="大学院の履修要綱と出典"></ul>
+      </section>
       <section class="enrollment" aria-labelledby="enrollment-title">
         <h2 id="enrollment-title" tabindex="-1">履修・進級チェック</h2>
         <p id="enrollment-status" class="help" role="status">WebClassのコース一覧で「履修・進級チェック」を押すと、表示中の時間割をここで確認できます。</p>
         <div id="enrollment-content" hidden>
           <p class="help" id="enrollment-all-tip" hidden>学期を変更したときは、WebClassのコース一覧から開き直してください。全学期を確認する場合は「All」を選びます。</p>
           <p class="help">正式な履修登録・成績は <a href="https://websrv.tcu.ac.jp/tcu_web_v3" target="_blank" rel="noopener noreferrer">大学ポータル</a> で確認できます。</p>
-          <p><a href="#enrollment-progression">進級の総単位条件へ</a></p>
+          <p><a href="#enrollment-progression">学部の進級条件へ</a> ／ <a href="#graduate-title">大学院の修了要件へ</a></p>
           <h3>WebClassから読み込んだ参加コース</h3>
           <p class="help">未確認の単位は大学の公開シラバスで照合できます。照会には講義コード・開講年度・学期を送ります。</p>
           <button id="enrollment-lookup" type="button">公式シラバスで単位を照合</button>
@@ -176,6 +198,7 @@
   <script src="planner-credits.js"></script>
   <script src="planner-tasks.js"></script>
   <script src="planner-guides.js"></script>
+  <script src="planner-graduate.js"></script>
   <script src="enrollment-matching.js"></script>
   <script src="planner-enrollment.js"></script>
   <script src="planner.js"></script>

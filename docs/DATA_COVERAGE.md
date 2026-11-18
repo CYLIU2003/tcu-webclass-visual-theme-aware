@@ -66,3 +66,11 @@ node tests/test_full_data.mjs
 ```
 
 抽出キャッシュ・ダウンロードしたPDFは tmp/timetable-sources/ に置きます。再実行時にPDFのハッシュが同じならセル抽出を再利用します。確認日や資料が変わった場合は一覧を見直してから再生成します。
+
+## 大学院の履修要綱
+
+2022〜2026年度入学の公開履修要綱を、入学年度・研究科・専攻で選べます。収録は年度順に8、8、9、10、10件です。博士前期課程45件と博士後期課程42件の総単位条件に原表のページ番号を付けています。国際連携環境融合科学専攻の総単位は東京都市大学を主大学とする場合の条件です。
+
+- 掲載元は[2026年度 大学院履修要綱](https://www.asc.tcu.ac.jp/syllabus_grad/)と[過年度の大学院履修要綱](https://www.asc.tcu.ac.jp/syllabus_grad_archives/)です。
+- `python data/build_graduate_guides.py --download` で掲載ページとPDFを `data/source-cache/graduate-guides/` に保存し、索引を生成します。再生成時は同じキャッシュから `python data/build_graduate_guides.py` を実行します。PDFのSHA-256は生成された索引に記録しています。
+- 時間割プランナーの大学院フィルターは2026年度データを対象にします。履修要綱の入学年度とは別に、WebClassのコース照合は表示中の開講年度を使います。
