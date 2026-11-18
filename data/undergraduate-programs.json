@@ -1,0 +1,2288 @@
+{
+  "schemaVersion": 1,
+  "profiles": {
+    "2022:機械工学科": {
+      "year": 2022,
+      "faculty": "理工学部",
+      "department": "機械工学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/69af55e9ab67b3d91ca5b4cb1546fb40.pdf#page=71",
+        "page": 71,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "3789cda13600c855c6c310264e127df1e87c28e21ca1cb1db229e4877cc6e610"
+      },
+      "scopes": {
+        "hirameki": "hirameki-engineering-2022"
+      },
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/69af55e9ab67b3d91ca5b4cb1546fb40.pdf#page=71",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/96f0dcbfeeca7662e93f8fdc1377c44f.pdf",
+        "hirameki": "https://hirameki.tcu.ac.jp/wp-content/uploads/2021/04/for_student.pdf"
+      },
+      "teachingDocument": true
+    },
+    "2022:機械システム工学科": {
+      "year": 2022,
+      "faculty": "理工学部",
+      "department": "機械システム工学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/69af55e9ab67b3d91ca5b4cb1546fb40.pdf#page=71",
+        "page": 71,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "3789cda13600c855c6c310264e127df1e87c28e21ca1cb1db229e4877cc6e610"
+      },
+      "scopes": {
+        "hirameki": "hirameki-engineering-2022"
+      },
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/69af55e9ab67b3d91ca5b4cb1546fb40.pdf#page=71",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/96f0dcbfeeca7662e93f8fdc1377c44f.pdf",
+        "hirameki": "https://hirameki.tcu.ac.jp/wp-content/uploads/2021/04/for_student.pdf"
+      },
+      "teachingDocument": true
+    },
+    "2022:電気電子通信工学科": {
+      "year": 2022,
+      "faculty": "理工学部",
+      "department": "電気電子通信工学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/69af55e9ab67b3d91ca5b4cb1546fb40.pdf#page=71",
+        "page": 71,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "3789cda13600c855c6c310264e127df1e87c28e21ca1cb1db229e4877cc6e610"
+      },
+      "scopes": {
+        "hirameki": "hirameki-engineering-2022"
+      },
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/69af55e9ab67b3d91ca5b4cb1546fb40.pdf#page=71",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/96f0dcbfeeca7662e93f8fdc1377c44f.pdf",
+        "hirameki": "https://hirameki.tcu.ac.jp/wp-content/uploads/2021/04/for_student.pdf"
+      },
+      "teachingDocument": true
+    },
+    "2022:医用工学科": {
+      "year": 2022,
+      "faculty": "理工学部",
+      "department": "医用工学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/69af55e9ab67b3d91ca5b4cb1546fb40.pdf#page=71",
+        "page": 71,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "3789cda13600c855c6c310264e127df1e87c28e21ca1cb1db229e4877cc6e610"
+      },
+      "scopes": {},
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/69af55e9ab67b3d91ca5b4cb1546fb40.pdf#page=71",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/96f0dcbfeeca7662e93f8fdc1377c44f.pdf"
+      },
+      "teachingDocument": true
+    },
+    "2022:応用化学科": {
+      "year": 2022,
+      "faculty": "理工学部",
+      "department": "応用化学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/69af55e9ab67b3d91ca5b4cb1546fb40.pdf#page=71",
+        "page": 71,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "3789cda13600c855c6c310264e127df1e87c28e21ca1cb1db229e4877cc6e610"
+      },
+      "scopes": {},
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/69af55e9ab67b3d91ca5b4cb1546fb40.pdf#page=71",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/96f0dcbfeeca7662e93f8fdc1377c44f.pdf"
+      },
+      "teachingDocument": true
+    },
+    "2022:原子力安全工学科": {
+      "year": 2022,
+      "faculty": "理工学部",
+      "department": "原子力安全工学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/69af55e9ab67b3d91ca5b4cb1546fb40.pdf#page=71",
+        "page": 71,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "3789cda13600c855c6c310264e127df1e87c28e21ca1cb1db229e4877cc6e610"
+      },
+      "scopes": {},
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/69af55e9ab67b3d91ca5b4cb1546fb40.pdf#page=71",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/96f0dcbfeeca7662e93f8fdc1377c44f.pdf"
+      },
+      "teachingDocument": true
+    },
+    "2022:自然科学科": {
+      "year": 2022,
+      "faculty": "理工学部",
+      "department": "自然科学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/69af55e9ab67b3d91ca5b4cb1546fb40.pdf#page=71",
+        "page": 71,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "3789cda13600c855c6c310264e127df1e87c28e21ca1cb1db229e4877cc6e610"
+      },
+      "scopes": {},
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/69af55e9ab67b3d91ca5b4cb1546fb40.pdf#page=71",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/96f0dcbfeeca7662e93f8fdc1377c44f.pdf"
+      },
+      "teachingDocument": true
+    },
+    "2022:建築学科": {
+      "year": 2022,
+      "faculty": "建築都市デザイン学部",
+      "department": "建築学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/a83cade6e1bf1416f9c46cc455b5babd.pdf#page=67",
+        "page": 67,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "7cf936b5b584d4d15d13bbcf9283daef885922378b2c66df79b1889837c2c81e"
+      },
+      "scopes": {},
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/a83cade6e1bf1416f9c46cc455b5babd.pdf#page=67",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/84f04f6b84d41dada8cfb310eebb9ccb.pdf"
+      },
+      "teachingDocument": false
+    },
+    "2022:都市工学科": {
+      "year": 2022,
+      "faculty": "建築都市デザイン学部",
+      "department": "都市工学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/a83cade6e1bf1416f9c46cc455b5babd.pdf#page=67",
+        "page": 67,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "7cf936b5b584d4d15d13bbcf9283daef885922378b2c66df79b1889837c2c81e"
+      },
+      "scopes": {},
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/a83cade6e1bf1416f9c46cc455b5babd.pdf#page=67",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/22cdc7c0684c81c91da58c6c0f451e73.pdf"
+      },
+      "teachingDocument": false
+    },
+    "2022:情報科学科": {
+      "year": 2022,
+      "faculty": "情報工学部",
+      "department": "情報科学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/f503234e484bd4e997ffa4250bfb1f02.pdf#page=69",
+        "page": 69,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "0a650b4e4a383e3c7cee5993c76ae078ba28f1dbc78a2d97704e39baa39edc0e"
+      },
+      "scopes": {},
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/f503234e484bd4e997ffa4250bfb1f02.pdf#page=69",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/48cca1d90aa3c8b386fe90c81314e2fa.pdf"
+      },
+      "teachingDocument": true
+    },
+    "2022:知能情報工学科": {
+      "year": 2022,
+      "faculty": "情報工学部",
+      "department": "知能情報工学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/f503234e484bd4e997ffa4250bfb1f02.pdf#page=69",
+        "page": 69,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "0a650b4e4a383e3c7cee5993c76ae078ba28f1dbc78a2d97704e39baa39edc0e"
+      },
+      "scopes": {},
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/f503234e484bd4e997ffa4250bfb1f02.pdf#page=69",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/48cca1d90aa3c8b386fe90c81314e2fa.pdf"
+      },
+      "teachingDocument": true
+    },
+    "2022:環境創生学科": {
+      "year": 2022,
+      "faculty": "環境学部",
+      "department": "環境創生学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/894f6b9c6434bedd5f22780679ce9898.pdf#page=76",
+        "page": 76,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "79ce9ee233763f11e343ab2db97647bb99c69449934d5cc2c6733776ab562c95"
+      },
+      "scopes": {},
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/894f6b9c6434bedd5f22780679ce9898.pdf#page=76",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/894f6b9c6434bedd5f22780679ce9898.pdf"
+      },
+      "teachingDocument": false
+    },
+    "2022:環境経営システム学科": {
+      "year": 2022,
+      "faculty": "環境学部",
+      "department": "環境経営システム学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/894f6b9c6434bedd5f22780679ce9898.pdf#page=76",
+        "page": 76,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "79ce9ee233763f11e343ab2db97647bb99c69449934d5cc2c6733776ab562c95"
+      },
+      "scopes": {},
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/894f6b9c6434bedd5f22780679ce9898.pdf#page=76",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/894f6b9c6434bedd5f22780679ce9898.pdf"
+      },
+      "teachingDocument": false
+    },
+    "2022:社会メディア学科": {
+      "year": 2022,
+      "faculty": "メディア情報学部",
+      "department": "社会メディア学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/0cb7237324b5d40678d5f1f66c2311c9.pdf#page=72",
+        "page": 72,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "7ca3a10bafacb6db4aa2ef9ee16ad101a0acfe5a8c0bc6daf528f47bbe8eb1ce"
+      },
+      "scopes": {},
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/0cb7237324b5d40678d5f1f66c2311c9.pdf#page=72",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/0cb7237324b5d40678d5f1f66c2311c9.pdf"
+      },
+      "teachingDocument": false
+    },
+    "2022:情報システム学科": {
+      "year": 2022,
+      "faculty": "メディア情報学部",
+      "department": "情報システム学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/0cb7237324b5d40678d5f1f66c2311c9.pdf#page=72",
+        "page": 72,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "7ca3a10bafacb6db4aa2ef9ee16ad101a0acfe5a8c0bc6daf528f47bbe8eb1ce"
+      },
+      "scopes": {},
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/0cb7237324b5d40678d5f1f66c2311c9.pdf#page=72",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/0cb7237324b5d40678d5f1f66c2311c9.pdf"
+      },
+      "teachingDocument": false
+    },
+    "2022:都市生活学科": {
+      "year": 2022,
+      "faculty": "都市生活学部",
+      "department": "都市生活学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/ba18b28421362d72ddac50c16e252b29.pdf#page=97",
+        "page": 97,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "05a98211d729527ad1b41c7af5245ec3a6aec0754becf4d73111b0bc1e15807a"
+      },
+      "scopes": {},
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/ba18b28421362d72ddac50c16e252b29.pdf#page=97",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/ba18b28421362d72ddac50c16e252b29.pdf"
+      },
+      "teachingDocument": false
+    },
+    "2022:児童学科": {
+      "year": 2022,
+      "faculty": "人間科学部",
+      "department": "児童学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/fd06a17ce82741eae823ad66d2307f2f.pdf#page=87",
+        "page": 87,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "23d36a90df0fc9698c65d698a2b36e9366ddb35746321cd446406d5cb3144c0a"
+      },
+      "scopes": {},
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/fd06a17ce82741eae823ad66d2307f2f.pdf#page=87",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/fd06a17ce82741eae823ad66d2307f2f.pdf"
+      },
+      "teachingDocument": false
+    },
+    "2023:機械工学科": {
+      "year": 2023,
+      "faculty": "理工学部",
+      "department": "機械工学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/69af55e9ab67b3d91ca5b4cb1546fb40-1.pdf#page=71",
+        "page": 71,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "dcc6c3bf5a5a432305c8be60772be36064318ab229fd20700e86d2951c0f7a42"
+      },
+      "scopes": {
+        "hirameki": "hirameki-engineering-2023"
+      },
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/69af55e9ab67b3d91ca5b4cb1546fb40-1.pdf#page=71",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/96f0dcbfeeca7662e93f8fdc1377c44f-1.pdf",
+        "hirameki": "https://hirameki.tcu.ac.jp/wp-content/uploads/2023/03/program19.png"
+      },
+      "teachingDocument": true
+    },
+    "2023:機械システム工学科": {
+      "year": 2023,
+      "faculty": "理工学部",
+      "department": "機械システム工学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/69af55e9ab67b3d91ca5b4cb1546fb40-1.pdf#page=71",
+        "page": 71,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "dcc6c3bf5a5a432305c8be60772be36064318ab229fd20700e86d2951c0f7a42"
+      },
+      "scopes": {
+        "hirameki": "hirameki-engineering-2023"
+      },
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/69af55e9ab67b3d91ca5b4cb1546fb40-1.pdf#page=71",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/96f0dcbfeeca7662e93f8fdc1377c44f-1.pdf",
+        "hirameki": "https://hirameki.tcu.ac.jp/wp-content/uploads/2023/03/program19.png"
+      },
+      "teachingDocument": true
+    },
+    "2023:電気電子通信工学科": {
+      "year": 2023,
+      "faculty": "理工学部",
+      "department": "電気電子通信工学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/69af55e9ab67b3d91ca5b4cb1546fb40-1.pdf#page=71",
+        "page": 71,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "dcc6c3bf5a5a432305c8be60772be36064318ab229fd20700e86d2951c0f7a42"
+      },
+      "scopes": {
+        "hirameki": "hirameki-engineering-2023"
+      },
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/69af55e9ab67b3d91ca5b4cb1546fb40-1.pdf#page=71",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/96f0dcbfeeca7662e93f8fdc1377c44f-1.pdf",
+        "hirameki": "https://hirameki.tcu.ac.jp/wp-content/uploads/2023/03/program19.png"
+      },
+      "teachingDocument": true
+    },
+    "2023:医用工学科": {
+      "year": 2023,
+      "faculty": "理工学部",
+      "department": "医用工学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/69af55e9ab67b3d91ca5b4cb1546fb40-1.pdf#page=71",
+        "page": 71,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "dcc6c3bf5a5a432305c8be60772be36064318ab229fd20700e86d2951c0f7a42"
+      },
+      "scopes": {
+        "hirameki": "hirameki-engineering-2023"
+      },
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/69af55e9ab67b3d91ca5b4cb1546fb40-1.pdf#page=71",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/96f0dcbfeeca7662e93f8fdc1377c44f-1.pdf",
+        "hirameki": "https://hirameki.tcu.ac.jp/wp-content/uploads/2023/03/program19.png"
+      },
+      "teachingDocument": true
+    },
+    "2023:応用化学科": {
+      "year": 2023,
+      "faculty": "理工学部",
+      "department": "応用化学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/69af55e9ab67b3d91ca5b4cb1546fb40-1.pdf#page=71",
+        "page": 71,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "dcc6c3bf5a5a432305c8be60772be36064318ab229fd20700e86d2951c0f7a42"
+      },
+      "scopes": {
+        "hirameki": "hirameki-engineering-2023"
+      },
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/69af55e9ab67b3d91ca5b4cb1546fb40-1.pdf#page=71",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/96f0dcbfeeca7662e93f8fdc1377c44f-1.pdf",
+        "hirameki": "https://hirameki.tcu.ac.jp/wp-content/uploads/2023/03/program19.png"
+      },
+      "teachingDocument": true
+    },
+    "2023:原子力安全工学科": {
+      "year": 2023,
+      "faculty": "理工学部",
+      "department": "原子力安全工学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/69af55e9ab67b3d91ca5b4cb1546fb40-1.pdf#page=71",
+        "page": 71,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "dcc6c3bf5a5a432305c8be60772be36064318ab229fd20700e86d2951c0f7a42"
+      },
+      "scopes": {
+        "hirameki": "hirameki-engineering-2023"
+      },
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/69af55e9ab67b3d91ca5b4cb1546fb40-1.pdf#page=71",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/96f0dcbfeeca7662e93f8fdc1377c44f-1.pdf",
+        "hirameki": "https://hirameki.tcu.ac.jp/wp-content/uploads/2023/03/program19.png"
+      },
+      "teachingDocument": true
+    },
+    "2023:自然科学科": {
+      "year": 2023,
+      "faculty": "理工学部",
+      "department": "自然科学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/69af55e9ab67b3d91ca5b4cb1546fb40-1.pdf#page=71",
+        "page": 71,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "dcc6c3bf5a5a432305c8be60772be36064318ab229fd20700e86d2951c0f7a42"
+      },
+      "scopes": {},
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/69af55e9ab67b3d91ca5b4cb1546fb40-1.pdf#page=71",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/96f0dcbfeeca7662e93f8fdc1377c44f-1.pdf"
+      },
+      "teachingDocument": true
+    },
+    "2023:建築学科": {
+      "year": 2023,
+      "faculty": "建築都市デザイン学部",
+      "department": "建築学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/a83cade6e1bf1416f9c46cc455b5babd-1.pdf#page=67",
+        "page": 67,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "ebdad687bb419d89f13bef5cf984614590acfa41b7ab02758e1e86bdeb3a0b0b"
+      },
+      "scopes": {},
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/a83cade6e1bf1416f9c46cc455b5babd-1.pdf#page=67",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/84f04f6b84d41dada8cfb310eebb9ccb-1.pdf"
+      },
+      "teachingDocument": false
+    },
+    "2023:都市工学科": {
+      "year": 2023,
+      "faculty": "建築都市デザイン学部",
+      "department": "都市工学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/a83cade6e1bf1416f9c46cc455b5babd-1.pdf#page=67",
+        "page": 67,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "ebdad687bb419d89f13bef5cf984614590acfa41b7ab02758e1e86bdeb3a0b0b"
+      },
+      "scopes": {},
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/a83cade6e1bf1416f9c46cc455b5babd-1.pdf#page=67",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/22cdc7c0684c81c91da58c6c0f451e73-1.pdf"
+      },
+      "teachingDocument": false
+    },
+    "2023:情報科学科": {
+      "year": 2023,
+      "faculty": "情報工学部",
+      "department": "情報科学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/f503234e484bd4e997ffa4250bfb1f02-1.pdf#page=69",
+        "page": 69,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "3dcde5320dbb67ce50ff5473c7dddd23c08bab86f129507b3a17a6d77823c508"
+      },
+      "scopes": {},
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/f503234e484bd4e997ffa4250bfb1f02-1.pdf#page=69",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/48cca1d90aa3c8b386fe90c81314e2fa-1.pdf"
+      },
+      "teachingDocument": true
+    },
+    "2023:知能情報工学科": {
+      "year": 2023,
+      "faculty": "情報工学部",
+      "department": "知能情報工学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/f503234e484bd4e997ffa4250bfb1f02-1.pdf#page=69",
+        "page": 69,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "3dcde5320dbb67ce50ff5473c7dddd23c08bab86f129507b3a17a6d77823c508"
+      },
+      "scopes": {},
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/f503234e484bd4e997ffa4250bfb1f02-1.pdf#page=69",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/48cca1d90aa3c8b386fe90c81314e2fa-1.pdf"
+      },
+      "teachingDocument": true
+    },
+    "2023:環境創生学科": {
+      "year": 2023,
+      "faculty": "環境学部",
+      "department": "環境創生学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/0188268e62a307b1b69c8517bfde4405.pdf#page=74",
+        "page": 74,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "84aa74f61a883a1ee7ce2528e7f8de0784f5ec6d3716da5520340d28fad5bf75"
+      },
+      "scopes": {},
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/0188268e62a307b1b69c8517bfde4405.pdf#page=74",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/0188268e62a307b1b69c8517bfde4405.pdf"
+      },
+      "teachingDocument": false
+    },
+    "2023:環境経営システム学科": {
+      "year": 2023,
+      "faculty": "環境学部",
+      "department": "環境経営システム学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/0188268e62a307b1b69c8517bfde4405.pdf#page=74",
+        "page": 74,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "84aa74f61a883a1ee7ce2528e7f8de0784f5ec6d3716da5520340d28fad5bf75"
+      },
+      "scopes": {},
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/0188268e62a307b1b69c8517bfde4405.pdf#page=74",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/0188268e62a307b1b69c8517bfde4405.pdf"
+      },
+      "teachingDocument": false
+    },
+    "2023:社会メディア学科": {
+      "year": 2023,
+      "faculty": "メディア情報学部",
+      "department": "社会メディア学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/cec75b4a7fe4fabe90ac9e9a1a00086d.pdf#page=70",
+        "page": 70,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "8e6ea9148af8a066385832ee510d8bc455ccef479bfb0435358d0d27bf67435c"
+      },
+      "scopes": {},
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/cec75b4a7fe4fabe90ac9e9a1a00086d.pdf#page=70",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/cec75b4a7fe4fabe90ac9e9a1a00086d.pdf"
+      },
+      "teachingDocument": false
+    },
+    "2023:情報システム学科": {
+      "year": 2023,
+      "faculty": "メディア情報学部",
+      "department": "情報システム学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/cec75b4a7fe4fabe90ac9e9a1a00086d.pdf#page=70",
+        "page": 70,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "8e6ea9148af8a066385832ee510d8bc455ccef479bfb0435358d0d27bf67435c"
+      },
+      "scopes": {},
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/cec75b4a7fe4fabe90ac9e9a1a00086d.pdf#page=70",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/cec75b4a7fe4fabe90ac9e9a1a00086d.pdf"
+      },
+      "teachingDocument": false
+    },
+    "2023:デザイン・データ科学科": {
+      "year": 2023,
+      "faculty": "デザイン・データ科学部",
+      "department": "デザイン・データ科学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/6286de2f4d3beead1fd38f0845c62dd1.pdf#page=68",
+        "page": 68,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "28b8df14faee8d1263ddf6e4450d7abb0c4fdf5f4cf9642a78d3f532ff1ebe27"
+      },
+      "scopes": {},
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/6286de2f4d3beead1fd38f0845c62dd1.pdf#page=68",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/6286de2f4d3beead1fd38f0845c62dd1.pdf"
+      },
+      "teachingDocument": false
+    },
+    "2023:都市生活学科": {
+      "year": 2023,
+      "faculty": "都市生活学部",
+      "department": "都市生活学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/83d7b838cc7113925d126dd31d7063d4.pdf#page=97",
+        "page": 97,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "4c9b980327d0dabed199df2c844d7309981bdc7b38f3be743d2a1418321456a1"
+      },
+      "scopes": {},
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/83d7b838cc7113925d126dd31d7063d4.pdf#page=97",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/83d7b838cc7113925d126dd31d7063d4.pdf"
+      },
+      "teachingDocument": false
+    },
+    "2023:人間科学科": {
+      "year": 2023,
+      "faculty": "人間科学部",
+      "department": "人間科学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/fe0e2ef7f3b702e406c05696bfc51330.pdf#page=91",
+        "page": 91,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "25a618e7045150f2edf1b553bf6419324d46b12e8fe47d281f51291bbf0d0c80"
+      },
+      "scopes": {},
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/fe0e2ef7f3b702e406c05696bfc51330.pdf#page=91",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2023/04/fe0e2ef7f3b702e406c05696bfc51330.pdf"
+      },
+      "teachingDocument": false
+    },
+    "2024:機械工学科": {
+      "year": 2024,
+      "faculty": "理工学部",
+      "department": "機械工学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/45d1a27c359701ccd010b7a810500da3.pdf#page=71",
+        "page": 71,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "3959bd4e37c390a02cfbc20a1a2f3640671b9fafd87cef402e19bd959728d3f6"
+      },
+      "scopes": {
+        "hirameki": "hirameki-engineering"
+      },
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/45d1a27c359701ccd010b7a810500da3.pdf#page=71",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/9f8c14225d594fab88807f5849921fae.pdf",
+        "hirameki": "https://hirameki.tcu.ac.jp/wp-content/uploads/2024/03/program19.png"
+      },
+      "teachingDocument": true
+    },
+    "2024:機械システム工学科": {
+      "year": 2024,
+      "faculty": "理工学部",
+      "department": "機械システム工学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/45d1a27c359701ccd010b7a810500da3.pdf#page=71",
+        "page": 71,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "3959bd4e37c390a02cfbc20a1a2f3640671b9fafd87cef402e19bd959728d3f6"
+      },
+      "scopes": {
+        "hirameki": "hirameki-engineering"
+      },
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/45d1a27c359701ccd010b7a810500da3.pdf#page=71",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/9f8c14225d594fab88807f5849921fae.pdf",
+        "hirameki": "https://hirameki.tcu.ac.jp/wp-content/uploads/2024/03/program19.png"
+      },
+      "teachingDocument": true
+    },
+    "2024:電気電子通信工学科": {
+      "year": 2024,
+      "faculty": "理工学部",
+      "department": "電気電子通信工学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/45d1a27c359701ccd010b7a810500da3.pdf#page=71",
+        "page": 71,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "3959bd4e37c390a02cfbc20a1a2f3640671b9fafd87cef402e19bd959728d3f6"
+      },
+      "scopes": {
+        "hirameki": "hirameki-engineering"
+      },
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/45d1a27c359701ccd010b7a810500da3.pdf#page=71",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/9f8c14225d594fab88807f5849921fae.pdf",
+        "hirameki": "https://hirameki.tcu.ac.jp/wp-content/uploads/2024/03/program19.png"
+      },
+      "teachingDocument": true
+    },
+    "2024:医用工学科": {
+      "year": 2024,
+      "faculty": "理工学部",
+      "department": "医用工学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/45d1a27c359701ccd010b7a810500da3.pdf#page=71",
+        "page": 71,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "3959bd4e37c390a02cfbc20a1a2f3640671b9fafd87cef402e19bd959728d3f6"
+      },
+      "scopes": {
+        "hirameki": "hirameki-engineering"
+      },
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/45d1a27c359701ccd010b7a810500da3.pdf#page=71",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/9f8c14225d594fab88807f5849921fae.pdf",
+        "hirameki": "https://hirameki.tcu.ac.jp/wp-content/uploads/2024/03/program19.png"
+      },
+      "teachingDocument": true
+    },
+    "2024:応用化学科": {
+      "year": 2024,
+      "faculty": "理工学部",
+      "department": "応用化学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/45d1a27c359701ccd010b7a810500da3.pdf#page=71",
+        "page": 71,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "3959bd4e37c390a02cfbc20a1a2f3640671b9fafd87cef402e19bd959728d3f6"
+      },
+      "scopes": {
+        "hirameki": "hirameki-engineering"
+      },
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/45d1a27c359701ccd010b7a810500da3.pdf#page=71",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/9f8c14225d594fab88807f5849921fae.pdf",
+        "hirameki": "https://hirameki.tcu.ac.jp/wp-content/uploads/2024/03/program19.png"
+      },
+      "teachingDocument": true
+    },
+    "2024:原子力安全工学科": {
+      "year": 2024,
+      "faculty": "理工学部",
+      "department": "原子力安全工学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/45d1a27c359701ccd010b7a810500da3.pdf#page=71",
+        "page": 71,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "3959bd4e37c390a02cfbc20a1a2f3640671b9fafd87cef402e19bd959728d3f6"
+      },
+      "scopes": {
+        "hirameki": "hirameki-engineering"
+      },
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/45d1a27c359701ccd010b7a810500da3.pdf#page=71",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/9f8c14225d594fab88807f5849921fae.pdf",
+        "hirameki": "https://hirameki.tcu.ac.jp/wp-content/uploads/2024/03/program19.png"
+      },
+      "teachingDocument": true
+    },
+    "2024:自然科学科": {
+      "year": 2024,
+      "faculty": "理工学部",
+      "department": "自然科学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/45d1a27c359701ccd010b7a810500da3.pdf#page=71",
+        "page": 71,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "3959bd4e37c390a02cfbc20a1a2f3640671b9fafd87cef402e19bd959728d3f6"
+      },
+      "scopes": {
+        "hirameki": "hirameki-engineering"
+      },
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/45d1a27c359701ccd010b7a810500da3.pdf#page=71",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/9f8c14225d594fab88807f5849921fae.pdf",
+        "hirameki": "https://hirameki.tcu.ac.jp/wp-content/uploads/2024/03/program19.png"
+      },
+      "teachingDocument": true
+    },
+    "2024:建築学科": {
+      "year": 2024,
+      "faculty": "建築都市デザイン学部",
+      "department": "建築学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/9402ce29081808d752884bbd68b46cd6.pdf#page=67",
+        "page": 67,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "ca666ff2d17d0949b47e0c339ecaf0a2ebfafdb795f36b1e96ecca5a2fc31038"
+      },
+      "scopes": {},
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/9402ce29081808d752884bbd68b46cd6.pdf#page=67",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/152279e049a2bd96b29380dfd55bfbb8.pdf"
+      },
+      "teachingDocument": false
+    },
+    "2024:都市工学科": {
+      "year": 2024,
+      "faculty": "建築都市デザイン学部",
+      "department": "都市工学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/9402ce29081808d752884bbd68b46cd6.pdf#page=67",
+        "page": 67,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "ca666ff2d17d0949b47e0c339ecaf0a2ebfafdb795f36b1e96ecca5a2fc31038"
+      },
+      "scopes": {},
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/9402ce29081808d752884bbd68b46cd6.pdf#page=67",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/d4c6b179c8bc9f694cdb4d4f6bb4f982.pdf"
+      },
+      "teachingDocument": false
+    },
+    "2024:情報科学科": {
+      "year": 2024,
+      "faculty": "情報工学部",
+      "department": "情報科学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/4aaa1a502b6f221e06c95d14da46cfa5.pdf#page=69",
+        "page": 69,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "9c3447b63173ca056331ae35f344312b2ac0446f8f4620fb164ab2f0d89e1052"
+      },
+      "scopes": {},
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/4aaa1a502b6f221e06c95d14da46cfa5.pdf#page=69",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/252f2cb8ec49e97cb9d6b03b5d53a4f6.pdf"
+      },
+      "teachingDocument": true
+    },
+    "2024:知能情報工学科": {
+      "year": 2024,
+      "faculty": "情報工学部",
+      "department": "知能情報工学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/4aaa1a502b6f221e06c95d14da46cfa5.pdf#page=69",
+        "page": 69,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "9c3447b63173ca056331ae35f344312b2ac0446f8f4620fb164ab2f0d89e1052"
+      },
+      "scopes": {},
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/4aaa1a502b6f221e06c95d14da46cfa5.pdf#page=69",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/252f2cb8ec49e97cb9d6b03b5d53a4f6.pdf"
+      },
+      "teachingDocument": true
+    },
+    "2024:環境創生学科": {
+      "year": 2024,
+      "faculty": "環境学部",
+      "department": "環境創生学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/2140adee38a2c8d9dabf1b5995d06746.pdf#page=73",
+        "page": 73,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "774e9c307d8ee9b0d07bb37d7ee5247723b93ce8b8c13491af9bae8211e0f920"
+      },
+      "scopes": {},
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/2140adee38a2c8d9dabf1b5995d06746.pdf#page=73",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/2140adee38a2c8d9dabf1b5995d06746.pdf"
+      },
+      "teachingDocument": false
+    },
+    "2024:環境経営システム学科": {
+      "year": 2024,
+      "faculty": "環境学部",
+      "department": "環境経営システム学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/2140adee38a2c8d9dabf1b5995d06746.pdf#page=73",
+        "page": 73,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "774e9c307d8ee9b0d07bb37d7ee5247723b93ce8b8c13491af9bae8211e0f920"
+      },
+      "scopes": {},
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/2140adee38a2c8d9dabf1b5995d06746.pdf#page=73",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/2140adee38a2c8d9dabf1b5995d06746.pdf"
+      },
+      "teachingDocument": false
+    },
+    "2024:社会メディア学科": {
+      "year": 2024,
+      "faculty": "メディア情報学部",
+      "department": "社会メディア学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/a5e0f341217c98383ea20afeae197703.pdf#page=71",
+        "page": 71,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "8066b6147ad869203d49ca6e97fb3ea28536f131f8850955fe76238b36aa8939"
+      },
+      "scopes": {},
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/a5e0f341217c98383ea20afeae197703.pdf#page=71",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/a5e0f341217c98383ea20afeae197703.pdf"
+      },
+      "teachingDocument": false
+    },
+    "2024:情報システム学科": {
+      "year": 2024,
+      "faculty": "メディア情報学部",
+      "department": "情報システム学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/a5e0f341217c98383ea20afeae197703.pdf#page=71",
+        "page": 71,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "8066b6147ad869203d49ca6e97fb3ea28536f131f8850955fe76238b36aa8939"
+      },
+      "scopes": {},
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/a5e0f341217c98383ea20afeae197703.pdf#page=71",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/a5e0f341217c98383ea20afeae197703.pdf"
+      },
+      "teachingDocument": false
+    },
+    "2024:デザイン・データ科学科": {
+      "year": 2024,
+      "faculty": "デザイン・データ科学部",
+      "department": "デザイン・データ科学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/0167e528eac1ea48980e575efc0ab2e0.pdf#page=67",
+        "page": 67,
+        "titles": [
+          "English III-A",
+          "English III-B"
+        ],
+        "sha256": "ff54745bb9a043d50662f0fd14e11daf22fd5432f628b3cd9002e5972c0518dd"
+      },
+      "scopes": {},
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/0167e528eac1ea48980e575efc0ab2e0.pdf#page=67",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/0167e528eac1ea48980e575efc0ab2e0.pdf"
+      },
+      "teachingDocument": false
+    },
+    "2024:都市生活学科": {
+      "year": 2024,
+      "faculty": "都市生活学部",
+      "department": "都市生活学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/719ad5e3938075409edd28830277b67c.pdf#page=97",
+        "page": 97,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "6e55b0d42fbd11bbb2da4b267b5df516dd7b54283b15c729c520a5ac3003e716"
+      },
+      "scopes": {},
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/719ad5e3938075409edd28830277b67c.pdf#page=97",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/719ad5e3938075409edd28830277b67c.pdf"
+      },
+      "teachingDocument": false
+    },
+    "2024:人間科学科": {
+      "year": 2024,
+      "faculty": "人間科学部",
+      "department": "人間科学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/daac75bfbe8d3e385727e7b5d230e342.pdf#page=93",
+        "page": 93,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "6fe129d0da83644d96bb66e2237c027df3aec16736049331dcb89d268940821d"
+      },
+      "scopes": {},
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/daac75bfbe8d3e385727e7b5d230e342.pdf#page=93",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2024/04/daac75bfbe8d3e385727e7b5d230e342.pdf"
+      },
+      "teachingDocument": false
+    },
+    "2025:機械工学科": {
+      "year": 2025,
+      "faculty": "理工学部",
+      "department": "機械工学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/32f492be1326ea60be4ae3ea9fc2f6af.pdf#page=71",
+        "page": 71,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "11216686e1af523780e54b6baabc4b343842c5d6c9a705964c72df95b9c4163e"
+      },
+      "scopes": {
+        "hirameki": "hirameki-engineering-2025"
+      },
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/32f492be1326ea60be4ae3ea9fc2f6af.pdf#page=71",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/e053dcecaff96bf47d57df447c92df06.pdf",
+        "hirameki": "https://hirameki.tcu.ac.jp/wp-content/uploads/2026/03/32f492be1326ea60be4ae3ea9fc2f6af.pdf"
+      },
+      "teachingDocument": true
+    },
+    "2025:機械システム工学科": {
+      "year": 2025,
+      "faculty": "理工学部",
+      "department": "機械システム工学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/32f492be1326ea60be4ae3ea9fc2f6af.pdf#page=71",
+        "page": 71,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "11216686e1af523780e54b6baabc4b343842c5d6c9a705964c72df95b9c4163e"
+      },
+      "scopes": {
+        "hirameki": "hirameki-engineering-2025"
+      },
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/32f492be1326ea60be4ae3ea9fc2f6af.pdf#page=71",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/e053dcecaff96bf47d57df447c92df06.pdf",
+        "hirameki": "https://hirameki.tcu.ac.jp/wp-content/uploads/2026/03/32f492be1326ea60be4ae3ea9fc2f6af.pdf"
+      },
+      "teachingDocument": true
+    },
+    "2025:電気電子通信工学科": {
+      "year": 2025,
+      "faculty": "理工学部",
+      "department": "電気電子通信工学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/32f492be1326ea60be4ae3ea9fc2f6af.pdf#page=71",
+        "page": 71,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "11216686e1af523780e54b6baabc4b343842c5d6c9a705964c72df95b9c4163e"
+      },
+      "scopes": {
+        "hirameki": "hirameki-engineering-2025"
+      },
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/32f492be1326ea60be4ae3ea9fc2f6af.pdf#page=71",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/e053dcecaff96bf47d57df447c92df06.pdf",
+        "hirameki": "https://hirameki.tcu.ac.jp/wp-content/uploads/2026/03/32f492be1326ea60be4ae3ea9fc2f6af.pdf"
+      },
+      "teachingDocument": true
+    },
+    "2025:医用工学科": {
+      "year": 2025,
+      "faculty": "理工学部",
+      "department": "医用工学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/32f492be1326ea60be4ae3ea9fc2f6af.pdf#page=71",
+        "page": 71,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "11216686e1af523780e54b6baabc4b343842c5d6c9a705964c72df95b9c4163e"
+      },
+      "scopes": {
+        "hirameki": "hirameki-engineering-2025"
+      },
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/32f492be1326ea60be4ae3ea9fc2f6af.pdf#page=71",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/e053dcecaff96bf47d57df447c92df06.pdf",
+        "hirameki": "https://hirameki.tcu.ac.jp/wp-content/uploads/2026/03/32f492be1326ea60be4ae3ea9fc2f6af.pdf"
+      },
+      "teachingDocument": true
+    },
+    "2025:応用化学科": {
+      "year": 2025,
+      "faculty": "理工学部",
+      "department": "応用化学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/32f492be1326ea60be4ae3ea9fc2f6af.pdf#page=71",
+        "page": 71,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "11216686e1af523780e54b6baabc4b343842c5d6c9a705964c72df95b9c4163e"
+      },
+      "scopes": {
+        "hirameki": "hirameki-engineering-2025"
+      },
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/32f492be1326ea60be4ae3ea9fc2f6af.pdf#page=71",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/e053dcecaff96bf47d57df447c92df06.pdf",
+        "hirameki": "https://hirameki.tcu.ac.jp/wp-content/uploads/2026/03/32f492be1326ea60be4ae3ea9fc2f6af.pdf"
+      },
+      "teachingDocument": true
+    },
+    "2025:原子力安全工学科": {
+      "year": 2025,
+      "faculty": "理工学部",
+      "department": "原子力安全工学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/32f492be1326ea60be4ae3ea9fc2f6af.pdf#page=71",
+        "page": 71,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "11216686e1af523780e54b6baabc4b343842c5d6c9a705964c72df95b9c4163e"
+      },
+      "scopes": {
+        "hirameki": "hirameki-engineering-2025"
+      },
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/32f492be1326ea60be4ae3ea9fc2f6af.pdf#page=71",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/e053dcecaff96bf47d57df447c92df06.pdf",
+        "hirameki": "https://hirameki.tcu.ac.jp/wp-content/uploads/2026/03/32f492be1326ea60be4ae3ea9fc2f6af.pdf"
+      },
+      "teachingDocument": true
+    },
+    "2025:自然科学科": {
+      "year": 2025,
+      "faculty": "理工学部",
+      "department": "自然科学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/32f492be1326ea60be4ae3ea9fc2f6af.pdf#page=71",
+        "page": 71,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "11216686e1af523780e54b6baabc4b343842c5d6c9a705964c72df95b9c4163e"
+      },
+      "scopes": {
+        "hirameki": "hirameki-engineering-2025"
+      },
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/32f492be1326ea60be4ae3ea9fc2f6af.pdf#page=71",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/e053dcecaff96bf47d57df447c92df06.pdf",
+        "hirameki": "https://hirameki.tcu.ac.jp/wp-content/uploads/2026/03/32f492be1326ea60be4ae3ea9fc2f6af.pdf"
+      },
+      "teachingDocument": true
+    },
+    "2025:建築学科": {
+      "year": 2025,
+      "faculty": "建築都市デザイン学部",
+      "department": "建築学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/06f500176260c223d8ea7701afff7f6e.pdf#page=67",
+        "page": 67,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "10561eb67fa0ecb35280c437f9eb61e3f6b63529f9c10cee903713c13823bbff"
+      },
+      "scopes": {
+        "hirameki": "hirameki-other-2025"
+      },
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/06f500176260c223d8ea7701afff7f6e.pdf#page=67",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/c492b5628a4ce1c5889ec85c6a57e105.pdf",
+        "hirameki": "https://hirameki.tcu.ac.jp/wp-content/uploads/2026/03/58429a500560dda0fb299438a739c28f.pdf"
+      },
+      "teachingDocument": false
+    },
+    "2025:都市工学科": {
+      "year": 2025,
+      "faculty": "建築都市デザイン学部",
+      "department": "都市工学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/06f500176260c223d8ea7701afff7f6e.pdf#page=67",
+        "page": 67,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "10561eb67fa0ecb35280c437f9eb61e3f6b63529f9c10cee903713c13823bbff"
+      },
+      "scopes": {
+        "hirameki": "hirameki-other-2025"
+      },
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/06f500176260c223d8ea7701afff7f6e.pdf#page=67",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/49a90ce668b96a266ed656227b1c9f6f.pdf",
+        "hirameki": "https://hirameki.tcu.ac.jp/wp-content/uploads/2026/03/58429a500560dda0fb299438a739c28f.pdf"
+      },
+      "teachingDocument": false
+    },
+    "2025:情報科学科": {
+      "year": 2025,
+      "faculty": "情報工学部",
+      "department": "情報科学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/977903d24179b19d863d6bab55edb4c7-1.pdf#page=71",
+        "page": 71,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "5b5f4feddc744f2c51ddb5ff997ada0a61878c7899f6e12a2caf8c8c0e39d2d6"
+      },
+      "scopes": {
+        "hirameki": "hirameki-other-2025"
+      },
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/977903d24179b19d863d6bab55edb4c7-1.pdf#page=71",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/e053dcecaff96bf47d57df447c92df06-1.pdf",
+        "hirameki": "https://hirameki.tcu.ac.jp/wp-content/uploads/2026/03/58429a500560dda0fb299438a739c28f.pdf"
+      },
+      "teachingDocument": true
+    },
+    "2025:知能情報工学科": {
+      "year": 2025,
+      "faculty": "情報工学部",
+      "department": "知能情報工学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/977903d24179b19d863d6bab55edb4c7-1.pdf#page=71",
+        "page": 71,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "5b5f4feddc744f2c51ddb5ff997ada0a61878c7899f6e12a2caf8c8c0e39d2d6"
+      },
+      "scopes": {
+        "hirameki": "hirameki-other-2025"
+      },
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/977903d24179b19d863d6bab55edb4c7-1.pdf#page=71",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/e053dcecaff96bf47d57df447c92df06-1.pdf",
+        "hirameki": "https://hirameki.tcu.ac.jp/wp-content/uploads/2026/03/58429a500560dda0fb299438a739c28f.pdf"
+      },
+      "teachingDocument": true
+    },
+    "2025:環境創生学科": {
+      "year": 2025,
+      "faculty": "環境学部",
+      "department": "環境創生学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/43656c25fc0ac01ea8622a609ff0427e.pdf#page=76",
+        "page": 76,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "7b8dd805a465d65a06d2782a9a16121376e804baa0e8cbb0000bd7a65565300a"
+      },
+      "scopes": {
+        "hirameki": "hirameki-other-2025"
+      },
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/43656c25fc0ac01ea8622a609ff0427e.pdf#page=76",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/43656c25fc0ac01ea8622a609ff0427e.pdf",
+        "hirameki": "https://hirameki.tcu.ac.jp/wp-content/uploads/2026/03/58429a500560dda0fb299438a739c28f.pdf"
+      },
+      "teachingDocument": false
+    },
+    "2025:環境経営システム学科": {
+      "year": 2025,
+      "faculty": "環境学部",
+      "department": "環境経営システム学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/43656c25fc0ac01ea8622a609ff0427e.pdf#page=76",
+        "page": 76,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "7b8dd805a465d65a06d2782a9a16121376e804baa0e8cbb0000bd7a65565300a"
+      },
+      "scopes": {
+        "hirameki": "hirameki-other-2025"
+      },
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/43656c25fc0ac01ea8622a609ff0427e.pdf#page=76",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/43656c25fc0ac01ea8622a609ff0427e.pdf",
+        "hirameki": "https://hirameki.tcu.ac.jp/wp-content/uploads/2026/03/58429a500560dda0fb299438a739c28f.pdf"
+      },
+      "teachingDocument": false
+    },
+    "2025:社会メディア学科": {
+      "year": 2025,
+      "faculty": "メディア情報学部",
+      "department": "社会メディア学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/ec67b6baaf174180bed144cdf252a8ce.pdf#page=72",
+        "page": 72,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "505a1506945c0d2aaa52dd14992db2ff0026fd9a272dba283205cbaac201ddbc"
+      },
+      "scopes": {
+        "hirameki": "hirameki-other-2025"
+      },
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/ec67b6baaf174180bed144cdf252a8ce.pdf#page=72",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/ec67b6baaf174180bed144cdf252a8ce.pdf",
+        "hirameki": "https://hirameki.tcu.ac.jp/wp-content/uploads/2026/03/58429a500560dda0fb299438a739c28f.pdf"
+      },
+      "teachingDocument": false
+    },
+    "2025:情報システム学科": {
+      "year": 2025,
+      "faculty": "メディア情報学部",
+      "department": "情報システム学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/ec67b6baaf174180bed144cdf252a8ce.pdf#page=72",
+        "page": 72,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "505a1506945c0d2aaa52dd14992db2ff0026fd9a272dba283205cbaac201ddbc"
+      },
+      "scopes": {
+        "hirameki": "hirameki-other-2025"
+      },
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/ec67b6baaf174180bed144cdf252a8ce.pdf#page=72",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/ec67b6baaf174180bed144cdf252a8ce.pdf",
+        "hirameki": "https://hirameki.tcu.ac.jp/wp-content/uploads/2026/03/58429a500560dda0fb299438a739c28f.pdf"
+      },
+      "teachingDocument": false
+    },
+    "2025:デザイン・データ科学科": {
+      "year": 2025,
+      "faculty": "デザイン・データ科学部",
+      "department": "デザイン・データ科学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/546d609eaf14654cf1c0713fe9ff5f9d.pdf#page=70",
+        "page": 70,
+        "titles": [
+          "English III-A",
+          "English III-B"
+        ],
+        "sha256": "c5358faa0e11dfecc88d8d30fed10906af0c62fc3beae23e33a009e5f78192e1"
+      },
+      "scopes": {},
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/546d609eaf14654cf1c0713fe9ff5f9d.pdf#page=70",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/546d609eaf14654cf1c0713fe9ff5f9d.pdf"
+      },
+      "teachingDocument": false
+    },
+    "2025:都市生活学科": {
+      "year": 2025,
+      "faculty": "都市生活学部",
+      "department": "都市生活学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/8a8f8e5bb2105070e34d4554ed89df63.pdf#page=95",
+        "page": 95,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "25857f9df744dbf90fdf631e2d2d16e55d6b2547fe9147df69495650190176a2"
+      },
+      "scopes": {
+        "hirameki": "hirameki-other-2025"
+      },
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/8a8f8e5bb2105070e34d4554ed89df63.pdf#page=95",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/8a8f8e5bb2105070e34d4554ed89df63.pdf",
+        "hirameki": "https://hirameki.tcu.ac.jp/wp-content/uploads/2026/03/58429a500560dda0fb299438a739c28f.pdf"
+      },
+      "teachingDocument": false
+    },
+    "2025:人間科学科": {
+      "year": 2025,
+      "faculty": "人間科学部",
+      "department": "人間科学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/3c70811a77d3cabd40ec72338c464f47.pdf#page=93",
+        "page": 93,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "87abc5196df235ec645f6e23a8d60043bc65d6b2a040b41c50381eecd0c13723"
+      },
+      "scopes": {
+        "hirameki": "hirameki-other-2025"
+      },
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/3c70811a77d3cabd40ec72338c464f47.pdf#page=93",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2025/04/3c70811a77d3cabd40ec72338c464f47.pdf",
+        "hirameki": "https://hirameki.tcu.ac.jp/wp-content/uploads/2026/03/58429a500560dda0fb299438a739c28f.pdf"
+      },
+      "teachingDocument": false
+    },
+    "2026:機械工学科": {
+      "year": 2026,
+      "faculty": "理工学部",
+      "department": "機械工学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/a0dc671e8eb03cda69fc0648edf104cd.pdf#page=73",
+        "page": 73,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "4eba6ed7529f61e3c955e4e7da3a5d909a2fa6124bcd2a9b012d5a80d499ea13"
+      },
+      "scopes": {
+        "hirameki": "hirameki-2026",
+        "teaching": "teaching-engineering-information"
+      },
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/a0dc671e8eb03cda69fc0648edf104cd.pdf#page=73",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/1645ea440a266a3749d688602d3256df.pdf",
+        "hirameki": "https://hirameki.tcu.ac.jp/wp-content/uploads/2026/03/1f1a3fbccfa9a0abdfecd08f554a176e.pdf"
+      },
+      "teachingDocument": true
+    },
+    "2026:機械システム工学科": {
+      "year": 2026,
+      "faculty": "理工学部",
+      "department": "機械システム工学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/a0dc671e8eb03cda69fc0648edf104cd.pdf#page=73",
+        "page": 73,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "4eba6ed7529f61e3c955e4e7da3a5d909a2fa6124bcd2a9b012d5a80d499ea13"
+      },
+      "scopes": {
+        "hirameki": "hirameki-2026",
+        "teaching": "teaching-engineering-information"
+      },
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/a0dc671e8eb03cda69fc0648edf104cd.pdf#page=73",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/1645ea440a266a3749d688602d3256df.pdf",
+        "hirameki": "https://hirameki.tcu.ac.jp/wp-content/uploads/2026/03/1f1a3fbccfa9a0abdfecd08f554a176e.pdf"
+      },
+      "teachingDocument": true
+    },
+    "2026:電気電子通信工学科": {
+      "year": 2026,
+      "faculty": "理工学部",
+      "department": "電気電子通信工学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/a0dc671e8eb03cda69fc0648edf104cd.pdf#page=73",
+        "page": 73,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "4eba6ed7529f61e3c955e4e7da3a5d909a2fa6124bcd2a9b012d5a80d499ea13"
+      },
+      "scopes": {
+        "hirameki": "hirameki-2026",
+        "teaching": "teaching-engineering-information"
+      },
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/a0dc671e8eb03cda69fc0648edf104cd.pdf#page=73",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/1645ea440a266a3749d688602d3256df.pdf",
+        "hirameki": "https://hirameki.tcu.ac.jp/wp-content/uploads/2026/03/1f1a3fbccfa9a0abdfecd08f554a176e.pdf"
+      },
+      "teachingDocument": true
+    },
+    "2026:医用工学科": {
+      "year": 2026,
+      "faculty": "理工学部",
+      "department": "医用工学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/a0dc671e8eb03cda69fc0648edf104cd.pdf#page=73",
+        "page": 73,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "4eba6ed7529f61e3c955e4e7da3a5d909a2fa6124bcd2a9b012d5a80d499ea13"
+      },
+      "scopes": {
+        "hirameki": "hirameki-2026",
+        "teaching": "teaching-engineering-information"
+      },
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/a0dc671e8eb03cda69fc0648edf104cd.pdf#page=73",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/1645ea440a266a3749d688602d3256df.pdf",
+        "hirameki": "https://hirameki.tcu.ac.jp/wp-content/uploads/2026/03/1f1a3fbccfa9a0abdfecd08f554a176e.pdf"
+      },
+      "teachingDocument": true
+    },
+    "2026:応用化学科": {
+      "year": 2026,
+      "faculty": "理工学部",
+      "department": "応用化学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/a0dc671e8eb03cda69fc0648edf104cd.pdf#page=73",
+        "page": 73,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "4eba6ed7529f61e3c955e4e7da3a5d909a2fa6124bcd2a9b012d5a80d499ea13"
+      },
+      "scopes": {
+        "hirameki": "hirameki-2026",
+        "teaching": "teaching-engineering-information"
+      },
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/a0dc671e8eb03cda69fc0648edf104cd.pdf#page=73",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/1645ea440a266a3749d688602d3256df.pdf",
+        "hirameki": "https://hirameki.tcu.ac.jp/wp-content/uploads/2026/03/1f1a3fbccfa9a0abdfecd08f554a176e.pdf"
+      },
+      "teachingDocument": true
+    },
+    "2026:原子力安全工学科": {
+      "year": 2026,
+      "faculty": "理工学部",
+      "department": "原子力安全工学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/a0dc671e8eb03cda69fc0648edf104cd.pdf#page=73",
+        "page": 73,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "4eba6ed7529f61e3c955e4e7da3a5d909a2fa6124bcd2a9b012d5a80d499ea13"
+      },
+      "scopes": {
+        "hirameki": "hirameki-2026",
+        "teaching": "teaching-engineering-information"
+      },
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/a0dc671e8eb03cda69fc0648edf104cd.pdf#page=73",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/1645ea440a266a3749d688602d3256df.pdf",
+        "hirameki": "https://hirameki.tcu.ac.jp/wp-content/uploads/2026/03/1f1a3fbccfa9a0abdfecd08f554a176e.pdf"
+      },
+      "teachingDocument": true
+    },
+    "2026:自然科学科": {
+      "year": 2026,
+      "faculty": "理工学部",
+      "department": "自然科学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/a0dc671e8eb03cda69fc0648edf104cd.pdf#page=73",
+        "page": 73,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "4eba6ed7529f61e3c955e4e7da3a5d909a2fa6124bcd2a9b012d5a80d499ea13"
+      },
+      "scopes": {
+        "hirameki": "hirameki-2026",
+        "teaching": "teaching-engineering-information"
+      },
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/a0dc671e8eb03cda69fc0648edf104cd.pdf#page=73",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/1645ea440a266a3749d688602d3256df.pdf",
+        "hirameki": "https://hirameki.tcu.ac.jp/wp-content/uploads/2026/03/1f1a3fbccfa9a0abdfecd08f554a176e.pdf"
+      },
+      "teachingDocument": true
+    },
+    "2026:建築学科": {
+      "year": 2026,
+      "faculty": "建築都市デザイン学部",
+      "department": "建築学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/887e7ccb382048811b8840d6003b9a24.pdf#page=69",
+        "page": 69,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "9066a827d2dc47bce1b00e1d880fdc269eb86b34e4ed435e2a7586f30ecde205"
+      },
+      "scopes": {
+        "hirameki": "hirameki-2026"
+      },
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/887e7ccb382048811b8840d6003b9a24.pdf#page=69",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/311a4a97843fb88816a58e1fc4e50d98.pdf",
+        "hirameki": "https://hirameki.tcu.ac.jp/wp-content/uploads/2026/03/1f1a3fbccfa9a0abdfecd08f554a176e.pdf"
+      },
+      "teachingDocument": false
+    },
+    "2026:都市工学科": {
+      "year": 2026,
+      "faculty": "建築都市デザイン学部",
+      "department": "都市工学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/887e7ccb382048811b8840d6003b9a24.pdf#page=69",
+        "page": 69,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "9066a827d2dc47bce1b00e1d880fdc269eb86b34e4ed435e2a7586f30ecde205"
+      },
+      "scopes": {
+        "hirameki": "hirameki-2026"
+      },
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/887e7ccb382048811b8840d6003b9a24.pdf#page=69",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/fcfa81125b1516a4c6c647f0753fc555.pdf",
+        "hirameki": "https://hirameki.tcu.ac.jp/wp-content/uploads/2026/03/1f1a3fbccfa9a0abdfecd08f554a176e.pdf"
+      },
+      "teachingDocument": false
+    },
+    "2026:情報科学科": {
+      "year": 2026,
+      "faculty": "情報工学部",
+      "department": "情報科学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/523786516152752ab91293dd787cc0cc.pdf#page=73",
+        "page": 73,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "7d9dc5168a264fab69ca976a9dab6559d86d8d1ac8edb9752de500ae6fcc34a7"
+      },
+      "scopes": {
+        "hirameki": "hirameki-2026",
+        "teaching": "teaching-engineering-information"
+      },
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/523786516152752ab91293dd787cc0cc.pdf#page=73",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/cb381fb96ef7432b0aed7577694e14de.pdf",
+        "hirameki": "https://hirameki.tcu.ac.jp/wp-content/uploads/2026/03/1f1a3fbccfa9a0abdfecd08f554a176e.pdf"
+      },
+      "teachingDocument": true
+    },
+    "2026:知能情報工学科": {
+      "year": 2026,
+      "faculty": "情報工学部",
+      "department": "知能情報工学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/523786516152752ab91293dd787cc0cc.pdf#page=73",
+        "page": 73,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "7d9dc5168a264fab69ca976a9dab6559d86d8d1ac8edb9752de500ae6fcc34a7"
+      },
+      "scopes": {
+        "hirameki": "hirameki-2026",
+        "teaching": "teaching-engineering-information"
+      },
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/523786516152752ab91293dd787cc0cc.pdf#page=73",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/cb381fb96ef7432b0aed7577694e14de.pdf",
+        "hirameki": "https://hirameki.tcu.ac.jp/wp-content/uploads/2026/03/1f1a3fbccfa9a0abdfecd08f554a176e.pdf"
+      },
+      "teachingDocument": true
+    },
+    "2026:環境創生学科": {
+      "year": 2026,
+      "faculty": "環境学部",
+      "department": "環境創生学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/e69aa2716a5d0db78c4241f183a36f63.pdf#page=77",
+        "page": 77,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "bf470ba5280129bf6c9fc62c44c84d47dd7028ca5b35a73a086ff91ee5458c76"
+      },
+      "scopes": {
+        "hirameki": "hirameki-2026"
+      },
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/e69aa2716a5d0db78c4241f183a36f63.pdf#page=77",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/e69aa2716a5d0db78c4241f183a36f63.pdf",
+        "hirameki": "https://hirameki.tcu.ac.jp/wp-content/uploads/2026/03/1f1a3fbccfa9a0abdfecd08f554a176e.pdf"
+      },
+      "teachingDocument": false
+    },
+    "2026:環境経営システム学科": {
+      "year": 2026,
+      "faculty": "環境学部",
+      "department": "環境経営システム学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/e69aa2716a5d0db78c4241f183a36f63.pdf#page=77",
+        "page": 77,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "bf470ba5280129bf6c9fc62c44c84d47dd7028ca5b35a73a086ff91ee5458c76"
+      },
+      "scopes": {
+        "hirameki": "hirameki-2026"
+      },
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/e69aa2716a5d0db78c4241f183a36f63.pdf#page=77",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/e69aa2716a5d0db78c4241f183a36f63.pdf",
+        "hirameki": "https://hirameki.tcu.ac.jp/wp-content/uploads/2026/03/1f1a3fbccfa9a0abdfecd08f554a176e.pdf"
+      },
+      "teachingDocument": false
+    },
+    "2026:社会メディア学科": {
+      "year": 2026,
+      "faculty": "メディア情報学部",
+      "department": "社会メディア学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/36f4e4062d15fd6e4875f8e78bec3bd6.pdf#page=73",
+        "page": 73,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "3e6d94fa3dd6df3932a7f6f6d3869777f9a886b18113c63b0c6dc5ec290ceb2d"
+      },
+      "scopes": {
+        "hirameki": "hirameki-2026"
+      },
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/36f4e4062d15fd6e4875f8e78bec3bd6.pdf#page=73",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/36f4e4062d15fd6e4875f8e78bec3bd6.pdf",
+        "hirameki": "https://hirameki.tcu.ac.jp/wp-content/uploads/2026/03/1f1a3fbccfa9a0abdfecd08f554a176e.pdf"
+      },
+      "teachingDocument": false
+    },
+    "2026:情報システム学科": {
+      "year": 2026,
+      "faculty": "メディア情報学部",
+      "department": "情報システム学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/36f4e4062d15fd6e4875f8e78bec3bd6.pdf#page=73",
+        "page": 73,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "3e6d94fa3dd6df3932a7f6f6d3869777f9a886b18113c63b0c6dc5ec290ceb2d"
+      },
+      "scopes": {
+        "hirameki": "hirameki-2026"
+      },
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/36f4e4062d15fd6e4875f8e78bec3bd6.pdf#page=73",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/36f4e4062d15fd6e4875f8e78bec3bd6.pdf",
+        "hirameki": "https://hirameki.tcu.ac.jp/wp-content/uploads/2026/03/1f1a3fbccfa9a0abdfecd08f554a176e.pdf"
+      },
+      "teachingDocument": false
+    },
+    "2026:デザイン・データ科学科": {
+      "year": 2026,
+      "faculty": "デザイン・データ科学部",
+      "department": "デザイン・データ科学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/3db8dbc9a70710d1a1cf633fefc085e8.pdf#page=71",
+        "page": 71,
+        "titles": [
+          "English III-A",
+          "English III-B"
+        ],
+        "sha256": "7a6da9cdcf984327ceb05447a0945dacab61c8c6245078cbc90b42289b69cacb"
+      },
+      "scopes": {},
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/3db8dbc9a70710d1a1cf633fefc085e8.pdf#page=71",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/3db8dbc9a70710d1a1cf633fefc085e8.pdf"
+      },
+      "teachingDocument": false
+    },
+    "2026:都市生活学科": {
+      "year": 2026,
+      "faculty": "都市生活学部",
+      "department": "都市生活学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/9a97b84ce1f096e0db084e81dac0bf1f.pdf#page=97",
+        "page": 97,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "db464f4cb1b4c8773294d53c83f82126e9fb7935d119d998dc8d95d737291f88"
+      },
+      "scopes": {
+        "hirameki": "hirameki-2026"
+      },
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/9a97b84ce1f096e0db084e81dac0bf1f.pdf#page=97",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/9a97b84ce1f096e0db084e81dac0bf1f.pdf",
+        "hirameki": "https://hirameki.tcu.ac.jp/wp-content/uploads/2026/03/1f1a3fbccfa9a0abdfecd08f554a176e.pdf"
+      },
+      "teachingDocument": false
+    },
+    "2026:人間科学科": {
+      "year": 2026,
+      "faculty": "人間科学部",
+      "department": "人間科学科",
+      "tap": {
+        "url": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/9ac54018ba04a3dadd1774fcaec7facc.pdf#page=95",
+        "page": 95,
+        "titles": [
+          "Communication Skills(1)",
+          "Communication Skills(2)",
+          "Reading and Writing(1a)",
+          "Reading and Writing(1b)",
+          "Reading and Writing(2a)",
+          "Reading and Writing(2b)"
+        ],
+        "sha256": "c0e658d1beee8e76708dc00e1fccafe1e07a4115ab0a35572851879a3f1672dd"
+      },
+      "scopes": {
+        "hirameki": "hirameki-2026"
+      },
+      "documents": {
+        "tap": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/9ac54018ba04a3dadd1774fcaec7facc.pdf#page=95",
+        "teaching": "https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/9ac54018ba04a3dadd1774fcaec7facc.pdf",
+        "hirameki": "https://hirameki.tcu.ac.jp/wp-content/uploads/2026/03/1f1a3fbccfa9a0abdfecd08f554a176e.pdf"
+      },
+      "teachingDocument": false
+    }
+  }
+}

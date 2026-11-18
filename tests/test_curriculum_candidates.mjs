@@ -33,3 +33,19 @@ for (const row of db.records) {
   assert.ok(db.sources.find(source => source.id === row.sourceId));
 }
 console.log('PASS: curriculum profile isolation, conditional teaching and unverified title matching');
+
+const programs = JSON.parse(fs.readFileSync(new URL('../data/undergraduate-programs.json', import.meta.url)));
+const programMatches = WCV_CURRICULUM.programMatches;
+assert.equal(Object.keys(programs.profiles).length, 89);
+assert.ok(Object.values(programs.profiles).every(profile => profile.tap?.url.includes('#page=')));
+const allPrograms = {cohort:'2026:情報科学科', hirameki:'yes', teaching:'yes', tap:'yes'};
+assert.equal(programMatches(programs, db, allPrograms, 'ことづくり')[0].scope, 'hirameki-2026');
+assert.equal(programMatches(programs, db, allPrograms, '教育原論')[0].kind, 'required');
+assert.equal(programMatches(programs, db, allPrograms, 'Communication Skills（1）')[0].kind, 'recognition');
+assert.equal(programMatches(programs, db, {...allPrograms, tap:'no'}, 'Communication Skills(1)').length, 0);
+assert.equal(programMatches(programs, db, {...allPrograms, teaching:''}, '教育原論').length, 0);
+assert.equal(programMatches(programs, db, {...allPrograms, cohort:'2024:機械工学科', hirameki:'no'}, 'ひらめきづくり(1)').length, 0);
+const design = {cohort:'2026:デザイン・データ科学科', tap:'yes'};
+assert.equal(programMatches(programs, db, design, 'English III-A')[0].kind, 'recognition');
+assert.equal(programMatches(programs, db, design, 'Communication Skills(1)').length, 0);
+console.log('PASS: undergraduate program consent, cohort-specific TAP and source links');

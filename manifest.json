@@ -2,8 +2,8 @@
   "manifest_version": 3,
   "name": "TCU WebClass Visual",
   "short_name": "WebClass Visual",
-  "version": "0.10.1",
-  "version_name": "0.10.1",
+  "version": "0.10.2",
+  "version_name": "0.10.2",
   "description": "WebClassを見やすく整え、現行時間割と2022〜2025年度の出典付き掲載候補を表示する学生制作の非公式拡張機能です。",
   "permissions": [
     "storage",
@@ -45,6 +45,7 @@
         "data/timetable-2026.json",
         "data/syllabus-credit-evidence.json",
         "data/curriculum-candidates.json",
+        "data/undergraduate-programs.json",
         "data/historical-course-row-evidence.json"
       ],
       "matches": [

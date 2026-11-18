@@ -12,8 +12,8 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = "0.10.1"
-VERSION_NAME = "0.10.1"
+VERSION = "0.10.2"
+VERSION_NAME = "0.10.2"
 ARCHIVE_ROOT = "tcu-webclass-visual-theme-aware"
 OUTPUT = ROOT.parent / f"TCU_WebClass_Visual_Theme_Aware_v{VERSION_NAME}.zip"
 
@@ -28,6 +28,7 @@ PACKAGE_FILES = (
     "data/curriculum-candidates.json",
     "data/undergraduate-guides.json",
     "data/graduate-guides.json",
+    "data/undergraduate-programs.json",
     "data/progression-rules.json",
     "data/sample-user-overrides.json",
     "data/historical-course-row-evidence.json",
@@ -65,6 +66,7 @@ PACKAGE_FILES = (
     "src/planner-credits.js",
     "src/planner-guides.js",
     "src/planner-graduate.js",
+    "src/planner-programs.js",
     "src/planner-enrollment.js",
     "src/enrollment-matching.js",
     "data/syllabus-credit-evidence.json",

@@ -1,5 +1,9 @@
 # TCU WebClass Visual
 
+## v0.10.2 — ひらめき・教職・TAP
+
+入学年度と学科を選び、ひらめき・教職・TAPそれぞれの参加状況を保存できます。WebClassのコースカードと履修・進級チェックに、公式資料で照合した科目の候補が表示されます。TAPの国内読み替え対象は2022〜2026年度の学修要覧89組から案内し、認定済みの単位は大学ポータルの成績表で確認します。ひらめき・教職の科目別表示は収録済みの候補が対象です。
+
 ## v0.10.1 — 大学院の修了要件
 
 - 2022〜2026年度入学の公開履修要綱を、研究科・専攻・課程から開けます。
@@ -25,7 +29,7 @@ WebClassのコース一覧に、表示中の登録科目の照合件数・要確
 
 東京都市大学のWebClassコースリスト画面を、元の機能を壊さずに読みやすくするChrome／Edge向けManifest V3拡張機能です。
 
-**公開版:** [v0.10.1 ZIPをダウンロード](https://github.com/CYLIU2003/tcu-webclass-visual-theme-aware/releases/download/v0.10.1/TCU_WebClass_Visual_Theme_Aware_v0.10.1.zip) ／ [画像付き導入ガイド（Web）](https://cyliu2003.github.io/tcu-webclass-visual-theme-aware/) ／ [同梱ガイド](はじめにお読みください.html)
+**公開版:** [v0.10.2 ZIPをダウンロード](https://github.com/CYLIU2003/tcu-webclass-visual-theme-aware/releases/download/v0.10.2/TCU_WebClass_Visual_Theme_Aware_v0.10.2.zip) ／ [画像付き導入ガイド（Web）](https://cyliu2003.github.io/tcu-webclass-visual-theme-aware/) ／ [同梱ガイド](はじめにお読みください.html)
 
 v0.9.0 では、「標準／モダン」をポップアップまたはコース一覧の表示オプションから切り替えられます。
 

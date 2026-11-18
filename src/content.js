@@ -18,6 +18,7 @@
     curriculumPlan: "",
     webclassAdmissionYear: "",
     curriculumTeaching: false,
+    undergraduatePrograms: null,
     curriculumHirameki: false
   });
 
@@ -51,6 +52,7 @@
     studyGuideNavigation: null,
     databaseStatus: null,
     curriculumCandidates: null,
+    undergraduateProgramIndex: null,
     courses: [],
     officialCourseCodes: new Set(),
     codeIndex: new Map(),
@@ -1950,17 +1952,25 @@
   }
 
   function curriculumMatches(course) {
+    if (course?.level === "大学院") return [];
+    if (state.settings.undergraduatePrograms) {
+      const curriculum = globalThis.WCV_CURRICULUM;
+      return curriculum.programMatches(state.undergraduateProgramIndex, state.curriculumCandidates,
+        state.settings.undergraduatePrograms, course?.courseName);
+    }
     return globalThis.WCV_CURRICULUM?.match(state.curriculumCandidates, {
       plan: state.settings.curriculumPlan, teaching: state.settings.curriculumTeaching, hirameki: state.settings.curriculumHirameki
     }, course?.courseName) || [];
   }
 
   function curriculumLabel(row) {
+    if (row.url) return WCV_CURRICULUM.programLabel(row);
     const scope = row.scope.startsWith("hirameki") ? "ひらめき" : row.scope.startsWith("teaching") ? "教職" : "学科";
     return `${scope}の同名資料・要確認`;
   }
 
   function curriculumSourceKind(row) {
+    if (row.kind === "recognition") return "資料上は単位読み替え";
     return row.kind === "choice" ? "資料上は選択必修" : row.kind === "required" ? "資料上は必修" : "資料に掲載";
   }
 
@@ -2052,16 +2062,16 @@
     more.append(moreList);
     for (const row of curriculumMatches(course)) {
       const source = state.curriculumCandidates?.sources?.find(item => item.id === row.sourceId);
-      if (!source) continue;
+      if (!source && !row.url) continue;
       const p = createTextElement("p", "wcv-curriculum-detail", `${curriculumLabel(row)}（${curriculumSourceKind(row)}、この開講科目との対応は未確認）：${row.note} `);
       const a = createTextElement("a", "", row.sourcePage ? `原資料（${row.sourcePage}ページ）` : "原表画像を開く");
-      a.href = source.url + (row.sourcePage ? `#page=${row.sourcePage}` : "");
+      a.href = row.url || source.url + (row.sourcePage ? `#page=${row.sourcePage}` : "");
       a.target = "_blank"; a.rel = "noopener noreferrer";
       p.append(a);
       for (const page of row.relatedPages || []) {
         if (!Number.isInteger(page) || page < 1) continue;
         const detailLink = createTextElement("a", "", `選択単位の条件（${page}ページ）`);
-        detailLink.href = `${source.url}#page=${page}`;
+        detailLink.href = a.href.split("#")[0] + "#page=" + page;
         detailLink.target = "_blank"; detailLink.rel = "noopener noreferrer";
         p.append(document.createTextNode(" ・ "), detailLink);
       }
@@ -3887,7 +3897,7 @@
     status.setAttribute("role", "status");
     for (const [section, label] of [
       ["plan", "時間割プランナー"], ["credits", "単位の確認"],
-      ["requirements", "卒業要件"], ["graduate", "大学院の修了要件"], ["tasks", "課題メモ"],
+      ["requirements", "卒業要件"], ["programs", "ひらめき・教職・TAP"], ["graduate", "大学院の修了要件"], ["tasks", "課題メモ"],
       ["enrollment", "履修・進級チェック"]
     ]) {
       const control = createTextElement("button", "", label);
@@ -4408,12 +4418,14 @@
 
   async function initialize() {
     try {
-      const [dataset, historicalData, stored, curriculum] = await Promise.all([
+      const [dataset, historicalData, stored, curriculum, undergraduateProgramIndex] = await Promise.all([
         loadDataset(), loadHistoricalCourseData(), storageGet(DEFAULT_SETTINGS),
-        fetch(chrome.runtime.getURL("data/curriculum-candidates.json")).then(r => r.ok ? r.json() : null).catch(() => null)
+        fetch(chrome.runtime.getURL("data/curriculum-candidates.json")).then(r => r.ok ? r.json() : null).catch(() => null),
+        fetch(chrome.runtime.getURL("data/undergraduate-programs.json")).then(r => r.ok ? r.json() : null).catch(() => null)
       ]);
       state.dataset = dataset;
       state.curriculumCandidates = curriculum;
+      state.undergraduateProgramIndex = undergraduateProgramIndex;
       state.officialCourseCodes = new Set((dataset.courses || []).map((course) => normalizeCode(course.courseCode)).filter(Boolean));
       state.historicalEvidence = historicalData.records || [];
       state.historicalDataSummary = historicalData.summary || {};
@@ -4438,7 +4450,7 @@
             state.settings[key] = change.newValue ?? DEFAULT_SETTINGS[key];
             if (key === "webclassAdmissionYear") document.getElementById("wcv-past-course-picker")?.remove();
             if (key !== "appearance") needsScan = true;
-            if (["userCourses", "curriculumPlan", "curriculumTeaching", "curriculumHirameki"].includes(key)) needsRebuild = true;
+            if (["userCourses", "curriculumPlan", "curriculumTeaching", "curriculumHirameki", "undergraduatePrograms"].includes(key)) needsRebuild = true;
           }
         }
         if (needsRebuild) {

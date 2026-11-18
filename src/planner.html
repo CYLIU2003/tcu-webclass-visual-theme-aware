@@ -19,6 +19,7 @@
         <a href="#plan-title">時間割</a>
         <a href="#credits-title">単位の確認</a>
         <a href="#requirements-title">卒業要件</a>
+        <a href="#programs-title">履修プログラム</a>
         <a href="#graduate-title">大学院の修了要件</a>
         <a href="#enrollment-title">履修・進級チェック</a>
         <a href="#planner-tasks-title">課題メモ</a>
@@ -138,6 +139,21 @@
           <p id="guide-rule-status" role="status"></p>
         </div>
       </section>
+      <section class="requirements" aria-labelledby="programs-title">
+        <h2 id="programs-title" tabindex="-1">学部の履修プログラム</h2>
+        <p class="help">入学年度・学科と、参加・履修の状況を選ぶと、該当する公式資料と科目の確認事項を表示します。</p>
+        <form id="program-profile-form" hidden>
+          <div class="credit-inputs" id="program-profile-controls">
+            <label>入学年度と学科<select name="cohort" required></select></label>
+            <label>ひらめき<select name="hirameki"></select></label>
+            <label>教職課程<select name="teaching"></select></label>
+            <label>TAP<select name="tap"></select></label>
+          </div>
+          <button type="submit">参加状況を保存</button>
+        </form>
+        <p id="program-profile-status" role="status">学修要覧を読み込んでいます。</p>
+        <ul id="program-resources"></ul>
+      </section>
       <section class="graduate" aria-labelledby="graduate-title">
         <h2 id="graduate-title" tabindex="-1">大学院の修了要件</h2>
         <p class="help">入学した年度の履修要綱から、専攻・課程ごとの修了条件を確認できます。</p>
@@ -163,6 +179,7 @@
         <div id="enrollment-content" hidden>
           <p class="help" id="enrollment-all-tip" hidden>学期を変更したときは、WebClassのコース一覧から開き直してください。全学期を確認する場合は「All」を選びます。</p>
           <p class="help">正式な履修登録・成績は <a href="https://websrv.tcu.ac.jp/tcu_web_v3" target="_blank" rel="noopener noreferrer">大学ポータル</a> で確認できます。</p>
+          <p><a href="#programs-title">ひらめき・教職・TAPの参加状況を設定</a></p>
           <p><a href="#enrollment-progression">学部の進級条件へ</a> ／ <a href="#graduate-title">大学院の修了要件へ</a></p>
           <h3>WebClassから読み込んだ参加コース</h3>
           <p class="help">未確認の単位は大学の公開シラバスで照合できます。照会には講義コード・開講年度・学期を送ります。</p>
@@ -199,6 +216,8 @@
   <script src="planner-tasks.js"></script>
   <script src="planner-guides.js"></script>
   <script src="planner-graduate.js"></script>
+  <script src="curriculum.js"></script>
+  <script src="planner-programs.js"></script>
   <script src="enrollment-matching.js"></script>
   <script src="planner-enrollment.js"></script>
   <script src="planner.js"></script>

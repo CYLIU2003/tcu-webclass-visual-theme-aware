@@ -29,6 +29,7 @@ with TemporaryDirectory() as profile, sync_playwright() as playwright:
             ("credits", "credits-title"),
             ("requirements", "requirements-title"),
             ("graduate", "graduate-title"),
+            ("programs", "programs-title"),
             ("tasks", "planner-tasks-title"),
         ]:
             menu = context.new_page()
@@ -41,7 +42,22 @@ with TemporaryDirectory() as profile, sync_playwright() as playwright:
             direct.value.wait_for_url(f"**/src/planner.html#{target}")
             expect(direct.value.locator(f"#{target}")).to_be_focused()
             expect(direct.value.locator(f'.planner-nav [href="#{target}"]')).to_have_attribute("aria-current", "location")
-            assert direct.value.locator(f"#{target}").evaluate("(el) => el.getBoundingClientRect().top < innerHeight")
+            expect(direct.value.locator(f"#{target}")).to_be_in_viewport()
+            if destination == "programs":
+                programs = direct.value
+                programs.set_viewport_size({"width": 360, "height": 800})
+                form = programs.locator("#program-profile-form")
+                form.locator("[name=cohort]").select_option("2026:情報科学科")
+                for flag in ("hirameki", "teaching", "tap"):
+                    form.locator(f"[name={flag}]").select_option("yes")
+                expect(programs.locator("#program-resources li")).to_have_count(3)
+                programs.get_by_text("読み替え対象の国内科目を見る").click()
+                expect(programs.locator("#program-resources details p")).to_contain_text("Communication Skills(1)")
+                form.get_by_role("button", name="参加状況を保存").click()
+                expect(programs.locator("#program-profile-status")).to_contain_text("保存しました")
+                programs.reload()
+                expect(form.locator("[name=tap]")).to_have_value("yes")
+                assert programs.evaluate("document.documentElement.scrollWidth === innerWidth")
             if destination == "graduate":
                 graduate = direct.value
                 graduate.set_viewport_size({"width": 360, "height": 800})
@@ -84,6 +100,7 @@ with TemporaryDirectory() as profile, sync_playwright() as playwright:
         <div class="schedule-list"><a href="/webclass/course.php/26saa001102/login">ドイツ語</a>
         <a href="/webclass/course.php/g123456/login">コード未登録のコース</a>
         <a href="/webclass/course.php/g111111/login">情報リテラシー演習（ｂ）（火3、須藤 康裕、2026年度前期後半）</a>
+        <a href="/webclass/course.php/26saz115101/login">Communication Skills(1)</a>
         <a href="/webclass/course.php/g222222/login">情報リテラシー演習(b)</a></div>
         </form></div></div></div></main>"""
         existing.route("https://webclass.tcu.ac.jp/**", lambda route: route.fulfill(
@@ -98,13 +115,13 @@ with TemporaryDirectory() as profile, sync_playwright() as playwright:
             const tabs = await chrome.tabs.query({url:'https://webclass.tcu.ac.jp/*'});
             return tabs.length === 1 && tabs[0].active;
         }""")
-        expect(existing.locator(".wcv-enrollment-summary")).to_contain_text("授業データと一致 3件")
+        expect(existing.locator(".wcv-enrollment-summary")).to_contain_text("授業データと一致 4件")
         expect(existing.locator(".wcv-enrollment-summary")).to_contain_text("要確認 2件")
         direct = context.new_page()
         direct.goto(f"{extension}/src/planner.html?enrollment=invalid#enrollment-title")
         expect(direct.locator("#enrollment-status")).to_contain_text("読み込み先が無効")
         direct.goto(f"{extension}/src/planner.html#enrollment-title")
-        expect(direct.locator("#enrollment-courses li")).to_have_count(5)
+        expect(direct.locator("#enrollment-courses li")).to_have_count(6)
         direct.close()
         worker.evaluate("""chrome.storage.local.set({
             'planner-credit:course:planner:2026:saa001102': {status:'planned',units:275}
@@ -113,8 +130,15 @@ with TemporaryDirectory() as profile, sync_playwright() as playwright:
             existing.get_by_role("button", name="履修・進級チェック").click()
         enrollment = enrollment_opening.value
         enrollment.wait_for_url(re.compile(r"/src/planner\.html\?enrollment=[a-f0-9-]+#enrollment-title$"))
-        expect(enrollment.locator("#enrollment-status")).to_contain_text("参加コース 5件 ／ 科目の照合 3件（うち手動選択 0件） ／ 科目の要確認 2件")
-        expect(enrollment.locator("#enrollment-courses li")).to_have_count(5)
+        expect(enrollment.locator("#enrollment-status")).to_contain_text("参加コース 6件 ／ 科目の照合 4件（うち手動選択 0件） ／ 科目の要確認 2件")
+        expect(enrollment.locator("#enrollment-courses li")).to_have_count(6)
+        tap_link = enrollment.get_by_role("link", name="TAPの単位読み替え候補")
+        expect(tap_link).to_have_count(1)
+        worker.evaluate("""async () => {
+            const {undergraduatePrograms} = await chrome.storage.local.get('undergraduatePrograms');
+            await chrome.storage.local.set({undergraduatePrograms:{...undergraduatePrograms,tap:'no'}});
+        }""")
+        expect(tap_link).to_have_count(0)
         expect(enrollment.locator("#enrollment-courses")).to_contain_text("講義コードを照合できません")
         enrollment.get_by_role("button", name="最初の要確認科目へ").click()
         expect(enrollment.locator('[data-needs-review="true"]').first).to_be_focused()
@@ -146,7 +170,7 @@ with TemporaryDirectory() as profile, sync_playwright() as playwright:
         enrollment.locator("#enrollment-earned").fill("57")
         enrollment.locator("#enrollment-courses input").first.fill("2")
         expect(enrollment.locator("#enrollment-result")).to_contain_text("59単位（総単位まで残り 1単位）")
-        expect(enrollment.locator("#enrollment-result")).to_contain_text("未入力 4件")
+        expect(enrollment.locator("#enrollment-result")).to_contain_text("未入力 5件")
         enrollment.locator("#enrollment-stage").select_option("4")
         expect(enrollment.locator("#enrollment-result")).to_contain_text("進級条件の総単位 100単位")
         enrollment.evaluate("chrome.permissions.request = async () => false")
@@ -160,7 +184,7 @@ with TemporaryDirectory() as profile, sync_playwright() as playwright:
             code = params["value(kougicd)"][0]
             semester = params["value(semekikn)"][0]
             assert set(params) == {"value(kougicd)", "value(semekikn)", "value(risyunen)"}
-            assert code in {"sab132309", "sab175303"}
+            assert code in {"sab132309", "sab175303", "saz115101"}
             body_year = "2026" if code == "sab175303" else "2025"
             cells = "".join(f'<tr><td class="label_kougi">{label}</td><td class="kougi">{value}</td></tr>'
                             for label, value in {

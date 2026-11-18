@@ -78,7 +78,8 @@
         }
         profile.append(group);
       }
-      const remembered = stored["planner-guide:profile"];
+      let programSettings = stored[WCV_CURRICULUM.settingsKey];
+      const remembered = programSettings?.cohort || stored["planner-guide:profile"];
       if (byId.has(remembered)) profile.value = remembered;
 
       let matched = 0;
@@ -109,6 +110,7 @@
         const heading = element("strong", "");
         const matchStatus = element("p", "");
         const unitStatus = element("p", "");
+        const programNotes = element("div", "");
         info.append(heading, matchStatus);
         const input = document.createElement("input");
         Object.assign(input, { type: "number", min: "0", max: "999", step: "0.01", inputMode: "decimal" });
@@ -190,10 +192,11 @@
             showMatch(entry.course ? "confirmed" : "");
             syncLookup();
             renderStatus();
+            renderPrograms();
             render();
           });
         }
-        info.append(unitStatus, apply, applyPlan);
+        info.append(programNotes, unitStatus, apply, applyPlan);
         showMatch(match.method);
         const label = element("label", "見込み単位");
         label.append(input);
@@ -201,6 +204,8 @@
         $("enrollment-courses").append(item);
         inputs.push(input);
         entry.showEvidence = showEvidence;
+        entry.programNotes = programNotes;
+        entry.fallbackName = registration.title;
         entries.push(entry);
       }
       if (!inputs.length) {
@@ -303,6 +308,34 @@
         }
         result.append(element("p", "確認しているのは総単位数です。必修・区分別単位・在学期間などの条件と、ポータルの正誤表も確認してください。"));
       }
+
+      let programs;
+      function renderPrograms() {
+        for (const entry of entries) {
+          const name = entry.course?.level === "大学院" ? "" : entry.course?.courseName || entry.fallbackName;
+          const rows = programs && programSettings?.cohort === profile.value
+            ? WCV_CURRICULUM.programMatches(...programs, programSettings, name) : [];
+          entry.programNotes.replaceChildren(...rows.map((row) => {
+            const note = element("p", "");
+            note.append(link(WCV_CURRICULUM.programLabel(row), row.url), " ― ", row.note);
+            return note;
+          }));
+        }
+      }
+
+      WCV_PLANNER_PROGRAMS.load().then((data) => {
+        programs = data;
+        renderPrograms();
+      }).catch(() => {});
+      profile.addEventListener("change", renderPrograms);
+      chrome.storage.onChanged.addListener((changes, area) => {
+        const change = changes[WCV_CURRICULUM.settingsKey];
+        if (area !== "local" || !change) return;
+        programSettings = change.newValue;
+        if (byId.has(programSettings?.cohort)) profile.value = programSettings.cohort;
+        renderPrograms();
+        render();
+      });
 
       $("enrollment-content").addEventListener("input", render);
       render();

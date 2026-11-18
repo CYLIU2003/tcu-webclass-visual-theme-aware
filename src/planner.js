@@ -253,9 +253,12 @@
       }
       WCV_PLANNER_CREDITS.initialize(stored, storagePrefix, (code) => catalog.get(code)?.course);
       WCV_PLANNER_TASKS.initialize(stored, storagePrefix, (code) => catalog.get(code)?.course);
-      WCV_PLANNER_GRADUATE.initialize();
-      WCV_PLANNER_GUIDES.initialize(storagePrefix, (code) => catalog.get(code)?.course);
-      WCV_PLANNER_ENROLLMENT.initialize(stored, data.dataset.academicYear, data.courses);
+      await Promise.all([
+        WCV_PLANNER_GRADUATE.initialize(),
+        WCV_PLANNER_PROGRAMS.initialize(stored),
+        WCV_PLANNER_GUIDES.initialize(storagePrefix, (code) => catalog.get(code)?.course),
+        WCV_PLANNER_ENROLLMENT.initialize(stored, data.dataset.academicYear, data.courses),
+      ]);
       chrome.storage.onChanged.addListener((changes, area) => {
         const updates = Object.entries(changes).filter(([key]) => key.startsWith(storagePrefix));
         if (area !== "local" || !updates.length) return;

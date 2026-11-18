@@ -111,6 +111,10 @@ li a { display: inline-block; margin-inline-end: 12px; color: var(--accent); fon
 #planner-task-list label { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; }
 #planner-task-list input { min-height: 0; width: 18px; height: 18px; accent-color: var(--accent); }
 #guide-controls label, #graduate-controls label, .guide-rule-fields label { min-width: 0; max-width: 100%; }
+#program-profile-controls label { min-width: 0; max-width: 100%; }
+#program-profile-controls select { max-width: 100%; }
+#program-resources a { display: inline-flex; align-items: center; min-height: 44px; }
+#program-resources summary { min-height: 44px; padding-block: 10px; cursor: pointer; }
 #guide-controls select, #graduate-controls select { width: 100%; }
 #graduate-sources a { display: inline-flex; min-height: 44px; align-items: center; }
 #graduate-result p { flex-basis: 100%; }
