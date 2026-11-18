@@ -11,7 +11,7 @@
     <header>
       <p class="edition">2026年度 · WebClass Visual</p>
       <h1>時間割プランナー</h1>
-      <p>授業を選んで履修案を作れます。選んだ授業はこのブラウザーに保存されます。</p>
+      <p>WebClassの参加コースから時間割を作り、成績表の単位を確認できます。</p>
     </header>
     <p id="loading" role="status">時間割を読み込んでいます。</p>
     <div class="workspace" id="workspace" hidden>
@@ -27,7 +27,7 @@
       </nav>
       <section class="board" aria-labelledby="plan-title">
         <div class="section-head">
-          <h2 id="plan-title" tabindex="-1">履修案（下書き）</h2>
+          <h2 id="plan-title" tabindex="-1">時間割と参加コース</h2>
           <label>表示するクォーター
             <select id="quarter">
               <option value="0">第1Q・前期前半</option>
@@ -37,13 +37,29 @@
             </select>
           </label>
         </div>
+        <div id="webclass-source" class="academic-card">
+          <p id="webclass-source-status" role="status">WebClassの表示中のコースを探しています。</p>
+          <label id="webclass-source-picker" hidden>取り込み元<select id="webclass-source-select"></select></label>
+          <button id="webclass-refresh" type="button">WebClassから再読込</button>
+          <button id="webclass-save-ledger" type="button" disabled>参加コースを履修台帳に保存</button>
+          <a href="#credits-title">単位・成績を確認</a>
+        </div>
         <p id="plan-count"></p>
         <p id="plan-status" role="status"></p>
+        <div id="plan-days" role="group" aria-label="表示する曜日"></div>
         <div class="table-scroll" tabindex="0" role="region" aria-label="週間時間割">
           <table id="timetable"></table>
         </div>
-        <h3>追加済みの授業</h3>
-        <ul id="selected"></ul>
+        <h3>時間割に表示する授業</h3>
+        <ul id="selected" class="academic-list"></ul>
+        <div id="webclass-unplaced" hidden>
+          <h3>週間時間割に置けない参加コース</h3>
+          <ul id="webclass-unplaced-list" class="academic-list"></ul>
+        </div>
+        <details id="webclass-excluded" hidden>
+          <summary>除外したWebClassコース</summary>
+          <ul id="webclass-excluded-list" class="academic-list"></ul>
+        </details>
         <p class="help">2026年度の時間割スナップショットを使った下書きです。履修登録は大学の履修登録システムで行ってください。</p>
       </section>
       <section class="finder" aria-labelledby="search-title">
@@ -68,7 +84,10 @@
       </section>
       <section class="credits" aria-labelledby="credits-title">
         <h2 id="credits-title" tabindex="-1">単位の確認</h2>
-        <p class="help">成績表の取得済み単位と、履修案に追加した授業の見込み単位を記録できます。</p>
+        <div id="academic-ledger"></div>
+        <div id="legacy-credit-tools" class="academic-card">
+        <h3>従来の単位メモとバックアップ</h3>
+        <p class="help">ここで保存した従来の単位メモは、履修台帳とは個別に確認できます。</p>
         <label for="credit-profile">入学年度・課程の目安</label>
         <select id="credit-profile">
           <option value="manual">合計のみ</option>
@@ -104,6 +123,7 @@
           </form>
           <p id="backup-status" role="status"></p>
         </details>
+        </div>
       </section>
       <section class="requirements" aria-labelledby="requirements-title">
         <h2 id="requirements-title" tabindex="-1">卒業要件を確認</h2>
@@ -220,6 +240,8 @@
   <script src="planner-programs.js"></script>
   <script src="enrollment-matching.js"></script>
   <script src="planner-enrollment.js"></script>
+  <script src="planner-webclass.js"></script>
+  <script src="planner-academic.js"></script>
   <script src="planner.js"></script>
 </body>
 </html>

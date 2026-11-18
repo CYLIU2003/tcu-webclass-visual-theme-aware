@@ -140,3 +140,45 @@ li a { display: inline-block; margin-inline-end: 12px; color: var(--accent); fon
   .workspace { grid-template-columns: minmax(0, 1fr); }
   .finder { scroll-margin-top: 12px; }
 }
+
+.academic-card {
+  padding: clamp(12px, 2vw, 20px);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+  margin-block: 12px;
+}
+.academic-card > :last-child { margin-bottom: 0; }
+#webclass-source { background: var(--tint); }
+#webclass-source :is(button, a) { margin: 4px 6px 0 0; }
+#webclass-source select { max-width: 100%; }
+#plan-days { display: none; }
+.academic-summary { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.academic-summary > p { grid-column: 1 / -1; color: var(--warning); }
+.academic-summary strong { display: inline-block; padding: 5px 9px; margin-bottom: 8px; background: var(--tint); border-radius: 8px; }
+.academic-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); gap: 10px; }
+.academic-list > li { min-width: 0; border: 1px solid var(--line); border-radius: 10px; padding: 12px; }
+.academic-list > li > strong { display: block; }
+.academic-list > li > button { margin-top: 6px; }
+.academic-state { display: inline-block; padding: 2px 8px; border-radius: 6px; font-weight: 700; font-size: .8rem; background: var(--page); }
+.academic-state[data-grade="passed"] { background: var(--tint); color: var(--accent); }
+.academic-state[data-grade="recognized"] { border: 1px solid var(--accent); color: var(--accent); }
+.academic-state[data-grade="failed"] { border: 1px solid var(--warning); color: var(--warning); }
+#academic-ledger .credit-inputs label { min-width: 0; max-width: 100%; }
+#academic-ledger select { max-width: 100%; }
+#academic-ledger textarea { display: block; width: 100%; min-height: 6rem; margin-block: 6px 10px; padding: 8px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--ink); font: inherit; }
+:is(#academic-ledger, #legacy-credit-tools, #webclass-excluded) summary { min-height: 44px; padding-block: 10px; cursor: pointer; }
+.academic-record .credit-inputs { align-items: end; }
+.academic-categories { width: 100%; min-width: 0; border: 1px solid var(--line); border-radius: 8px; }
+.academic-categories label { display: flex; flex-direction: row-reverse; justify-content: flex-end; align-items: center; min-height: 36px; }
+.academic-categories input { width: 18px; height: 18px; min-height: 0; accent-color: var(--accent); }
+@media (max-width: 650px) {
+  .planner-nav { min-width: 0; flex-wrap: nowrap; overflow-x: auto; white-space: nowrap; }
+  .planner-nav a { flex: 0 0 auto; }
+  #plan-days { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 8px; }
+  #plan-days button { min-width: 44px; border-radius: 999px; }
+  #plan-days button[aria-pressed="true"] { color: var(--surface); background: var(--accent); }
+  #timetable { min-width: 0; }
+  #timetable [data-day]:not(.plan-day-visible) { display: none; }
+  .academic-summary { grid-template-columns: minmax(0, 1fr); }
+}

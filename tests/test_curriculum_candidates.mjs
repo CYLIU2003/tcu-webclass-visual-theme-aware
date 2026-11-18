@@ -49,3 +49,19 @@ const design = {cohort:'2026:デザイン・データ科学科', tap:'yes'};
 assert.equal(programMatches(programs, db, design, 'English III-A')[0].kind, 'recognition');
 assert.equal(programMatches(programs, db, design, 'Communication Skills(1)').length, 0);
 console.log('PASS: undergraduate program consent, cohort-specific TAP and source links');
+
+await import('../src/planner-academic.js');
+const { calculate, readGradeRows } = WCV_PLANNER_ACADEMIC;
+const past = { year: 2024, code: 'saa001102', name: 'ドイツ語', grade: '可', units: 100,
+  graduation: 'yes', progression: 'yes' };
+const retake = { ...past, year: 2025, grade: '優' };
+assert.equal(calculate([past, retake], 'graduation', null).conflicts.length, 2);
+assert.equal(calculate([past, retake], 'graduation', null).total, 0);
+assert.equal(calculate([{ ...past, grade: '不可' }, retake], 'graduation', null).total, 100);
+assert.equal(calculate([{ ...past, grade: '不可' }, retake], 'progression', 2024).total, 0);
+assert.equal(calculate([{...retake, graduation: ''}], 'graduation', null).total, 0);
+assert.deepEqual(readGradeRows('科目名\t修得期\t評価\t単位\n統計\t２０２５年度後期\t認定\t１．５'),
+  [{year: 2025, name: '統計', code: null, grade: '認定', units: 150}]);
+assert.equal(readGradeRows('科目名\t修得期\t評価\t単位\n統計\t2025\t履修中\t')[0].units, null);
+assert.throws(() => readGradeRows('年度\t授業名\t評価\t単位\n2025\t統計\t90\t2'));
+console.log('PASS: retake holds, progression cutoff and official grade labels');

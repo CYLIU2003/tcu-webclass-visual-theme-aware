@@ -11,10 +11,23 @@
   const batchSize = 25;
   const $ = (id) => document.getElementById(id);
   const saved = new Set();
+  const excluded = new Set();
+  let sourceRows = [];
+  const exclusionPrefix = "planner-webclass-excluded:";
+  const imported = new Map();
+
+  function plannedCodes() {
+    const codes = new Set(saved);
+    for (const [code, id] of imported) {
+      if (!excluded.has(id)) codes.add(code);
+    }
+    return codes;
+  }
   let catalog = new Map();
   let storagePrefix;
   let slot = null;
   let limit = batchSize;
+  let mobileDay = days[0];
 
   function element(tag, text) {
     const node = document.createElement(tag);
@@ -69,8 +82,13 @@
     const hash = location.hash || "#plan-title";
     const links = document.querySelectorAll(".planner-nav a");
     for (const link of links) {
-      if (link.hash === hash) link.setAttribute("aria-current", "location");
-      else link.removeAttribute("aria-current");
+      if (link.hash === hash) {
+        link.setAttribute("aria-current", "location");
+        const nav = link.parentElement;
+        const bounds = link.getBoundingClientRect();
+        const area = nav.getBoundingClientRect();
+        if (bounds.right > area.right || bounds.left < area.left) nav.scrollLeft += bounds.left - area.left - 8;
+      } else link.removeAttribute("aria-current");
     }
     if (!location.hash || ![...links].some((link) => link.hash === hash)) return;
     if (hash === "#query") {
@@ -84,7 +102,7 @@
 
   function renderPlan() {
     const current = quarter();
-    const registered = [...saved].map((code) => catalog.get(code));
+    const registered = [...plannedCodes()].map((code) => catalog.get(code));
     const selected = registered.filter(Boolean);
     const inQuarter = selected.filter((entry) => entry.quarterSet.has(current));
     const scheduled = new Map();
@@ -102,10 +120,25 @@
       : "";
     $("plan-status").classList.toggle("conflict", Boolean(conflicts.length));
 
+    function showDay() {
+      for (const cell of $("timetable").querySelectorAll("[data-day]")) {
+        cell.classList.toggle("plan-day-visible", cell.dataset.day === mobileDay);
+      }
+      for (const pick of $("plan-days").children) {
+        pick.setAttribute("aria-pressed", String(pick.dataset.day === mobileDay));
+      }
+    }
+    $("plan-days").replaceChildren(...days.map((day) => {
+      const pick = button(day, () => { mobileDay = day; showDay(); });
+      pick.dataset.day = day;
+      pick.setAttribute("aria-label", day + "曜日を表示");
+      return pick;
+    }));
     const heading = element("tr");
     for (const title of ["時限", ...days.map((day) => `${day}曜`)]) {
       const th = element("th", title);
       th.scope = "col";
+      if (title !== "時限") th.dataset.day = title[0];
       heading.append(th);
     }
     const head = element("thead");
@@ -120,6 +153,7 @@
         const key = `${day}${period}`;
         const courses = scheduled.get(key) || [];
         const cell = element("td");
+        cell.dataset.day = day;
         const findCourse = button(courses.length ? "候補を探す" : "＋", () => {
           slot = { key, label: `${day}曜${period}限` };
           $("query").value = "";
@@ -148,15 +182,19 @@
       body.append(row);
     }
     $("timetable").replaceChildren(head, body);
+    showDay();
     const list = $("selected");
     list.replaceChildren();
-    for (const code of saved) {
+    const displayed = plannedCodes();
+    for (const code of displayed) {
       const entry = catalog.get(code);
       const item = entry ? courseRow(entry) : element("li", `${code}（現在のデータに見つかりません）`);
+      if (imported.has(code) && !excluded.has(imported.get(code))) item.append(element("span", "WebClassの参加コース"));
       item.append(courseButton(code, false));
       list.append(item);
     }
-    if (!saved.size) list.append(element("li", "追加した授業がここに表示されます。"));
+    if (!displayed.size) list.append(element("li", "WebClassから読み込んだ科目や手動で追加した授業がここに表示されます。"));
+    renderSourceRows();
   }
 
   function courseRow({ course, slotsByQuarter }) {
@@ -198,8 +236,14 @@
       control.disabled = true;
       try {
         const key = storagePrefix + code;
-        if (add) await chrome.storage.local.set({ [key]: true });
-        else await chrome.storage.local.remove(key);
+        const id = imported.get(code);
+        if (add) {
+          await chrome.storage.local.set({ [key]: true, ...(id ? { [exclusionPrefix + id]: false } : {}) });
+        } else if (id) {
+          await chrome.storage.local.set({ [key]: false, [exclusionPrefix + id]: true });
+        } else {
+          await chrome.storage.local.remove(key);
+        }
         $("edit-status").textContent = `${name}（${code}）を${add ? "追加しました" : "外しました"}。`;
         if (document.activeElement === document.body) $(add ? "query" : "plan-title").focus();
       } catch {
@@ -228,13 +272,62 @@
     $("back-to-timetable").hidden = !slot;
     $("search-status").textContent = matches.length ? `${matches.length}件中 ${Math.min(limit, matches.length)}件を表示` : "該当する授業がありません。";
     $("more").hidden = matches.length <= limit;
+    const displayed = plannedCodes();
     $("results").replaceChildren(...matches.slice(0, limit).map((entry) => {
       const item = courseRow(entry);
       const code = entry.course.courseCode;
-      if (saved.has(code)) item.append(element("span", "追加済み"));
+      if (displayed.has(code)) item.append(element("span", "追加済み"));
       else item.append(courseButton(code, true));
       return item;
     }));
+  }
+
+  function renderSourceRows() {
+    const unplaced = $("webclass-unplaced-list");
+    const removed = $("webclass-excluded-list");
+    unplaced.replaceChildren();
+    removed.replaceChildren();
+    for (const row of sourceRows) {
+      const hidden = row.id && excluded.has(row.id);
+      if (row.mapped && !hidden) continue;
+      const item = element("li");
+      item.append(element("strong", row.name), element("p", row.code || "講義コードを要確認"));
+      if (row.id) {
+        const action = button(hidden ? "復元" : "時間割から除外", async () => {
+          action.disabled = true;
+          try {
+            await chrome.storage.local.set({ [exclusionPrefix + row.id]: !hidden });
+          } catch {
+            $("edit-status").textContent = "変更を保存できませんでした。";
+            action.disabled = false;
+          }
+        });
+        item.append(action);
+      }
+      (hidden ? removed : unplaced).append(item);
+    }
+    $("webclass-unplaced").hidden = !unplaced.childElementCount;
+    $("webclass-excluded").hidden = !removed.childElementCount;
+  }
+
+  function useSnapshot(snapshot, year, courseIndex) {
+    imported.clear();
+    const assigned = new Set(snapshot?.courses.map((row) => row.code).filter(Boolean));
+    sourceRows = (snapshot?.courses || []).map((row) => {
+      const match = snapshot.year === year && WCV_ENROLLMENT_MATCH.identify(row, courseIndex, snapshot.term, year, true);
+      const id = WCV_PLANNER_WEBCLASS.key(snapshot.year, row);
+      const code = match?.course?.courseCode;
+      const mapped = code && id && (match.method === "code" || !assigned.has(code));
+      if (mapped) {
+        assigned.add(code);
+        imported.set(code, id);
+      }
+      return { ...row, id, mapped };
+    });
+    const start = { 1: 0, 2: 2, 3: 0, 4: 1, 5: 2, 6: 3 }[snapshot?.term];
+    if (snapshot?.year === year && start !== undefined && !slot) $("quarter").value = String(start);
+    renderPlan();
+    renderResults();
   }
 
   async function initialize() {
@@ -249,6 +342,7 @@
       storagePrefix = `planner:${data.dataset.academicYear}:`;
       const stored = await chrome.storage.local.get(null);
       for (const [key, value] of Object.entries(stored)) {
+        if (key.startsWith(exclusionPrefix) && value === true) excluded.add(key.slice(exclusionPrefix.length));
         if (key.startsWith(storagePrefix) && value === true) saved.add(key.slice(storagePrefix.length));
       }
       WCV_PLANNER_CREDITS.initialize(stored, storagePrefix, (code) => catalog.get(code)?.course);
@@ -261,7 +355,13 @@
       ]);
       chrome.storage.onChanged.addListener((changes, area) => {
         const updates = Object.entries(changes).filter(([key]) => key.startsWith(storagePrefix));
-        if (area !== "local" || !updates.length) return;
+        const exclusions = Object.entries(changes).filter(([key]) => key.startsWith(exclusionPrefix));
+        if (area !== "local" || (!updates.length && !exclusions.length)) return;
+        for (const [key, change] of exclusions) {
+          const id = key.slice(exclusionPrefix.length);
+          if (change.newValue === true) excluded.add(id);
+          else excluded.delete(id);
+        }
         const active = document.activeElement;
         for (const [key, change] of updates) {
           const code = key.slice(storagePrefix.length);
@@ -312,8 +412,12 @@
         $("results").children[previousLimit]?.querySelector("button")?.focus();
         if ($("more").hidden && document.activeElement === document.body) $("query").focus();
       });
+      const courseIndex = WCV_ENROLLMENT_MATCH.createIndex(data.courses);
+      const ledger = await WCV_PLANNER_ACADEMIC.initialize(stored);
       renderPlan();
       renderResults();
+      await WCV_PLANNER_WEBCLASS.initialize((snapshot) => useSnapshot(snapshot, data.dataset.academicYear, courseIndex),
+        (snapshot) => ledger.importSnapshot(snapshot));
       $("workspace").hidden = false;
       $("loading").hidden = true;
       document.documentElement.style.setProperty("--planner-nav-offset", `${navigation.offsetHeight + 12}px`);

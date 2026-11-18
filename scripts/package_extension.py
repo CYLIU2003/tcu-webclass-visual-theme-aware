@@ -12,8 +12,8 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = "0.10.2"
-VERSION_NAME = "0.10.2"
+VERSION = "0.11.0"
+VERSION_NAME = "0.11.0"
 ARCHIVE_ROOT = "tcu-webclass-visual-theme-aware"
 OUTPUT = ROOT.parent / f"TCU_WebClass_Visual_Theme_Aware_v{VERSION_NAME}.zip"
 
@@ -68,6 +68,9 @@ PACKAGE_FILES = (
     "src/planner-graduate.js",
     "src/planner-programs.js",
     "src/planner-enrollment.js",
+    "src/planner-webclass.js",
+    "src/planner-academic.js",
+    "docs/PLANNER_ACADEMIC_DESIGN.md",
     "src/enrollment-matching.js",
     "data/syllabus-credit-evidence.json",
     "src/planner-tasks.js",

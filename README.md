@@ -1,5 +1,12 @@
 # TCU WebClass Visual
 
+## v0.11.0 — WebClass連係の時間割と履修台帳
+
+- WebClassの表示中の参加コースを開いたときに読み込み、時間割の授業を追加・除外・復元できます。曜日時限が確かめられないコースも別枠で確認できます。
+- 過年度の参加コースを台帳に保存し、ポータルの成績照会の内容を科目別に入力・貼り付けできます。進級・卒業への算入を確認した合格・認定単位を集計します。
+- 2022〜2026年度入学の学科・コース別の単位条件と比較できます。進級の総単位条件は原表から確認できた範囲を表示します。
+- 取得済み単位の集計と、ひらめき・教職・TAPの確認事項をカードで表示します。成績は端末内に保存されます。
+
 ## v0.10.2 — ひらめき・教職・TAP
 
 入学年度と学科を選び、ひらめき・教職・TAPそれぞれの参加状況を保存できます。WebClassのコースカードと履修・進級チェックに、公式資料で照合した科目の候補が表示されます。TAPの国内読み替え対象は2022〜2026年度の学修要覧89組から案内し、認定済みの単位は大学ポータルの成績表で確認します。ひらめき・教職の科目別表示は収録済みの候補が対象です。
@@ -29,7 +36,7 @@ WebClassのコース一覧に、表示中の登録科目の照合件数・要確
 
 東京都市大学のWebClassコースリスト画面を、元の機能を壊さずに読みやすくするChrome／Edge向けManifest V3拡張機能です。
 
-**公開版:** [v0.10.2 ZIPをダウンロード](https://github.com/CYLIU2003/tcu-webclass-visual-theme-aware/releases/download/v0.10.2/TCU_WebClass_Visual_Theme_Aware_v0.10.2.zip) ／ [画像付き導入ガイド（Web）](https://cyliu2003.github.io/tcu-webclass-visual-theme-aware/) ／ [同梱ガイド](はじめにお読みください.html)
+**公開版:** [v0.11.0 ZIPをダウンロード](https://github.com/CYLIU2003/tcu-webclass-visual-theme-aware/releases/download/v0.11.0/TCU_WebClass_Visual_Theme_Aware_v0.11.0.zip) ／ [画像付き導入ガイド（Web）](https://cyliu2003.github.io/tcu-webclass-visual-theme-aware/) ／ [同梱ガイド](はじめにお読みください.html)
 
 v0.9.0 では、「標準／モダン」をポップアップまたはコース一覧の表示オプションから切り替えられます。
 

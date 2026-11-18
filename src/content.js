@@ -3818,7 +3818,7 @@
         !node.matches(".course-new-message, .course-contents-info, .badge, .list-group-item-text, .wcv-root"))
         .map((node) => node.textContent).join(" ")
         .trim().replace(/\s+/g, " ").slice(0, 160) || "授業名なし";
-      courses.push({ code: exact, name });
+      courses.push({ code: exact, name, registrationId: identity });
     }
     return { year, term, courses };
   }
@@ -3907,7 +3907,7 @@
         status.textContent = "";
         try {
           const result = await chrome.runtime.sendMessage({
-            type: "wcv-open-planner", section, snapshot: section === "enrollment" ? readEnrollment(form) : undefined
+            type: "wcv-open-planner", section, snapshot: ["enrollment", "plan", "credits"].includes(section) ? readEnrollment(form) : undefined
           });
           if (!result?.opened) throw new Error("Planner did not open");
         } catch {
