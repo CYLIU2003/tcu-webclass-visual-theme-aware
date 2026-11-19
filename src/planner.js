@@ -80,9 +80,10 @@
 
   function syncNavigation() {
     const hash = location.hash || "#plan-title";
+    const section = hash === "#academic-records-title" ? "#credits-title" : hash;
     const links = document.querySelectorAll(".planner-nav a");
     for (const link of links) {
-      if (link.hash === hash) {
+      if (link.hash === section) {
         link.setAttribute("aria-current", "location");
         const nav = link.parentElement;
         const bounds = link.getBoundingClientRect();
@@ -90,14 +91,14 @@
         if (bounds.right > area.right || bounds.left < area.left) nav.scrollLeft += bounds.left - area.left - 8;
       } else link.removeAttribute("aria-current");
     }
-    if (!location.hash || ![...links].some((link) => link.hash === hash)) return;
+    if (!location.hash || ![...links].some((link) => link.hash === section)) return;
     if (hash === "#query") {
       focusSearch();
       return;
     }
     const heading = $(hash.slice(1));
-    heading.focus({ preventScroll: true });
-    heading.scrollIntoView({ block: "start" });
+    heading?.focus({ preventScroll: true });
+    heading?.scrollIntoView({ block: "start" });
   }
 
   function renderPlan() {
@@ -417,7 +418,8 @@
       renderPlan();
       renderResults();
       await WCV_PLANNER_WEBCLASS.initialize((snapshot) => useSnapshot(snapshot, data.dataset.academicYear, courseIndex),
-        (snapshot) => ledger.importSnapshot(snapshot));
+        (snapshot) => ledger.importSnapshot(snapshot), (snapshots) => ledger.importSnapshots(snapshots),
+        data.dataset.academicYear, stored[WCV_PLANNER_WEBCLASS.historyAutoKey]);
       $("workspace").hidden = false;
       $("loading").hidden = true;
       document.documentElement.style.setProperty("--planner-nav-offset", `${navigation.offsetHeight + 12}px`);

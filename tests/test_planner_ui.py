@@ -268,6 +268,88 @@ with TemporaryDirectory() as profile, sync_playwright() as playwright:
         linked.locator("#academic-ledger [name=through]").fill("2025")
         linked.locator("#academic-ledger [name=through]").press("Tab")
         expect(progress).to_contain_text("3年次 ／ 2025年度末 ／ 算入を確認済み 2単位")
+
+        history_reads = []
+        original_browser_url = existing.url
+        options = "".join(f'<option value="{year}">{year}</option>' for year in range(2022, 2027))
+        source_form = previous_schedule.replace('<form name="condition">', '<form name="condition" action="/webclass/index.php?acs_=DEMO">').replace(
+            '<option value="2025">2025</option>', options.replace('value="2025"', 'value="2025" selected')
+        )
+
+        def history_route(route):
+            request = urlsplit(route.request.url)
+            if request.path != "/webclass/index.php":
+                route.fulfill(status=200, content_type="text/html", body=source_form)
+                return
+            params = parse_qs(request.query)
+            assert route.request.method == "GET" and set(params) == {"year", "semester"} and params["semester"] == ["all"]
+            year = int(params["year"][0])
+            history_reads.append(year)
+            if year == 2022:
+                form_body = '<div><a href="/webclass/index.php/courses/">コースを追加</a></div>'
+            elif year == 2023:
+                form_body = ('<div class="schedule-list"><a href="/webclass/course.php/23saa001103/login">'
+                             '基礎演習（火3、山田 太郎、2023年度前期）</a></div>'
+                             '<div id="courses_list_left"><a href="/webclass/course.php/23saa001104/login">別枠科目</a></div>')
+            elif year == 2024:
+                year = 2023
+                form_body = '<div class="schedule-list"></div>'
+            elif year == 2025:
+                form_body = ('<div class="schedule-list"><a href="/webclass/course.php/25saa001102/login">ドイツ語</a>'
+                             '<a href="/webclass/course.php/25saa001202/login">ドイツ語</a></div>')
+            else:
+                route.fulfill(status=200, content_type="text/html", body="<html><form>login</form></html>")
+                return
+            route.fulfill(status=200, content_type="text/html", body=f"""
+                <!doctype html><html><body><form name="condition" action="/webclass/index.php">
+                <h4>表示する学期</h4><select name="year"><option value="{year}">{year}</option></select>
+                <select name="semester"><option value="all">All</option></select>
+                {form_body}</form></body></html>
+            """)
+
+        existing.unroute("https://webclass.tcu.ac.jp/**")
+        existing.route("https://webclass.tcu.ac.jp/**", history_route)
+        existing.reload()
+        expect(existing.locator(".wcv-enrollment-summary")).to_contain_text("2025年度")
+        sync = linked.get_by_role("button", name="全年度を同期")
+        sync_status = linked.locator("#webclass-history-status")
+        sync.click()
+        expect(sync_status).to_contain_text("同期 3年度。新規 2件、登録済み 2件。")
+        expect(sync_status).to_contain_text("参加コースなし 2022年度")
+        expect(sync_status).to_contain_text("読込失敗 2024・2026年度")
+        assert history_reads == list(range(2022, 2027)) and existing.url == original_browser_url
+        linked.get_by_role("link", name="履修台帳で成績を入力").click()
+        expect(linked.locator("#academic-records-title")).to_be_focused()
+        expect(linked.locator('.planner-nav [href="#credits-title"]')).to_have_attribute("aria-current", "location")
+        expect(expected_ledger.get_by_text("別枠科目")).to_be_visible()
+        expect(passed).to_contain_text("合格・優")
+        expect(expected_ledger.locator("li").filter(has_text="saa001202")).to_contain_text("不可")
+        course_card = expected_ledger.locator("li").filter(has_text="saa001103")
+        expect(course_card).to_contain_text("成績未確認")
+        expect(course_card).to_contain_text("山田 太郎")
+        course_card.get_by_text("成績・単位・算入を編集").click()
+        editor_grade = course_card.locator("[name=grade]")
+        expect(editor_grade).to_have_accessible_name("成績")
+        grade_options = editor_grade.evaluate("(e) => Array.from(e.options, option => option.text)")
+        assert grade_options[:6] == ["未確認", "不可", "可", "良", "優", "秀"], grade_options
+        for grade, counted in [("不可", 2), ("良", 4)]:
+            if not editor_grade.is_visible():
+                course_card.get_by_text("成績・単位・算入を編集").click()
+            editor_grade.select_option(grade)
+            course_card.locator("[name=units]").fill("2")
+            for allowance in ("graduation", "progression"):
+                course_card.locator(f"[name={allowance}]").select_option("yes")
+            course_card.get_by_role("button", name="成績と算入を保存").click()
+            expect(course_card.locator(".academic-state")).to_have_text("不可" if grade == "不可" else "合格・良")
+            expect(linked.locator(".academic-summary > section").last).to_contain_text(f"算入を確認済み {counted}単位")
+            expect(progress).to_contain_text(f"4年次 ／ 2025年度末 ／ 算入を確認済み {counted}単位")
+        linked.get_by_role("checkbox", name="プランナーを開いたときに同期").check()
+        expect(sync_status).to_contain_text("新規 0件、登録済み 4件")
+        linked.reload()
+        expect(sync_status).to_contain_text("新規 0件、登録済み 4件")
+        expect(course_card).to_contain_text("合格・良")
+        assert len(history_reads) == 15
+        linked.get_by_role("checkbox", name="プランナーを開いたときに同期").uncheck()
         linked.set_viewport_size({"width": 360, "height": 800})
         assert linked.evaluate("document.documentElement.scrollWidth === innerWidth")
         linked.close()

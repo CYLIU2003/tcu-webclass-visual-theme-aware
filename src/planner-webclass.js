@@ -3,6 +3,8 @@
 
   const $ = (id) => document.getElementById(id);
   const codePattern = /^[a-z]{3,4}\d{4,6}$/;
+  const historyAutoKey = "wcv-webclass-history-auto";
+  const firstYear = 2022;
 
   function key(year, row) {
     if (codePattern.test(row.code)) return `${year}:${row.code}`;
@@ -23,14 +25,20 @@
     return results.filter(Boolean);
   }
 
-  async function initialize(onSnapshot, saveLedger) {
+  async function initialize(onSnapshot, saveLedger, saveHistory, latestYear, autoEnabled) {
     const chooser = $("webclass-source-select");
     const status = $("webclass-source-status");
     const refresh = $("webclass-refresh");
     const save = $("webclass-save-ledger");
+    const history = $("webclass-history-sync");
+    const auto = $("webclass-history-auto");
+    const historyStatus = $("webclass-history-status");
+    const sourceLink = $("webclass-history-source");
     const token = new URLSearchParams(location.search).get("enrollment");
     let available = [];
     let snapshot;
+    const years = Array.from({ length: latestYear - firstYear + 1 }, (_, index) => firstYear + index);
+    $("webclass-history-range").textContent = `${firstYear}年度〜${latestYear}年度`;
     const scope = (row) => `${row.year}年度・${WCV_ENROLLMENT_MATCH.terms[row.term] || "表示中の学期"}`;
 
     function show(selected) {
@@ -56,6 +64,8 @@
         show(pinned || current || (available.length === 1 ? available[0] : null));
         if (snapshot?.tabId) chooser.value = String(snapshot.tabId);
       } catch {
+        available = [];
+        show(null);
         status.textContent = "WebClassのコースを読み込めませんでした。コース一覧を確認して再読込してください。";
       } finally {
         refresh.disabled = false;
@@ -79,8 +89,74 @@
         save.disabled = !snapshot?.courses.length;
       }
     });
+
+    async function syncHistory() {
+      if (history.getAttribute("aria-disabled") === "true") return;
+      history.setAttribute("aria-disabled", "true");
+      sourceLink.hidden = true;
+      try {
+        await navigator.locks.request("wcv-webclass-history", { ifAvailable: true }, async (lock) => {
+          if (!lock) {
+            historyStatus.textContent = "別のプランナータブで同期中です。";
+            return;
+          }
+          historyStatus.textContent = "WebClassのコース一覧を確認しています…";
+          await update(false);
+          const tabId = snapshot?.tabId;
+          if (!tabId) {
+            sourceLink.hidden = available.length < 2;
+            historyStatus.textContent = sourceLink.hidden
+              ? "ログイン済みのWebClassでコース一覧を表示してから同期してください。"
+              : "複数のコース一覧があります。時間割で同期元を選んでから、もう一度同期してください。";
+            return;
+          }
+          const snapshots = [];
+          const failed = [];
+          const empty = [];
+          for (const year of years) {
+            historyStatus.textContent = `${year}年度の参加コースを読み取っています…`;
+            const result = await chrome.tabs.sendMessage(tabId, { type: "wcv-read-enrollment-year", year },
+              { frameId: 0 }).catch(() => null);
+            if (result?.year !== year || result.term !== "all" || !Array.isArray(result.courses)) {
+              failed.push(year);
+            } else {
+              if (!result.courses.length) empty.push(year);
+              snapshots.push(result);
+            }
+          }
+          const outcomes = [];
+          if (snapshots.length) {
+            const { added, conflicts, existing } = await saveHistory(snapshots);
+            outcomes.push(`同期 ${snapshots.length}年度。新規 ${added}件、登録済み ${existing}件。`);
+            if (conflicts) outcomes.push(`開講年度が一致しないコース ${conflicts}件を保留。`);
+          }
+          if (empty.length) outcomes.push(`参加コースなし ${empty.join("・")}年度。`);
+          if (failed.length) outcomes.push(`読込失敗 ${failed.join("・")}年度。WebClassを確認して再同期してください。`);
+          historyStatus.textContent = outcomes.join(" ");
+        });
+      } catch {
+        historyStatus.textContent = "履修台帳に保存できませんでした。再度同期してください。";
+      } finally {
+        history.removeAttribute("aria-disabled");
+      }
+    }
+
+    history.addEventListener("click", syncHistory);
+    auto.checked = autoEnabled === true;
+    auto.addEventListener("change", async () => {
+      const enabled = auto.checked;
+      try {
+        await chrome.storage.local.set({ [historyAutoKey]: enabled });
+      } catch {
+        auto.checked = !enabled;
+        historyStatus.textContent = "自動同期の設定を保存できませんでした。";
+        return;
+      }
+      if (auto.checked) void syncHistory();
+    });
     await update(true);
+    if (auto.checked) void syncHistory();
   }
 
-  globalThis.WCV_PLANNER_WEBCLASS = { initialize, key };
+  globalThis.WCV_PLANNER_WEBCLASS = { initialize, key, historyAutoKey };
 })();

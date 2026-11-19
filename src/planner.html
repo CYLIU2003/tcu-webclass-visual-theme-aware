@@ -86,6 +86,20 @@
       </section>
       <section class="credits" aria-labelledby="credits-title">
         <h2 id="credits-title" tabindex="-1">単位の確認</h2>
+        <div class="academic-card academic-sync-card" role="region" aria-labelledby="webclass-history-heading">
+          <h3 id="webclass-history-heading">WebClassの参加コースを同期</h3>
+          <p>ログイン済みのコース一覧から<span id="webclass-history-range">2022年度〜2026年度</span>の参加コースを読み取ります。新しい科目には同期後に成績を入力できます。入力済みの成績・単位は保持されます。</p>
+          <div class="academic-sync-controls">
+            <button type="button" id="webclass-history-sync">全年度を同期</button>
+            <label for="webclass-history-auto">
+              <input type="checkbox" id="webclass-history-auto">
+              プランナーを開いたときに同期
+            </label>
+            <a href="#academic-records-title">履修台帳で成績を入力</a>
+          </div>
+          <p id="webclass-history-status" role="status"></p>
+          <p id="webclass-history-source" hidden><a href="#plan-title">時間割で同期元を選ぶ</a></p>
+        </div>
         <div id="academic-ledger"></div>
         <div id="legacy-credit-tools" class="academic-card" role="region" aria-labelledby="legacy-credit-title">
         <h3 id="legacy-credit-title">従来の単位メモとバックアップ</h3>
@@ -222,14 +236,22 @@
       </section>
       <section class="planner-tasks" aria-labelledby="planner-tasks-title">
         <h2 id="planner-tasks-title" tabindex="-1">課題メモ</h2>
-        <form id="planner-task-form" class="credit-inputs">
-          <label>課題名<input type="text" name="title" maxlength="120" required></label>
-          <label>締切日<input type="date" name="date" min="2000-01-01" max="2099-12-31"></label>
-          <label>授業<select name="course"><option value="">指定しない</option></select></label>
-          <button type="submit">課題を追加</button>
-        </form>
-        <p id="planner-task-status" role="status"></p>
-        <ul id="planner-task-list"></ul>
+        <div class="task-panels">
+          <section class="task-entry-panel" aria-labelledby="planner-task-entry-title">
+            <h3 id="planner-task-entry-title">課題の追加</h3>
+            <form id="planner-task-form" class="credit-inputs">
+              <label>課題名<input type="text" name="title" maxlength="120" required></label>
+              <label>締切日（任意）<input type="date" name="date" min="2000-01-01" max="2099-12-31"></label>
+              <label>授業（任意）<select name="course"><option value="">指定しない</option></select></label>
+              <button type="submit">課題を追加</button>
+            </form>
+            <p id="planner-task-status" role="status"></p>
+          </section>
+          <section class="task-list-panel" aria-labelledby="planner-task-list-title">
+            <h3 id="planner-task-list-title">メモ一覧</h3>
+            <ul id="planner-task-list"></ul>
+          </section>
+        </div>
       </section>
     </div>
   </main>

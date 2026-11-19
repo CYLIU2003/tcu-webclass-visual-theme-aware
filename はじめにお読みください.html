@@ -425,7 +425,7 @@ button:focus-visible, summary:focus-visible, a:focus-visible {
       <div class="brand">
         <div class="mark" aria-hidden="true"><span></span></div>
         <span>WebClass授業情報</span>
-        <span class="badge-ver">v0.11.1</span>
+        <span class="badge-ver">v0.11.2</span>
       </div>
       <h1>WebClassの時間割に、<br class="pc">教室と担当教員を表示します。</h1>
       <p class="lead">初めての方は、下の手順1〜4でChrome / Edgeに追加します。所要時間は<strong>約3分</strong>です。</p>
@@ -575,11 +575,15 @@ button:focus-visible, summary:focus-visible, a:focus-visible {
       <h3>単位の確認</h3>
       <p>プランナーを開くと、開いているWebClassコース一覧から参加科目を読み込みます。科目を手動で追加したり、取り込んだ科目を「外す」で除外し、「除外したWebClassコース」から復元できます。</p>
       <ol>
-        <li>過年度の科目を確認するには、WebClassで年度と「All」を選びます。プランナーの時間割で「WebClassから再読込」→「参加コースを履修台帳に保存」を押します。</li>
-        <li>「単位の確認」で入学年度・学科・コースを選びます。ひらめき・教職・TAPの参加状況は「履修プログラム」で設定できます。</li>
-        <li>大学ポータルの成績照会に沿って、各科目の評価と単位を入力するか、見出し付きのタブ区切りの表を貼り付けます。</li>
-        <li>科目カードで進級・卒業への算入と区分を確認します。要覧の総単位、区分別の条件と入力済み単位を見比べられます。</li>
+        <li>ログイン済みのWebClassでコース一覧を表示します。「単位の確認」の「全年度を同期」を押すと、2022〜2026年度の参加コースを履修台帳に追加できます。「プランナーを開いたときに同期」を有効にすると、次回から自動で読み取ります。</li>
+        <li>入学年度・学科・コースを選びます。ひらめき・教職・TAPの参加状況は「履修プログラム」で設定できます。</li>
+        <li>「履修台帳で成績を入力」を押し、科目カードで「成績・単位・算入を編集」を開きます。成績照会に沿って「不可・可・良・優・秀」と単位を入力します。成績表の内容をまとめて貼り付けることもできます。</li>
+        <li>科目カードで進級・卒業への算入と卒業区分を確認します。合格・認定し、算入を確認した単位が、該当する条件の集計に反映されます。</li>
       </ol>
+      <figure class="capture">
+        <img src="docs/images/academic-sync.png" alt="単位の確認にあるWebClassの参加コース同期カード。全年度を同期、自動同期のチェックボックス、履修台帳で成績を入力するリンクがあります。">
+        <figcaption>同期と成績入力の入口は「単位の確認」にあります。</figcaption>
+      </figure>
       <h3>卒業要件を確認する</h3>
       <ol>
         <li>時間割プランナーの上部で <b>「卒業要件」</b> を押します。</li>
@@ -656,7 +660,7 @@ button:focus-visible, summary:focus-visible, a:focus-visible {
 
   <footer class="wrap foot">
     <button id="openWebClassBtn" class="cta" type="button">WebClassを開く</button>
-    <p>学生制作・非公式のWebClass拡張 v0.11.1 ／ 困ったら README.md も参照してください。</p>
+    <p>学生制作・非公式のWebClass拡張 v0.11.2 ／ 困ったら README.md も参照してください。</p>
   </footer>
 
   <script>

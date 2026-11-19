@@ -5,7 +5,7 @@
   const profileKey = "academic-profile";
   const $ = (id) => document.getElementById(id);
   const codePattern = /^[a-z]{3,4}\d{4,6}$/;
-  const grades = ["", "秀", "優", "良", "可", "認定", "不可", "欠席", "履修中"];
+  const grades = ["", "不可", "可", "良", "優", "秀", "認定", "欠席", "履修中"];
   const passing = new Set(["秀", "優", "良", "可", "認定"]);
 
   function el(tag, text) {
@@ -189,7 +189,10 @@
       filters.className = "credit-inputs";
       filters.append(field("開講年度", yearFilter), field("評価の状態", gradeFilter));
       const more = button("さらに表示");
-      listCard.append(el("h3", "履修台帳"), filters, results, more);
+      const recordsTitle = el("h3", "履修台帳");
+      recordsTitle.id = "academic-records-title";
+      recordsTitle.tabIndex = -1;
+      listCard.append(recordsTitle, filters, results, more);
 
       const imports = el("details");
       imports.className = "academic-card";
@@ -221,10 +224,11 @@
       customForm.append(field("開講年度", newYear), field("講義コード（任意）", newCode), field("授業名", newName), button("科目を追加", "submit"));
       custom.append(customForm);
       root.append(profile, source("大学ポータルの成績照会", "https://websrv.tcu.ac.jp/tcu_web_v3"),
-        el("p", "過年度はWebClassで年度と全学期を選び、プランナーの時間割から履修台帳に保存します。成績と単位は成績照会に沿って記録してください。"),
+        el("p", "履修台帳の科目カードを開き、大学ポータルの成績照会に沿って成績と単位を入力してください。"),
         status, summary, imports, custom, listCard);
 
       let limit = 24;
+      let additionsPending = false;
       const current = () => cohorts.get(cohort.value);
       const template = () => current()?.graduationTemplates?.find((item) => item.id === course.value);
       const categoryKey = () => `${cohort.value}:${course.value}`;
@@ -298,7 +302,9 @@
         state.className = "academic-state";
         state.dataset.grade = row.grade === "認定" ? "recognized" : passing.has(row.grade) ? "passed"
           : ["不可", "欠席"].includes(row.grade) ? "failed" : "pending";
-        item.append(state, heading, el("p", `${row.year}年度・${row.code || "講義コード未入力"}`));
+        const unitLabel = completed(row) ? ` ／ 修得 ${row.units / 100}単位` : "";
+        item.append(state, heading, el("p", `${row.year}年度・${row.code || "講義コード未入力"}${unitLabel}`));
+        if (row.registrationContext) item.append(el("p", row.registrationContext));
         const flags = programs?.cohort === cohort.value ? WCV_CURRICULUM.programMatches(...programData, programs, row.name) : [];
         for (const flag of flags) item.append(source(WCV_CURRICULUM.programLabel(flag), flag.url));
         const editor = el("details");
@@ -310,7 +316,7 @@
         Object.assign(units, { min: "0", max: "99", step: "0.01" });
         const graduation = select("graduation", choice, row.graduation);
         const next = select("progression", choice, row.progression);
-        edit.append(field("評価", grade), field("単位", units), field("卒業への算入", graduation), field("進級への算入", next));
+        edit.append(field("成績", grade), field("単位", units), field("卒業への算入", graduation), field("進級への算入", next));
         const categories = template()?.rules.filter((rule) => rule.id !== "total") || [];
         if (categories.length) {
           const group = el("fieldset");
@@ -347,11 +353,15 @@
           }
         });
         editor.append(edit);
+        editor.addEventListener("toggle", () => {
+          if (!editor.open && additionsPending && !results.querySelector("details[open]")) renderRecords();
+        });
         item.append(editor);
         return item;
       }
 
       function renderRecords() {
+        additionsPending = false;
         const previous = yearFilter.value;
         const years = [...new Set(entries().map(([, row]) => String(row.year)))];
         yearFilter.replaceChildren(new Option("すべての開講年度", ""), ...years.map((year) => new Option(year)));
@@ -470,8 +480,10 @@
       chrome.storage.onChanged.addListener((changes, area) => {
         if (area !== "local") return;
         let changed = false;
+        let additionsOnly = true;
         for (const [key, { newValue }] of Object.entries(changes)) {
           if (key === WCV_CURRICULUM.settingsKey) {
+            additionsOnly = false;
             programs = newValue;
             if (cohorts.has(programs?.cohort) && !cohort.value) {
               cohort.value = programs.cohort;
@@ -479,40 +491,54 @@
             }
             changed = true;
           } else if (key.startsWith(prefix)) {
+            if (data.has(key) || !newValue) additionsOnly = false;
             if (newValue) data.set(key, newValue);
             else data.delete(key);
             changed = true;
           }
         }
-        if (changed) { renderSummary(); renderRecords(); }
+        if (changed) {
+          renderSummary();
+          if (additionsOnly && results.querySelector("details[open]")) additionsPending = true;
+          else renderRecords();
+        }
       });
 
-      return { importSnapshot(snapshot) {
+      function importSnapshots(snapshots) {
         return locked(async () => {
           const items = new Map();
           let conflicts = 0;
-          for (const row of snapshot.courses) {
-            if (WCV_ENROLLMENT_MATCH.hasYearConflict(row, snapshot.year)) {
-              conflicts++;
-              continue;
+          for (const {year, courses} of snapshots) {
+            for (const row of courses) {
+              const raw = WCV_ENROLLMENT_MATCH.registration(row.name);
+              if (WCV_ENROLLMENT_MATCH.hasYearConflict(row, year, raw)) {
+                conflicts++;
+                continue;
+              }
+              const id = WCV_PLANNER_WEBCLASS.key(year, row);
+              if (!id) continue;
+              items.set(prefix + id, {
+                year, code: row.code, name: raw.title || row.name, origin: "webclass",
+                registrationContext: raw.context
+              });
             }
-            const id = WCV_PLANNER_WEBCLASS.key(snapshot.year, row);
-            if (!id) continue;
-            const name = WCV_ENROLLMENT_MATCH.registration(row.name).title || row.name;
-            items.set(prefix + id, { year: snapshot.year, code: row.code, name, origin: "webclass" });
           }
           const existing = await chrome.storage.local.get(null);
           const known = new Set(Object.entries(existing)
-            .filter(([key, row]) => key.startsWith(prefix) && row?.year === snapshot.year && row.code)
-            .map(([, row]) => row.code));
-          const additions = Object.fromEntries([...items].filter(([key, row]) => !existing[key] && !known.has(row.code)));
-          if (Object.keys(additions).length) await persist(additions);
-          return { added: Object.keys(additions).length, conflicts };
+            .filter(([key, row]) => key.startsWith(prefix) && row?.code)
+            .map(([, row]) => `${row.year}:${row.code}`));
+          const additions = Object.fromEntries([...items].filter(([key, row]) =>
+            !existing[key] && !known.has(`${row.year}:${row.code}`)));
+          const added = Object.keys(additions).length;
+          if (added) await persist(additions);
+          return { added, conflicts, existing: items.size - added };
         });
-      } };
+      }
+      return { importSnapshots, importSnapshot: (snapshot) => importSnapshots([snapshot]) };
     } catch {
       root.replaceChildren(el("p", "履修台帳を読み込めませんでした。プランナーを開き直してください。"));
-      return { importSnapshot() { throw new Error("Academic ledger unavailable"); } };
+      const unavailable = () => { throw new Error("Academic ledger unavailable"); };
+      return { importSnapshots: unavailable, importSnapshot: unavailable };
     }
   }
 

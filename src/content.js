@@ -3798,13 +3798,18 @@
     if (badge && badge.textContent !== nextText) badge.textContent = nextText;
   }
 
-  function readEnrollment(form) {
+  const enrollmentSchedule = "#schedule-table, .schedule-list";
+
+  function readEnrollment(form, base = location.href, includeOtherCourses = false) {
     const year = Number(form.elements.year?.value);
     const term = form.elements.semester?.value;
     const courses = [];
     const seen = new Set();
-    for (const anchor of form.querySelectorAll("#schedule-table a[href*='/webclass/course.php/'], .schedule-list a[href*='/webclass/course.php/']")) {
-      const url = new URL(anchor.href);
+    const lists = includeOtherCourses ? enrollmentSchedule + ", #courses_list_left" : enrollmentSchedule;
+    for (const anchor of form.querySelectorAll("a[href*='/webclass/course.php/']")) {
+      if (!anchor.closest(lists)) continue;
+      const url = URL.parse(anchor.getAttribute("href"), base);
+      if (!url) continue;
       if (url.origin !== location.origin) continue;
       const match = /^\/webclass\/course\.php\/([a-z0-9]+)\//i.exec(url.pathname);
       if (!match) continue;
@@ -3821,6 +3826,42 @@
       courses.push({ code: exact, name, registrationId: identity });
     }
     return { year, term, courses };
+  }
+
+  function isEnrollmentList(form, base) {
+    if (!form?.elements.year?.options || !form.elements.semester?.options) return false;
+    if (form.querySelector(enrollmentSchedule)) return true;
+    // WebClass omits the schedule entirely for a year with no participating courses.
+    return form.querySelector("h4")?.textContent.trim() === "表示する学期" && [...form.querySelectorAll("a[href]")].some((link) => {
+      const target = URL.parse(link.getAttribute("href"), base);
+      return link.textContent.trim() === "コースを追加" && target?.origin === location.origin
+        && target.pathname === "/webclass/index.php/courses/";
+    });
+  }
+
+  async function readEnrollmentYear(source, year) {
+    const term = "all";
+    const latestYear = state.dataset?.dataset?.academicYear;
+    if (!Number.isInteger(year) || !Number.isInteger(latestYear) || year < 2022 || year > latestYear
+      || source.method !== "get" || ![...source.elements.year.options].some((option) => option.value === String(year))
+      || ![...source.elements.semester.options].some((option) => option.value === term)) return null;
+    const url = URL.parse(source.action);
+    if (url?.origin !== location.origin || url.pathname !== "/webclass/index.php") return null;
+    url.search = new URLSearchParams({ year, semester: term });
+    url.hash = "";
+    const response = await fetch(url, {
+      mode: "same-origin", credentials: "same-origin", redirect: "error", cache: "no-store",
+      signal: AbortSignal.timeout(9000)
+    });
+    if (!response.ok || !response.headers.get("content-type")?.startsWith("text/html")) return null;
+    const html = await response.text();
+    if (!/<\/form\s*>/i.test(html) || !/<\/html\s*>/i.test(html)) return null;
+    const template = document.createElement("template");
+    template.innerHTML = html;
+    const form = template.content.querySelector("form[name='condition']");
+    if (!isEnrollmentList(form, response.url) || form.elements.year.value !== String(year)
+      || form.elements.semester.value !== term) return null;
+    return readEnrollment(form, response.url, true);
   }
 
   let inlineEnrollmentIndex;
@@ -4464,9 +4505,19 @@
       });
 
       chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
-        if (message?.type === "wcv-read-enrollment" && _sender.url?.startsWith(chrome.runtime.getURL("src/planner.html"))) {
+        if (message?.type === "wcv-read-enrollment" || message?.type === "wcv-read-enrollment-year") {
+          const senderUrl = _sender.url && URL.parse(_sender.url);
+          if (_sender.id !== chrome.runtime.id || !senderUrl
+            || senderUrl.href.split(/[?#]/, 1)[0] !== chrome.runtime.getURL("src/planner.html")) return;
           const form = document.forms.condition;
-          sendResponse(state.settings.enabled && form?.querySelector("#schedule-table, .schedule-list") ? readEnrollment(form) : null);
+          if (!state.settings.enabled || !isEnrollmentList(form, location.href)) {
+            sendResponse(null);
+          } else if (message.type === "wcv-read-enrollment-year") {
+            readEnrollmentYear(form, message.year).then(sendResponse, () => sendResponse(null));
+            return true;
+          } else {
+            sendResponse(readEnrollment(form));
+          }
           return;
         }
         if (message?.type === "wcv-open-page-tool") {
