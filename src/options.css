@@ -424,3 +424,57 @@ select#curriculumPlan:disabled { opacity: 0.6; cursor: not-allowed; }
   button.danger { margin-left: 0; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } html { scroll-behavior: auto; } }
+
+
+/* v0.11.1 DADS hierarchy, 320px & 44px touch target polish */
+.guide-link, .quick-nav a, .resource-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 14px;
+}
+.guide-link {
+  background: var(--card);
+  border-color: var(--accent);
+}
+.guide-link:focus-visible, .quick-nav a:focus-visible, .resource-links a:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+.setting-card:hover {
+  background: var(--card);
+  border-color: var(--accent);
+}
+.setting-card:has(input:checked) {
+  background: var(--card);
+  border-color: var(--accent);
+}
+.setting-card strong, .setting-card small {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.advanced summary { min-height: 44px; flex-wrap: wrap; }
+.quick-override-grid input, .quick-override-grid select, .override-remove-btn,
+select#curriculumPlan, #webclassAdmissionYear {
+  min-height: 44px;
+}
+button {
+  min-height: 44px;
+  padding: 8px 16px;
+  line-height: 1.4;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+button:hover {
+  background: var(--card-2);
+  border-color: var(--accent);
+}
+button.primary {
+  box-shadow: 0 2px 8px rgba(11, 92, 173, 0.22);
+}
+@media (max-width: 760px) {
+  .header-inner, .quick-nav, main { width: min(960px, calc(100% - 24px)); }
+  .panel { padding: 18px 14px; }
+  .panel-head { flex-direction: column; gap: 10px; }
+  .setting-card { gap: 12px; padding: 14px; }
+}

@@ -66,14 +66,16 @@
     refresh.addEventListener("click", () => update(false));
     save.addEventListener("click", async () => {
       const selected = snapshot;
-      if (!selected) return;
-      save.disabled = true;
+      if (!selected || save.getAttribute("aria-busy") === "true") return;
+      save.setAttribute("aria-busy", "true");
       try {
-        const count = await saveLedger(selected);
-        if (snapshot === selected) status.textContent = `WebClass ${scope(selected)} ／ 履修台帳に${count ? ` ${count}件追加しました。` : "保存済みです。"}`;
+        const { added, conflicts } = await saveLedger(selected);
+        if (snapshot === selected) status.textContent = `WebClass ${scope(selected)} ／ 履修台帳に ${added}件追加しました（成績は未確認）。` +
+          (conflicts ? ` 開講年度の不一致 ${conflicts}件を保留しました。` : "");
       } catch {
         status.textContent = "履修台帳に保存できませんでした。再度お試しください。";
       } finally {
+        save.removeAttribute("aria-busy");
         save.disabled = !snapshot?.courses.length;
       }
     });

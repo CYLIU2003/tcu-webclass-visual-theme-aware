@@ -182,3 +182,225 @@ li a { display: inline-block; margin-inline-end: 12px; color: var(--accent); fon
   #timetable [data-day]:not(.plan-day-visible) { display: none; }
   .academic-summary { grid-template-columns: minmax(0, 1fr); }
 }
+
+
+:root {
+  --page: #f5f8fc;
+  --surface: #ffffff;
+  --ink: #0f172a;
+  --muted: #475569;
+  --line: #cbd5e1;
+  --tint: #e8f1fb;
+  --accent: #0b5cad;
+  --warning: #9a3412;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --page: #0f172a;
+    --surface: #182234;
+    --ink: #f1f5f9;
+    --muted: #cbd5e1;
+    --line: #3b4d68;
+    --tint: #1e3352;
+    --accent: #7cc0ff;
+    --warning: #fdba74;
+  }
+}
+body {
+  line-height: 1.6;
+}
+.workspace section,
+.academic-card {
+  box-shadow: none;
+  border-color: var(--line);
+}
+#webclass-source {
+  background: var(--tint);
+  border-color: var(--accent);
+}
+.planner-nav {
+  gap: 6px;
+  padding: 6px;
+}
+.planner-nav a {
+  font-weight: 600;
+  text-underline-offset: 3px;
+}
+.planner-nav a[aria-current] {
+  background: var(--accent);
+  color: var(--surface);
+}
+button {
+  min-height: 44px;
+  padding: 8px 14px;
+  background: var(--surface);
+  color: var(--accent);
+  border: 1.5px solid var(--accent);
+  font-weight: 700;
+}
+button:hover:not(:disabled) {
+  background: var(--tint);
+}
+button[type="submit"],
+.requirements .guide-primary,
+#plan-days button[aria-pressed="true"] {
+  background: var(--accent);
+  color: var(--surface);
+  border-color: var(--accent);
+}
+button[type="submit"]:hover:not(:disabled),
+.requirements .guide-primary:hover:not(:disabled) {
+  filter: brightness(0.92);
+}
+.requirements .guide-remove {
+  background: var(--surface);
+  color: var(--warning);
+  border-color: var(--warning);
+}
+td button {
+  min-height: 44px;
+  font-weight: 600;
+}
+td button[aria-pressed="true"] {
+  border-width: 2px;
+}
+.academic-categories label,
+.credit-backup summary,
+#program-resources summary {
+  min-height: 44px;
+}
+:is(a, button, input, select, textarea, summary):focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+@media (max-width: 480px) {
+  main {
+    width: min(100% - 20px, 1280px);
+    margin: 16px auto;
+  }
+  .credit-inputs,
+  #planner-task-form,
+  #backup-restore {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .credit-inputs label,
+  .credit-inputs input,
+  #planner-task-form input[name="title"],
+  #enrollment-courses input,
+  #backup-file {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+}
+
+
+/* v0.11.1 skip link, DADS black/yellow focus & long heading spacing */
+.wcv-skip-link {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+.wcv-skip-link:focus,
+.wcv-skip-link:focus-visible {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 1000;
+  width: auto;
+  height: auto;
+  min-height: 44px;
+  margin: 0;
+  padding: 10px 16px;
+  overflow: visible;
+  clip-path: none;
+  white-space: normal;
+  display: inline-flex;
+  align-items: center;
+  background: #ffd43d;
+  color: #000000;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  border: 2px solid #000000;
+  border-radius: 6px;
+  outline: 4px solid #000000;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px #ffd43d;
+}
+:is(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 4px solid #000000;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px #ffd43d;
+}
+header h1,
+.section-head h2,
+.workspace :is(h2, h3) {
+  overflow-wrap: anywhere;
+  line-height: 1.4;
+}
+header h1 {
+  margin-block: 4px 6px;
+}
+.section-head {
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  align-items: center;
+}
+@media (max-width: 480px) {
+  header p,
+  .section-head label {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+}
+
+
+#webclass-source {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+}
+#webclass-source > p,
+#webclass-source > label {
+  flex: 1 0 100%;
+  min-width: 0;
+}
+#webclass-source > [hidden] {
+  display: none;
+}
+#webclass-save-ledger {
+  background: var(--accent);
+  color: var(--surface);
+  border-color: var(--accent);
+}
+#webclass-save-ledger:hover:not(:disabled) {
+  filter: brightness(0.92);
+}
+#webclass-source > a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 6px 4px;
+  color: var(--accent);
+  font-weight: 600;
+  text-underline-offset: 3px;
+}
+@media (max-width: 650px) {
+  #webclass-source > a {
+    flex: 1 0 100%;
+  }
+}
+@media (max-width: 480px) {
+  #webclass-source > button {
+    flex: 1 0 100%;
+  }
+}

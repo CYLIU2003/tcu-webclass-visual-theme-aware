@@ -209,6 +209,11 @@ with TemporaryDirectory() as profile, sync_playwright() as playwright:
         linked = context.new_page()
         linked.goto(f"{extension}/src/planner.html#plan-title")
         expect(linked.locator("#webclass-source-status")).to_contain_text("参加コース 6件")
+        skip = linked.get_by_role("link", name="本文へ移動")
+        skip.focus()
+        expect(skip).to_be_focused()
+        skip.press("Enter")
+        expect(linked.locator("#plan-title")).to_be_focused()
         expect(linked.locator("#selected")).to_contain_text("saa001102")
         expect(linked.locator("#webclass-unplaced-list")).to_contain_text("コード未登録のコース")
         linked.locator('#selected [data-course-code="saa001102"]').click()
@@ -221,7 +226,10 @@ with TemporaryDirectory() as profile, sync_playwright() as playwright:
         expect(linked.locator("#selected")).to_contain_text("saa001102")
 
         existing.unroute("https://webclass.tcu.ac.jp/**")
-        previous_schedule = schedule.replace('value="2026">2026', 'value="2025">2025').replace('/26sa', '/25sa')
+        previous_schedule = (schedule.replace('value="2026">2026', 'value="2025">2025')
+                             .replace('/26sa', '/25sa').replace('2026年度前期後半', '2025年度前期後半')
+                             .replace('コード未登録のコース</a>', 'コード未登録のコース</a>'
+                                      '<a href="/webclass/course.php/26saa111301/login">別年度の授業</a>'))
         existing.route("https://webclass.tcu.ac.jp/**", lambda route: route.fulfill(
             status=200, content_type="text/html", body=previous_schedule
         ))
@@ -229,12 +237,16 @@ with TemporaryDirectory() as profile, sync_playwright() as playwright:
         expect(existing.locator(".wcv-enrollment-summary")).to_contain_text("2025年度")
         linked.get_by_role("button", name="WebClassから再読込").click()
         expect(linked.locator("#webclass-source-status")).to_contain_text("2025年度")
-        linked.get_by_role("button", name="参加コースを履修台帳に保存").click()
+        save_ledger = linked.get_by_role("button", name="参加コースを履修台帳に保存")
+        save_ledger.focus()
+        save_ledger.press("Enter")
         expect(linked.locator("#webclass-source-status")).to_contain_text("6件追加")
+        expect(save_ledger).to_be_focused()
+        expect(linked.locator("#webclass-source-status")).to_contain_text("開講年度の不一致 1件を保留")
         expected_ledger = linked.locator("#academic-records")
         expect(expected_ledger.locator("li")).to_have_count(6)
         expect(expected_ledger).to_contain_text("成績未確認")
-        linked.locator("#academic-ledger [name=cohort]").select_option("2026:情報科学科")
+        linked.locator("#academic-ledger [name=cohort]").select_option("2023:情報科学科")
         linked.get_by_text("成績表の内容をまとめて読み込む").click()
         linked.get_by_label("成績表のタブ区切りデータ").fill(
             "年度\t講義コード\t授業名\t評価\t単位\n2025\tsaa001102\tドイツ語\t優\t2\n2025\tsaa001202\tドイツ語\t不可\t2"
@@ -250,10 +262,12 @@ with TemporaryDirectory() as profile, sync_playwright() as playwright:
             passed.locator(f"[name={allowance}]").select_option("yes")
         passed.get_by_role("button", name="成績と算入を保存").click()
         expect(linked.locator(".academic-summary")).to_contain_text("算入を確認済み 2単位")
-        expect(linked.locator(".academic-summary")).to_contain_text("58単位不足")
-        linked.locator("#academic-ledger [name=through]").fill("2024")
+        progress = linked.locator(".academic-summary > section").first
+        expect(progress).to_contain_text("3年次 ／ 2024年度末 ／ 算入を確認済み 0単位")
+        expect(progress).to_contain_text("4年次 ／ 2025年度末 ／ 算入を確認済み 2単位")
+        linked.locator("#academic-ledger [name=through]").fill("2025")
         linked.locator("#academic-ledger [name=through]").press("Tab")
-        expect(linked.locator(".academic-summary > section").first).to_contain_text("算入を確認済み 0単位")
+        expect(progress).to_contain_text("3年次 ／ 2025年度末 ／ 算入を確認済み 2単位")
         linked.set_viewport_size({"width": 360, "height": 800})
         assert linked.evaluate("document.documentElement.scrollWidth === innerWidth")
         linked.close()

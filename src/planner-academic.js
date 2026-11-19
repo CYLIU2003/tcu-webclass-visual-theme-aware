@@ -57,6 +57,10 @@
     return passing.has(record.grade) && Number.isInteger(record.units) && record.units > 0;
   }
 
+  function progressionCutoff(admissionYear, stage, override) {
+    return override ?? (admissionYear + stage - 2);
+  }
+
   function calculate(records, allowance, through) {
     const included = records.filter((row) => completed(row) && row[allowance] === "yes"
       && (!through || row.year <= through));
@@ -149,15 +153,21 @@
       const data = new Map(Object.entries(stored).filter(([key, row]) => key.startsWith(prefix) && row));
       let programs = stored[WCV_CURRICULUM.settingsKey];
       let initial = stored[profileKey] || {};
+      if (initial.through && !initial.cutoffs) {
+        status.textContent = "進級の集計年度が年次別になりました。以前に指定した年度は、該当する進級先の欄に設定し直せます。";
+      }
       const choices = [["", "入学年度と学科を選択"], ...[...cohorts].reverse().map(([id, row]) =>
         [id, `${row.year}年度・${row.department}`])];
       const cohort = select("cohort", choices, initial.cohort || programs?.cohort || stored["planner-guide:profile"] || "");
       const course = select("course", []);
-      const through = input("through", initial.through || "", "number");
-      Object.assign(through, { min: "2022", max: "2099", step: "1", placeholder: "全年度" });
+      const cutoffs = new Map([[3, input("through", "", "number")], [4, input("through4", "", "number")]]);
+      for (const control of cutoffs.values()) {
+        Object.assign(control, { min: "2022", max: "2099", step: "1", placeholder: "標準の年度末" });
+      }
       const controls = el("div");
       controls.className = "credit-inputs";
-      controls.append(field("入学年度と学科", cohort), field("卒業要件のコース", course), field("進級の集計対象（年度末）", through));
+      controls.append(field("入学年度と学科", cohort), field("卒業要件のコース", course));
+      for (const [stage, control] of cutoffs) controls.append(field(`${stage}年次進級の集計対象（年度末）`, control));
       const profile = el("div");
       profile.className = "academic-card";
       const programStatus = el("p");
@@ -225,9 +235,7 @@
 
       function renderSummary() {
         const records = [...data.values()];
-        const focusedYears = through.value && through.validity.valid ? through.valueAsNumber : null;
         const forGraduation = calculate(records, "graduation", null);
-        const forProgression = calculate(records, "progression", focusedYears);
         const linked = programs?.cohort === cohort.value ? programs : {};
         programStatus.textContent = Object.entries(WCV_CURRICULUM.programNames).map(([key, label]) =>
           `${label} ${linked[key] === "yes" ? "あり" : linked[key] === "no" ? "なし" : "未設定"}`).join(" ／ ");
@@ -236,24 +244,30 @@
         const metric = (title, units) => {
           const card = el("section");
           card.className = "academic-card";
-          card.append(el("h3", title), el("strong", `算入を確認済み ${display(units)}`));
+          card.append(el("h3", title));
+          if (units !== undefined) card.append(el("strong", `算入を確認済み ${display(units)}`));
           return card;
         };
-        const progressCard = metric("進級の総単位", forProgression.total);
+        const progressCard = metric("進級の総単位");
         const graduationCard = metric("卒業要件の単位", forGraduation.total);
+        const warnings = new Set(forGraduation.conflicts);
         const difference = (limit, total, kind) => {
           const delta = kind === "maximum" ? total - limit : limit - total;
           return delta > 0 ? `${display(delta)}${kind === "maximum" ? "超過" : "不足"}`
             : kind === "maximum" ? "入力済み単位は上限内" : "この単位条件に到達";
         };
         for (const rule of progression.profiles[cohort.value] || []) {
-          const row = el("p", `${rule.stage}年次 ／ ${rule.minimum}単位以上 ／ ${difference(rule.minimum * 100, forProgression.total)} `);
-          row.append(source("原表", `${active.sources[0].url}#page=${rule.page}`));
+          const control = cutoffs.get(rule.stage);
+          const override = control.value && control.validity.valid ? control.valueAsNumber : undefined;
+          const endYear = progressionCutoff(active.year, rule.stage, override);
+          const counted = calculate(records, "progression", endYear);
+          for (const conflict of counted.conflicts) warnings.add(conflict);
+          const row = el("p", `${rule.stage}年次 ／ ${endYear}年度末 ／ 算入を確認済み ${display(counted.total)} ／ ${rule.minimum}単位以上 ／ ${difference(rule.minimum * 100, counted.total)} `);
+          row.append(source("原表", `${rule.url || active.sources[0].url}#page=${rule.page}`));
           progressCard.append(row);
         }
         if (!progression.profiles[cohort.value]?.length) progressCard.append(el("p", "総単位条件は学修要覧を確認してください。"));
-        progressCard.append(el("p", focusedYears ? `${focusedYears}年度までの成績で集計。進級時点・必修などは要覧を確認してください。`
-          : "全年度の成績で集計。進級時点に合わせて最終年度を選べます。"));
+        progressCard.append(el("p", "各進級の年度末までに修得した単位を集計します。休学・留年などで時期が異なる場合は、上の年度を変更できます。"));
         if (template()) {
           const list = el("ul");
           for (const rule of template().rules) {
@@ -267,7 +281,6 @@
           graduationCard.append(el("p", "入学年度・学科・コースを選ぶと、要覧の単位条件を表示します。"));
         }
         graduationCard.append(el("p", "科目カードで選んだ区分を集計します。必修科目の内訳、算入上限、在学期間などは学修要覧で確認してください。"));
-        const warnings = new Set([...forGraduation.conflicts, ...forProgression.conflicts]);
         const pending = records.filter((row) => !row.grade || row.grade === "履修中"
           || (passing.has(row.grade) && (!completed(row) || !row.graduation || !row.progression))).length;
         summary.replaceChildren(progressCard, graduationCard);
@@ -359,10 +372,16 @@
         const target = initial.cohort === cohort.value ? initial.course || previous : "";
         if (target && [...course.options].some((option) => option.value === target)) course.value = target;
         else if (course.options.length === 2) course.selectedIndex = 1;
+        for (const [stage, control] of cutoffs) {
+          const active = current();
+          control.value = initial.cohort === cohort.value ? initial.cutoffs?.[stage] || "" : "";
+          control.placeholder = active ? String(progressionCutoff(active.year, stage)) : "標準の年度末";
+        }
       }
 
       async function saveProfile() {
-        initial = { cohort: cohort.value, course: course.value, through: through.value };
+        initial = { cohort: cohort.value, course: course.value, cutoffs: Object.fromEntries(
+          [...cutoffs].map(([stage, control]) => [stage, control.validity.valid ? control.value : ""])) };
         try {
           await persist({ [profileKey]: initial });
         } catch {
@@ -373,7 +392,7 @@
       }
 
       cohort.addEventListener("change", () => { applyProfile(); saveProfile(); });
-      for (const control of [course, through]) control.addEventListener("change", saveProfile);
+      for (const control of [course, ...cutoffs.values()]) control.addEventListener("change", saveProfile);
       for (const control of [yearFilter, gradeFilter]) {
         control.addEventListener("change", () => { limit = 24; renderRecords(); });
       }
@@ -471,7 +490,12 @@
       return { importSnapshot(snapshot) {
         return locked(async () => {
           const items = new Map();
+          let conflicts = 0;
           for (const row of snapshot.courses) {
+            if (WCV_ENROLLMENT_MATCH.hasYearConflict(row, snapshot.year)) {
+              conflicts++;
+              continue;
+            }
             const id = WCV_PLANNER_WEBCLASS.key(snapshot.year, row);
             if (!id) continue;
             const name = WCV_ENROLLMENT_MATCH.registration(row.name).title || row.name;
@@ -483,7 +507,7 @@
             .map(([, row]) => row.code));
           const additions = Object.fromEntries([...items].filter(([key, row]) => !existing[key] && !known.has(row.code)));
           if (Object.keys(additions).length) await persist(additions);
-          return Object.keys(additions).length;
+          return { added: Object.keys(additions).length, conflicts };
         });
       } };
     } catch {
@@ -492,5 +516,5 @@
     }
   }
 
-  globalThis.WCV_PLANNER_ACADEMIC = { initialize, calculate, readGradeRows };
+  globalThis.WCV_PLANNER_ACADEMIC = { initialize, calculate, progressionCutoff, readGradeRows };
 })();

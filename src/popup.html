@@ -12,6 +12,7 @@
     <div class="mark" aria-hidden="true"><span></span></div>
     <div class="title-block">
       <h1>WebClass Visual</h1>
+      <p class="title-note">学生制作の非公式ツール</p>
     </div>
     <label class="master" title="拡張機能の ON / OFF">
       <input id="enabled" type="checkbox" aria-label="拡張機能を有効化">
@@ -20,15 +21,15 @@
   </header>
 
   <main>
-    <button id="openWebClass" class="primary webclass-entry" type="button">WebClassを開く</button>
     <section id="statusCard" class="status-card" data-kind="checking" aria-live="polite">
       <div class="status-icon" aria-hidden="true"></div>
       <div class="status-body">
-        <strong id="statusTitle">状態を確認中…</strong>
-        <p id="statusDetail">WebClassタブとの接続を確認しています。</p>
+        <strong id="statusTitle">WebClassとの接続を確認中</strong>
+        <p id="statusDetail">開いているWebClassのタブを探しています。</p>
         <div id="statusCount" class="status-count" hidden></div>
       </div>
     </section>
+    <button id="openWebClass" class="primary webclass-entry" type="button">WebClassを開く</button>
 
     <nav class="shortcut-nav" aria-labelledby="shortcuts-title">
       <h2 id="shortcuts-title">履修・学習ツール</h2>
@@ -46,7 +47,7 @@
     </nav>
 
     <section id="reloadCard" class="reload-card" hidden>
-      <span>このタブを更新すると反映されます。</span>
+      <span>変更はWebClassのタブを読み込み直すと反映されます。</span>
       <button id="reloadTab" type="button">タブを更新</button>
     </section>
 

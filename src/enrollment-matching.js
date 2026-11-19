@@ -39,11 +39,24 @@
     return { titles, codes };
   }
 
-  function identify(row, index, term, year, currentYear) {
-    if (row.code) return { course: index.codes.get(row.code), candidates: [], method: "code" };
-    const raw = registration(row.name);
+  function hasYearConflict(row, year, raw = registration(row.name)) {
     const printedYear = /20\d{2}(?=年度)/.exec(raw.context)?.[0];
-    if (printedYear && Number(printedYear) !== year) return { candidates: [], method: "candidate" };
+    const codeYear = /^(\d{2})[a-z]{3,4}\d{4,6}$/.exec(row.registrationId || "")?.[1];
+    return Boolean((printedYear && Number(printedYear) !== year) || (codeYear && Number(codeYear) !== year % 100));
+  }
+
+  function identify(row, index, term, year, currentYear) {
+    const raw = registration(row.name);
+    if (hasYearConflict(row, year, raw)) {
+      return { candidates: [], method: "conflict" };
+    }
+    if (row.code) {
+      const course = index.codes.get(row.code);
+      if (Number.isInteger(course?.academicYear) && course.academicYear !== year) {
+        return { candidates: [], method: "conflict" };
+      }
+      return { course, candidates: [], method: "code" };
+    }
     const candidates = [...(index.titles.get(clean(raw.title))?.values() || [])];
     if (currentYear && raw.slots.length) {
       const context = clean(raw.context);
@@ -137,5 +150,5 @@
     return found.length && found.every((entry) => entry.units === found[0].units) ? found[0] : null;
   }
 
-  globalThis.WCV_ENROLLMENT_MATCH = { permission, terms, clean, registration, createIndex, identify, semesterFor, validEvidence, lookup };
+  globalThis.WCV_ENROLLMENT_MATCH = { permission, terms, clean, registration, hasYearConflict, createIndex, identify, semesterFor, validEvidence, lookup };
 })();

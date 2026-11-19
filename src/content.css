@@ -4308,3 +4308,222 @@ html.wcv-enabled body.wcv-restyle .wcv-native-list-hidden {
     grid-template-columns: 1fr;
   }
 }
+
+
+html.wcv-enabled body.wcv-restyle :is(.wcv-today-strip, .wcv-native-notices, .wcv-sidebar-card, .wcv-deadlines, .wcv-native-course-list-item) {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+html.wcv-enabled body.wcv-restyle :is(.wcv-today-day-btn, .wcv-today-tool-btn, .wcv-course-list-filter-btn, .wcv-panel-layer-btn, .wcv-panel-action-btn, .wcv-panel-expand-btn, .wcv-panel-guide-chip, .wcv-past-course-picker select, .wcv-past-course-picker button, .wcv-sidebar-appearance select) {
+  min-height: 44px;
+  box-sizing: border-box;
+  font-weight: 700;
+  line-height: 1.4;
+}
+html.wcv-enabled body.wcv-restyle :is(.wcv-today-tool-btn, .wcv-panel-expand-btn, .wcv-panel-action-btn, .wcv-today-day-btn:not(.is-active), .wcv-course-list-filter-btn:not(.is-active)) {
+  border: 1.5px solid var(--wcv-theme-border, var(--wcv-theme));
+  background: var(--wcv-surface);
+  color: var(--wcv-theme-dark);
+}
+html.wcv-enabled body.wcv-restyle :is(.wcv-today-tool-btn, .wcv-panel-expand-btn, .wcv-panel-action-btn, .wcv-today-day-btn:not(.is-active), .wcv-course-list-filter-btn:not(.is-active)):hover {
+  background: var(--wcv-theme-soft);
+  border-color: var(--wcv-theme);
+}
+html.wcv-enabled body.wcv-restyle :is(.wcv-today-day-btn.is-active, .wcv-course-list-filter-btn.is-active, .wcv-panel-layer-btn.is-active, .wcv-panel-guide-chip.is-active) {
+  border: 1.5px solid var(--wcv-theme);
+  background: var(--wcv-theme);
+  color: var(--wcv-surface);
+}
+html.wcv-enabled.wcv-look-modern body.wcv-restyle :is(.wcv-today-day-btn.is-active, .wcv-course-list-filter-btn.is-active, .wcv-panel-layer-btn.is-active, .wcv-panel-guide-chip.is-active, .cm-contentsList .cm-sideNav_firstButton.btn-primary) {
+  border-color: var(--wcv-modern-accent);
+  background: var(--wcv-modern-accent);
+  color: var(--wcv-surface);
+}
+html.wcv-enabled body.wcv-restyle .cm-contentsList :is(.cm-contentsList_contentDetailList a, .cm-sideNav_folderLink, .cm-sideNav_firstButton.btn-primary) {
+  min-height: 44px;
+  padding-block: 8px;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 100%;
+  line-height: 1.5;
+}
+html.wcv-enabled body.wcv-restyle :is(.wcv-today-day-btn, .wcv-today-tool-btn, .wcv-course-list-filter-btn, .wcv-panel-layer-btn, .wcv-panel-action-btn, .wcv-panel-expand-btn, .wcv-panel-guide-chip, .wcv-panel-search-clear, .wcv-today-course-link, .wcv-native-course-card, .wcv-past-course-picker select, .wcv-past-course-picker button, .wcv-sidebar-appearance select, .cm-contentsList a, .cm-contentsList button):focus-visible {
+  outline: 3px solid var(--wcv-theme-dark);
+  outline-offset: 2px;
+}
+html.wcv-enabled.wcv-look-modern body.wcv-restyle :is(.wcv-today-day-btn, .wcv-today-tool-btn, .wcv-course-list-filter-btn, .wcv-panel-layer-btn, .wcv-panel-action-btn, .wcv-panel-expand-btn, .wcv-panel-guide-chip, .wcv-panel-search-clear, .wcv-today-course-link, .wcv-native-course-card, .wcv-past-course-picker select, .wcv-past-course-picker button, .wcv-sidebar-appearance select, .cm-contentsList a, .cm-contentsList button):focus-visible {
+  outline: 3px solid var(--wcv-modern-accent);
+  outline-offset: 2px;
+}
+html.wcv-enabled body.wcv-restyle .wcv-today-card {
+  gap: 8px;
+  padding: 14px;
+}
+html.wcv-enabled body.wcv-restyle .wcv-today-course-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  line-height: 1.5;
+}
+html.wcv-enabled body.wcv-restyle .wcv-course-list-filters {
+  gap: 8px;
+}
+html.wcv-enabled body.wcv-restyle .wcv-course-list-filter-count {
+  flex-basis: 100%;
+  margin-left: 0;
+  line-height: 1.5;
+}
+@media (prefers-color-scheme: dark) {
+  html.wcv-enabled body.wcv-restyle :is(.wcv-today-tool-btn, .wcv-panel-expand-btn, .wcv-panel-action-btn, .wcv-today-day-btn:not(.is-active), .wcv-course-list-filter-btn:not(.is-active)) {
+    border-color: var(--wcv-theme-border, var(--wcv-theme));
+  }
+  html.wcv-enabled body.wcv-restyle :is(.wcv-today-day-btn, .wcv-today-tool-btn, .wcv-course-list-filter-btn, .wcv-panel-layer-btn, .wcv-panel-action-btn, .wcv-panel-expand-btn, .wcv-panel-guide-chip, .wcv-panel-search-clear, .wcv-today-course-link, .wcv-native-course-card, .wcv-past-course-picker select, .wcv-past-course-picker button, .wcv-sidebar-appearance select, .cm-contentsList a, .cm-contentsList button):focus-visible {
+    outline-color: var(--wcv-theme);
+  }
+  html.wcv-enabled.wcv-look-modern body.wcv-restyle :is(.wcv-today-day-btn, .wcv-today-tool-btn, .wcv-course-list-filter-btn, .wcv-panel-layer-btn, .wcv-panel-action-btn, .wcv-panel-expand-btn, .wcv-panel-guide-chip, .wcv-panel-search-clear, .wcv-today-course-link, .wcv-native-course-card, .wcv-past-course-picker select, .wcv-past-course-picker button, .wcv-sidebar-appearance select, .cm-contentsList a, .cm-contentsList button):focus-visible {
+    outline-color: var(--wcv-modern-accent);
+  }
+}
+.wcv-learning-tools {
+  box-sizing: border-box;
+  max-width: 100%;
+  margin: 0 0 16px;
+  padding: 14px;
+  border: 1px solid var(--wcv-theme-border, var(--wcv-theme));
+  border-radius: 10px;
+  background: var(--wcv-surface);
+}
+.wcv-learning-tools h4 {
+  margin: 0 0 10px;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.45;
+  color: var(--wcv-theme-dark);
+}
+.wcv-learning-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 140px), 1fr));
+  gap: 8px;
+}
+.wcv-learning-actions button,
+.wcv-enrollment-review button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-height: 44px;
+  padding: 8px 12px;
+  border-radius: 7px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.4;
+  cursor: pointer;
+  text-align: center;
+}
+.wcv-learning-actions button {
+  border: 1.5px solid var(--wcv-theme-border, var(--wcv-theme));
+  background: var(--wcv-surface);
+  color: var(--wcv-theme-dark);
+}
+.wcv-learning-actions button:hover {
+  background: var(--wcv-theme-soft);
+  border-color: var(--wcv-theme);
+}
+.wcv-enrollment-review {
+  box-sizing: border-box;
+  max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 0 12px;
+  padding: 14px;
+  border: 1px solid var(--wcv-theme-border, var(--wcv-theme));
+  border-left: 4px solid var(--wcv-theme);
+  border-radius: 8px;
+  background: var(--wcv-theme-soft);
+}
+.wcv-enrollment-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  margin: 0;
+  line-height: 1.6;
+}
+.wcv-enrollment-scope,
+.wcv-enrollment-units {
+  flex-basis: 100%;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.wcv-enrollment-review button {
+  border: 1.5px solid var(--wcv-theme);
+  background: var(--wcv-theme);
+  color: var(--wcv-surface);
+}
+.wcv-enrollment-review button:hover {
+  border-color: var(--wcv-theme-dark);
+  background: var(--wcv-theme-dark);
+}
+html.wcv-enabled.wcv-look-modern .wcv-enrollment-review button {
+  border-color: var(--wcv-modern-accent);
+  background: var(--wcv-modern-accent);
+}
+html.wcv-enabled.wcv-look-modern .wcv-enrollment-review button:hover {
+  border-color: var(--wcv-theme-dark);
+  background: var(--wcv-theme-dark);
+}
+.wcv-learning-tools :focus-visible,
+.wcv-enrollment-review :focus-visible {
+  outline: 3px solid var(--wcv-theme-dark);
+  outline-offset: 2px;
+}
+html.wcv-enabled.wcv-look-modern .wcv-learning-tools :focus-visible,
+html.wcv-enabled.wcv-look-modern .wcv-enrollment-review :focus-visible {
+  outline-color: var(--wcv-modern-accent);
+}
+.wcv-learning-status {
+  margin: 10px 0 0;
+  padding: 10px 12px;
+  border-left: 4px solid var(--wcv-theme);
+  border-radius: 6px;
+  background: var(--wcv-theme-soft);
+  font-size: 13px;
+  line-height: 1.6;
+}
+.wcv-learning-status:empty,
+.wcv-learning-actions button[hidden],
+body:not(:has(#wcv-deadlines)) .wcv-learning-deadlines {
+  display: none;
+}
+@media (max-width: 520px) {
+  .wcv-learning-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 420px) {
+  html.wcv-enabled body.wcv-restyle :is(.wcv-today-strip, .wcv-today-card, .wcv-panel-subsearch-box, .wcv-native-course-list-item, .wcv-learning-tools, .wcv-enrollment-review, .cm-contentsList .cm-contentsList_listGroupItem, .cm-contentsList .cl-contentsList_listGroupItem) {
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+  html.wcv-enabled body.wcv-restyle .wcv-today-header,
+  html.wcv-enabled body.wcv-restyle .wcv-sidebar-appearance {
+    flex-wrap: wrap;
+  }
+  html.wcv-enabled body.wcv-restyle :is(.wcv-panel-subsearch-input, .wcv-sidebar-appearance select, .wcv-past-course-picker select) {
+    width: 100%;
+    max-width: 100%;
+  }
+  .wcv-enrollment-review {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .wcv-enrollment-review button {
+    width: 100%;
+  }
+}

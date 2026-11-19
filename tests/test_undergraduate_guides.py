@@ -4,12 +4,14 @@ import hashlib
 import json
 import sys
 from collections import Counter
+from functools import lru_cache
 from pathlib import Path
 from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "data"))
 from build_undergraduate_guides import build, cache_path
+from build_progression_rules import extract
 
 DATA = ROOT / "data"
 index = json.loads((DATA / "undergraduate-guides.json").read_text(encoding="utf-8"))
@@ -23,16 +25,25 @@ assert (2023, "デザイン・データ科学科") in profiles
 progression = json.loads((DATA / "progression-rules.json").read_text(encoding="utf-8"))
 assert progression["schemaVersion"] == 1
 assert set(progression["profiles"]) <= {f"{year}:{department}" for year, department in profiles}
+cached_text = lru_cache(maxsize=None)(extract)
 for key, rules in progression["profiles"].items():
     year, department = key.split(":", 1)
-    url = profiles[int(year), department]["sources"][0]["url"]
+    sources = {source["url"] for source in profiles[int(year), department]["sources"]}
     assert len({rule["stage"] for rule in rules}) == len(rules)
     for rule in rules:
+        url = rule["url"]
+        assert url in sources, (key, rule)
         assert rule["stage"] in {3, 4} and 30 <= rule["minimum"] <= 124
         assert 1 <= rule["page"] <= index["documents"][url]["pages"]
-assert progression["profiles"]["2026:情報科学科"] == [
-    {"stage": 3, "minimum": 60, "page": 8}, {"stage": 4, "minimum": 100, "page": 8}
-]
+        if cache_path(url).exists():
+            assert f'{rule["minimum"]}単位' in cached_text(url)[rule["page"] - 1], (key, rule)
+assert [(rule["stage"], rule["minimum"], rule["page"]) for rule in progression["profiles"]["2026:情報科学科"]] == [
+    (3, 60, 8), (4, 100, 8)]
+for department in ("応用化学科", "原子力安全工学科", "自然科学科"):
+    faculty = next(source["url"] for source in profiles[2023, department]["sources"] if source["kind"] == "faculty")
+    assert progression["profiles"][f"2023:{department}"][0] == {
+        "stage": 3, "minimum": 60, "page": 66, "url": faculty,
+    }
 assert progression["profiles"]["2026:社会メディア学科"][0]["minimum"] == 66
 assert progression["profiles"]["2024:デザイン・データ科学科"][0]["minimum"] == 50
 

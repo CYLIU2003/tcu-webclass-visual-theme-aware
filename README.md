@@ -1,5 +1,11 @@
 # TCU WebClass Visual
 
+## v0.11.1 — 画面と操作導線の改善
+
+- コース一覧、教材、プランナー、拡張メニュー、詳細設定、導入ガイドで、操作の優先順位、読みやすさ、フォーカス表示を改善しました。
+- 進級の単位を3年次・4年次の年度末ごとに集計します。過年度の一部の原表リンクを訂正し、表示年度と開講年度が一致しないコースの取込を保留します。
+- ボタン、カード、通知などの設計は[デジタル庁デザインシステムのReactサンプル](https://github.com/digital-go-jp/design-system-example-components-react)を参考にしました。
+
 ## v0.11.0 — WebClass連係の時間割と履修台帳
 
 - WebClassの表示中の参加コースを開いたときに読み込み、時間割の授業を追加・除外・復元できます。曜日時限が確かめられないコースも別枠で確認できます。
@@ -36,7 +42,7 @@ WebClassのコース一覧に、表示中の登録科目の照合件数・要確
 
 東京都市大学のWebClassコースリスト画面を、元の機能を壊さずに読みやすくするChrome／Edge向けManifest V3拡張機能です。
 
-**公開版:** [v0.11.0 ZIPをダウンロード](https://github.com/CYLIU2003/tcu-webclass-visual-theme-aware/releases/download/v0.11.0/TCU_WebClass_Visual_Theme_Aware_v0.11.0.zip) ／ [画像付き導入ガイド（Web）](https://cyliu2003.github.io/tcu-webclass-visual-theme-aware/) ／ [同梱ガイド](はじめにお読みください.html)
+**公開版:** [v0.11.1 ZIPをダウンロード](https://github.com/CYLIU2003/tcu-webclass-visual-theme-aware/releases/download/v0.11.1/TCU_WebClass_Visual_Theme_Aware_v0.11.1.zip) ／ [画像付き導入ガイド（Web）](https://cyliu2003.github.io/tcu-webclass-visual-theme-aware/) ／ [同梱ガイド](はじめにお読みください.html)
 
 v0.9.0 では、「標準／モダン」をポップアップまたはコース一覧の表示オプションから切り替えられます。
 

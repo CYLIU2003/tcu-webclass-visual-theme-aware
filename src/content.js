@@ -3904,12 +3904,13 @@
       control.type = "button";
       control.addEventListener("click", async () => {
         control.disabled = true;
-        status.textContent = "";
+        status.textContent = label + "を開いています…";
         try {
           const result = await chrome.runtime.sendMessage({
             type: "wcv-open-planner", section, snapshot: ["enrollment", "plan", "credits"].includes(section) ? readEnrollment(form) : undefined
           });
           if (!result?.opened) throw new Error("Planner did not open");
+          status.textContent = label + "を開きました。";
         } catch {
           status.textContent = "ツールを開けませんでした。WebClassのタブを更新してお試しください。";
         } finally {

@@ -18,9 +18,9 @@ FOURTH = re.compile(
     r"総単位数(?P<units>\d{2,3})単位(?=\(?ただし|\(?以下|\(?下記)"
 )
 SUPPLEMENT = {
-    "2023:応用化学科": [{"stage": 3, "minimum": 60, "page": 8}],
-    "2023:原子力安全工学科": [{"stage": 3, "minimum": 60, "page": 8}],
-    "2023:自然科学科": [{"stage": 3, "minimum": 60, "page": 8}],
+    "2023:応用化学科": [{"stage": 3, "minimum": 60, "page": 66, "sourceKind": "faculty"}],
+    "2023:原子力安全工学科": [{"stage": 3, "minimum": 60, "page": 66, "sourceKind": "faculty"}],
+    "2023:自然科学科": [{"stage": 3, "minimum": 60, "page": 66, "sourceKind": "faculty"}],
     "2023:デザイン・データ科学科": [{"stage": 3, "minimum": 50, "page": 76}],
     "2024:デザイン・データ科学科": [{"stage": 3, "minimum": 50, "page": 74}],
 }
@@ -56,14 +56,32 @@ def main():
     guides = json.loads((ROOT / "undergraduate-guides.json").read_text(encoding="utf-8"))
     pages_by_source = {}
     profiles = {}
-    for profile in guides["profiles"]:
-        url = profile["sources"][0]["url"]
+    seen = set()
+
+    def pages(url):
         if url not in pages_by_source:
             pages_by_source[url] = extract(url)
+        return pages_by_source[url]
+
+    for profile in guides["profiles"]:
+        url = profile["sources"][0]["url"]
         key = f'{profile["year"]}:{profile["department"]}'
-        rules = collect(profile, pages_by_source[url])
+        if key in seen:
+            raise ValueError(f"Duplicate progression cohort: {key}")
+        seen.add(key)
+        rules = [dict(rule, url=url) for rule in collect(profile, pages(url))]
         stages = {rule["stage"] for rule in rules}
-        rules.extend(rule for rule in SUPPLEMENT.get(key, []) if rule["stage"] not in stages)
+        for item in SUPPLEMENT.get(key, []):
+            if item["stage"] in stages:
+                continue
+            source_kind = item.get("sourceKind", profile["sources"][0]["kind"])
+            source_url = next(source["url"] for source in profile["sources"] if source["kind"] == source_kind)
+            page = item["page"]
+            minimum = item["minimum"]
+            evidence = pages(source_url)
+            if not 1 <= page <= len(evidence) or f"{minimum}単位" not in evidence[page - 1]:
+                raise ValueError(f"Supplement source mismatch: {key} page {page}")
+            rules.append({"stage": item["stage"], "minimum": minimum, "page": page, "url": source_url})
         if rules:
             profiles[key] = sorted(rules, key=lambda rule: rule["stage"])
     result = {"schemaVersion": 1, "profiles": profiles}

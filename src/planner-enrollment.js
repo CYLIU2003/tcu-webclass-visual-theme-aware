@@ -114,7 +114,7 @@
         info.append(heading, matchStatus);
         const input = document.createElement("input");
         Object.assign(input, { type: "number", min: "0", max: "999", step: "0.01", inputMode: "decimal" });
-        const entry = { code: row.code || course?.courseCode, course, evidence: null, titles: [] };
+        const entry = { code: match.method === "conflict" ? null : row.code || course?.courseCode, course, evidence: null, titles: [] };
         const apply = element("button", "見込み単位に入れる");
         apply.type = "button";
         apply.hidden = true;
@@ -151,7 +151,8 @@
             : method === "confirmed" ? "候補を選択済み" : selected ? "講義コードで照合" : "時間割データ未照合";
           matchStatus.textContent = entry.code
             ? [entry.code, ...(selected?.instructors || []), reason].join(" ／ ")
-            : (match.candidates.length ? `授業名が一致する候補 ${match.candidates.length}件` : "講義コードを照合できません");
+            : (method === "conflict" ? "開講年度が一致しません。WebClassの表示年度を確認してください。"
+              : match.candidates.length ? `授業名が一致する候補 ${match.candidates.length}件` : "講義コードを照合できません");
           input.setAttribute("aria-label", `${registration.title || row.name}（${entry.code || "コード未照合"}）の見込み単位`);
           entry.titles = selected ? [selected.courseName, ...(selected.aliases || [])] : [registration.title];
           const half = matching.semesterFor(snapshot.term, selected);
@@ -289,7 +290,7 @@
         const base = amount(earned);
         source.replaceChildren();
         if (row) {
-          const url = row.sources[0].url;
+          const url = rule?.url || row.sources[0].url;
           source.append(link(rule ? `進級条件の原表（PDF p.${rule.page}）` : "学修要覧を確認", rule ? `${url}#page=${rule.page}` : url));
         }
         result.replaceChildren(element("strong", `入力済みの見込み ${format(planned)}単位`));

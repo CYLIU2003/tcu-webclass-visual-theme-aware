@@ -361,6 +361,62 @@ details p { margin: 0; padding: 13px 16px; font-size: 15px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
 @media print { .hero { background: #fff; color: #000; } .toc, .foot button { display: none; } }
+
+
+/* v0.11.1 DADS hierarchy, 320px & 44px touch target polish */
+.hero-dl, .hero-jump, .installed-cta, .toc a {
+  min-height: 44px;
+  padding: 8px 15px;
+}
+.toc a { display: inline-flex; align-items: center; }
+.overview-step:hover {
+  background: var(--card);
+  border-color: var(--accent);
+}
+.capture { overflow: hidden; }
+.capture img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+button {
+  min-height: 44px;
+  padding: 8px 16px;
+  line-height: 1.4;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+button:hover {
+  background: var(--card);
+  border-color: var(--accent);
+}
+details summary {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+details[open] summary {
+  background: var(--canvas);
+  color: var(--ink);
+}
+.cta {
+  max-width: 100%;
+  white-space: normal;
+  line-height: 1.35;
+}
+button:focus-visible, summary:focus-visible, a:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+@media (max-width: 520px) {
+  .wrap { width: min(860px, calc(100% - 24px)); }
+  .card { padding: 18px 14px; }
+  .copyrow > div { padding: 10px 12px; }
+  .cta { width: 100%; padding: 12px 18px; }
+}
 </style>
 </head>
 <body>
@@ -369,14 +425,15 @@ details p { margin: 0; padding: 13px 16px; font-size: 15px; }
       <div class="brand">
         <div class="mark" aria-hidden="true"><span></span></div>
         <span>WebClass授業情報</span>
-        <span class="badge-ver">v0.11.0</span>
+        <span class="badge-ver">v0.11.1</span>
       </div>
       <h1>WebClassの時間割に、<br class="pc">教室と担当教員を表示します。</h1>
-        <p>WebClassのコース一覧を開くと、登録科目の照合件数と確認できた単位数が表示されます。「履修・進級チェック」で科目ごとの結果を確認できます。</p>
-      <p class="lead">Chrome / Edge に追加するだけ。パソコンにくわしくなくても、下の手順どおりに進めれば<strong>約3分</strong>で使えます。</p>
+      <p class="lead">初めての方は、下の手順1〜4でChrome / Edgeに追加します。所要時間は<strong>約3分</strong>です。</p>
+      <p>導入後にWebClassのコース一覧を開くと、参加科目の照合件数と確認できた単位数が表示されます。科目ごとの結果は、拡張機能アイコンの「履修・学習ツール」にある「履修・進級チェック」で確認できます。</p>
       <div class="hero-actions">
         <a class="hero-dl" href="https://github.com/CYLIU2003/tcu-webclass-visual-theme-aware/releases/latest">📦 GitHubで公開版を確認</a>
-        <a class="hero-jump" href="#s5">すでに導入済みの方（使い方へ）↓</a>
+        <a class="hero-jump" href="#s5">導入済みの方は使い方へ ↓</a>
+        <a class="hero-jump" href="#update">新しいバージョンに更新する方 ↓</a>
       </div>
       <div id="installedBanner" class="installed" hidden>
         <div class="installed-text">
@@ -511,11 +568,11 @@ details p { margin: 0; padding: 13px 16px; font-size: 15px; }
       <h3>履修・学習ツールを開く</h3>
       <p>拡張機能アイコンを押すと「履修・学習ツール」が表示されます。「時間割プランナー」「単位の確認」「卒業要件」「課題メモ」から使いたい機能を選びます。WebClassのコース一覧を開いているときは、授業・過年度検索やWebClassの締切にも移動できます。</p>
       <figure class="capture">
-        <img src="docs/images/learning-tools.png" alt="拡張メニューの履修・学習ツール。時間割、単位の確認、卒業要件、課題メモの4つのボタンが並びます。">
-        <figcaption>WebClassのタブが開いているときは、「WebClassを開く」でそのタブに戻ります。</figcaption>
+        <img src="docs/images/learning-tools.png" alt="WebClassのコース一覧に表示される拡張機能のパネル。コース照合の集計の下に濃い青の「履修・進級チェック」ボタンがあり、その下に時間割、単位、卒業、ひらめき・教職・TAP、大学院、課題、授業検索、締切のボタンが並びます。">
+        <figcaption>WebClassのコース一覧では、拡張機能のパネルにコース照合の集計が表示されます。「履修・進級チェック」で進級単位を確認でき、ほかのボタンで各機能に移動できます。</figcaption>
       </figure>
       <p>履修案を作るときは「時間割プランナー」でクォーターを選び、空きコマの「＋」か「授業を探す」を使います。同名の授業は講義コードや担当教員を確認し、「追加」を押します。</p>
-      <h3>単位の確認（開発版）</h3>
+      <h3>単位の確認</h3>
       <p>プランナーを開くと、開いているWebClassコース一覧から参加科目を読み込みます。科目を手動で追加したり、取り込んだ科目を「外す」で除外し、「除外したWebClassコース」から復元できます。</p>
       <ol>
         <li>過年度の科目を確認するには、WebClassで年度と「All」を選びます。プランナーの時間割で「WebClassから再読込」→「参加コースを履修台帳に保存」を押します。</li>
@@ -581,7 +638,7 @@ details p { margin: 0; padding: 13px 16px; font-size: 15px; }
         <p>展開したフォルダーを削除・移動していないか確認してください。移動した場合は、手順4でもう一度読み込み直します。</p></details>
       <details><summary>元の画面に戻したい</summary>
         <p>拡張機能アイコンの右上スイッチを<b>オフ</b>にするだけで、元のWebClass画面に戻ります。完全に消すときは、拡張機能ページで<b>「削除」</b>。</p></details>
-      <details><summary>新しいバージョンに更新するには／設定を移すには</summary>
+      <details id="update"><summary>新しいバージョンに更新するには／設定を移すには</summary>
         <p>①旧版の時間割プランナーで「別のブラウザーに引き継ぐ」を開き、<b>「バックアップを書き出す」</b>を押します。表示設定や独自に追加した時間割データも必要に応じて書き出すか控えてください。②新版のZIPを展開します。③拡張機能ページで旧版を<b>オフ</b>にして、新版のフォルダー（<code>manifest.json</code> が直下にあるもの）を読み込みます。④新版のプランナーでバックアップを読み込み、記録が戻ったことを確認します。⑤確認できたら旧版を削除します。</p></details>
       <details><summary>表示された教室・担当・時間が資料と違う</summary>
         <p>2026年度の時間割は調査用スナップショットで、最新資料との全件照合は未完了です。過年度データの多くは未確認の自動抽出候補です。授業詳細のPDFリンクから元の行を確認してください。休講・教室変更は<b>WebClassのお知らせを優先</b>してください。</p></details>
@@ -599,7 +656,7 @@ details p { margin: 0; padding: 13px 16px; font-size: 15px; }
 
   <footer class="wrap foot">
     <button id="openWebClassBtn" class="cta" type="button">WebClassを開く</button>
-    <p>学生制作・非公式のWebClass拡張 v0.11.0 ／ 困ったら README.md も参照してください。</p>
+    <p>学生制作・非公式のWebClass拡張 v0.11.1 ／ 困ったら README.md も参照してください。</p>
   </footer>
 
   <script>

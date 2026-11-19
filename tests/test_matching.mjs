@@ -28,3 +28,8 @@ const fall = {...spring, courseCode:'abc1002', meetings:[{day:'火',period:3,ter
 const registration = {name:'演習（火3、担当A、2026年度後期後半）'};
 assert.equal(matching.identify(registration, matching.createIndex([spring,fall]), 'all', 2026, true).course?.courseCode, fall.courseCode);
 assert.equal(matching.identify(registration, matching.createIndex([spring]), 'all', 2026, true).course, undefined);
+assert.equal(matching.identify({ ...registration, code: spring.courseCode }, matching.createIndex([spring]),
+  'all', 2025, false).method, 'conflict');
+assert.equal(matching.hasYearConflict({ name: '演習', registrationId: '26abc1001' }, 2025), true);
+assert.equal(matching.identify({ name: '演習', code: spring.courseCode },
+  matching.createIndex([{ ...spring, academicYear: 2026 }]), 'all', 2025, false).method, 'conflict');
