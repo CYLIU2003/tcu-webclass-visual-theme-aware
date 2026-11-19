@@ -78,9 +78,42 @@
     }
   }
 
+  const setupLinks = { "#programs-title": "undergraduate", "#graduate-title": "graduate" };
+
+  function showStudyLevel(level) {
+    const workspace = $("workspace");
+    workspace.dataset.studyLevel = level || "";
+    $("undergraduate-setup").hidden = level !== "undergraduate";
+    $("graduate-setup").hidden = level !== "graduate";
+    for (const choice of document.querySelectorAll("input[name=study-level]")) choice.checked = choice.value === level;
+  }
+
+  function initializeStudyLevel(stored) {
+    const previous = stored[WCV_CURRICULUM.settingsKey]?.cohort || stored["academic-profile"]?.cohort || stored["planner-guide:profile"];
+    showStudyLevel(stored.studyLevel || (previous ? "undergraduate" : ""));
+    for (const choice of document.querySelectorAll("input[name=study-level]")) {
+      choice.addEventListener("change", async () => {
+        showStudyLevel(choice.value);
+        if (setupLinks[location.hash]) history.replaceState(null, "", "#study-title");
+        try {
+          await chrome.storage.local.set({ studyLevel: choice.value });
+        } catch {
+          $("study-status").textContent = "所属の選択を保存できませんでした。";
+        }
+      });
+    }
+    chrome.storage.onChanged.addListener((changes, area) => {
+      if (area === "local" && changes.studyLevel) showStudyLevel(changes.studyLevel.newValue);
+    });
+  }
+
   function syncNavigation() {
-    const hash = location.hash || "#plan-title";
-    const section = hash === "#academic-records-title" ? "#credits-title" : hash;
+    const hash = location.hash || "#study-title";
+    let section = hash;
+    if (setupLinks[hash]) {
+      showStudyLevel(setupLinks[hash]);
+      section = "#study-title";
+    }
     const links = document.querySelectorAll(".planner-nav a");
     for (const link of links) {
       if (link.hash === section) {
@@ -342,6 +375,7 @@
       }
       storagePrefix = `planner:${data.dataset.academicYear}:`;
       const stored = await chrome.storage.local.get(null);
+      initializeStudyLevel(stored);
       for (const [key, value] of Object.entries(stored)) {
         if (key.startsWith(exclusionPrefix) && value === true) excluded.add(key.slice(exclusionPrefix.length));
         if (key.startsWith(storagePrefix) && value === true) saved.add(key.slice(storagePrefix.length));
@@ -349,7 +383,7 @@
       WCV_PLANNER_CREDITS.initialize(stored, storagePrefix, (code) => catalog.get(code)?.course);
       WCV_PLANNER_TASKS.initialize(stored, storagePrefix, (code) => catalog.get(code)?.course);
       await Promise.all([
-        WCV_PLANNER_GRADUATE.initialize(),
+        WCV_PLANNER_GRADUATE.initialize(stored),
         WCV_PLANNER_PROGRAMS.initialize(stored),
         WCV_PLANNER_GUIDES.initialize(storagePrefix, (code) => catalog.get(code)?.course),
         WCV_PLANNER_ENROLLMENT.initialize(stored, data.dataset.academicYear, data.courses),

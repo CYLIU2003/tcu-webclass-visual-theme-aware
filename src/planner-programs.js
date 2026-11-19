@@ -27,6 +27,33 @@
     return row;
   }
 
+  function cohortPicker(year, department, profiles) {
+    const years = [...new Set(profiles.map((row) => row.year))].sort((a, b) => b - a);
+    year.replaceChildren(new Option("入学年度を選択", ""),
+      ...years.map((value) => new Option(`${value}年度`, String(value))));
+    function showDepartments() {
+      department.replaceChildren(new Option(year.value ? "学科を選択" : "先に入学年度を選択", ""));
+      department.disabled = !year.value;
+      const groups = new Map();
+      for (const row of profiles.filter((row) => String(row.year) === year.value)) {
+        if (!groups.has(row.faculty)) {
+          const group = document.createElement("optgroup");
+          group.label = row.faculty;
+          groups.set(row.faculty, group);
+          department.append(group);
+        }
+        groups.get(row.faculty).append(new Option(row.department, `${row.year}:${row.department}`));
+      }
+    }
+    year.addEventListener("change", showDepartments);
+    return (id, fallback) => {
+      const saved = profiles.find((row) => `${row.year}:${row.department}` === id);
+      year.value = String(saved?.year || fallback || "");
+      showDepartments();
+      if (saved) department.value = id;
+    };
+  }
+
   async function initialize(stored) {
     const status = document.getElementById("program-profile-status");
     const form = document.getElementById("program-profile-form");
@@ -34,16 +61,7 @@
     const resources = document.getElementById("program-resources");
     try {
       const [index] = await load();
-      const cohorts = Object.entries(index.profiles).reverse();
-      fields.cohort.append(new Option("入学年度と学科を選択", ""));
-      for (const year of [...new Set(cohorts.map(([, row]) => row.year))]) {
-        const group = document.createElement("optgroup");
-        group.label = `${year}年度入学`;
-        for (const [id, row] of cohorts.filter(([, profile]) => profile.year === year)) {
-          group.append(new Option(row.department, id));
-        }
-        fields.cohort.append(group);
-      }
+      const restoreCohort = cohortPicker(document.getElementById("program-year"), fields.cohort, Object.values(index.profiles));
       const initial = stored[settingsKey];
       for (const [key, yes, no] of [
         ["hirameki", "参加する・参加済み", "参加しない"],
@@ -53,14 +71,19 @@
         fields[key].append(new Option("未設定", ""), new Option(yes, "yes"), new Option(no, "no"));
         if (["yes", "no"].includes(initial?.[key])) fields[key].value = initial[key];
       }
-      const remembered = initial?.cohort || stored["planner-guide:profile"];
-      if (index.profiles[remembered]) fields.cohort.value = remembered;
+      const remembered = initial?.cohort ?? stored["academic-profile"]?.cohort ?? stored["planner-guide:profile"];
+      restoreCohort(remembered, initial?.year ?? stored.webclassAdmissionYear);
+
+      function values() {
+        return { year: document.getElementById("program-year").value,
+          ...Object.fromEntries(["cohort", ...Object.keys(programNames)].map((key) => [key, fields[key].value])) };
+      }
 
       function render() {
         const cohort = index.profiles[fields.cohort.value];
         resources.replaceChildren();
         if (!cohort) return;
-        const settings = Object.fromEntries(new FormData(form));
+        const settings = values();
         for (const [key, label] of Object.entries(programNames)) {
           if (settings[key] !== "yes") continue;
           const href = cohort.documents[key] || hiramekiSources;
@@ -89,27 +112,37 @@
         }
       }
 
-      form.addEventListener("change", () => {
-        status.textContent = "参加状況を保存すると、コース一覧と履修確認に反映されます。";
-        render();
+      async function save() {
+        const settings = values();
+        try {
+          await chrome.storage.local.set({
+            [settingsKey]: settings, "planner-guide:profile": settings.cohort, studyLevel: "undergraduate"
+          });
+          const complete = Boolean(index.profiles[settings.cohort]);
+          status.textContent = complete ? "参加状況を保存しました。" : "入学年度と学科を選んでください。";
+          return complete;
+        } catch {
+          status.textContent = "保存できませんでした。もう一度お試しください。";
+        }
+      }
+      form.addEventListener("change", (event) => {
+        if (event.target.id !== "academic-course") { render(); void save(); }
       });
       form.addEventListener("submit", async (event) => {
         event.preventDefault();
-        const settings = Object.fromEntries(new FormData(form));
-        if (!index.profiles[settings.cohort]) return;
-        const button = event.submitter;
-        button.disabled = true;
-        try {
-          await chrome.storage.local.set({ [settingsKey]: settings });
-          status.textContent = "参加状況を保存しました。";
-        } catch {
-          status.textContent = "保存できませんでした。もう一度お試しください。";
-        } finally {
-          button.disabled = false;
-        }
+        if (await save()) location.hash = "credits-title";
+      });
+      chrome.storage.onChanged.addListener((changes, area) => {
+        const saved = changes[settingsKey]?.newValue;
+        if (area !== "local" || !saved) return;
+        const local = values();
+        if (Object.keys(local).every((key) => local[key] === saved[key])) return;
+        restoreCohort(saved.cohort, saved.year);
+        for (const key of Object.keys(programNames)) fields[key].value = saved[key] || "";
+        render();
       });
       render();
-      status.textContent = "参加・履修するプログラムを選んで保存してください。";
+      status.textContent = "学科と参加状況の変更は自動で保存されます。";
       form.hidden = false;
     } catch {
       status.textContent = "履修プログラムの資料を読み込めませんでした。プランナーを開き直してください。";

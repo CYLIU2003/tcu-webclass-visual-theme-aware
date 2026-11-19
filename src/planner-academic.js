@@ -61,8 +61,11 @@
     return override ?? (admissionYear + stage - 2);
   }
 
-  function calculate(records, allowance, through) {
-    const included = records.filter((row) => completed(row) && row[allowance] === "yes"
+  function calculate(records, allowance, through, cohort) {
+    const since = cohort && Number(cohort.split(":")[0]);
+    const included = records.filter((row) => completed(row)
+      && (cohort ? row.undergraduateAllowances?.[cohort]?.[allowance] : row[allowance]) === "yes"
+      && (!since || row.year >= since)
       && (!through || row.year <= through));
     const byCode = new Map();
     const byName = new Map();
@@ -156,9 +159,24 @@
       if (initial.through && !initial.cutoffs) {
         status.textContent = "進級の集計年度が年次別になりました。以前に指定した年度は、該当する進級先の欄に設定し直せます。";
       }
-      const choices = [["", "入学年度と学科を選択"], ...[...cohorts].reverse().map(([id, row]) =>
-        [id, `${row.year}年度・${row.department}`])];
-      const cohort = select("cohort", choices, initial.cohort || programs?.cohort || stored["planner-guide:profile"] || "");
+      let cohortId = programs?.cohort ?? initial.cohort ?? stored["planner-guide:profile"] ?? "";
+      // Older releases stored one undergraduate decision per course. Anchor it to
+      // the saved profile before students can switch departments in this window.
+      if (cohorts.has(cohortId) && [...data.values()].some((row) =>
+        !row.undergraduateAllowances && (row.graduation || row.progression))) {
+        await navigator.locks.request("wcv-academic-records", async () => {
+          const latest = await chrome.storage.local.get([...data.keys()]);
+          const migrated = {};
+          for (const [key, row] of Object.entries(latest)) {
+            if (!row.undergraduateAllowances && (row.graduation || row.progression)) {
+              row.undergraduateAllowances = { [cohortId]: { graduation: row.graduation, progression: row.progression } };
+              migrated[key] = row;
+            }
+            data.set(key, row);
+          }
+          if (Object.keys(migrated).length) await chrome.storage.local.set(migrated);
+        });
+      }
       const course = select("course", []);
       const cutoffs = new Map([[3, input("through", "", "number")], [4, input("through4", "", "number")]]);
       for (const control of cutoffs.values()) {
@@ -166,17 +184,15 @@
       }
       const controls = el("div");
       controls.className = "credit-inputs";
-      controls.append(field("入学年度と学科", cohort), field("卒業要件のコース", course));
+      course.id = "academic-course";
+      $("program-course-choice").append(field("卒業要件のコース", course));
       for (const [stage, control] of cutoffs) controls.append(field(`${stage}年次進級の集計対象（年度末）`, control));
       const profile = el("div");
-      profile.className = "academic-card";
-      const programStatus = el("p");
-      const profileLink = el("a", "ひらめき・教職・TAPの参加状況を設定");
-      profileLink.href = "#programs-title";
-      profile.append(el("h3", "入学年度・所属とプログラム"), controls, programStatus, profileLink);
+      profile.className = "academic-card undergraduate-only";
+      profile.append(el("h3", "進級の集計年度"), controls);
 
       const summary = el("div");
-      summary.className = "academic-summary";
+      summary.className = "academic-summary undergraduate-only";
       summary.setAttribute("aria-live", "polite");
       const results = el("ul");
       results.id = "academic-records";
@@ -192,7 +208,10 @@
       const recordsTitle = el("h3", "履修台帳");
       recordsTitle.id = "academic-records-title";
       recordsTitle.tabIndex = -1;
-      listCard.append(recordsTitle, filters, results, more);
+      const reviewLink = el("a", "卒業・修了要件を確認する");
+      reviewLink.href = "#requirements-title";
+      reviewLink.className = "academic-next-link";
+      listCard.append(recordsTitle, filters, results, more, reviewLink);
 
       const imports = el("details");
       imports.className = "academic-card";
@@ -224,14 +243,14 @@
       customForm.append(field("開講年度", newYear), field("講義コード（任意）", newCode), field("授業名", newName), button("科目を追加", "submit"));
       custom.append(customForm);
       root.append(profile, source("大学ポータルの成績照会", "https://websrv.tcu.ac.jp/tcu_web_v3"),
-        el("p", "履修台帳の科目カードを開き、大学ポータルの成績照会に沿って成績と単位を入力してください。"),
-        status, summary, imports, custom, listCard);
+        el("p", "各科目の成績欄の初期値は「秀」です。成績照会に沿って評価・単位・算入先を確認し、保存してください。"),
+        status, imports, custom, listCard, summary);
 
       let limit = 24;
       let additionsPending = false;
-      const current = () => cohorts.get(cohort.value);
+      const current = () => cohorts.get(cohortId);
       const template = () => current()?.graduationTemplates?.find((item) => item.id === course.value);
-      const categoryKey = () => `${cohort.value}:${course.value}`;
+      const categoryKey = () => `${cohortId}:${course.value}`;
       const choice = [["", "要確認"], ["yes", "算入する"], ["no", "算入しない"]];
       const entries = () => [...data].sort(([, a], [, b]) => b.year - a.year || a.name.localeCompare(b.name, "ja"));
       const persist = (changes) => chrome.storage.local.set(changes);
@@ -239,11 +258,24 @@
 
       function renderSummary() {
         const records = [...data.values()];
-        const forGraduation = calculate(records, "graduation", null);
-        const linked = programs?.cohort === cohort.value ? programs : {};
-        programStatus.textContent = Object.entries(WCV_CURRICULUM.programNames).map(([key, label]) =>
+        const forGraduation = calculate(records, "graduation", null, cohortId || "unset");
+        const caps = template()?.rules.filter((rule) => rule.kind === "maximum") || [];
+        const capUnits = new Map(caps.map((rule) => [rule.id, 0]));
+        let ambiguousUnits = 0;
+        for (const row of forGraduation.eligible) {
+          const matches = caps.filter((rule) => row.categories?.[categoryKey()]?.includes(rule.id));
+          if (matches.length > 1) ambiguousUnits += row.units;
+          else if (matches.length) capUnits.set(matches[0].id, capUnits.get(matches[0].id) + row.units);
+        }
+        const excess = caps.reduce((sum, rule) => sum + Math.max(0, capUnits.get(rule.id) - rule.units * 100), 0);
+        const graduationTotal = forGraduation.total - excess - ambiguousUnits;
+        const linked = programs?.cohort === cohortId ? programs : {};
+        const participation = Object.entries(WCV_CURRICULUM.programNames).map(([key, label]) =>
           `${label} ${linked[key] === "yes" ? "あり" : linked[key] === "no" ? "なし" : "未設定"}`).join(" ／ ");
         const active = current();
+        $("credit-undergraduate-profile").textContent = active
+          ? [active.year + "年度入学", active.faculty, active.department, template()?.name, participation].filter(Boolean).join(" ／ ")
+          : "学部の履修プログラムで入学年度と学科を選んでください。";
         const display = (units) => `${units / 100}単位`;
         const metric = (title, units) => {
           const card = el("section");
@@ -253,51 +285,78 @@
           return card;
         };
         const progressCard = metric("進級の総単位");
-        const graduationCard = metric("卒業要件の単位", forGraduation.total);
+        const graduationCard = metric("卒業要件の単位", graduationTotal);
         const warnings = new Set(forGraduation.conflicts);
         const difference = (limit, total, kind) => {
           const delta = kind === "maximum" ? total - limit : limit - total;
           return delta > 0 ? `${display(delta)}${kind === "maximum" ? "超過" : "不足"}`
             : kind === "maximum" ? "入力済み単位は上限内" : "この単位条件に到達";
         };
-        for (const rule of progression.profiles[cohort.value] || []) {
+        for (const rule of (active && progression.profiles[cohortId]) || []) {
           const control = cutoffs.get(rule.stage);
           const override = control.value && control.validity.valid ? control.valueAsNumber : undefined;
           const endYear = progressionCutoff(active.year, rule.stage, override);
-          const counted = calculate(records, "progression", endYear);
+          const counted = calculate(records, "progression", endYear, cohortId);
           for (const conflict of counted.conflicts) warnings.add(conflict);
           const row = el("p", `${rule.stage}年次 ／ ${endYear}年度末 ／ 算入を確認済み ${display(counted.total)} ／ ${rule.minimum}単位以上 ／ ${difference(rule.minimum * 100, counted.total)} `);
           row.append(source("原表", `${rule.url || active.sources[0].url}#page=${rule.page}`));
           progressCard.append(row);
         }
-        if (!progression.profiles[cohort.value]?.length) progressCard.append(el("p", "総単位条件は学修要覧を確認してください。"));
+        if (!progression.profiles[cohortId]?.length) progressCard.append(el("p", "総単位条件は学修要覧を確認してください。"));
         progressCard.append(el("p", "各進級の年度末までに修得した単位を集計します。休学・留年などで時期が異なる場合は、上の年度を変更できます。"));
         if (template()) {
           const list = el("ul");
           for (const rule of template().rules) {
-            const counted = rule.id === "total" ? forGraduation.total : forGraduation.eligible.filter((row) =>
+            const counted = rule.id === "total" ? graduationTotal : forGraduation.eligible.filter((row) =>
               row.categories?.[categoryKey()]?.includes(rule.id)).reduce((sum, row) => sum + row.units, 0);
             const item = el("li", `${rule.title} ／ ${rule.units}単位${rule.kind === "maximum" ? "以下" : "以上"} ／ ${display(counted)}を確認 ／ ${difference(rule.units * 100, counted, rule.kind)}`);
             list.append(item);
           }
           graduationCard.append(source("学修要覧の原表", `${active.sources[0].url}#page=${template().sourcePage}`), list);
+          if (excess) graduationCard.append(el("p", `区分の上限を超えた${display(excess)}を卒業総単位から除きました。区分ごとの表示は上限適用前の登録単位です。`));
+          if (ambiguousUnits) graduationCard.append(el("p", `異なる上限区分を重ねて選んだ${display(ambiguousUnits)}は卒業総単位から保留しています。科目カードで区分を確認してください。`));
         } else {
           graduationCard.append(el("p", "入学年度・学科・コースを選ぶと、要覧の単位条件を表示します。"));
+          const choose = el("a", "学部の所属とコースを選ぶ");
+          choose.href = "#programs-title";
+          graduationCard.append(choose);
         }
         graduationCard.append(el("p", "科目カードで選んだ区分を集計します。必修科目の内訳、算入上限、在学期間などは学修要覧で確認してください。"));
-        const pending = records.filter((row) => !row.grade || row.grade === "履修中"
-          || (passing.has(row.grade) && (!completed(row) || !row.graduation || !row.progression))).length;
-        summary.replaceChildren(progressCard, graduationCard);
+        const pending = records.filter((row) => active && row.year >= active.year && (!row.grade || row.grade === "履修中"
+          || (passing.has(row.grade) && (!completed(row) || !row.undergraduateAllowances?.[cohortId]?.graduation
+            || !row.undergraduateAllowances?.[cohortId]?.progression)))).length;
+        const graduate = WCV_PLANNER_GRADUATE.selectedRule();
+        const finalGraduate = $("final-graduate");
+        finalGraduate.replaceChildren();
+        $("credit-graduate-verified").textContent = "";
+        if (graduate) {
+          const counted = calculate(records.filter((row) => row.year >= graduate.year)
+            .map((row) => ({ ...row, completion: row.graduateAllowances?.[graduate.key] })), "completion", null);
+          WCV_PLANNER_GRADUATE.setVerified(graduate.key, counted.total);
+          $("credit-graduate-verified").textContent = `履修台帳で修了への算入を確認済み ${display(counted.total)}`;
+          finalGraduate.append(el("h3", `${graduate.year}年度・${graduate.major}・${graduate.program}`),
+            el("strong", `履修台帳で修了への算入を確認済み ${display(counted.total)}`));
+          if (Number.isFinite(graduate.rule.minimum)) finalGraduate.append(el("p",
+            `修了に必要な総単位 ${graduate.rule.minimum}単位 ／ ${difference(graduate.rule.minimum * 100, counted.total)}`));
+          if (counted.conflicts.length) finalGraduate.append(el("p", `重複する算入候補 ${counted.conflicts.length}件は保留中です。`));
+          if (!counted.eligible.length) finalGraduate.append(el("p", "この課程で修了への算入を確認した科目はまだありません。過去の成績と算入先を入力してください。"));
+          finalGraduate.append(el("p", graduate.rule.note || "研究指導・論文審査などの条件は履修要綱を確認してください。"));
+          if (graduate.source) finalGraduate.append(source("大学院履修要綱の原表", graduate.source.url));
+        } else finalGraduate.append(el("p", "大学院の研究科・専攻・課程を選ぶと、修了要件が表示されます。"));
+        $("final-undergraduate").replaceChildren(el("p", active ? [active.year + "年度", active.department, template()?.name].filter(Boolean).join(" ／ ") : "学部の所属を選んでください。"), graduationCard);
+        summary.replaceChildren(progressCard, metric("卒業への算入", graduationTotal));
         if (pending) summary.append(el("p", `成績・単位・算入の確認が必要な科目 ${pending}件`));
         if (warnings.size) summary.append(el("p", `同名または同じ講義コードの算入候補 ${warnings.size}件を集計から保留しています。算入する履歴を成績表で確認してください。`));
+        if (forGraduation.conflicts.length) graduationCard.append(el("p", `重複する算入候補 ${forGraduation.conflicts.length}件は保留中です。`));
       }
 
       function recordCard(key, row) {
         const item = el("li");
         item.className = "academic-record";
+        item.dataset.recordKey = key;
         const heading = el("strong", row.name);
         const gradeLabel = row.grade ? (passing.has(row.grade) && row.grade !== "認定" ? `合格・${row.grade}` : row.grade)
-          : row.origin === "webclass" ? "WebClassの参加履歴・成績未確認" : "成績未確認";
+          : row.grade === "" ? "成績未確認" : "成績未確認（入力欄の初期値は秀）";
         const state = el("span", gradeLabel);
         state.className = "academic-state";
         state.dataset.grade = row.grade === "認定" ? "recognized" : passing.has(row.grade) ? "passed"
@@ -305,22 +364,38 @@
         const unitLabel = completed(row) ? ` ／ 修得 ${row.units / 100}単位` : "";
         item.append(state, heading, el("p", `${row.year}年度・${row.code || "講義コード未入力"}${unitLabel}`));
         if (row.registrationContext) item.append(el("p", row.registrationContext));
-        const flags = programs?.cohort === cohort.value ? WCV_CURRICULUM.programMatches(...programData, programs, row.name) : [];
-        for (const flag of flags) item.append(source(WCV_CURRICULUM.programLabel(flag), flag.url));
+        const flags = programs?.cohort === cohortId ? WCV_CURRICULUM.programMatches(...programData, programs, row.name) : [];
+        for (const flag of flags) {
+          const note = source(WCV_CURRICULUM.programLabel(flag), flag.url);
+          note.className = "undergraduate-only";
+          item.append(note);
+        }
         const editor = el("details");
         editor.append(el("summary", "成績・単位・算入を編集"));
         const edit = el("form");
         edit.className = "credit-inputs";
-        const grade = select("grade", grades.map((value) => [value, value || "未確認"]), row.grade);
+        const grade = select("grade", grades.map((value) => [value, value || "未確認"]), row.grade ?? "秀");
         const units = input("units", Number.isInteger(row.units) ? row.units / 100 : "", "number");
         Object.assign(units, { min: "0", max: "99", step: "0.01" });
-        const graduation = select("graduation", choice, row.graduation);
-        const next = select("progression", choice, row.progression);
-        edit.append(field("成績", grade), field("単位", units), field("卒業への算入", graduation), field("進級への算入", next));
+        const undergraduate = row.undergraduateAllowances?.[cohortId];
+        const graduation = select("graduation", choice, undergraduate?.graduation);
+        const next = select("progression", choice, undergraduate?.progression);
+        graduation.disabled = next.disabled = !current();
+        const graduate = WCV_PLANNER_GRADUATE.selectedRule();
+        const completion = select("completion", choice, row.graduateAllowances?.[graduate?.key]);
+        completion.disabled = !graduate;
+        const completionLabel = field("修了への算入", completion);
+        completionLabel.className = "graduate-only";
+        edit.append(field("成績", grade), field("単位", units));
+        edit.append(completionLabel);
+        for (const label of [field("卒業への算入", graduation), field("進級への算入", next)]) {
+          label.className = "undergraduate-only";
+          edit.append(label);
+        }
         const categories = template()?.rules.filter((rule) => rule.id !== "total") || [];
         if (categories.length) {
           const group = el("fieldset");
-          group.className = "academic-categories";
+          group.className = "academic-categories undergraduate-only";
           group.append(el("legend", "成績表と学修要覧で確認した卒業区分"));
           for (const rule of categories) {
             const check = input("categories", rule.id, "checkbox");
@@ -338,16 +413,29 @@
             units.focus();
             return;
           }
-          const updates = { grade: grade.value, units: amount, graduation: graduation.value, progression: next.value };
-          if (categories.length) updates.categories = { ...row.categories,
-            [categoryKey()]: new FormData(edit).getAll("categories") };
+          const level = $("workspace").dataset.studyLevel;
+          const updates = { grade: grade.value, units: amount };
+          const checked = new FormData(edit).getAll("categories");
+          const selectedCategory = categoryKey();
+          const selectedCohort = cohortId;
           try {
             await locked(async () => {
               const latest = (await chrome.storage.local.get(key))[key];
-              if (latest) await persist({ [key]: { ...latest, ...updates } });
+              if (!latest) return;
+              if (level === "undergraduate" && selectedCohort) {
+                updates.undergraduateAllowances = { ...latest.undergraduateAllowances,
+                  [selectedCohort]: { graduation: graduation.value, progression: next.value } };
+                if (categories.length) updates.categories = { ...latest.categories, [selectedCategory]: checked };
+              } else if (level === "graduate" && graduate) {
+                updates.graduateAllowances = { ...latest.graduateAllowances, [graduate.key]: completion.value };
+              }
+              await persist({ [key]: { ...latest, ...updates } });
             });
             status.textContent = `${row.name}の成績と算入を保存しました。`;
-            status.focus({ preventScroll: true });
+            requestAnimationFrame(() => {
+              const savedCard = results.querySelector(`[data-record-key="${CSS.escape(key)}"] summary`);
+              (savedCard || recordsTitle).focus({ preventScroll: true });
+            });
           } catch {
             status.textContent = "成績を保存できませんでした。";
           }
@@ -379,18 +467,20 @@
         const previous = course.value;
         course.replaceChildren(new Option("コースを選択", ""), ...(current()?.graduationTemplates || [])
           .map((item) => new Option(item.name, item.id)));
-        const target = initial.cohort === cohort.value ? initial.course || previous : "";
+        const target = initial.cohort === cohortId ? initial.course || previous : "";
+        course.required = course.options.length > 2;
+        $("program-course-choice").hidden = !course.required;
         if (target && [...course.options].some((option) => option.value === target)) course.value = target;
         else if (course.options.length === 2) course.selectedIndex = 1;
         for (const [stage, control] of cutoffs) {
           const active = current();
-          control.value = initial.cohort === cohort.value ? initial.cutoffs?.[stage] || "" : "";
+          control.value = initial.cohort === cohortId ? initial.cutoffs?.[stage] || "" : "";
           control.placeholder = active ? String(progressionCutoff(active.year, stage)) : "標準の年度末";
         }
       }
 
       async function saveProfile() {
-        initial = { cohort: cohort.value, course: course.value, cutoffs: Object.fromEntries(
+        initial = { cohort: cohortId, course: course.value, cutoffs: Object.fromEntries(
           [...cutoffs].map(([stage, control]) => [stage, control.validity.valid ? control.value : ""])) };
         try {
           await persist({ [profileKey]: initial });
@@ -401,12 +491,12 @@
         renderRecords();
       }
 
-      cohort.addEventListener("change", () => { applyProfile(); saveProfile(); });
       for (const control of [course, ...cutoffs.values()]) control.addEventListener("change", saveProfile);
       for (const control of [yearFilter, gradeFilter]) {
         control.addEventListener("change", () => { limit = 24; renderRecords(); });
       }
       more.addEventListener("click", () => { limit += 24; renderRecords(); });
+      document.addEventListener("graduate-program-change", () => { renderSummary(); renderRecords(); });
       applyProfile();
       renderSummary();
       renderRecords();
@@ -440,6 +530,8 @@
                 && WCV_CURRICULUM.normalize(before.name) === WCV_CURRICULUM.normalize(row.name);
               return [key, { ...before, ...row, origin: "grades",
                 graduation: unchanged ? before.graduation : "", progression: unchanged ? before.progression : "",
+                undergraduateAllowances: unchanged ? before.undergraduateAllowances : {},
+                graduateAllowances: unchanged ? before.graduateAllowances || {} : {},
                 categories: unchanged ? before.categories || {} : {} }];
             }));
             await persist(records);
@@ -485,10 +577,15 @@
           if (key === WCV_CURRICULUM.settingsKey) {
             additionsOnly = false;
             programs = newValue;
-            if (cohorts.has(programs?.cohort) && !cohort.value) {
-              cohort.value = programs.cohort;
+            if ((programs?.cohort || "") !== cohortId) {
+              cohortId = programs?.cohort || "";
               applyProfile();
             }
+            changed = true;
+          } else if (key === profileKey && newValue?.cohort === cohortId && JSON.stringify(initial) !== JSON.stringify(newValue)) {
+            additionsOnly = false;
+            initial = newValue;
+            applyProfile();
             changed = true;
           } else if (key.startsWith(prefix)) {
             if (data.has(key) || !newValue) additionsOnly = false;
@@ -542,5 +639,5 @@
     }
   }
 
-  globalThis.WCV_PLANNER_ACADEMIC = { initialize, calculate, progressionCutoff, readGradeRows };
+  globalThis.WCV_PLANNER_ACADEMIC = { initialize, calculate, completed, progressionCutoff, readGradeRows };
 })();

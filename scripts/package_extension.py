@@ -12,8 +12,8 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = "0.11.2"
-VERSION_NAME = "0.11.2"
+VERSION = "0.11.3"
+VERSION_NAME = "0.11.3"
 ARCHIVE_ROOT = "tcu-webclass-visual-theme-aware"
 OUTPUT = ROOT.parent / f"TCU_WebClass_Visual_Theme_Aware_v{VERSION_NAME}.zip"
 
@@ -39,6 +39,7 @@ PACKAGE_FILES = (
     "docs/index.html",
     "docs/images/appearance-picker.png",
     "docs/images/academic-sync.png",
+    "docs/images/planner-profile.png",
     "docs/images/chrome-extensions.png",
     "docs/images/course-settings.png",
     "docs/images/graduation-guide.png",

@@ -1,5 +1,13 @@
 # TCU WebClass Visual
 
+## v0.11.3 — 学部・大学院の所属選択と成績からの要件確認
+
+プランナーの先頭で学部・大学院を選び、入学年度と所属を設定します。単位の確認から過去の成績を入力すると、履修台帳で算入を確認した単位が卒業・修了要件に反映されます。新しい科目の成績欄は「秀」を初期表示し、保存した評価と単位数を使って集計します。大学院の算入先は年度・研究科・専攻・課程ごとに保存します。
+
+「進級の総単位条件」は先頭で選んだ学部の所属を参照します。進級の見込み単位はシラバスの確認値や時間割の保存値から入力し、手動の変更も保存します。取得済み・不可・算入対象外の科目は見込みから除外します。学部の卒業総単位には、科目に設定した区分の算入上限を適用します。
+
+[これまでの開発・データ監査・検証の引き継ぎメモ](https://github.com/CYLIU2003/tcu-webclass-visual-theme-aware/blob/main/docs/DEVELOPMENT_PROGRESS_MEMO.md)
+
 ## v0.11.2 — 過年度の履修台帳同期と課題メモ
 
 - ログイン済みのWebClassから2022〜2026年度の参加コースをまとめて履修台帳に同期できます。「プランナーを開いたときに同期」を有効にすると、次回から自動で読み取ります。
@@ -48,7 +56,7 @@ WebClassのコース一覧に、表示中の登録科目の照合件数・要確
 
 東京都市大学のWebClassコースリスト画面を、元の機能を壊さずに読みやすくするChrome／Edge向けManifest V3拡張機能です。
 
-**公開版:** [v0.11.2 ZIPをダウンロード](https://github.com/CYLIU2003/tcu-webclass-visual-theme-aware/releases/download/v0.11.2/TCU_WebClass_Visual_Theme_Aware_v0.11.2.zip) ／ [画像付き導入ガイド（Web）](https://cyliu2003.github.io/tcu-webclass-visual-theme-aware/) ／ [同梱ガイド](はじめにお読みください.html)
+**公開版:** [v0.11.3 ZIPをダウンロード](https://github.com/CYLIU2003/tcu-webclass-visual-theme-aware/releases/download/v0.11.3/TCU_WebClass_Visual_Theme_Aware_v0.11.3.zip) ／ [画像付き導入ガイド（Web）](https://cyliu2003.github.io/tcu-webclass-visual-theme-aware/) ／ [同梱ガイド](はじめにお読みください.html)
 
 v0.9.0 では、「標準／モダン」をポップアップまたはコース一覧の表示オプションから切り替えられます。
 

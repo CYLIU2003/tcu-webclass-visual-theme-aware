@@ -113,6 +113,27 @@ li a { display: inline-block; margin-inline-end: 12px; color: var(--accent); fon
 #guide-controls label, #graduate-controls label, .guide-rule-fields label { min-width: 0; max-width: 100%; }
 #program-profile-controls label { min-width: 0; max-width: 100%; }
 #program-profile-controls select { max-width: 100%; }
+.study-choice, #program-profile-controls fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+.study-choice legend, #program-profile-controls legend { font-weight: 700; }
+.study-choice label { display: inline-flex; gap: 8px; align-items: center; min-height: 44px; padding: 6px 16px; margin: 8px 8px 0 0; border: 1px solid var(--muted); border-radius: 8px; cursor: pointer; }
+.study-choice input { width: 18px; height: 18px; min-height: 0; margin: 0; accent-color: var(--accent); }
+.study-choice label:has(:checked) { background: var(--tint); border-color: var(--accent); }
+#program-profile-controls { display: grid; gap: 14px; margin-block: 12px; }
+#program-profile-controls fieldset + fieldset { padding-top: 12px; border-top: 1px solid var(--line); }
+#program-profile-controls .credit-inputs { margin: 6px 0 0; }
+#study-status:empty { margin: 0; }
+#program-profile-status { margin-top: 8px; }
+.academic-next-link, #guide-reference > summary { display: inline-flex; min-height: 44px; align-items: center; font-weight: 700; }
+#guide-reference { border-top: 1px solid var(--line); padding-top: 8px; margin-top: 16px; }
+#guide-reference > summary { display: list-item; align-content: center; cursor: pointer; }
+#final-graduate:not(:empty) { padding-block: 12px; }
+@media (max-width: 540px) {
+  #program-profile-controls label, #program-course-choice label, #graduate-minimum label { width: 100%; min-width: 0; }
+  #graduate-program { max-width: 100%; }
+}
+#workspace:not([data-study-level="undergraduate"]) .undergraduate-only,
+#workspace:not([data-study-level="graduate"]) .graduate-only,
+#workspace:is([data-study-level="graduate"], [data-study-level="undergraduate"]) .study-unset { display: none; }
 #program-resources a { display: inline-flex; align-items: center; min-height: 44px; }
 #program-resources summary { min-height: 44px; padding-block: 10px; cursor: pointer; }
 #guide-controls select, #graduate-controls select { width: 100%; }
@@ -508,3 +529,14 @@ header h1 {
   #planner-task-form { grid-template-columns: minmax(0, 1fr); }
   #planner-task-form button[type="submit"] { width: 100%; }
 }
+
+#graduate-setup > .academic-next-link, .academic-list + button + .academic-next-link {
+  margin-block: 8px;
+  padding-inline: 14px;
+  border-radius: 6px;
+  background: var(--accent);
+  color: var(--surface);
+  text-decoration: none;
+}
+#enrollment-courses li > div > span { display: inline-block; margin-inline-end: 8px; color: var(--muted); font-size: .875rem; }
+#graduate-setup > details > summary { min-height: 44px; align-content: center; cursor: pointer; }

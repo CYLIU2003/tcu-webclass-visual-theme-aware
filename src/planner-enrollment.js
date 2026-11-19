@@ -28,9 +28,126 @@
     return response.json();
   }
 
+  async function progressionPanel(stored, inputs) {
+    const [guides, progression] = await Promise.all([
+      index("data/undergraduate-guides.json"), index("data/progression-rules.json")
+    ]);
+    const byId = new Map(guides.profiles.map((row) => [`${row.year}:${row.department}`, row]));
+    const stage = $("enrollment-stage");
+    const earned = $("enrollment-earned");
+    const result = $("enrollment-result");
+    const source = $("enrollment-source");
+    let programs = stored[WCV_CURRICULUM.settingsKey];
+    let overrideKey = "";
+    const resetBase = $("enrollment-earned-reset");
+    function render() {
+      const cohort = programs?.cohort ?? stored["academic-profile"]?.cohort ?? stored["planner-guide:profile"];
+      const row = byId.get(cohort);
+      const flags = Object.entries(WCV_CURRICULUM.programNames).map(([key, label]) =>
+        label + " " + (programs?.[key] === "yes" ? "あり" : programs?.[key] === "no" ? "なし" : "未設定"));
+      const templates = row?.graduationTemplates || [];
+      const academic = stored["academic-profile"];
+      const track = templates.find((entry) => academic?.cohort === cohort && entry.id === academic.course)
+        || (templates.length === 1 ? templates[0] : null);
+      $("enrollment-affiliation").textContent = row ? [row.year + "年度入学", row.faculty, row.department, track?.name, ...flags].filter(Boolean).join(" ／ ")
+        : "所属の設定で入学年度と学科を選んでください。";
+      const rule = progression.profiles[cohort]?.find((entry) => entry.stage === Number(stage.value));
+      const values = inputs.map(amount);
+      const unentered = values.filter((value) => value === null).length;
+      const loaded = !$("enrollment-content").hidden;
+      const cutoff = row && WCV_PLANNER_ACADEMIC.progressionCutoff(row.year, Number(stage.value),
+        academic?.cohort === cohort && academic.cutoffs?.[stage.value] ? Number(academic.cutoffs[stage.value]) : undefined);
+      const records = Object.entries(stored).filter(([key]) => key.startsWith("academic-record:")).map(([, value]) => value);
+      overrideKey = row ? `progression-earned:${cohort}:${stage.value}:${cutoff}` : "";
+      const manual = stored[overrideKey];
+      earned.disabled = !row;
+      resetBase.hidden = !Number.isInteger(manual);
+      const baseUnits = Number.isInteger(manual) ? manual : WCV_PLANNER_ACADEMIC.calculate(records, "progression", cutoff, cohort || "unset").total;
+      if (!row || amount(earned) !== baseUnits) earned.value = row ? format(baseUnits) : "";
+      const offline = [];
+      if (!loaded && row) {
+        const excluded = new Set(records.filter((record) => excludeForecast(record, cohort))
+          .map((record) => `${record.year}:${record.code}`));
+        for (const [key, selected] of Object.entries(stored)) {
+          if (selected !== true || !key.startsWith("planner:")) continue;
+          const [, year, code] = key.split(":");
+          if (Number(year) < row.year || Number(year) > cutoff || excluded.has(`${year}:${code}`)) continue;
+          const entry = stored[WCV_PLANNER_CREDITS.entryPrefix + key];
+          if (entry?.status === "planned" && Number.isInteger(entry.units) && entry.units >= 0 && entry.units <= 99900) offline.push(entry.units);
+        }
+      }
+      const planned = (loaded ? values : offline).reduce((sum, value) => sum + (value ?? 0), 0);
+      const base = amount(earned);
+      source.replaceChildren();
+      if (row) {
+        const url = rule?.url || row.sources[0].url;
+        source.append(link(rule ? `進級条件の原表（PDF p.${rule.page}）` : "学修要覧を確認", rule ? `${url}#page=${rule.page}` : url));
+      }
+      result.replaceChildren(element("strong", loaded ? `入力済みの見込み ${format(planned)}単位`
+        : offline.length ? `保存した時間割の見込み ${format(planned)}単位（${offline.length}科目）` : "WebClassの見込み単位は未読込"));
+      $("enrollment-forecast").textContent = `見込み合計 ${format(planned)}単位 ／ 未入力 ${unentered}件`;
+      if (unentered) result.append(element("span", `見込み単位が未入力 ${unentered}件`));
+      if (!row || !rule) {
+        result.append(element("p", row ? "この進級先の総単位条件は要覧で確認してください。" : "入学年度と学科を選ぶと、進級条件を表示します。"));
+        return;
+      }
+      result.append(element("strong", `進級条件の総単位 ${rule.minimum}単位`));
+      if (base !== null) {
+        const minimum = rule.minimum * 100;
+        const remaining = Math.max(0, minimum - base - planned);
+        const earnedGap = Math.max(0, minimum - base);
+        result.append(element("p", `取得済み ${format(base)}単位（総単位まで残り ${format(earnedGap)}単位）`));
+        const year = Number($("enrollment-content").dataset.year);
+        if ((loaded && year >= row.year && year <= cutoff) || offline.length) {
+          result.append(element("p", `入力済みの見込みを含む ${format(base + planned)}単位（総単位まで残り ${format(remaining)}単位）`));
+        } else if (loaded) {
+          result.append(element("p", `${year}年度の見込みは、対象期間（${row.year}年度〜${cutoff}年度）の範囲外です。`));
+        }
+      }
+      result.append(element("p", "確認しているのは総単位数です。必修・区分別単位・在学期間などの条件と、ポータルの正誤表も確認してください。"));
+    }
+
+    function saveBase(value) {
+      if (!overrideKey) return;
+      const key = overrideKey;
+      if (value === null) delete stored[key];
+      else stored[key] = value;
+      const saving = value === null ? chrome.storage.local.remove(key) : chrome.storage.local.set({ [key]: value });
+      render();
+      saving.catch(() => { result.append(element("p", "試算用の取得済み単位を保存できませんでした。")); });
+    }
+    stage.addEventListener("change", render);
+    earned.addEventListener("input", () => { if (earned.validity.valid) saveBase(amount(earned)); });
+    resetBase.addEventListener("click", () => { saveBase(null); earned.focus(); });
+    chrome.storage.onChanged.addListener((changes, area) => {
+      if (area !== "local") return;
+      let changed = false;
+      for (const [key, change] of Object.entries(changes)) {
+        if (key === WCV_CURRICULUM.settingsKey) {
+          programs = change.newValue;
+        } else if (key !== "academic-profile" && key !== "planner-guide:profile" && !key.startsWith("academic-record:")
+          && !key.startsWith("progression-earned:") && !key.startsWith("planner:") && !key.startsWith(WCV_PLANNER_CREDITS.entryPrefix)) continue;
+        if (change.newValue === undefined) delete stored[key];
+        else stored[key] = change.newValue;
+        changed = true;
+      }
+      if (changed) render();
+    });
+    render();
+    return render;
+  }
+
+  function excludeForecast(record, cohort) {
+    const allowance = record.undergraduateAllowances?.[cohort]?.progression;
+    return ["不可", "欠席"].includes(record.grade) || allowance === "no"
+      || (allowance === "yes" && WCV_PLANNER_ACADEMIC.completed(record));
+  }
+
   async function initialize(stored, catalogYear, catalog) {
     const token = new URLSearchParams(location.search).get("enrollment");
     const status = $("enrollment-status");
+    const inputs = [];
+    const render = await progressionPanel(stored, inputs);
     if (token !== null && !/^[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}$/.test(token)) {
       status.textContent = "時間割の読み込み先が無効です。WebClassのコース一覧から開き直してください。";
       return;
@@ -55,38 +172,32 @@
         return;
       }
       const currentYear = snapshot.year === catalogYear;
-      const [guides, progression, evidence, courses] = await Promise.all([
-        index("data/undergraduate-guides.json"), index("data/progression-rules.json"),
+      const [evidence, courses] = await Promise.all([
         index("data/syllabus-credit-evidence.json"),
         currentYear ? catalog : index("data/historical-course-row-evidence.json")
           .then((history) => history.records.filter((course) => course.academicYear === snapshot.year))
       ]);
       const matching = WCV_ENROLLMENT_MATCH;
       const courseIndex = matching.createIndex(courses);
-      const profile = $("enrollment-profile");
-      const stage = $("enrollment-stage");
-      const earned = $("enrollment-earned");
-      const result = $("enrollment-result");
-      const source = $("enrollment-source");
-      const byId = new Map(guides.profiles.map((row) => [`${row.year}:${row.department}`, row]));
-      profile.append(new Option("入学年度と学科を選択", ""));
-      for (const year of [...new Set(guides.profiles.map((row) => row.year))].reverse()) {
-        const group = document.createElement("optgroup");
-        group.label = `${year}年度入学`;
-        for (const row of guides.profiles.filter((row) => row.year === year)) {
-          group.append(new Option(`${row.year}年度・${row.department}`, `${row.year}:${row.department}`));
-        }
-        profile.append(group);
-      }
       let programSettings = stored[WCV_CURRICULUM.settingsKey];
-      const remembered = programSettings?.cohort || stored["planner-guide:profile"];
-      if (byId.has(remembered)) profile.value = remembered;
 
       let matched = 0;
       let byContext = 0;
       const seenCodes = new Set();
-      const inputs = [];
       const entries = [];
+      const gradedCourses = new Set();
+      function indexGrades() {
+        gradedCourses.clear();
+        const cohort = programSettings?.cohort ?? stored["academic-profile"]?.cohort ?? stored["planner-guide:profile"];
+        for (const [key, record] of Object.entries(stored)) {
+          if (!key.startsWith("academic-record:") || record?.year !== snapshot.year) continue;
+          if (excludeForecast(record, cohort)) {
+            gradedCourses.add(key.slice("academic-record:".length));
+            if (record.code) gradedCourses.add(`${record.year}:${record.code}`);
+          }
+        }
+      }
+      indexGrades();
       const assigned = new Set(snapshot.courses.map((row) => row.code).filter(Boolean));
       const lookupButton = $("enrollment-lookup");
       const lookupStatus = $("enrollment-lookup-status");
@@ -111,36 +222,56 @@
         const matchStatus = element("p", "");
         const unitStatus = element("p", "");
         const programNotes = element("div", "");
+        programNotes.className = "undergraduate-only";
         info.append(heading, matchStatus);
         const input = document.createElement("input");
         Object.assign(input, { type: "number", min: "0", max: "999", step: "0.01", inputMode: "decimal" });
         const entry = { code: match.method === "conflict" ? null : row.code || course?.courseCode, course, evidence: null, titles: [] };
-        const apply = element("button", "見込み単位に入れる");
-        apply.type = "button";
-        apply.hidden = true;
+        const reset = element("button", "標準値に戻す");
+        reset.type = "button";
+        const origin = element("span", "");
         const applyPlan = element("button", "");
         applyPlan.type = "button";
-        applyPlan.hidden = true;
-        applyPlan.addEventListener("click", () => {
-          input.value = format(entry.plannedUnits);
-          render();
-          input.focus();
+        function updateForecast() {
+          const manual = stored[entry.overrideKey];
+          const plan = stored[`${WCV_PLANNER_CREDITS.entryPrefix}planner:${snapshot.year}:${entry.code}`];
+          const graded = gradedCourses.has(`${snapshot.year}:${entry.code}`) || gradedCourses.has(WCV_PLANNER_WEBCLASS.key(snapshot.year, row));
+          const excluded = graded || ["earned", "excluded"].includes(plan?.status);
+          entry.plannedUnits = plan?.status === "planned" && Number.isInteger(plan.units)
+            && plan.units >= 0 && plan.units <= 99900 ? plan.units : null;
+          const automatic = excluded ? 0 : entry.evidence?.units ?? entry.plannedUnits;
+          const hasOverride = manual === null || Number.isInteger(manual);
+          const units = excluded ? 0 : hasOverride ? manual : automatic;
+          const value = units == null ? "" : format(units);
+          if (input.value !== value) input.value = value;
+          input.readOnly = excluded;
+          origin.textContent = excluded ? "成績・算入設定から0単位（見込みに含めません）" : hasOverride ? "手動入力" : entry.evidence
+            ? "シラバスから自動入力" : entry.plannedUnits !== null ? "時間割の保存値" : "単位数を確認してください";
+          reset.hidden = !hasOverride || excluded;
+          applyPlan.hidden = entry.plannedUnits === null || excluded || entry.plannedUnits === units;
+          if (!applyPlan.hidden) applyPlan.textContent = `保存した予定 ${format(entry.plannedUnits)}単位を見込みに入れる`;
+        }
+        function saveForecast(value) {
+          const key = entry.overrideKey;
+          if (value === undefined) delete stored[key];
+          else stored[key] = value;
+          const write = value === undefined ? chrome.storage.local.remove(key) : chrome.storage.local.set({ [key]: value });
+          write.catch(() => { lookupStatus.textContent = "見込み単位を保存できませんでした。"; });
+        }
+        input.addEventListener("input", () => {
+          if (input.readOnly || !input.validity.valid) return;
+          saveForecast(amount(input));
+          origin.textContent = "手動入力";
+          reset.hidden = false;
         });
-        apply.addEventListener("click", () => {
-          if (!entry.evidence) return;
-          input.value = format(entry.evidence.units);
-          input.dispatchEvent(new Event("input", { bubbles: true }));
-          input.focus();
-        });
+        reset.addEventListener("click", () => { saveForecast(undefined); updateForecast(); render(); input.focus(); });
+        applyPlan.addEventListener("click", () => { saveForecast(entry.plannedUnits); updateForecast(); render(); input.focus(); });
         function showEvidence(found) {
           entry.evidence = found;
           unitStatus.replaceChildren();
-          apply.hidden = !found;
-          if (!found) unitStatus.textContent = "シラバスの単位数は未確認";
-          if (found) {
-            unitStatus.append(link(`公式シラバス ${format(found.units)}単位`, found.source));
-            unitStatus.append("（進級に算入できる科目かは要覧で確認）");
-          }
+          if (found) unitStatus.append(link(`公式シラバス ${format(found.units)}単位`, found.source));
+          else unitStatus.textContent = "シラバスの単位数は未確認";
+          updateForecast();
         }
         function showMatch(method) {
           const selected = entry.course;
@@ -156,15 +287,14 @@
           input.setAttribute("aria-label", `${registration.title || row.name}（${entry.code || "コード未照合"}）の見込み単位`);
           entry.titles = selected ? [selected.courseName, ...(selected.aliases || [])] : [registration.title];
           const half = matching.semesterFor(snapshot.term, selected);
-          const savedEvidence = evidence.records.filter((record) =>
+          entry.overrideKey = `forecast:${snapshot.year}:${row.registrationId || row.code || row.name}:${entry.code || "unknown"}`;
+          entry.cacheKey = `syllabus-units:${snapshot.year}:${entry.code}:${half || "all"}`;
+          const cached = stored[entry.cacheKey];
+          const available = cached?.checked > Date.now() - 30 * 86400000 ? [...evidence.records, cached.record] : evidence.records;
+          const savedEvidence = available.filter((record) =>
             matching.validEvidence(record, snapshot.year, entry.code, entry.titles, half));
           showEvidence(savedEvidence.length && savedEvidence.every((record) => record.units === savedEvidence[0].units)
             ? savedEvidence[0] : null);
-          const record = stored[`${WCV_PLANNER_CREDITS.entryPrefix}planner:${snapshot.year}:${entry.code}`];
-          entry.plannedUnits = record?.status === "planned" && Number.isInteger(record.units)
-            && record.units > 0 && record.units <= 99900 ? record.units : null;
-          applyPlan.hidden = entry.plannedUnits === null;
-          if (!applyPlan.hidden) applyPlan.textContent = `保存した予定 ${format(entry.plannedUnits)}単位を見込みに入れる`;
         }
         if (!row.code && !course && match.candidates.length) {
           const chooser = element("label", "講義コードを選ぶ");
@@ -195,9 +325,10 @@
             renderStatus();
             renderPrograms();
             render();
+            if (entry.course && !entry.evidence) void autoLookup(entry);
           });
         }
-        info.append(programNotes, unitStatus, apply, applyPlan);
+        info.append(programNotes, unitStatus, origin, reset, applyPlan);
         showMatch(match.method);
         const label = element("label", "見込み単位");
         label.append(input);
@@ -205,6 +336,7 @@
         $("enrollment-courses").append(item);
         inputs.push(input);
         entry.showEvidence = showEvidence;
+        entry.updateForecast = updateForecast;
         entry.programNotes = programNotes;
         entry.fallbackName = registration.title;
         entries.push(entry);
@@ -233,8 +365,7 @@
         });
       }
 
-      async function lookupUnits(requestPermission) {
-        const lookups = pending();
+      async function lookupUnits(requestPermission, lookups = pending()) {
         if (lookupRunning || !lookups.length) return;
         lookupRunning = true;
         syncLookup();
@@ -257,6 +388,10 @@
                   matching.semesterFor(snapshot.term, entry.course));
                 if (found) {
                   entry.showEvidence(found);
+                  const cache = { record: found, checked: Date.now() };
+                  stored[entry.cacheKey] = cache;
+                  void chrome.storage.local.set({ [entry.cacheKey]: cache }).catch(() => {});
+                  render();
                   verified++;
                 }
               } catch {
@@ -269,7 +404,7 @@
           await Promise.all([check(), check(), check()]);
           lookupStatus.textContent = `単位数を確認 ${verified}件、未確認 ${total - verified}件。` +
             (failed ? ` うち通信エラー ${failed}件。再照会できます。` : "") +
-            (verified ? " 算入対象の科目は「見込み単位に入れる」を押してください。" : " 単位は手入力できます。");
+            (verified ? " 確認できた単位を自動入力しました。手動入力を優先します。" : " 単位は手入力できます。");
         } catch {
           lookupStatus.textContent = "公開シラバスに接続できませんでした。時間をおいてお試しください。";
         } finally {
@@ -281,40 +416,11 @@
       lookupButton.addEventListener("click", () => lookupUnits(true));
       syncLookup();
 
-      function render() {
-        const row = byId.get(profile.value);
-        const rule = progression.profiles[profile.value]?.find((entry) => entry.stage === Number(stage.value));
-        const values = inputs.map(amount);
-        const unentered = values.filter((value) => value === null).length;
-        const planned = values.reduce((sum, value) => sum + (value ?? 0), 0);
-        const base = amount(earned);
-        source.replaceChildren();
-        if (row) {
-          const url = rule?.url || row.sources[0].url;
-          source.append(link(rule ? `進級条件の原表（PDF p.${rule.page}）` : "学修要覧を確認", rule ? `${url}#page=${rule.page}` : url));
-        }
-        result.replaceChildren(element("strong", `入力済みの見込み ${format(planned)}単位`));
-        if (unentered) result.append(element("span", `見込み単位が未入力 ${unentered}件`));
-        if (!row || !rule) {
-          result.append(element("p", row ? "この進級先の総単位条件は要覧で確認してください。" : "入学年度と学科を選ぶと、進級条件を表示します。"));
-          return;
-        }
-        result.append(element("strong", `進級条件の総単位 ${rule.minimum}単位`));
-        if (base !== null) {
-          const minimum = rule.minimum * 100;
-          const remaining = Math.max(0, minimum - base - planned);
-          const earnedGap = Math.max(0, minimum - base);
-          result.append(element("p", `取得済み ${format(base)}単位（総単位まで残り ${format(earnedGap)}単位）`));
-          result.append(element("p", `入力済みの見込みを含む ${format(base + planned)}単位（総単位まで残り ${format(remaining)}単位）`));
-        }
-        result.append(element("p", "確認しているのは総単位数です。必修・区分別単位・在学期間などの条件と、ポータルの正誤表も確認してください。"));
-      }
-
       let programs;
       function renderPrograms() {
         for (const entry of entries) {
           const name = entry.course?.level === "大学院" ? "" : entry.course?.courseName || entry.fallbackName;
-          const rows = programs && programSettings?.cohort === profile.value
+          const rows = programs && programSettings?.cohort
             ? WCV_CURRICULUM.programMatches(...programs, programSettings, name) : [];
           entry.programNotes.replaceChildren(...rows.map((row) => {
             const note = element("p", "");
@@ -328,28 +434,41 @@
         programs = data;
         renderPrograms();
       }).catch(() => {});
-      profile.addEventListener("change", renderPrograms);
       chrome.storage.onChanged.addListener((changes, area) => {
+        if (area !== "local") return;
         const change = changes[WCV_CURRICULUM.settingsKey];
-        if (area !== "local" || !change) return;
-        programSettings = change.newValue;
-        if (byId.has(programSettings?.cohort)) profile.value = programSettings.cohort;
-        renderPrograms();
-        render();
+        if (change) {
+          programSettings = change.newValue;
+          renderPrograms();
+        }
+        const keys = Object.keys(changes).filter((key) => key.startsWith("forecast:") ||
+          key.startsWith(WCV_PLANNER_CREDITS.entryPrefix) || key.startsWith("academic-record:"));
+        for (const key of keys) {
+          if (changes[key].newValue === undefined) delete stored[key];
+          else stored[key] = changes[key].newValue;
+        }
+        if (keys.length || change) {
+          const gradesChanged = Boolean(change) || keys.some((key) => key.startsWith("academic-record:"));
+          if (gradesChanged) indexGrades();
+          for (const entry of entries) {
+            if (gradesChanged || keys.includes(entry.overrideKey)
+              || keys.includes(`${WCV_PLANNER_CREDITS.entryPrefix}planner:${snapshot.year}:${entry.code}`)) entry.updateForecast();
+          }
+          render();
+        }
       });
 
       $("enrollment-content").addEventListener("input", render);
-      render();
+      $("enrollment-content").dataset.year = String(snapshot.year);
       $("enrollment-content").hidden = false;
+      render();
 
-      async function autoLookup() {
-        if (location.hash !== "#enrollment-title") return;
-        window.removeEventListener("hashchange", autoLookup);
+      async function autoLookup(entry) {
         const allowed = await chrome.permissions.contains(matching.permission).catch(() => false);
-        if (allowed) lookupUnits(false);
+        if (allowed) await lookupUnits(false, entry ? pending().filter((candidate) => candidate === entry) : pending());
+        else if (pending().length) lookupStatus.textContent = "初回は「公式シラバスで単位を照合」で読取を許可してください。次回から自動で照合します。";
       }
-      window.addEventListener("hashchange", autoLookup);
-      autoLookup();
+      void autoLookup();
     } catch {
       status.textContent = "時間割または進級条件を読み込めませんでした。WebClassのコース一覧から開き直してください。";
     }

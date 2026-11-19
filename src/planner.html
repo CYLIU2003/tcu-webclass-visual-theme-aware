@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="planner.css">
 </head>
 <body>
-  <a class="wcv-skip-link" href="#plan-title">本文へ移動</a>
+  <a class="wcv-skip-link" href="#study-title">本文へ移動</a>
   <main>
     <header>
       <p class="edition">2026年度 · WebClass Visual</p>
@@ -17,15 +17,211 @@
     <p id="loading" role="status">時間割を読み込んでいます。</p>
     <div class="workspace" id="workspace" hidden>
       <nav class="planner-nav" aria-label="プランナー内の移動">
-        <a href="#plan-title">時間割</a>
+        <a href="#study-title">所属の設定</a>
         <a href="#credits-title">単位の確認</a>
-        <a href="#requirements-title">卒業要件</a>
-        <a href="#programs-title">履修プログラム</a>
-        <a href="#graduate-title">大学院の修了要件</a>
+        <a href="#academic-records-title">過去の成績</a>
         <a href="#enrollment-title">履修・進級チェック</a>
+        <a href="#requirements-title">卒業・修了要件</a>
+        <a href="#plan-title">時間割</a>
         <a href="#planner-tasks-title">課題メモ</a>
         <a href="#query">授業を探す</a>
       </nav>
+      <section class="requirements" aria-labelledby="study-title">
+        <h2 id="study-title" tabindex="-1">所属の設定</h2>
+        <fieldset class="study-choice">
+          <legend>学部・大学院を選択</legend>
+          <label><input type="radio" name="study-level" value="undergraduate" aria-controls="undergraduate-setup">学部</label>
+          <label><input type="radio" name="study-level" value="graduate" aria-controls="graduate-setup">大学院</label>
+        </fieldset>
+        <p id="study-status" role="status"></p>
+      </section>
+      <section id="undergraduate-setup" hidden class="requirements" aria-labelledby="programs-title">
+        <h2 id="programs-title" tabindex="-1">学部の履修プログラム</h2>
+        <p class="help">入学年度と学科を選びます。複数の卒業コースがある学科では、適用するコースも選んでください。</p>
+        <form id="program-profile-form" hidden>
+          <div id="program-profile-controls">
+            <fieldset><legend>所属</legend><div class="credit-inputs">
+              <label>入学年度<select id="program-year" required></select></label>
+              <label>学科<select name="cohort" required disabled></select></label>
+            </div><div id="program-course-choice" class="credit-inputs" hidden></div></fieldset>
+            <fieldset><legend>プログラムの参加状況</legend><div class="credit-inputs">
+              <label>ひらめき<select name="hirameki"></select></label>
+              <label>教職課程<select name="teaching"></select></label>
+              <label>TAP<select name="tap"></select></label>
+            </div></fieldset>
+          </div>
+          <button type="submit">単位の確認へ進む</button>
+        </form>
+        <p id="program-profile-status" role="status">学修要覧を読み込んでいます。</p>
+        <ul id="program-resources"></ul>
+      </section>
+      <section id="graduate-setup" hidden class="graduate" aria-labelledby="graduate-title">
+        <h2 id="graduate-title" tabindex="-1">大学院の修了要件</h2>
+        <p class="help">入学した年度の履修要綱から、専攻・課程ごとの修了条件を確認できます。</p>
+        <div class="credit-inputs" id="graduate-controls" hidden>
+          <label>入学年度<select id="graduate-year"></select></label>
+          <label>研究科<select id="graduate-school"></select></label>
+          <label>専攻<select id="graduate-major"></select></label>
+        </div>
+        <p id="graduate-status" role="status">大学院の履修要綱を読み込んでいます。</p>
+        <div id="graduate-minimum" hidden>
+          <div class="credit-inputs">
+            <label>課程<select id="graduate-program"></select></label>
+            <label>取得済みの算入単位<input id="graduate-earned" type="number" min="0" max="999" step="0.01" inputmode="decimal"></label>
+            <label>見込みの算入単位<input id="graduate-planned" type="number" min="0" max="999" step="0.01" inputmode="decimal"></label>
+          </div>
+          <div id="graduate-result" class="credit-summary" role="status"></div>
+        </div>
+        <a class="academic-next-link" href="#credits-title">単位の確認へ進む</a>
+        <details><summary>大学院の履修要綱と出典</summary>
+          <ul id="graduate-sources" aria-label="大学院の履修要綱と出典"></ul>
+        </details>
+      </section>
+      <section class="credits" aria-labelledby="credits-title">
+        <h2 id="credits-title" tabindex="-1">単位の確認</h2>
+        <div class="academic-card" id="credit-affiliation">
+          <h3>入学年度・所属とプログラム</h3>
+          <p class="study-unset">学部・大学院を選ぶと、ここに所属と適用条件が表示されます。</p>
+          <p class="undergraduate-only" id="credit-undergraduate-profile"></p>
+          <div class="graduate-only">
+            <p id="credit-graduate-profile"></p>
+            <strong id="credit-graduate-verified"></strong>
+            <details><summary>修了に必要な単位と手入力の試算</summary>
+              <div id="credit-graduate-result" class="credit-summary"></div>
+            </details>
+          </div>
+          <a href="#study-title">所属の設定へ</a>
+        </div>
+        <div class="academic-card academic-sync-card" role="region" aria-labelledby="webclass-history-heading">
+          <h3 id="webclass-history-heading">WebClassの参加コースを同期</h3>
+          <p>ログイン済みのコース一覧から<span id="webclass-history-range">2022年度〜2026年度</span>の参加コースを読み取ります。新しい科目には同期後に成績を入力できます。入力済みの成績・単位は保持されます。</p>
+          <div class="academic-sync-controls">
+            <button type="button" id="webclass-history-sync">全年度を同期</button>
+            <label for="webclass-history-auto">
+              <input type="checkbox" id="webclass-history-auto">
+              プランナーを開いたときに同期
+            </label>
+            <a href="#academic-records-title">履修台帳で成績を入力</a>
+          </div>
+          <p id="webclass-history-status" role="status"></p>
+          <p id="webclass-history-source" hidden><a href="#plan-title">時間割で同期元を選ぶ</a></p>
+        </div>
+        <div id="academic-ledger"></div>
+        <details id="legacy-credit-tools" class="academic-card">
+        <summary>従来の単位メモとバックアップ</summary>
+        <p class="help">履修台帳とは別に保存する単位メモと、別のブラウザーへ引き継ぐためのバックアップです。</p>
+        <label for="credit-profile">入学年度・課程の目安</label>
+        <select id="credit-profile">
+          <option value="manual">合計のみ</option>
+          <option value="it-general">2026年度入学・情報工学部 一般コース</option>
+          <option value="it-international">2026年度入学・情報工学部 国際コース</option>
+        </select>
+        <p class="help" id="credit-note" hidden>区分別の単位数の目安です。必修・選択必修、算入上限、修業年限は学修要覧で確認してください。<a href="https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/523786516152752ab91293dd787cc0cc.pdf#page=57" target="_blank" rel="noopener noreferrer">2026年度 学修要覧の根拠ページ</a></p>
+        <div class="credit-summary" id="credit-summary" role="status"></div>
+        <div class="table-scroll credit-progress" id="credit-progress" role="region" tabindex="0" aria-label="区分別の単位の目安" hidden>
+          <table>
+            <thead><tr><th scope="col">区分</th><th scope="col">必要</th><th scope="col">取得済み</th><th scope="col" aria-label="見込みを含む合計">見込み計</th><th scope="col" aria-label="見込みを含めた残り">残り</th></tr></thead>
+            <tbody id="credit-progress-rows"></tbody>
+          </table>
+        </div>
+        <p class="help" id="credit-free-note" hidden>「残り」は見込みを含めた差です。自由選択には区分の超過分と加算対象の特別履修を集計します。</p>
+        <form id="prior-credit-form">
+          <h4>成績表から取得済み単位を入力</h4>
+          <p class="help">下の授業別記録に入力した単位は、ここから除いてください。要覧の目安と比べる場合は、卒業要件に算入できる単位を入力してください。</p>
+          <div id="prior-credit-inputs" class="credit-inputs"></div>
+          <button type="submit">取得済み単位を保存</button>
+        </form>
+        <h4>履修案の授業別記録</h4>
+        <ul id="credit-courses"></ul>
+        <p id="credit-status" role="status"></p>
+        <details class="credit-backup">
+          <summary>別のブラウザーに引き継ぐ</summary>
+          <p class="help">時間割・単位・卒業要件メモ・課題メモを保存できます。読み込むと、同じ項目をファイルの内容で更新します。</p>
+          <button id="backup-download" type="button">バックアップを書き出す</button>
+          <form id="backup-restore">
+            <label for="backup-file">バックアップファイル</label>
+            <input id="backup-file" type="file" accept=".json,application/json" required>
+            <button type="submit">読み込む</button>
+          </form>
+          <p id="backup-status" role="status"></p>
+        </details>
+        </details>
+      </section>
+      <section class="enrollment" aria-labelledby="enrollment-title">
+        <h2 id="enrollment-title" tabindex="-1">履修・進級チェック</h2>
+        <p id="enrollment-status" class="help" role="status">WebClassのコース一覧で「履修・進級チェック」を押すと、表示中の時間割をここで確認できます。</p>
+        <div id="enrollment-content" hidden>
+          <p class="help" id="enrollment-all-tip" hidden>学期を変更したときは、WebClassのコース一覧から開き直してください。全学期を確認する場合は「All」を選びます。</p>
+          <p class="help">正式な履修登録・成績は <a href="https://websrv.tcu.ac.jp/tcu_web_v3" target="_blank" rel="noopener noreferrer">大学ポータル</a> で確認できます。</p>
+          <p><a href="#programs-title">ひらめき・教職・TAPの参加状況を設定</a></p>
+          <p class="undergraduate-only"><a href="#enrollment-progression">進級の総単位条件へ</a></p>
+          <h3>WebClassから読み込んだ参加コース</h3>
+          <p class="help">未確認の単位は大学の公開シラバスで照合できます。照会には講義コード・開講年度・学期を送ります。</p>
+          <button id="enrollment-lookup" type="button">公式シラバスで単位を照合</button>
+          <p id="enrollment-lookup-status" role="status"></p>
+          <p class="help">シラバスで確認できた単位数を初期入力します。見込みは科目ごとに変更でき、「標準値に戻す」で元に戻せます。取得済み・不可・算入対象外と確認した科目は見込みから除きます。</p>
+          <ul id="enrollment-courses"></ul>
+          <div id="enrollment-forecast" class="credit-summary" role="status"></div>
+        </div>
+        <p class="study-unset"><a href="#study-title">所属を選んで単位条件を確認</a></p>
+        <p class="graduate-only"><a href="#requirements-title">選択中の大学院の修了条件を確認</a></p>
+        <div class="undergraduate-only">
+          <h3 id="enrollment-progression" tabindex="-1">進級の総単位条件</h3>
+          <p id="enrollment-affiliation"></p>
+          <a href="#study-title">所属の設定へ</a>
+          <div class="credit-inputs">
+            <label>進級先<select id="enrollment-stage"><option value="3">3年次</option><option value="4">4年次</option></select></label>
+            <label>取得済みの進級算入単位<input id="enrollment-earned" type="number" min="0" max="999" step="0.01" inputmode="decimal"></label>
+          </div>
+          <p class="help">取得済み単位には、履修台帳で対象年度末までの進級算入を確認した合計を表示します。試算用に変更できます。</p>
+          <button id="enrollment-earned-reset" type="button" hidden>取得済み単位を台帳の合計に戻す</button>
+          <p id="enrollment-source"></p>
+          <div id="enrollment-result" class="credit-summary" role="status"></div>
+        </div>
+      </section>
+      <section class="requirements" aria-labelledby="requirements-title">
+        <h2 id="requirements-title" tabindex="-1">卒業・修了要件を確認</h2>
+        <div id="final-requirements" aria-live="polite">
+          <p class="study-unset">所属の設定で学部・大学院を選んでください。</p>
+          <div id="final-undergraduate" class="undergraduate-only"></div>
+          <div id="final-graduate" class="graduate-only"></div>
+          <div id="final-graduate-estimate" class="graduate-only"></div>
+        </div>
+        <div><a href="#academic-records-title">過去の成績を編集</a> ／ <a href="#study-title">所属の設定へ</a></div>
+        <details class="undergraduate-only" id="guide-reference"><summary>年度別の学修要覧と手動の要件メモ</summary>
+        <p class="help">入学年度と所属を選ぶと、教学課の学修要覧が見つかります。</p>
+        <div class="credit-inputs" id="guide-controls" hidden>
+          <label>入学年度<select id="guide-year"></select></label>
+          <label>学部<select id="guide-faculty"></select></label>
+          <label>学科<select id="guide-department"></select></label>
+        </div>
+        <p id="guide-status" role="status">学修要覧の索引を読み込んでいます。</p>
+        <div id="guide-detail" hidden>
+          <ul id="guide-sources"></ul>
+          <p class="help">改訂内容は <a href="https://websrv.tcu.ac.jp/tcu_web_v3" target="_blank" rel="noopener noreferrer">大学ポータル</a> の文書ライブラリにある正誤表で確認してください。</p>
+          <h3>自分の要件メモ</h3>
+          <p class="help">「要覧の単位条件を追加」を押し、取得済み単位と見込み単位を入力すると、必要単位との差が分かります。</p>
+          <div id="guide-template" hidden>
+            <p class="help" id="guide-template-note"></p>
+            <div class="credit-inputs guide-rule-fields">
+              <label>要覧のコース<select id="guide-course"></select></label>
+              <button class="guide-primary" type="button" id="guide-template-add" disabled>要覧の単位条件を追加</button>
+            </div>
+          </div>
+          <ul id="guide-rules"></ul>
+          <details id="guide-rule-add">
+            <summary>条件を追加</summary>
+            <form id="guide-rule-form" class="credit-inputs guide-rule-fields">
+              <label>条件名<input name="title" maxlength="100" required placeholder="例：専門科目の必修"></label>
+              <label>条件の種類<select name="kind"><option value="minimum">必要単位</option><option value="maximum">算入上限</option></select></label>
+              <label>基準の単位数<input name="target" type="number" min="0" max="999" step="0.01" required></label>
+              <button type="submit">追加</button>
+            </form>
+          </details>
+          <p id="guide-rule-status" role="status"></p>
+        </div>
+        </details>
+      </section>
       <section class="board" aria-labelledby="plan-title">
         <div class="section-head">
           <h2 id="plan-title" tabindex="-1">時間割と参加コース</h2>
@@ -83,156 +279,6 @@
         <p id="edit-status" role="status"></p>
         <ul id="results" tabindex="0" aria-label="授業の検索結果"></ul>
         <button type="button" id="more" hidden>さらに表示</button>
-      </section>
-      <section class="credits" aria-labelledby="credits-title">
-        <h2 id="credits-title" tabindex="-1">単位の確認</h2>
-        <div class="academic-card academic-sync-card" role="region" aria-labelledby="webclass-history-heading">
-          <h3 id="webclass-history-heading">WebClassの参加コースを同期</h3>
-          <p>ログイン済みのコース一覧から<span id="webclass-history-range">2022年度〜2026年度</span>の参加コースを読み取ります。新しい科目には同期後に成績を入力できます。入力済みの成績・単位は保持されます。</p>
-          <div class="academic-sync-controls">
-            <button type="button" id="webclass-history-sync">全年度を同期</button>
-            <label for="webclass-history-auto">
-              <input type="checkbox" id="webclass-history-auto">
-              プランナーを開いたときに同期
-            </label>
-            <a href="#academic-records-title">履修台帳で成績を入力</a>
-          </div>
-          <p id="webclass-history-status" role="status"></p>
-          <p id="webclass-history-source" hidden><a href="#plan-title">時間割で同期元を選ぶ</a></p>
-        </div>
-        <div id="academic-ledger"></div>
-        <div id="legacy-credit-tools" class="academic-card" role="region" aria-labelledby="legacy-credit-title">
-        <h3 id="legacy-credit-title">従来の単位メモとバックアップ</h3>
-        <p class="help">履修台帳とは別に保存する単位メモと、別のブラウザーへ引き継ぐためのバックアップです。</p>
-        <label for="credit-profile">入学年度・課程の目安</label>
-        <select id="credit-profile">
-          <option value="manual">合計のみ</option>
-          <option value="it-general">2026年度入学・情報工学部 一般コース</option>
-          <option value="it-international">2026年度入学・情報工学部 国際コース</option>
-        </select>
-        <p class="help" id="credit-note" hidden>区分別の単位数の目安です。必修・選択必修、算入上限、修業年限は学修要覧で確認してください。<a href="https://www.asc.tcu.ac.jp/wp-content/uploads/2026/04/523786516152752ab91293dd787cc0cc.pdf#page=57" target="_blank" rel="noopener noreferrer">2026年度 学修要覧の根拠ページ</a></p>
-        <div class="credit-summary" id="credit-summary" role="status"></div>
-        <div class="table-scroll credit-progress" id="credit-progress" role="region" tabindex="0" aria-label="区分別の単位の目安" hidden>
-          <table>
-            <thead><tr><th scope="col">区分</th><th scope="col">必要</th><th scope="col">取得済み</th><th scope="col" aria-label="見込みを含む合計">見込み計</th><th scope="col" aria-label="見込みを含めた残り">残り</th></tr></thead>
-            <tbody id="credit-progress-rows"></tbody>
-          </table>
-        </div>
-        <p class="help" id="credit-free-note" hidden>「残り」は見込みを含めた差です。自由選択には区分の超過分と加算対象の特別履修を集計します。</p>
-        <form id="prior-credit-form">
-          <h4>成績表から取得済み単位を入力</h4>
-          <p class="help">下の授業別記録に入力した単位は、ここから除いてください。要覧の目安と比べる場合は、卒業要件に算入できる単位を入力してください。</p>
-          <div id="prior-credit-inputs" class="credit-inputs"></div>
-          <button type="submit">取得済み単位を保存</button>
-        </form>
-        <h4>履修案の授業別記録</h4>
-        <ul id="credit-courses"></ul>
-        <p id="credit-status" role="status"></p>
-        <details class="credit-backup">
-          <summary>別のブラウザーに引き継ぐ</summary>
-          <p class="help">時間割・単位・卒業要件メモ・課題メモを保存できます。読み込むと、同じ項目をファイルの内容で更新します。</p>
-          <button id="backup-download" type="button">バックアップを書き出す</button>
-          <form id="backup-restore">
-            <label for="backup-file">バックアップファイル</label>
-            <input id="backup-file" type="file" accept=".json,application/json" required>
-            <button type="submit">読み込む</button>
-          </form>
-          <p id="backup-status" role="status"></p>
-        </details>
-        </div>
-      </section>
-      <section class="requirements" aria-labelledby="requirements-title">
-        <h2 id="requirements-title" tabindex="-1">卒業要件を確認</h2>
-        <p class="help">入学年度と所属を選ぶと、教学課の学修要覧が見つかります。</p>
-        <div class="credit-inputs" id="guide-controls" hidden>
-          <label>入学年度<select id="guide-year"></select></label>
-          <label>学部<select id="guide-faculty"></select></label>
-          <label>学科<select id="guide-department"></select></label>
-        </div>
-        <p id="guide-status" role="status">学修要覧の索引を読み込んでいます。</p>
-        <div id="guide-detail" hidden>
-          <ul id="guide-sources"></ul>
-          <p class="help">改訂内容は <a href="https://websrv.tcu.ac.jp/tcu_web_v3" target="_blank" rel="noopener noreferrer">大学ポータル</a> の文書ライブラリにある正誤表で確認してください。</p>
-          <h3>自分の要件メモ</h3>
-          <p class="help">「要覧の単位条件を追加」を押し、取得済み単位と見込み単位を入力すると、必要単位との差が分かります。</p>
-          <div id="guide-template" hidden>
-            <p class="help" id="guide-template-note"></p>
-            <div class="credit-inputs guide-rule-fields">
-              <label>要覧のコース<select id="guide-course"></select></label>
-              <button class="guide-primary" type="button" id="guide-template-add" disabled>要覧の単位条件を追加</button>
-            </div>
-          </div>
-          <ul id="guide-rules"></ul>
-          <details id="guide-rule-add">
-            <summary>条件を追加</summary>
-            <form id="guide-rule-form" class="credit-inputs guide-rule-fields">
-              <label>条件名<input name="title" maxlength="100" required placeholder="例：専門科目の必修"></label>
-              <label>条件の種類<select name="kind"><option value="minimum">必要単位</option><option value="maximum">算入上限</option></select></label>
-              <label>基準の単位数<input name="target" type="number" min="0" max="999" step="0.01" required></label>
-              <button type="submit">追加</button>
-            </form>
-          </details>
-          <p id="guide-rule-status" role="status"></p>
-        </div>
-      </section>
-      <section class="requirements" aria-labelledby="programs-title">
-        <h2 id="programs-title" tabindex="-1">学部の履修プログラム</h2>
-        <p class="help">入学年度・学科と、参加・履修の状況を選ぶと、該当する公式資料と科目の確認事項を表示します。</p>
-        <form id="program-profile-form" hidden>
-          <div class="credit-inputs" id="program-profile-controls">
-            <label>入学年度と学科<select name="cohort" required></select></label>
-            <label>ひらめき<select name="hirameki"></select></label>
-            <label>教職課程<select name="teaching"></select></label>
-            <label>TAP<select name="tap"></select></label>
-          </div>
-          <button type="submit">参加状況を保存</button>
-        </form>
-        <p id="program-profile-status" role="status">学修要覧を読み込んでいます。</p>
-        <ul id="program-resources"></ul>
-      </section>
-      <section class="graduate" aria-labelledby="graduate-title">
-        <h2 id="graduate-title" tabindex="-1">大学院の修了要件</h2>
-        <p class="help">入学した年度の履修要綱から、専攻・課程ごとの修了条件を確認できます。</p>
-        <div class="credit-inputs" id="graduate-controls" hidden>
-          <label>入学年度<select id="graduate-year"></select></label>
-          <label>研究科<select id="graduate-school"></select></label>
-          <label>専攻<select id="graduate-major"></select></label>
-        </div>
-        <p id="graduate-status" role="status">大学院の履修要綱を読み込んでいます。</p>
-        <div id="graduate-minimum" hidden>
-          <div class="credit-inputs">
-            <label>課程<select id="graduate-program"></select></label>
-            <label>取得済みの算入単位<input id="graduate-earned" type="number" min="0" max="999" step="0.01" inputmode="decimal"></label>
-            <label>見込みの算入単位<input id="graduate-planned" type="number" min="0" max="999" step="0.01" inputmode="decimal"></label>
-          </div>
-          <div id="graduate-result" class="credit-summary" role="status"></div>
-        </div>
-        <ul id="graduate-sources" aria-label="大学院の履修要綱と出典"></ul>
-      </section>
-      <section class="enrollment" aria-labelledby="enrollment-title">
-        <h2 id="enrollment-title" tabindex="-1">履修・進級チェック</h2>
-        <p id="enrollment-status" class="help" role="status">WebClassのコース一覧で「履修・進級チェック」を押すと、表示中の時間割をここで確認できます。</p>
-        <div id="enrollment-content" hidden>
-          <p class="help" id="enrollment-all-tip" hidden>学期を変更したときは、WebClassのコース一覧から開き直してください。全学期を確認する場合は「All」を選びます。</p>
-          <p class="help">正式な履修登録・成績は <a href="https://websrv.tcu.ac.jp/tcu_web_v3" target="_blank" rel="noopener noreferrer">大学ポータル</a> で確認できます。</p>
-          <p><a href="#programs-title">ひらめき・教職・TAPの参加状況を設定</a></p>
-          <p><a href="#enrollment-progression">学部の進級条件へ</a> ／ <a href="#graduate-title">大学院の修了要件へ</a></p>
-          <h3>WebClassから読み込んだ参加コース</h3>
-          <p class="help">未確認の単位は大学の公開シラバスで照合できます。照会には講義コード・開講年度・学期を送ります。</p>
-          <button id="enrollment-lookup" type="button">公式シラバスで単位を照合</button>
-          <p id="enrollment-lookup-status" role="status"></p>
-          <p class="help">進級までに新たに取得する見込み単位を入力します。進級に算入しない科目、取得済みの科目、進級後に取得予定の科目は「0」を入力します。空欄の科目は「未確認」として扱います。</p>
-          <ul id="enrollment-courses"></ul>
-          <h3 id="enrollment-progression" tabindex="-1">進級の総単位条件</h3>
-          <div class="credit-inputs">
-            <label>入学年度と学科<select id="enrollment-profile"></select></label>
-            <label>進級先<select id="enrollment-stage"><option value="3">3年次</option><option value="4">4年次</option></select></label>
-            <label>取得済みの進級算入単位<input id="enrollment-earned" type="number" min="0" max="999" step="0.01" inputmode="decimal"></label>
-          </div>
-          <p class="help">進級時点までに取得済みで、要覧の条件に算入できる単位を入力してください。</p>
-          <p id="enrollment-source"></p>
-          <div id="enrollment-result" class="credit-summary" role="status"></div>
-        </div>
       </section>
       <section class="planner-tasks" aria-labelledby="planner-tasks-title">
         <h2 id="planner-tasks-title" tabindex="-1">課題メモ</h2>

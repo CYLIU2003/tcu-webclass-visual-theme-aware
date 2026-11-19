@@ -279,7 +279,7 @@
         updateDepartments(saved?.department);
         showProfile();
       }
-      restoreProfile(stored[profileKey]);
+      restoreProfile(stored[profileKey] || stored[WCV_CURRICULUM.settingsKey]?.cohort || stored["academic-profile"]?.cohort);
       year.addEventListener("change", () => { updateFaculties(); updateDepartments(); showProfile(); });
       faculty.addEventListener("change", () => { updateDepartments(); showProfile(); });
       department.addEventListener("change", () => {
