@@ -11,6 +11,45 @@ real_html = real_html.replace(
     '<h4 class="cm-contentsList_contentName">',
     '<h4 class="cm-contentsList_contentName"><img width="10" height="10" alt="">',
 )
+# Course pages can retain Bootstrap's white navbar, including when native layout
+# enhancements are disabled. Exercise that structure rather than a pre-styled bar.
+real_html = real_html.replace('<body class="wcv-restyle">', '''<body class="wcv-restyle">
+<header><nav class="navbar navbar-default" style="background-color:white;color:white">
+  <div class="navbar-brand"><a class="course-webclass" href="#home">WebClass</a>
+    <a class="course-name" href="#course">教科名</a></div>
+  <p class="navbar-text">受講中</p>
+  <button class="navbar-toggle"><span class="icon-bar"></span>メニュー</button>
+  <ul class="navbar-nav"><li class="active"><a href="#materials">教材</a></li>
+    <li class="open"><a href="#grades">成績</a>
+      <ul class="dropdown-menu"><li><a href="#results">結果</a></li></ul></li></ul>
+</nav></header>''')
+
+
+def assert_navbar_contrast(page):
+    """Check effective contrast, including translucent active/hover backgrounds."""
+    ratios = page.locator('header .navbar a, header .navbar-text, header .navbar-toggle').evaluate_all("""nodes => {
+      const rgb = value => value.match(/[\\d.]+/g).map(Number);
+      const luminance = color => color.slice(0, 3).map(value => {
+        value /= 255;
+        return value <= .04045 ? value / 12.92 : ((value + .055) / 1.055) ** 2.4;
+      }).reduce((sum, value, i) => sum + value * [.2126, .7152, .0722][i], 0);
+      return nodes.map(node => {
+        const layers = [];
+        for (let current = node; current; current = current.parentElement)
+          layers.unshift(rgb(getComputedStyle(current).backgroundColor));
+        let background = [255, 255, 255];
+        for (const layer of layers) {
+          const alpha = layer[3] ?? 1;
+          background = background.map((value, i) => layer[i] * alpha + value * (1 - alpha));
+        }
+        const fg = luminance(rgb(getComputedStyle(node).color));
+        const bg = luminance(background);
+        return (Math.max(fg, bg) + .05) / (Math.min(fg, bg) + .05);
+      });
+    }""")
+    assert ratios and min(ratios) >= 4.5, ratios
+
+
 css = (ROOT / "src/content.css").read_text(encoding="utf-8")
 content_script = (ROOT / "src/content.js").read_text(encoding="utf-8")
 mock_storage = """() => {
@@ -60,6 +99,7 @@ with sync_playwright() as playwright:
         # Real WebClass uses cm- prefixes and native table cells for controls.
         page = browser.new_page(viewport={"width": width, "height": 900})
         page.set_content(real_html)
+        assert_navbar_contrast(page)
         assert page.evaluate("document.documentElement.scrollWidth <= document.documentElement.clientWidth"), width
         assert page.locator(".cm-contentsList_content").evaluate("e => getComputedStyle(e).display") == "table"
         assert page.locator(".cm-contentsList_contentBodyContainer").evaluate("e => getComputedStyle(e).flexWrap") == "wrap"
@@ -78,6 +118,18 @@ with sync_playwright() as playwright:
         page.evaluate(mock_storage)
         page.add_script_tag(content=content_script)
         page.wait_for_selector("html[data-wcv-ready=true]", state="attached")
+        for layout in (False, True):
+            page.evaluate("value => chrome.storage.local.set({modernizeNativeLayout:value})", layout)
+            assert_navbar_contrast(page)
+            # Other course tabs do not contain the materials list.
+            page.locator('.cm-contentsList').evaluate("e => e.classList.replace('cm-contentsList', 'other-course-tab')")
+            assert_navbar_contrast(page)
+            page.locator('.other-course-tab').evaluate("e => e.classList.replace('other-course-tab', 'cm-contentsList')")
+        nav_link = page.locator('header .navbar-nav > li > a').first
+        nav_link.hover()
+        assert_navbar_contrast(page)
+        nav_link.focus()
+        assert_navbar_contrast(page)
         assert page.locator("html.wcv-look-modern").count() == 0
         row = page.locator(".cm-contentsList_listGroupItem")
         standard_row_height = row.bounding_box()["height"]
@@ -85,6 +137,7 @@ with sync_playwright() as playwright:
         option.focus()
         page.evaluate("chrome.storage.local.set({appearance:'modern'})")
         assert page.locator("html.wcv-look-modern").count() == 1
+        assert_navbar_contrast(page)
         assert option.evaluate("e => e === document.activeElement")
         assert page.get_by_label("教材を選択").is_checked()
         assert page.evaluate("document.documentElement.scrollWidth <= document.documentElement.clientWidth"), width

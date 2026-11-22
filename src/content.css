@@ -947,12 +947,17 @@ html.wcv-enabled body.wcv-restyle {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Keep navigation colors together on every course tab, independently of layout enhancements. */
+html.wcv-enabled body.wcv-restyle header .navbar {
+  background: #172533 !important;
+  color: #f5f8fc !important;
+}
+
 html.wcv-enabled body.wcv-restyle header .wcv-native-navbar {
   min-height: 0 !important;
   margin: 0 !important;
   border: 0 !important;
   border-radius: 0 !important;
-  background: #172533 !important;
   box-shadow: 0 4px 18px rgba(15, 23, 42, 0.16) !important;
 }
 
@@ -972,11 +977,16 @@ html.wcv-enabled body.wcv-restyle header .wcv-native-navbar > .container + .cont
   border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-html.wcv-enabled body.wcv-restyle header .wcv-native-navbar :is(.navbar-brand, .navbar-brand a, .navbar-nav > li > a, .navbar-text, .navbar-toggle) {
+html.wcv-enabled body.wcv-restyle header .navbar :is(.navbar-brand, .navbar-brand a, .navbar-nav > li > a, .navbar-text, .navbar-text a, .navbar-toggle) {
   color: #f5f8fc !important;
 }
 
-html.wcv-enabled body.wcv-restyle header .wcv-native-navbar .navbar-toggle .icon-bar {
+html.wcv-enabled body.wcv-restyle header .navbar .navbar-toggle {
+  background: transparent !important;
+  border-color: #f5f8fc !important;
+}
+
+html.wcv-enabled body.wcv-restyle header .navbar .navbar-toggle .icon-bar {
   background-color: #f5f8fc !important;
 }
 
@@ -1009,6 +1019,11 @@ html.wcv-enabled body.wcv-restyle header .wcv-native-navbar .navbar-brand .cours
   line-height: 1;
 }
 
+html.wcv-enabled body.wcv-restyle header .navbar .navbar-nav > li > a {
+  background: transparent !important;
+  opacity: 1;
+}
+
 html.wcv-enabled body.wcv-restyle header .wcv-native-navbar .navbar-nav > li > a {
   padding: 10px 13px !important;
   border-radius: 7px;
@@ -1018,9 +1033,9 @@ html.wcv-enabled body.wcv-restyle header .wcv-native-navbar .navbar-nav > li > a
   opacity: 1;
 }
 
-html.wcv-enabled body.wcv-restyle header .wcv-native-navbar .navbar-nav > li.active > a,
-html.wcv-enabled body.wcv-restyle header .wcv-native-navbar .navbar-nav > li > a:hover,
-html.wcv-enabled body.wcv-restyle header .wcv-native-navbar .navbar-nav > li > a:focus {
+html.wcv-enabled body.wcv-restyle header .navbar .navbar-nav > :is(li.active, li.open) > a,
+html.wcv-enabled body.wcv-restyle header .navbar .navbar-nav > li > a:hover,
+html.wcv-enabled body.wcv-restyle header .navbar .navbar-nav > li > a:focus {
   background: rgba(255, 255, 255, 0.14) !important;
   color: #fff !important;
   opacity: 1;
@@ -1030,6 +1045,22 @@ html.wcv-enabled body.wcv-restyle header .wcv-native-navbar .dropdown-menu {
   border: 1px solid #ddd4e1;
   border-radius: 10px;
   box-shadow: 0 14px 34px rgba(30, 23, 38, 0.18);
+}
+
+html.wcv-enabled body.wcv-restyle header .navbar .dropdown-menu {
+  background: #fff !important;
+  color: #18212f !important;
+}
+
+html.wcv-enabled body.wcv-restyle header .navbar .dropdown-menu > li > a {
+  background: transparent !important;
+  color: #18212f !important;
+}
+
+html.wcv-enabled body.wcv-restyle header .navbar .dropdown-menu > li > a:is(:hover, :focus),
+html.wcv-enabled body.wcv-restyle header .navbar .dropdown-menu > li.active > a {
+  background: #e8eef5 !important;
+  color: #18212f !important;
 }
 
 html.wcv-enabled body.wcv-restyle main.wcv-native-main {
@@ -1926,7 +1957,7 @@ html.wcv-enabled body.wcv-restyle .wcv-native-sidebar .wcv-sidebar-card small {
 }
 
 /* 上部ナビ：WebClassへ戻るリンクとコース名を整理 */
-html.wcv-enabled body.wcv-restyle:has(.cm-contentsList) .navbar-brand {
+html.wcv-enabled body.wcv-restyle:has(.cm-contentsList) header .navbar .navbar-brand {
   display: flex !important;
   flex-direction: column;
   gap: 2px;
@@ -1934,13 +1965,13 @@ html.wcv-enabled body.wcv-restyle:has(.cm-contentsList) .navbar-brand {
   padding: 10px 15px 6px !important;
 }
 
-html.wcv-enabled body.wcv-restyle:has(.cm-contentsList) .navbar-brand .course-webclass {
+html.wcv-enabled body.wcv-restyle:has(.cm-contentsList) header .navbar .navbar-brand .course-webclass {
   color: #dce8f3 !important;
   font-size: 14px !important;
   text-decoration: none !important;
 }
 
-html.wcv-enabled body.wcv-restyle:has(.cm-contentsList) .navbar-brand .course-name {
+html.wcv-enabled body.wcv-restyle:has(.cm-contentsList) header .navbar .navbar-brand .course-name {
   color: #fff !important;
   font-size: 16px !important;
   font-weight: 700;
@@ -1948,7 +1979,7 @@ html.wcv-enabled body.wcv-restyle:has(.cm-contentsList) .navbar-brand .course-na
   text-decoration: none !important;
 }
 
-html.wcv-enabled body.wcv-restyle:has(.cm-contentsList) .navbar-brand a:hover { text-decoration: underline !important; }
+html.wcv-enabled body.wcv-restyle:has(.cm-contentsList) header .navbar .navbar-brand a:hover { text-decoration: underline !important; }
 
 /* 教材・お知らせ一覧：下線を外し、階層をはっきり */
 html.wcv-enabled body.wcv-restyle .cm-contentsList a {
