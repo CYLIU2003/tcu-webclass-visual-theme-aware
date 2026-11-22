@@ -187,9 +187,6 @@
       course.id = "academic-course";
       $("program-course-choice").append(field("卒業要件のコース", course));
       for (const [stage, control] of cutoffs) controls.append(field(`${stage}年次進級の集計対象（年度末）`, control));
-      const profile = el("div");
-      profile.className = "academic-card undergraduate-only";
-      profile.append(el("h3", "進級の集計年度"), controls);
 
       const summary = el("div");
       summary.className = "academic-summary undergraduate-only";
@@ -211,7 +208,11 @@
       const reviewLink = el("a", "卒業・修了要件を確認する");
       reviewLink.href = "#requirements-title";
       reviewLink.className = "academic-next-link";
-      listCard.append(recordsTitle, filters, results, more, reviewLink);
+      const filterOptions = el("details");
+      const filterLabel = el("summary", "年度・成績で絞り込む");
+      filterOptions.append(filterLabel, filters);
+      listCard.append(recordsTitle,
+        el("p", "科目を開き、成績・単位・算入先を保存してください。"), filterOptions, results, more, reviewLink);
 
       const imports = el("details");
       imports.className = "academic-card";
@@ -242,9 +243,13 @@
       Object.assign(newName, { maxLength: 160, required: true });
       customForm.append(field("開講年度", newYear), field("講義コード（任意）", newCode), field("授業名", newName), button("科目を追加", "submit"));
       custom.append(customForm);
-      root.append(profile, source("大学ポータルの成績照会", "https://websrv.tcu.ac.jp/tcu_web_v3"),
-        el("p", "各科目の成績欄の初期値は「秀」です。成績照会に沿って評価・単位・算入先を確認し、保存してください。"),
-        status, imports, custom, listCard, summary);
+      const tools = el("div");
+      tools.className = "academic-card";
+      tools.append(imports, custom, source("大学ポータルの成績照会", "https://websrv.tcu.ac.jp/tcu_web_v3"));
+      const totals = el("details");
+      totals.className = "academic-card undergraduate-only";
+      totals.append(el("summary", "進級の集計年度・台帳の集計内訳"), controls, summary);
+      root.append(status, listCard, tools, totals);
 
       let limit = 24;
       let additionsPending = false;
@@ -493,7 +498,11 @@
 
       for (const control of [course, ...cutoffs.values()]) control.addEventListener("change", saveProfile);
       for (const control of [yearFilter, gradeFilter]) {
-        control.addEventListener("change", () => { limit = 24; renderRecords(); });
+        control.addEventListener("change", () => {
+          filterLabel.textContent = yearFilter.value || gradeFilter.value ? "年度・成績で絞り込む（適用中）" : "年度・成績で絞り込む";
+          limit = 24;
+          renderRecords();
+        });
       }
       more.addEventListener("click", () => { limit += 24; renderRecords(); });
       document.addEventListener("graduate-program-change", () => { renderSummary(); renderRecords(); });

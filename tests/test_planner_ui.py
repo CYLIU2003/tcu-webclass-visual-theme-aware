@@ -301,6 +301,7 @@ with TemporaryDirectory() as profile, sync_playwright() as playwright:
         progress = linked.locator(".academic-summary > section").first
         expect(progress).to_contain_text("3年次 ／ 2024年度末 ／ 算入を確認済み 0単位")
         expect(progress).to_contain_text("4年次 ／ 2025年度末 ／ 算入を確認済み 2単位")
+        linked.get_by_text("進級の集計年度・台帳の集計内訳", exact=True).click()
         linked.locator("#academic-ledger [name=through]").fill("2025")
         linked.locator("#academic-ledger [name=through]").press("Tab")
         expect(progress).to_contain_text("3年次 ／ 2025年度末 ／ 算入を確認済み 2単位")

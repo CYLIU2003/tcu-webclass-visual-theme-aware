@@ -37,8 +37,13 @@
     return "表示対象";
   }
 
-  function selectTasks(tasks, now) {
-    return tasks.filter((task) => exclusionReason(task, now) === "表示対象")
+  function unsubmittedStatus(value) {
+    return /^(?:未提出|未回答)$/.test(String(value || "").normalize("NFKC").trim());
+  }
+
+  function selectTasks(tasks, now, onlyUnsubmitted = false) {
+    return tasks.filter((task) => exclusionReason(task, now) === "表示対象"
+      && (!onlyUnsubmitted || unsubmittedStatus(task.status)))
       .sort((a, b) => a.deadline - b.deadline || a.courseName.localeCompare(b.courseName, "ja") || a.title.localeCompare(b.title, "ja"));
   }
 
@@ -176,7 +181,8 @@
     const panel = document.getElementById(PANEL_ID);
     if (!panel) return;
     const now = Date.now();
-    const tasks = selectTasks(state.tasks, now);
+    const onlyUnsubmitted = panel.querySelector(".wcv-deadline-only-unsubmitted").checked;
+    const tasks = selectTasks(state.tasks, now, onlyUnsubmitted);
     renderDiagnostics(panel, now);
     panel.querySelector(".wcv-deadline-count").textContent = `${tasks.length}件`;
     const refresh = panel.querySelector(".wcv-deadline-refresh");
@@ -189,7 +195,9 @@
     const list = panel.querySelector(".wcv-deadline-list");
     list.replaceChildren();
     if (!tasks.length) {
-      list.append(textElement("p", "wcv-deadline-empty", state.loading ? "課題を読み込み中です。" : state.error ? "「更新」で再取得できます。" : "確認できた範囲では、1週間以内に締切を迎える対象課題はありません。"));
+      const emptyMessage = onlyUnsubmitted ? "7日以内に締切を迎える課題に、未提出・未回答と確認できたものはありません。"
+        : "確認できた範囲では、1週間以内に締切を迎える対象課題はありません。";
+      list.append(textElement("p", "wcv-deadline-empty", state.loading ? "課題を読み込み中です。" : state.error ? "「更新」で再取得できます。" : emptyMessage));
       return;
     }
     // Different enrolled courses can share the same displayed name and task.
@@ -338,7 +346,13 @@
     const refresh = textElement("button", "wcv-deadline-refresh", "更新");
     refresh.type = "button";
     refresh.addEventListener("click", () => load(dashboard.href));
-    controls.append(textElement("span", "wcv-deadline-window", "7日以内・締切順"), refresh);
+    const filter = textElement("label", "wcv-deadline-filter");
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.className = "wcv-deadline-only-unsubmitted";
+    checkbox.addEventListener("change", render);
+    filter.append(checkbox, " 未提出・未回答のみ");
+    controls.append(textElement("span", "wcv-deadline-window", "7日以内・締切順"), refresh, filter);
     const status = textElement("p", "wcv-deadline-status");
     status.setAttribute("role", "status");
     const list = textElement("ul", "wcv-deadline-list");

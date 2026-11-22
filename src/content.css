@@ -937,9 +937,7 @@ html.wcv-enabled body.wcv-restyle :where(button, input[type="submit"], input[typ
 
 
 /* WebClass live-page redesign ------------------------------------------------
-   Targets the actual course-list DOM supplied by WebClass. The header accent
-   follows the user's current WebClass theme color through CSS variables set by
-   content.js. */
+   Targets the actual course-list DOM supplied by WebClass. */
 
 html.wcv-enabled body.wcv-restyle {
   --wcv-native-card-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.035);
@@ -954,7 +952,7 @@ html.wcv-enabled body.wcv-restyle header .wcv-native-navbar {
   margin: 0 !important;
   border: 0 !important;
   border-radius: 0 !important;
-  background: linear-gradient(110deg, var(--wcv-theme-darker) 0%, var(--wcv-theme-dark) 42%, var(--wcv-theme) 100%) !important;
+  background: #172533 !important;
   box-shadow: 0 4px 18px rgba(15, 23, 42, 0.16) !important;
 }
 
@@ -974,8 +972,12 @@ html.wcv-enabled body.wcv-restyle header .wcv-native-navbar > .container + .cont
   border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-html.wcv-enabled body.wcv-restyle header .wcv-native-navbar :where(.navbar-brand, .navbar-brand a, .navbar-nav > li > a) {
-  color: var(--wcv-on-theme) !important;
+html.wcv-enabled body.wcv-restyle header .wcv-native-navbar :is(.navbar-brand, .navbar-brand a, .navbar-nav > li > a, .navbar-text, .navbar-toggle) {
+  color: #f5f8fc !important;
+}
+
+html.wcv-enabled body.wcv-restyle header .wcv-native-navbar .navbar-toggle .icon-bar {
+  background-color: #f5f8fc !important;
 }
 
 html.wcv-enabled body.wcv-restyle header .wcv-native-navbar .navbar-brand {
@@ -1011,9 +1013,9 @@ html.wcv-enabled body.wcv-restyle header .wcv-native-navbar .navbar-nav > li > a
   padding: 10px 13px !important;
   border-radius: 7px;
   background: transparent !important;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
-  opacity: 0.95;
+  opacity: 1;
 }
 
 html.wcv-enabled body.wcv-restyle header .wcv-native-navbar .navbar-nav > li.active > a,
@@ -1933,8 +1935,8 @@ html.wcv-enabled body.wcv-restyle:has(.cm-contentsList) .navbar-brand {
 }
 
 html.wcv-enabled body.wcv-restyle:has(.cm-contentsList) .navbar-brand .course-webclass {
-  color: rgba(255, 255, 255, .78) !important;
-  font-size: 12px !important;
+  color: #dce8f3 !important;
+  font-size: 14px !important;
   text-decoration: none !important;
 }
 
@@ -3569,6 +3571,8 @@ html.wcv-enabled body.wcv-restyle .wcv-native-timetable-heading {
   box-shadow: 0 5px 20px #21324a08;
 }
 .wcv-deadline-header, .wcv-deadline-controls { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
+.wcv-deadline-filter { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; margin: 0; cursor: pointer; }
+.wcv-deadline-filter input { margin: 0; }
 .wcv-deadline-header h2 { margin: 0 !important; font-size: 20px !important; font-weight: 750 !important; }
 .wcv-deadline-count { padding: 3px 10px; border-radius: 20px; background: #eaf1fc; color: #215aa1; font-size: 13px; font-weight: 700; }
 .wcv-deadline-controls { margin-top: 16px; font-size: 13px; }

@@ -50,7 +50,12 @@ main { max-width: 1170px; margin: 24px auto; padding: 0 15px; }
     assert(!document.getElementById('wcv-deadlines').textContent.includes('使用しない成績情報'), '成績情報を表示しない');
     assert(new URL(document.querySelector('.wcv-deadline-open').href).pathname === '/webclass/course.php/26sba132209/login', 'リンクのない課題は該当コースへ誘導');
     assert(document.querySelector('.col-sm-3 > #wcv-deadlines'), '左側の既存カラムに課題一覧を配置');
-    assert(!document.querySelector('#wcv-deadlines select, #wcv-deadlines input'), '1週間以内に固定し、期間・実施済み切り替えを表示しない');
+    assert(!document.querySelector('#wcv-deadlines select'), '期間は1週間以内に固定する');
+    const unsubmitted = document.querySelector('.wcv-deadline-only-unsubmitted');
+    unsubmitted.click();
+    assert(titles().join(',') === '予習未回答', 'WebClassで未提出・未回答と明示された教材だけを表示');
+    unsubmitted.click();
+    assert(titles().length === 3, '絞り込みを解除すると状態不明と未実施も表示');
     assert(!titles().includes('来週以降の課題') && !titles().includes('提出済み課題'), '1週間を超える課題・提出済み課題を表示しない');
     if (window.innerWidth >= 768) {
       assert(document.getElementById('wcv-deadlines').getBoundingClientRect().right <= document.querySelector('.col-sm-9').getBoundingClientRect().left, '課題一覧が右側の時間割に重ならない');

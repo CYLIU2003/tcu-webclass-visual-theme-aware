@@ -4029,6 +4029,9 @@
       enhanceLoginEntrancePage();
       return;
     }
+    if (document.querySelector(".cm-contentsList")) {
+      addNativeClass(document.querySelector("header .navbar"), "wcv-native-navbar");
+    }
     const { row, sidebar, content } = nativeMainColumns();
     if (!row || !content) return;
     addNativeClass(document.querySelector("main#js-main"), "wcv-native-main");

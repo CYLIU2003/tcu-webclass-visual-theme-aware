@@ -26,6 +26,7 @@ const tasks = [
   { title: 'boundary', courseName: 'A', deadline: now + 7 * DAY, status: '未回答' }
 ];
 assert.equal(selectTasks(tasks, now).map((task) => task.title).join(','), 'urgent,unknown,boundary');
+assert.equal(selectTasks(tasks, now, true).map((task) => task.title).join(','), 'urgent,boundary');
 assert.equal(selectTasks(tasks, now).some((task) => task.title === 'later' || task.title === 'completed'), false, 'only pending tasks within one week are included');
 const electromagnetismRows = [
   ['第1,2回課題提出: ベクトル、線積分・重積分', '2026-10-07 00:00', '-'],
