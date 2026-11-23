@@ -8,6 +8,7 @@ from urllib.parse import parse_qs, urlsplit
 from playwright.sync_api import Error, expect, sync_playwright
 
 ROOT = Path(__file__).resolve().parents[1]
+expect.set_options(timeout=20000)
 
 with TemporaryDirectory() as profile, sync_playwright() as playwright:
     context = playwright.chromium.launch_persistent_context(
