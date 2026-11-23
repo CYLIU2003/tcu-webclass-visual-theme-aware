@@ -1,5 +1,11 @@
 # TCU WebClass Visual
 
+## v0.11.4 — 科目ページの視認性と履修台帳・課題の改善
+
+- コース一覧と科目ページの上部バーを濃紺と明るい文字に統一しました。教材・成績タブや補助リンクも読みやすくしました。
+- 成績表の一括入力と科目追加を履修台帳の上に移しました。年度・成績の絞り込み、進級の集計年度や内訳は必要に応じて開けます。
+- 1週間以内の課題に「未提出・未回答のみ」を追加しました。WebClassの状態欄で明示された課題を表示します。
+
 ## v0.11.3 — 学部・大学院の所属選択と成績からの要件確認
 
 プランナーの先頭で学部・大学院を選び、入学年度と所属を設定します。単位の確認から過去の成績を入力すると、履修台帳で算入を確認した単位が卒業・修了要件に反映されます。新しい科目の成績欄は「秀」を初期表示し、保存した評価と単位数を使って集計します。大学院の算入先は年度・研究科・専攻・課程ごとに保存します。
@@ -56,7 +62,7 @@ WebClassのコース一覧に、表示中の登録科目の照合件数・要確
 
 東京都市大学のWebClassコースリスト画面を、元の機能を壊さずに読みやすくするChrome／Edge向けManifest V3拡張機能です。
 
-**公開版:** [v0.11.3 ZIPをダウンロード](https://github.com/CYLIU2003/tcu-webclass-visual-theme-aware/releases/download/v0.11.3/TCU_WebClass_Visual_Theme_Aware_v0.11.3.zip) ／ [画像付き導入ガイド（Web）](https://cyliu2003.github.io/tcu-webclass-visual-theme-aware/) ／ [同梱ガイド](はじめにお読みください.html)
+**公開版:** [v0.11.4 ZIPをダウンロード](https://github.com/CYLIU2003/tcu-webclass-visual-theme-aware/releases/download/v0.11.4/TCU_WebClass_Visual_Theme_Aware_v0.11.4.zip) ／ [画像付き導入ガイド（Web）](https://cyliu2003.github.io/tcu-webclass-visual-theme-aware/) ／ [同梱ガイド](はじめにお読みください.html)
 
 v0.9.0 では、「標準／モダン」をポップアップまたはコース一覧の表示オプションから切り替えられます。
 

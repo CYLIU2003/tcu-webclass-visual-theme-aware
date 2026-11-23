@@ -1,6 +1,6 @@
 # TCU WebClass Visual 開発・引き継ぎメモ
 
-2026年11月20日更新。対象は v0.11.3。学生が使う配布物、初期版からの開発経緯、判断に使った大学資料、再現手順をまとめた。依頼と仕様変更の経緯は[開発チャットの記録](#開発チャットの記録)、版ごとの個別修正は[変更履歴](../CHANGELOG.md)、配布物と公開日は[GitHub Releases](https://github.com/CYLIU2003/tcu-webclass-visual-theme-aware/releases)からたどれる。
+2026年11月20日更新。対象は v0.11.4。学生が使う配布物、初期版からの開発経緯、判断に使った大学資料、再現手順をまとめた。依頼と仕様変更の経緯は[開発チャットの記録](#開発チャットの記録)、版ごとの個別修正は[変更履歴](../CHANGELOG.md)、配布物と公開日は[GitHub Releases](https://github.com/CYLIU2003/tcu-webclass-visual-theme-aware/releases)からたどれる。
 
 ## これまでの開発
 
