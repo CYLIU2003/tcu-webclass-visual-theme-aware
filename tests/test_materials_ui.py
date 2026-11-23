@@ -27,7 +27,7 @@ real_html = real_html.replace('<body class="wcv-restyle">', '''<body class="wcv-
 
 def assert_navbar_contrast(page):
     """Check effective contrast, including translucent active/hover backgrounds."""
-    ratios = page.locator('header .navbar a, header .navbar-text, header .navbar-toggle').evaluate_all("""nodes => {
+    ratios = page.locator('.navbar a, .navbar-text, .navbar-toggle').evaluate_all("""nodes => {
       const rgb = value => value.match(/[\\d.]+/g).map(Number);
       const luminance = color => color.slice(0, 3).map(value => {
         value /= 255;
@@ -157,6 +157,14 @@ with sync_playwright() as playwright:
         page.wait_for_selector("html.wcv-look-modern", state="attached")
         page.evaluate("chrome.storage.local.set({enabled:false})")
         page.wait_for_selector("html.wcv-look-modern", state="detached")
+        page.close()
+        page = browser.new_page(viewport={"width": width, "height": 900})
+        page.set_content(real_html)
+        page.locator(".cm-contentsList").evaluate("element => element.remove()")
+        page.locator("header .navbar").evaluate("element => document.body.prepend(element)")
+        for modern in (False, True):
+            page.evaluate("(modern) => document.documentElement.classList.toggle('wcv-look-modern', modern)", modern)
+            assert_navbar_contrast(page)
         page.close()
     browser.close()
 
