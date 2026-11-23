@@ -26,11 +26,11 @@
   }
 
   function completedStatus(value) {
-    return /^(?:提出済み?|回答済み?|合格|完了|実施済み?)$/.test(String(value || "").trim());
+    return /^(?:提出済み?|回答済み?|合格|完了|実施済み?)$/.test(String(value || "").normalize("NFKC").trim());
   }
 
   function exclusionReason(task, now) {
-    if (task.deadline == null) return /^[\s\-—－]*$/.test(task.rawDeadline || "") ? "締切なし" : "締切の形式を読み取れません";
+    if (!Number.isFinite(task.deadline)) return /^[\s\-—－]*$/.test(task.rawDeadline || "") ? "締切なし" : "締切の形式を読み取れません";
     if (completedStatus(task.status)) return "提出・実施済みのため対象外";
     if (task.deadline < now) return "期限切れのため対象外";
     if (task.deadline > now + 7 * DAY) return "締切が7日より先のため対象外";

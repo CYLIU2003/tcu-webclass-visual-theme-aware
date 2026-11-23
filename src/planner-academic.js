@@ -212,10 +212,9 @@
       const filterLabel = el("summary", "年度・成績で絞り込む");
       filterOptions.append(filterLabel, filters);
       listCard.append(recordsTitle,
-        el("p", "科目を開き、成績・単位・算入先を保存してください。"), filterOptions, results, more, reviewLink);
+        el("p", "科目を開き、成績・単位・算入先を保存してください。"), filterOptions, results, more);
 
       const imports = el("details");
-      imports.className = "academic-card";
       imports.append(el("summary", "成績表の内容をまとめて読み込む"));
       const form = el("form");
       const paste = el("textarea");
@@ -231,7 +230,6 @@
         field("成績表のタブ区切りデータ", paste), button("読み込む内容を確認", "submit"), preview, importButton);
       imports.append(form);
       const custom = el("details");
-      custom.className = "academic-card";
       custom.append(el("summary", "成績表の科目を1件追加"));
       const customForm = el("form");
       customForm.className = "credit-inputs";
@@ -245,11 +243,12 @@
       custom.append(customForm);
       const tools = el("div");
       tools.className = "academic-card";
-      tools.append(imports, custom, source("大学ポータルの成績照会", "https://websrv.tcu.ac.jp/tcu_web_v3"));
+      imports.insertBefore(source("大学ポータルの成績照会", "https://websrv.tcu.ac.jp/tcu_web_v3"), form);
+      tools.append(imports, custom);
       const totals = el("details");
       totals.className = "academic-card undergraduate-only";
       totals.append(el("summary", "進級の集計年度・台帳の集計内訳"), controls, summary);
-      root.append(status, listCard, tools, totals);
+      root.append(status, tools, listCard, totals, reviewLink);
 
       let limit = 24;
       let additionsPending = false;

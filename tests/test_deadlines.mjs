@@ -40,5 +40,6 @@ assert.equal(exclusionReason(electromagnetismRows[0], now), '期限切れのた�
 assert.equal(exclusionReason(electromagnetismRows[3], now), '締切が7日より先のため対象外');
 assert.equal(exclusionReason({ deadline: null, rawDeadline: '-' }, now), '締切なし');
 assert.equal(exclusionReason({ deadline: null, rawDeadline: '2026-10-2100:00' }, now), '締切の形式を読み取れません');
+assert.equal(exclusionReason({ deadline: NaN, rawDeadline: '誤った締切' }, now), '締切の形式を読み取れません');
 assert.equal(exclusionReason({ deadline: now + DAY, status: '提出済み' }, now), '提出・実施済みのため対象外');
 console.log('OK: JST dates, invalid dates, exact course IDs, completion status and fixed seven-day deadline order');

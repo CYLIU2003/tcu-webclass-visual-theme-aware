@@ -18,6 +18,8 @@ real_html = real_html.replace('<body class="wcv-restyle">', '''<body class="wcv-
   <div class="navbar-brand"><a class="course-webclass" href="#home">WebClass</a>
     <a class="course-name" href="#course">教科名</a></div>
   <p class="navbar-text">受講中</p>
+  <a href="#help" style="color:#337ab7">ヘルプ</a>
+  <button class="btn-link" style="background:transparent;color:#337ab7">案内</button>
   <button class="navbar-toggle"><span class="icon-bar"></span>メニュー</button>
   <ul class="navbar-nav"><li class="active"><a href="#materials">教材</a></li>
     <li class="open"><a href="#grades">成績</a>
@@ -27,7 +29,7 @@ real_html = real_html.replace('<body class="wcv-restyle">', '''<body class="wcv-
 
 def assert_navbar_contrast(page):
     """Check effective contrast, including translucent active/hover backgrounds."""
-    ratios = page.locator('.navbar a, .navbar-text, .navbar-toggle').evaluate_all("""nodes => {
+    ratios = page.locator('.navbar a, .navbar-text, .navbar-toggle, .navbar .btn-link').evaluate_all("""nodes => {
       const rgb = value => value.match(/[\\d.]+/g).map(Number);
       const luminance = color => color.slice(0, 3).map(value => {
         value /= 255;

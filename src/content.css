@@ -977,7 +977,7 @@ html.wcv-enabled body.wcv-restyle header .wcv-native-navbar > .container + .cont
   border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-html.wcv-enabled body.wcv-restyle :is(header .navbar, .navbar:has(.navbar-brand .course-webclass)) :is(.navbar-brand, .navbar-brand a, .navbar-nav > li > a, .navbar-text, .navbar-text a, .navbar-toggle) {
+html.wcv-enabled body.wcv-restyle :is(header .navbar, .navbar:has(.navbar-brand .course-webclass)) :is(.navbar-brand, .navbar-text, .navbar-toggle, .btn-link, a:not(.btn)):not(.dropdown-menu *) {
   color: #f5f8fc !important;
 }
 
@@ -1052,7 +1052,7 @@ html.wcv-enabled body.wcv-restyle :is(header .navbar, .navbar:has(.navbar-brand 
   color: #18212f !important;
 }
 
-html.wcv-enabled body.wcv-restyle :is(header .navbar, .navbar:has(.navbar-brand .course-webclass)) .dropdown-menu > li > a {
+html.wcv-enabled body.wcv-restyle :is(header .navbar, .navbar:has(.navbar-brand .course-webclass)) .dropdown-menu a {
   background: transparent !important;
   color: #18212f !important;
 }
