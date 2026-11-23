@@ -5,7 +5,7 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 from urllib.parse import parse_qs, urlsplit
 
-from playwright.sync_api import expect, sync_playwright
+from playwright.sync_api import Error, expect, sync_playwright
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -38,7 +38,12 @@ with TemporaryDirectory() as profile, sync_playwright() as playwright:
             shortcut = menu.locator(f'[data-planner-section="{destination}"]')
             shortcut.focus()
             with context.expect_page() as direct:
-                shortcut.press("Enter")
+                try:
+                    shortcut.press("Enter")
+                except Error:
+                    # The extension closes the popup as soon as the new tab opens.
+                    if not menu.is_closed():
+                        raise
             direct.value.wait_for_url(f"**/src/planner.html#{target}")
             expect(direct.value.locator(f"#{target}")).to_be_focused()
             nav_target = "study-title" if destination in ("graduate", "programs") else target
